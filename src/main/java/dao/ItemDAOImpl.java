@@ -27,32 +27,31 @@ public class ItemDAOImpl implements ItemDAO {
 	}
 
 	@Override
-	public List<ItemDTO> selectByInput(String input) throws SQLException {
+	public List<ItemDTO> selectByInputItemName(String input) throws SQLException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<ItemDTO> selectByRegion(int regionNo) throws SQLException {
+	public List<ItemDTO> selectByItemRegion(int regionNo) throws SQLException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-
 	@Override
-	public int insert(ItemDTO item) throws SQLException {
+	public int insertItem(ItemDTO item) throws SQLException {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public int delete(int itemNo, int sellerNo) throws SQLException {
+	public int updateItemNo(int itemNo) throws SQLException {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public int update(int itemNo) throws SQLException {
+	public int deleteItemNo(int itemNo, int sellerNo) throws SQLException {
 		// TODO Auto-generated method stub
 		return 0;
 	}
@@ -63,4 +62,5 @@ public class ItemDAOImpl implements ItemDAO {
 		return null;
 	}
 
+	
 }
