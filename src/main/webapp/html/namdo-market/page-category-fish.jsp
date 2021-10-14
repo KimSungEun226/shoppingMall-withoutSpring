@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -43,7 +45,20 @@
   <body>
     <main>
       <!-- Header -->
-      <jsp:include page="common/header.jsp"/>
+      
+      
+      
+      <c:if test="${sessionScope.customerDTO==null && sessionScope.sellerDTO==null}">
+        <jsp:include page="common/header.jsp"/>
+      </c:if>
+
+      <c:if test="${sessionScope.customerDTO!=null}">
+        <jsp:include page="common/customer-header.jsp"/>
+      </c:if>
+
+      <c:if test="${sessionScope.sellerDTO!=null}">
+        <jsp:include page="common/seller-header.jsp"/>
+      </c:if>
 
       <!-- Breadcrumbs -->
       <section class="g-brd-bottom g-brd-gray-light-v4 g-py-30">

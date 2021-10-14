@@ -12,19 +12,18 @@
 <style>
 </style>
 <script type="text/javascript">
- 
 </script>
 </head>
 <body>
 <h1> DB연결 TEST</h1>
   <%
    //DB연결 테스트
-   String result;
+   int result;
    Connection con = DbUtil.getConnection();
    PreparedStatement ps = con.prepareStatement("select * from test");
 	ResultSet rs = ps.executeQuery();
 	if(rs.next()) {
-		result = rs.getString(1);
+		result = rs.getInt(1);
         out.println(result);
 	}
 

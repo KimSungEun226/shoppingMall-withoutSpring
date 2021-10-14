@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -32,7 +34,9 @@
                 //성공했을때 callback함수
                 success: function(result){    //개수|단어,단어,단어,단어...
                     if(result == "null" || result=="") alert("정보를 확인해주세요.");
-                    else location.replace(result);
+                    else {
+                    	location.href = result;
+                    }
                 },      
               //실패했을때 함수
                 error: function(err){
@@ -87,8 +91,18 @@
    
   <body>
     <main>
-      <!-- Header -->
-      <jsp:include page="common/header.jsp"/>
+    
+      <c:if test="${sessionScope.customerDTO==null && sessionScope.sellerDTO==null}">
+        <jsp:include page="common/header.jsp"/>
+      </c:if>
+
+      <c:if test="${sessionScope.customerDTO!=null}">
+        <jsp:include page="common/customer-header.jsp"/>
+      </c:if>
+
+      <c:if test="${sessionScope.sellerDTO!=null}">
+        <jsp:include page="common/seller-header.jsp"/>
+      </c:if>
 
       <!-- Breadcrumbs -->
       <section class="g-brd-bottom g-brd-gray-light-v4 g-py-30">
