@@ -15,8 +15,8 @@
             <div class="row justify-content-between align-items-center g-mx-0--lg">
               <div class="col-12 col-sm-auto order-sm-2 g-py-5 g-py-20--sm text-center">
                 <!-- Logo -->
-                <a class="navbar-brand" href="home-page.jsp">
-                  <img src="assets/img/logo/logo-1.png" alt="Image Description">
+                <a class="navbar-brand" href="${pageContext.request.contextPath}/html/namdo-market/home-page.jsp">
+                  <img src="${pageContext.request.contextPath}/html/namdo-market/assets/img/logo/logo-1.png" alt="Image Description">
                 </a>
                 <!-- End Logo -->
               </div>
@@ -527,7 +527,8 @@
 
 				  <!-- 고객센터 -->
                   <li class="nav-item g-mx-10--lg g-mx-15--xl">
-                    <a class="nav-link text-uppercase g-color-primary--hover g-px-5 g-py-20" href="${pageContext.request.contextPath}/front?key=board&methodName=select"><b>고객센터</b></a>
+
+                    <a class="nav-link text-uppercase g-color-primary--hover g-px-5 g-py-20" href="${pageContext.request.contextPath}/front"><b>고객센터</b></a>
                   </li>
                   
                   <!-- 고객센터 -->

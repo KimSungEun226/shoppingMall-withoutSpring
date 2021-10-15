@@ -54,6 +54,7 @@
     	  var customerId = document.getElementById("customerId");
     	  var customerAddr = document.getElementById("customerAddr");
     	  var customerDetailAddr = document.getElementById("customerDetailAddr");
+
     	  var idDupleCheck = document.getElementById("dupleCheck");
     	  var customerEmail = document.getElementById("customerEmail");
     	  var customerContact = document.getElementById("customerContact");
@@ -68,8 +69,7 @@
     	  alert(customerYear.value);
     	  
     	  alert(customerId.value);
-    	  alert(customerAddr.value)
-    	  alert(customerDetailAddr.value)
+
     	  alert(customerEmail.value);
     	  alert(customerContact.value);
     	  alert(customerPwd.value);
@@ -121,6 +121,7 @@
       	    alert("상세주소를 입력하세요.");
       	    return false; //return: 반환하다 return false:  아무것도 반환하지 말아라 아래 코드부터 아무것도 진행하지 말것
       	  };
+
       	  
       	  if (customerEmail.value == "") { //해당 입력값이 없을 경우 같은말: if(!uid.value)
       	    alert("이메일을 입력하세요.");

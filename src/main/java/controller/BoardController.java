@@ -41,6 +41,18 @@ public class BoardController implements Controller {
 		return new ModelAndView("page-service-center.jsp");
 	}
 	
+
+	/**
+	 * 상세보기
+	 */
+	public ModelAndView selectByBoardNo(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	     
+    	String boardNo =  request.getParameter("boardNo");
+    	BoardDTO board = boardService.selectByBoardNo(boardNo, true);//boolean 형은 조회수 증가여부를 판단하는 값(true일때 조회수증가한다.)
+    	request.setAttribute("board", board);
+    	
+    	return new ModelAndView("page-notice.jsp");
+    }
 	
 	
 	

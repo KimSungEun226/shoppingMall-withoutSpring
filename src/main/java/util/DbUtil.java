@@ -39,7 +39,7 @@ public class DbUtil {
 	public static Connection getConnection() throws SQLException{
 		return  ds.getConnection();
 	} 
-	
+
 	/**
 	 * 닫기 (insert, update ,delete 인경우 )
 	 * */

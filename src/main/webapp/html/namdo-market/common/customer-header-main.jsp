@@ -15,8 +15,8 @@
             <div class="row justify-content-between align-items-center g-mx-0--lg">
               <div class="col-12 col-sm-auto order-sm-2 g-py-5 g-py-20--sm text-center">
                 <!-- Logo -->
-                <a class="navbar-brand" href="home-page.jsp">
-                  <img src="assets/img/logo/logo-1.png" alt="Image Description">
+                <a class="navbar-brand" href="${pageContext.request.contextPath}/html/namdo-market/home-page.jsp">
+                  <img src="${pageContext.request.contextPath}/html/namdo-market/assets/img/logo/logo-1.png" alt="Image Description">
                 </a>
                 <!-- End Logo -->
               </div>
@@ -560,7 +560,7 @@
 
                   <!-- 고객센터 -->
                   <li class="nav-item hs-has-sub-menu g-mx-10--lg g-mx-15--xl">
-                    <a id="nav-link--home" class="nav-link text-uppercase g-color-primary--hover g-px-5 g-py-20" href="#"
+                    <a id="nav-link--home" class="nav-link text-uppercase g-color-primary--hover g-px-5 g-py-20" href="${pageContext.request.contextPath}/front"
                        aria-haspopup="true"
                        aria-expanded="false"
                        aria-controls="nav-submenu--home">
@@ -571,10 +571,10 @@
                     <ul id="nav-submenu--home" class="hs-sub-menu list-unstyled u-shadow-v11 g-min-width-220 g-brd-top g-brd-primary g-brd-top-2 g-mt-7"
                         aria-labelledby="nav-link--home">
                       <li class="dropdown-item">
-                        <a class="nav-link g-color-gray-dark-v1" href="home-page.jsp">공지사항</a>
+                        <a class="nav-link g-color-gray-dark-v1" href="page-service-center.jsp">공지사항</a>
                       </li>
                       <li class="dropdown-item">
-                        <a class="nav-link g-color-gray-dark-v1" href="home-page.jsp">상품 Q&amp;A</a>
+                        <a class="nav-link g-color-gray-dark-v1" href="page-service-center.jsp/#nav-5-3-primary-ver--2">상품 Q&amp;A</a>
                       </li>
                       <li class="dropdown-item">
                         <a class="nav-link g-color-gray-dark-v1" href="home-page.jsp">배송문의</a>

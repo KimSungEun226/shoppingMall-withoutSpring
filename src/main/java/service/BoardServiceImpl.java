@@ -7,6 +7,7 @@ import dao.BoardDAO;
 import dao.BoardDAOImpl;
 import dto.BoardDTO;
 
+
 public class BoardServiceImpl implements BoardService {
 	private BoardDAO boardDao = new BoardDAOImpl();
 	
@@ -16,9 +17,23 @@ public class BoardServiceImpl implements BoardService {
 		return boardDao.selectAll();
 	}
 
+
 	@Override
 	public List<BoardDTO> selectAll(int pageNo) throws SQLException {
 		return boardDao.getBoardList(pageNo);
+	}
+	
+	@Override
+	public BoardDTO selectByBoardNo(String boardNo, boolean flag) throws SQLException {
+		if(flag) {
+			if( boardDao.increamentByViews(boardNo) ==0) throw new SQLException("조회수 증가에 문제가 생겨 조회 할수 없습니다.");
+		}
+		
+		BoardDTO board = boardDao.selectByBoardNo(boardNo);
+		if(board==null)
+			throw new SQLException(boardNo+"번의 공지사항을 조회할 수 없습니다.");
+		
+		return board;
 	}
 	
 	@Override
@@ -33,4 +48,5 @@ public class BoardServiceImpl implements BoardService {
 
 	}
 
+	
 }

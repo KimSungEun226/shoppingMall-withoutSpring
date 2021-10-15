@@ -39,8 +39,10 @@ public class DispatcherServlet extends HttpServlet {
 		String methodName = request.getParameter("methodName");
 		try {
 			
+
 			System.out.println(map);
 			System.out.println(clzMap);
+			System.out.println(key);
 			Class<?> clz = clzMap.get(key); //reflection개념을 적용하기 위한 객체를 구한다.
 			
 			//String을 하나의 메소드의 개념으로 만드는 과정

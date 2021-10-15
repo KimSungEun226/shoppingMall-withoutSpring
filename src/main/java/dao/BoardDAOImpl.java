@@ -61,6 +61,48 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 	
 	@Override
+	public BoardDTO selectByBoardNo(String boardNo) throws SQLException {
+		Connection con=null;
+		PreparedStatement ps=null;
+		ResultSet rs=null;
+		BoardDTO board=null;
+		String sql = "select * from board where BOARD_NO=?";
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setString(1, boardNo);
+			
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				board = new BoardDTO(rs.getInt(1), rs.getString(2), rs.getString(3),
+						               rs.getString(4), rs.getInt(5));
+			}
+		}finally {
+			DbUtil.dbClose(rs, ps, con);
+		}
+		return board;
+	}
+
+
+	@Override
+	public int increamentByViews(String boardNo) throws SQLException {
+		Connection con=null;
+		PreparedStatement ps=null;
+		int result=0;
+		String sql = "update board set BOARD_VIEWS=BOARD_VIEWS+1 where BOARD_NO=?";
+		
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setString(1, boardNo);
+			result = ps.executeUpdate();
+		}finally {
+			DbUtil.dbClose(ps, con);
+		}
+		return result;
+	}
+	
+	@Override
 	public int addBoard(BoardDTO board) throws SQLException {
 		// TODO Auto-generated method stub
 		return 0;
@@ -74,5 +116,6 @@ public class BoardDAOImpl implements BoardDAO {
 
 
 	
+
 
 }

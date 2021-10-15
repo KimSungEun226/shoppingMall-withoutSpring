@@ -14,17 +14,16 @@ import util.DbUtil;
 public class ReviewDAOImpl implements ReviewDAO {
 	Properties proFile = new Properties();
 	
-    public ReviewDAOImpl() {
-    	try {
-    	//proFile에 외보 ~.properties 파일을 로딩한다.
-        //proFile.load(new FileInputStream("src/...."));
-    	
-    	//현 프로젝트 런타임될 때 즉, 서버에서 실행될 때 classes폴더를 동적으로 가져와서 경로를 설정해야한다.
-    		proFile.load(getClass().getClassLoader().getResourceAsStream("review_sql.properties"));
-    	}catch(Exception e) {
-    		e.printStackTrace();
-    	}
-	}	
+
+
+	public ReviewDAOImpl() {
+		try {
+			proFile.load(getClass().getClassLoader().getResourceAsStream("cartReviewQuery.properties"));
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	@Override
 	public int createReview(int itemNo, int customerNo, int reviewGrade, String content) throws SQLException {
 		Connection con = null;

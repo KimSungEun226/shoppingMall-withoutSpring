@@ -150,8 +150,8 @@
               <!-- End Responsive Toggle Button -->
 
               <!-- Logo -->
-              <a class="navbar-brand" href="home-page.jsp">
-                <img src="assets/img/logo/logo-1.png" alt="Image Description">
+              <a class="navbar-brand" href="${pageContext.request.contextPath}/html/namdo-market/home-page.jsp">
+                <img src="${pageContext.request.contextPath}/html/namdo-market/assets/img/logo/logo-1.png" alt="Image Description">
               </a>
               <!-- End Logo -->
 

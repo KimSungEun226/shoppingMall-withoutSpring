@@ -16,6 +16,11 @@ public interface BoardService {
 	 * */
     List<BoardDTO> selectAll(int pageNo) throws SQLException;
     
+    /**
+     * 공지사항 상세보기
+     */
+    BoardDTO selectByBoardNo(String boardNo, boolean flag) throws SQLException;
+    
 	/**
 	 * BoardImpl의 공지사항을 생성하는 메소드 호출
 	 * */
