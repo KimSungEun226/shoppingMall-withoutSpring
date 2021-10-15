@@ -87,21 +87,23 @@
               </header>
 
               <!-- Form -->
-              <form class="g-py-15">
+              <form class="g-py-15" action="${pageContext.request.contextPath}/front">
+               	  <input type="hidden" name="key" value = "customer" /> <!-- Controller를 찾는 정보 -->
+			      <input type="hidden" name="methodName" value = "searchIdCustomer" />  <!-- 메소드이름 -->
                 <div class="mb-4">
                   <div class="input-group g-rounded-left-5">
-                    <input class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-rounded-left-0 g-rounded-right-5 g-py-15 g-px-15" type="email" placeholder="이메일주소">
+                    <input name="customerEmail" class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-rounded-left-0 g-rounded-right-5 g-py-15 g-px-15" type="email" placeholder="이메일주소">
                   </div>
                   
                   <br>
                   
                   <div class="input-group g-rounded-left-5">
-                    <input class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-rounded-left-0 g-rounded-right-5 g-py-15 g-px-15" type="email" placeholder="이름">
+                    <input name="customerName" class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-rounded-left-0 g-rounded-right-5 g-py-15 g-px-15" type="text" placeholder="이름">
                   </div>
                                     
                 </div>
 
-                <button class="btn btn-block u-btn-primary g-font-size-12 text-uppercase g-py-15 g-px-25" type="button">아이디 찾기</button>
+                <button class="btn btn-block u-btn-primary g-font-size-12 text-uppercase g-py-15 g-px-25" type="submit">아이디 찾기</button>
               </form>
               <!-- End Form -->
             </div>
@@ -117,21 +119,22 @@
               </header>
 
               <!-- Form -->
-              <form class="g-py-15">
-                <div class="mb-4">
+              <form class="g-py-15" action="${pageContext.request.contextPath}/front">
+               	  <input type="hidden" name="key" value = "customer" /> <!-- Controller를 찾는 정보 -->
+			      <input type="hidden" name="methodName" value = "checkIdAndEmail" />  <!-- 메소드이름 -->                <div class="mb-4">
                   <div class="input-group g-rounded-left-5">
-                    <input class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-rounded-left-0 g-rounded-right-5 g-py-15 g-px-15" type="email" placeholder="이메일주소">
+                    <input name="customerEmail" class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-rounded-left-0 g-rounded-right-5 g-py-15 g-px-15" type="email" placeholder="이메일주소">
                   </div>
                   
                   <br>
                   
                   <div class="input-group g-rounded-left-5">
-                    <input class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-rounded-left-0 g-rounded-right-5 g-py-15 g-px-15" type="email" placeholder="아이디">
+                    <input name="customerId" class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-rounded-left-0 g-rounded-right-5 g-py-15 g-px-15" type="text" placeholder="아이디">
                   </div>
                                     
                 </div>
 
-                <button class="btn btn-block u-btn-primary g-font-size-12 text-uppercase g-py-15 g-px-25" type="button">비밀번호 찾기</button>
+                <button class="btn btn-block u-btn-primary g-font-size-12 text-uppercase g-py-15 g-px-25" type="submit">비밀번호 찾기</button>
               </form>
               
               <!-- End Form -->

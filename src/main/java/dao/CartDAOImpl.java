@@ -12,8 +12,19 @@ import dto.CartDTO;
 import util.DbUtil;
 
 public class CartDAOImpl implements CartDAO {
-	private Properties proFile = DbUtil.getProFile();
+	Properties proFile = new Properties();
 	
+    public CartDAOImpl() {
+    	try {
+    	//proFile에 외보 ~.properties 파일을 로딩한다.
+        //proFile.load(new FileInputStream("src/...."));
+    	
+    	//현 프로젝트 런타임될 때 즉, 서버에서 실행될 때 classes폴더를 동적으로 가져와서 경로를 설정해야한다.
+    		proFile.load(getClass().getClassLoader().getResourceAsStream("cart_sql.properties"));
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}
+	}	
 
 	@Override
 	public int addToCart(int customerNo, int itemNo, int cartItemCount) throws SQLException {

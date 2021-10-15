@@ -86,10 +86,12 @@
               </header>
 
               <!-- Form -->
-              <form class="g-py-15">
+              <form name="signUp_form" class="g-py-15" action="${pageContext.request.contextPath}/front">
+			      <input type="hidden" name="key" value = "customer" /> <!-- Controller를 찾는 정보 -->
+			      <input type="hidden" name="methodName" value = "signUp" />  <!-- 메소드이름 -->
                 <div class="row">
                   <div class="col g-mb-20">
-                    <input class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 rounded g-py-15 g-px-15" type="text" placeholder="이름">
+                    <input id="sellerName" name="sellerName" class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 rounded g-py-15 g-px-15" type="text" placeholder="이름">
                   </div>
                 </div>
 
@@ -102,18 +104,18 @@
                             data-open-icon="fa fa-angle-down"
                             data-close-icon="fa fa-angle-up">
                       <option></option>
-                      <option value="First Option">1월</option>
-                      <option value="Second Option">2월</option>
-                      <option value="Third Option">3월</option>
-                      <option value="Fourth Option">4월</option>
-                      <option value="Fifth Option">5월</option>
-                      <option value="Sixth Option">6월</option>
-                      <option value="Seventh Option">7월</option>
-                      <option value="Eighth Option">8월</option>
-                      <option value="Ninth Option">9월</option>
-                      <option value="Tenth Option">10월</option>
-                      <option value="Eleventh Option">11월</option>
-                      <option value="Twelfth Option">12월</option>
+                      <option value="1월">1월</option>
+                      <option value="2월">2월</option>
+                      <option value="3월">3월</option>
+                      <option value="4월">4월</option>
+                      <option value="5월">5월</option>
+                      <option value="6월">6월</option>
+                      <option value="7월">7월</option>
+                      <option value="8월">8월</option>
+                      <option value="9월">9월</option>
+                      <option value="10월">10월</option>
+                      <option value="11월">11월</option>
+                      <option value="12월">12월</option>
                     </select>
                   </div>
 

@@ -4,18 +4,32 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Properties;
 
 import dto.CustomerDTO;
 import util.DbUtil;
 
 public class CustomerDAOImpl implements CustomerDAO {
-
+	Properties proFile = new Properties();
+	
+    public CustomerDAOImpl() {
+    	try {
+    	//proFile에 외보 ~.properties 파일을 로딩한다.
+        //proFile.load(new FileInputStream("src/...."));
+    	
+    	//현 프로젝트 런타임될 때 즉, 서버에서 실행될 때 classes폴더를 동적으로 가져와서 경로를 설정해야한다.
+    		proFile.load(getClass().getClassLoader().getResourceAsStream("customer_sql.properties"));
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}
+	}	
+	
 	@Override
 	public CustomerDTO loginCheck(CustomerDTO customerDTO) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		String sql = "select * from customer where customer_id=? and customer_pwd=?";
+		String sql = proFile.getProperty("customer.login");
 		CustomerDTO dbDTO = null;
 		try {
 			con = DbUtil.getConnection();
@@ -25,7 +39,8 @@ public class CustomerDAOImpl implements CustomerDAO {
 			rs = ps.executeQuery();
 			
 			if(rs.next()) {
-				dbDTO = new CustomerDTO(rs.getString(2), rs.getString(3));
+				dbDTO = new CustomerDTO(rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6),
+						rs.getString(7), rs.getString(8), rs.getString(9));
 			}			
 		}finally {
 			DbUtil.dbClose(rs, ps,con);
@@ -33,5 +48,107 @@ public class CustomerDAOImpl implements CustomerDAO {
 		
 		return dbDTO;
 	}
+
+	@Override
+	public int signUpCustomer(CustomerDTO customerDTO) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		int result = 0;
+		String sql = proFile.getProperty("customer.signup");
+		
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setString(1, customerDTO.getCustomerId());
+			ps.setString(2, customerDTO.getCustomerPwd());
+			ps.setString(3, customerDTO.getCustomerName());
+			ps.setString(4, customerDTO.getCustomerBirth());
+			ps.setString(5, customerDTO.getCustomerEmail());
+			ps.setString(6, customerDTO.getCustomerAddr());
+			ps.setString(7, customerDTO.getCustomerContact());
+			result = ps.executeUpdate();		
+		}finally {
+			DbUtil.dbClose(ps,con);
+		}
+		
+		return result;
+	}
+
+	@Override
+	public String searchIdCustomer(String name, String email) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		String sql = proFile.getProperty("customer.searchid");
+		String result = null;
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setString(1, name);
+			ps.setString(2, email);
+			rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				result = rs.getString(1);
+			}			
+		}finally {
+			DbUtil.dbClose(rs, ps,con);
+		}
+		
+		return result;
+	}
+    
+	
+	//비밀번호 설정을 위한 것
+	@Override
+	public int checkIdAndEmail(String id, String email) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		String sql = proFile.getProperty("customer.checkidandemail");
+		int result = 0;
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setString(1, id);
+			ps.setString(2, email);
+			rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				result = 1;
+			}			
+		}finally {
+			DbUtil.dbClose(rs, ps,con);
+		}
+		
+		return result;
+	}
+
+	@Override
+	public boolean idCheck(String id) {
+		  PreparedStatement ps = null;
+		  ResultSet rs = null;
+		  Connection con = null;
+		  boolean result=false;
+		  String sql = proFile.getProperty("customer.idcheck");
+
+		  try {
+		   con=DbUtil.getConnection();
+		   ps = con.prepareStatement(sql);
+		   ps.setString(1, id);
+		   rs = ps.executeQuery();
+		   if(rs.next()){
+		    result=true;
+		   }
+		  } catch (SQLException e) {
+		   e.printStackTrace();
+		  }finally {
+		   DbUtil.dbClose(rs, ps, con);
+		  }
+		  return result;
+	}
+	
+	
+	
 
 }

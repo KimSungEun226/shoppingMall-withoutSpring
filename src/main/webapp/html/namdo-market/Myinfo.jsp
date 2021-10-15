@@ -15,6 +15,14 @@
    <h1>
    ${customerDTO.customerId} <p>
    ${customerDTO.customerPwd}<p>
+   ${customerDTO.customerName}<p>
+   ${customerDTO.customerBirth}<p>
+   ${customerDTO.customerEmail}<p>
+   ${customerDTO.customerAddr}<p>
+   ${customerDTO.customerContact}<p>
+   ${customerDTO.customerRegDate}<p>
+   
+   
    </h1>
 </body>
 </html>

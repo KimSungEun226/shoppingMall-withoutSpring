@@ -51,7 +51,63 @@ public class CustomerController implements Controller{
 		
 		return new ModelAndView("home-page.jsp", true);
 	}
-
-
+    
+	
+	
+	public ModelAndView signUp(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		CustomerService customerService = new CustomerServiceImpl();
+		String customerId = request.getParameter("customerId");
+		String customerPwd = request.getParameter("customerPwd");
+		String customerName = request.getParameter("customerName");
+		String customerBirth = request.getParameter("customerYear") + "-" + request.getParameter("customerMonth").substring(0, request.getParameter("customerMonth").length()-1) +"-" + request.getParameter("customerDay"); 
+		String customerEmail = request.getParameter("customerEmail");
+		String customerAddr = request.getParameter("customerAddr")+request.getParameter("customerDetailAddr");
+		String customerContact = request.getParameter("customerContact");
+		
+		
+		System.out.println(customerId +" "+ customerPwd +" "+ customerBirth +" "+ customerEmail +" "+ customerAddr +" "+ customerContact);
+		
+		CustomerDTO customerDTO = new CustomerDTO(customerId, customerPwd, customerName, customerBirth, customerEmail, customerAddr, customerContact);
+		int result = customerService.signUpCustomer(customerDTO);
+		
+		if(result ==0) {
+			request.setAttribute("errmsg", "등록실패입니다만");
+			return new ModelAndView("error.jsp");
+			}
+		return new ModelAndView("home-page.jsp", true);
+	}
+	
+	public ModelAndView searchIdCustomer(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		CustomerService customerService = new CustomerServiceImpl();
+		String name = request.getParameter("customerName");
+		String email = request.getParameter("customerEmail");
+		String result = customerService.searchIdCustomer(name, email);
+		
+		if(result==null) {
+			request.setAttribute("errmsg", "일치하는 정보의 ID가 존재하지 않습니다.");
+			return new ModelAndView("error.jsp");
+		}
+		
+		
+		request.setAttribute("searchId", result);
+		return new ModelAndView("searchId/searchOk.jsp");
+	}	
+	
+	public ModelAndView checkIdAndEmail(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		CustomerService customerService = new CustomerServiceImpl();
+		String id = request.getParameter("customerId");
+		String email = request.getParameter("customerEmail");
+		int result = customerService.checkIdAndEmail(id, email);
+		System.out.println(result);
+		if(result==0) {
+			request.setAttribute("errmsg", "정보가 일치하지 않습니다.");
+			return new ModelAndView("error.jsp");
+		}
+		
+		
+		request.setAttribute("searchId", id);
+		return new ModelAndView("page-set-new-password.jsp");
+	}	
+	
 
 }

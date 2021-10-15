@@ -1,10 +1,20 @@
 package dao;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import dto.BoardDTO;
 
 public interface BoardDAO {
+	 /**
+	  * 공지사항 전체 검색
+	  * */
+	  List<BoardDTO> selectAll() throws SQLException;
+	  
+	 /**
+	  * 공지사항 전체 검색(페이지처리)
+	  * */
+	   List<BoardDTO> getBoardList(int pageNo) throws SQLException;
 
 	/**
 	 * 공지사항 등록하는 메소드

@@ -38,6 +38,7 @@ public class DispatcherServlet extends HttpServlet {
 		String key = request.getParameter("key");
 		String methodName = request.getParameter("methodName");
 		try {
+			
 			System.out.println(map);
 			System.out.println(clzMap);
 			Class<?> clz = clzMap.get(key); //reflection개념을 적용하기 위한 객체를 구한다.
@@ -57,6 +58,8 @@ public class DispatcherServlet extends HttpServlet {
 			}
 		}catch(Exception e) {
 			e.printStackTrace();
+			System.out.println("예외발생....");
+			request.getRequestDispatcher("html/namdo-market/error.jsp").forward(request, response);
 		}
 	}//service끝
 

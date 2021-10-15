@@ -22,12 +22,25 @@ public class CustomerDTO {
 		this.customerPwd = customerPwd;
 	}
 
+    
+
+	public CustomerDTO(String customerId, String customerPwd, String customerName, String customerBirth,
+			String customerEmail, String customerAddr, String customerContact) {
+		super();
+		this.customerId = customerId;
+		this.customerPwd = customerPwd;
+		this.customerName = customerName;
+		this.customerBirth = customerBirth;
+		this.customerEmail = customerEmail;
+		this.customerAddr = customerAddr;
+		this.customerContact = customerContact;
+	}
 
 
-	public CustomerDTO(int customerNo, String customerId, String customerPwd, String customerName, String customerBirth,
+
+	public CustomerDTO(String customerId, String customerPwd, String customerName, String customerBirth,
 			String customerEmail, String customerAddr, String customerContact, String customerRegDate) {
 		super();
-		this.customerNo = customerNo;
 		this.customerId = customerId;
 		this.customerPwd = customerPwd;
 		this.customerName = customerName;
