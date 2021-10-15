@@ -3,7 +3,7 @@ package dto;
 
 
 public class ItemDTO {
-	private int itemNo;          //상품 번호
+	private int itemNo;          //상품 번호   db에서는 item_No
 	private int categoryNo;      //카테고리번호
 	private int sellerNo;        //판매자 번호
 	private int regionNo;        //지역번호
@@ -11,7 +11,7 @@ public class ItemDTO {
 	private int itemPrice ;      //상품 가격
 	private int itemStock;       //상품 재고량
 	private String itemAddDate;  //상품등록일
-	private boolean itemApprove; //상품승인여부
+	private String itemApprove; //상품승인여부
 	private float itemGrade;     //상품평점
 	
 	
@@ -19,7 +19,7 @@ public class ItemDTO {
 
 
 	public ItemDTO(int itemNo, int categoryNo, int sellerNo, int regionNo, String itemName, int itemPrice, int itemStock,
-			String itemAddDate, boolean itemApprove, float itemGrade) {
+			String itemAddDate, String itemApprove, float itemGrade) {
 		super();
 		this.itemNo = itemNo;
 		this.categoryNo = categoryNo;
@@ -114,12 +114,12 @@ public class ItemDTO {
 	}
 
 
-	public boolean isItemApprove() {
+	public String isItemApprove() {
 		return itemApprove;
 	}
 
 
-	public void setItemApprove(boolean itemApprove) {
+	public void setItemApprove(String itemApprove) {
 		this.itemApprove = itemApprove;
 	}
 
