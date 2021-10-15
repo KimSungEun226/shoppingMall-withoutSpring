@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+    
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,35 +17,45 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/html/favicon.ico">
 
     <!-- Google Fonts -->
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,900">
 
     <!-- CSS Global Compulsory -->
-    <link rel="stylesheet" href="../assets/vendor/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="../assets/vendor/icon-line/css/simple-line-icons.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/icon-line/css/simple-line-icons.css">
 
     <!-- CSS Implementing Plugins -->
-    <link rel="stylesheet" href="../assets/vendor/icon-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../assets/vendor/icon-line-pro/style.css">
-    <link rel="stylesheet" href="../assets/vendor/icon-hs/style.css">
-    <link rel="stylesheet" href="../assets/vendor/animate.css">
-    <link rel="stylesheet" href="../assets/vendor/hamburgers/hamburgers.min.css">
-    <link rel="stylesheet" href="../assets/vendor/hs-megamenu/src/hs.megamenu.css">
-    <link rel="stylesheet" href="../assets/vendor/malihu-scrollbar/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/icon-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/icon-line-pro/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/icon-hs/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/animate.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/hamburgers/hamburgers.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/hs-megamenu/src/hs.megamenu.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/malihu-scrollbar/jquery.mCustomScrollbar.min.css">
 
     <!-- CSS Unify Theme -->
-    <link rel="stylesheet" href="assets/css/styles.e-commerce.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/namdo-market/assets/css/styles.e-commerce.css">
 
     <!-- CSS Customization -->
-    <link rel="stylesheet" href="../assets/css/custom.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/css/custom.css">
   </head>
 
   <body>
     <main>
       <!-- Header -->
-      <jsp:include page="common/header.jsp"/>
+      <c:if test="${sessionScope.customerDTO==null && sessionScope.sellerDTO==null}">
+        <jsp:include page="common/header.jsp"/>
+      </c:if>
+
+      <c:if test="${sessionScope.customerDTO!=null}">
+        <jsp:include page="common/customer-header.jsp"/>
+      </c:if>
+
+      <c:if test="${sessionScope.sellerDTO!=null}">
+        <jsp:include page="common/seller-header.jsp"/>
+      </c:if>
 
       <!-- Breadcrumbs -->
       <section class="g-brd-bottom g-brd-gray-light-v4 g-py-30">
@@ -50,12 +65,8 @@
               <a class="u-link-v5 g-color-text" href="#">요거 묵어봤는감?</a>
               <i class="g-color-gray-light-v2 g-ml-5 fa fa-angle-right"></i>
             </li>
-            <li class="list-inline-item g-mr-5">
-              <a class="u-link-v5 g-color-text" href="#">고객센터</a>
-              <i class="g-color-gray-light-v2 g-ml-5 fa fa-angle-right"></i>
-            </li>
             <li class="list-inline-item g-color-primary">
-              <span>공지사항</span>
+              <span>고객센터</span>
             </li>
           </ul>
         </div>
@@ -63,9 +74,9 @@
       <!-- End Breadcrumbs -->
 
       <!-- Help -->
-      <div class="container g-pt-70 g-pb-70">
-        <div class="row g-mb-30">
-          <div class="col-md-3 g-mb-20">
+      <div class="container g-pt-100 g-pb-70">
+        <div class="row g-mb-20">
+          <div class="col-md-3 g-mb-30">
             <h2 class="mb-5">고객센터</h2>
 
             <!-- Nav tabs -->
@@ -106,62 +117,131 @@
             <div id="nav-5-3-primary-ver" class="tab-content g-pt-20 g-pt-0--md">
               <div class="tab-pane fade show active" id="nav-5-3-primary-ver--1" role="tabpanel">
                 <h3 class="h5 g-color-gray-dark-v2 g-mb-30"><b>공지사항</b></h3>
+                <br>
+                
+				<c:choose>
+				<c:when test="${empty requestScope.list}">
+				  <div id="accordion-12-1" class="u-accordion u-accordion-color-primary" role="tablist" aria-multiselectable="true">
+                    <!-- Card -->
+                    <div class="card g-brd-none g-brd-bottom g-brd-gray-light-v3 rounded-0 g-pb-30 g-mb-30">
+                      <div id="accordion-12-1-heading-01" class="u-accordion__header g-color-gray-dark-v4 g-font-weight-500 g-font-size-16 g-pa-0" role="tab">
+                          등록된 공지사항이 없습니다.
+                      </div>
+                    </div>
+                    <!-- End Card -->
+                  </div>
+				</c:when>
 				
+				<c:otherwise>
+				<c:forEach items="${requestScope.list}" var="boardDto">
+				  <!-- Accordion -->
+                  <div id="accordion-12-1" class="u-accordion u-accordion-color-primary" role="tablist" aria-multiselectable="true">
+                    <!-- Card -->
+                    <div class="card g-brd-none g-brd-bottom g-brd-gray-light-v3 rounded-0 g-pb-30 g-mb-30">
+                      <div id="accordion-12-1-heading-01" class="u-accordion__header g-color-gray-dark-v4 g-font-weight-500 g-font-size-16 g-pa-0" role="tab">
+                        <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="${path}/front?key=board&methodName=selectByBoardNo&boardNo=${boardDto.boardNo}">
+                          <span class="g-color-primary g-font-weight-700 g-font-size-16 g-line-height-1_2">${boardDto.boardNo}.&nbsp;</span>
+                          ${boardDto.boardName}
+                        </a>
+                      </div>
+                    </div>
+                    <!-- End Card -->
+
+                  </div>
+                  <!-- End Accordion -->
+                
+				</c:forEach>
+				</c:otherwise>
+				</c:choose>
 				
-				
+                
+                <div class="col-md-8 g-mb-30">
+		            <!-- Contact Form -->
+		            <form>
+		                <div class="text-center">
+		                  <button class="btn u-btn-primary g-font-size-12 text-uppercase g-py-12 g-px-25" type="submit"><b>글쓰기</b></button>
+		                </div>
+		              </form>
+		              <!-- End Contact Form -->
+		            </div>
+              </div>
+
+              <div class="tab-pane fade" id="nav-5-3-primary-ver--2" role="tabpanel">
+                <h3 class="h5 g-color-gray-dark-v2 g-mb-30"><b>상품 Q&amp;A</b></h3>
+
+				<br>
                 <!-- Accordion -->
                 <div id="accordion-12-1" class="u-accordion u-accordion-color-primary" role="tablist" aria-multiselectable="true">
                   <div class="g-overflow-x-scroll g-overflow-x-visible--lg">
                     <table class="text-center w-100">
                       <thead class="h6 g-brd-bottom g-brd-gray-light-v3 g-color-black text-uppercase">
                         <tr>
-                          <th class="g-font-weight-400 g-width-50 g-pb-5">&nbsp;번호</th>
-                          <th class="g-font-weight-400 text-center g-pb-5">제목</th>
-                          <th class="g-font-weight-400 g-width-50 g-pb-5">작성자</th>
-                          <th class="g-font-weight-400 g-width-50 g-pb-5">작성일</th>
-                          <th class="g-font-weight-400 g-width-50 g-pb-5">조회</th>
-                          <th></th>
+                          <th class="g-font-weight-400 g-width-50 g-pb-20">번호</th>
+                          <th class="g-font-weight-400 text-center g-pb-20">내용</th>
+                          <th class="g-font-weight-400 g-width-50 g-pb-20">작성자</th>
+                          <th class="g-font-weight-400 g-width-50 g-pb-20">조회</th>
                         </tr>
                       </thead>
 
                       <tbody>
                         <!-- Item-->
+                        
                         <tr class="g-brd-bottom g-brd-gray-light-v3">
-                          <td class="g-width-50 g-py-20">&nbsp;&nbsp;1</td>
-                          <td class="text-center g-py-20">제목입니다.아아아아아아</td>
-                          <td class="g-width-50 g-py-20">오지원</td>
-                          <td class="g-width-50 g-py-20">10/14</td>
-                          <td class="g-width-50 g-py-20">12</td>
+                          
+                          <td class="g-width-50 g-py-20">&nbsp;&nbsp;1&nbsp;&nbsp;</td>
+                          
+                          <td class="text-left g-py-25">
+                            <a href="page-category.jsp">
+                              <img class="d-inline-block g-width-100 mr-4" src="${pageContext.request.contextPath}/html/namdo-market/assets/img-temp/150x150/img6.jpg" alt="Image Description">
+                            </a>
+                            <div class="d-inline-block align-middle">
+                              <h4 class="h6 g-color-black">
+                                <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-qna.jsp">상품 Q&amp;A입니다.</a>
+                              </h4>
+                            </div>
+                            
+                          </td>
+                          
+                          <td class="g-color-gray-dark-v2 g-font-size-13">오지원</td>
+                          <td class="g-color-gray-dark-v2 g-font-size-13">2</td>
+                          
                         </tr>
+                        
                         <!-- End Item-->
 
-                        <!-- Item-->
+						<!-- Item-->
                         <tr class="g-brd-bottom g-brd-gray-light-v3">
-                          <td class="g-width-50 g-py-20">&nbsp;&nbsp;1</td>
-                          <td class="text-center g-py-20">제목입니다.아아아아아아</td>
-                          <td class="g-width-50 g-py-20">오지원</td>
-                          <td class="g-width-50 g-py-20">10/14</td>
-                          <td class="g-width-50 g-py-20">12</td>
-                        </tr>
-                        <!-- End Item-->
-
-                        <!-- Item-->
-                        <tr class="g-brd-bottom g-brd-gray-light-v3">
-                          <td class="g-width-50 g-py-20">&nbsp;&nbsp;1</td>
-                          <td class="text-center g-py-20">제목입니다.아아아아아아</td>
-                          <td class="g-width-50 g-py-20">오지원</td>
-                          <td class="g-width-50 g-py-20">10/14</td>
-                          <td class="g-width-50 g-py-20">12</td>
+                          <td class="g-width-50 g-py-20">&nbsp;&nbsp;2&nbsp;&nbsp;</td>
+                          <td class="text-left g-py-25">
+                            <a href="page-category.jsp">
+                              <img class="d-inline-block g-width-100 mr-4" src="${pageContext.request.contextPath}/html/namdo-market/assets/img-temp/150x150/img3.jpg" alt="Image Description">
+                            </a>
+                            <div class="d-inline-block align-middle">
+                              <h4 class="h6 g-color-black">
+                                <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">상품 Q&amp;A입니다.</a>
+                              </h4>
+                            </div>
+                          </td>
+                          <td class="g-color-gray-dark-v2 g-font-size-13">김성은</td>
+                          <td class="g-color-gray-dark-v2 g-font-size-13">3</td>
                         </tr>
                         <!-- End Item-->
                         
                         <!-- Item-->
                         <tr class="g-brd-bottom g-brd-gray-light-v3">
-                          <td class="g-width-50 g-py-20">&nbsp;&nbsp;1</td>
-                          <td class="text-center g-py-20">제목입니다.아아아아아아</td>
-                          <td class="g-width-50 g-py-20">오지원</td>
-                          <td class="g-width-50 g-py-20">10/14</td>
-                          <td class="g-width-50 g-py-20">12</td>
+                          <td class="g-width-50 g-py-20">&nbsp;&nbsp;3&nbsp;&nbsp;</td>
+                          <td class="text-left g-py-25">
+                            <a href="page-category.jsp">
+                              <img class="d-inline-block g-width-100 mr-4" src="${pageContext.request.contextPath}/html/namdo-market/assets/img-temp/150x150/img7.jpg" alt="Image Description">
+                            </a>
+                            <div class="d-inline-block align-middle">
+                              <h4 class="h6 g-color-black">
+                                <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">상품 Q&amp;A입니다.</a>
+                              </h4>
+                            </div>
+                          </td>
+                          <td class="g-color-gray-dark-v2 g-font-size-13">조현아</td>
+                          <td class="g-color-gray-dark-v2 g-font-size-13">1</td>
                         </tr>
                         <!-- End Item-->
                       </tbody>
@@ -170,92 +250,56 @@
                   <!-- End Products Block -->
                 </div>
                 <!-- End Accordion -->
-              </div>
-
-              <div class="tab-pane fade" id="nav-5-3-primary-ver--2" role="tabpanel">
-                <h3 class="h5 g-color-gray-dark-v2 g-mb-30">Where's My Stuff?</h3>
-
-                <!-- Accordion -->
-                <div id="accordion-12-2" class="u-accordion u-accordion-color-primary" role="tablist" aria-multiselectable="true">
-                  <!-- Card -->
-                  <div class="card g-brd-none g-brd-bottom g-brd-gray-light-v3 rounded-0 g-pb-30 g-mb-30">
-                    <div id="accordion-12-2-heading-01" class="u-accordion__header g-color-gray-dark-v4 g-font-weight-500 g-font-size-16 g-pa-0" role="tab">
-                      <span class="g-color-primary g-font-weight-700 g-font-size-16 g-line-height-1_2">1.</span>
-                      Find a Missing Package that Shows as Delivered
-                    </div>
-                    <div id="accordion-12-2-body-01" class="collapse show" role="tabpanel" aria-labelledby="accordion-12-2-heading-01">
-                      <div class="u-accordion__body g-color-gray-dark-v4">
-                        This is where we sit down, grab a cup of coffee and dial in the details. Understanding the task at hand and ironing out the wrinkles is key. Now that we've aligned the details, it's time to get things mapped out and organized. This part is really crucial in keeping the project in line to completion.
-                      </div>
-                    </div>
-                    <h5 class="g-font-weight-400 g-font-size-13 g-pl-8 mt-3 mb-0">
-                      <a class="g-color-primary g-text-underline--none--hover g-pa-10" href="#accordion-12-2-body-01" data-toggle="collapse" data-parent="#accordion-12-2" aria-expanded="false" aria-controls="accordion-12-2-body-01">
-                        <span class="u-accordion__control-icon">
-                          <i class="g-font-style-normal">Read More
-                            <span class="ml-2 fa fa-caret-up"></span>
-                          </i>
-                          <i class="g-font-style-normal">Read Less
-                            <span class="ml-2 fa fa-caret-down"></span>
-                          </i>
-                        </span>
-                      </a>
-                    </h5>
-                  </div>
-                  <!-- End Card -->
-
-                  <!-- Card -->
-                  <div class="card g-brd-none g-brd-bottom g-brd-gray-light-v3 rounded-0 g-pb-30 g-mb-30">
-                    <div id="accordion-12-2-heading-02" class="u-accordion__header g-color-gray-dark-v4 g-font-weight-500 g-font-size-16 g-pa-0" role="tab">
-                      <span class="g-color-primary g-font-weight-700 g-font-size-16 g-line-height-1_2">2.</span>
-                      Contact Shipping Carrier
-                    </div>
-                    <div id="accordion-12-2-body-02" class="collapse" role="tabpanel" aria-labelledby="accordion-12-2-heading-02">
-                      <div class="u-accordion__body g-color-gray-dark-v4">
-                        This is where we sit down, grab a cup of coffee and dial in the details. Understanding the task at hand and ironing out the wrinkles is key. Now that we've aligned the details, it's time to get things mapped out and organized. This part is really crucial in keeping the project in line to completion.
-                      </div>
-                    </div>
-                    <h5 class="g-font-weight-400 g-font-size-13 g-pl-8 mt-3 mb-0">
-                      <a class="collapsed g-color-primary g-text-underline--none--hover g-pa-10" href="#accordion-12-2-body-02" data-toggle="collapse" data-parent="#accordion-12-2" aria-expanded="false" aria-controls="accordion-12-2-body-02">
-                        <span class="u-accordion__control-icon">
-                          <i class="g-font-style-normal">Read More
-                            <span class="ml-2 fa fa-caret-up"></span>
-                          </i>
-                          <i class="g-font-style-normal">Read Less
-                            <span class="ml-2 fa fa-caret-down"></span>
-                          </i>
-                        </span>
-                      </a>
-                    </h5>
-                  </div>
-                  <!-- End Card -->
-
-                  <!-- Card -->
-                  <div class="card g-brd-none g-brd-bottom g-brd-gray-light-v3 rounded-0 g-pb-30 g-mb-30">
-                    <div id="accordion-12-2-heading-03" class="u-accordion__header g-color-gray-dark-v4 g-font-weight-500 g-font-size-16 g-pa-0" role="tab">
-                      <span class="g-color-primary g-font-weight-700 g-font-size-16 g-line-height-1_2">3.</span>
-                      Track Your Package
-                    </div>
-                    <div id="accordion-12-2-body-03" class="collapse" role="tabpanel" aria-labelledby="accordion-12-2-heading-03">
-                      <div class="u-accordion__body g-color-gray-dark-v4">
-                        The time has come to bring those ideas and plans to life. Sifting through teaspoons of clay and sand scraped from the floors of caves, German researchers have managed to isolate ancient human DNA — without turning up a single bone. Their new technique, described in a study published on Thursday in the journal Science, promises to open new avenues of research into human prehistory and was met with excitement by geneticists and archaeologists.
-                      </div>
-                    </div>
-                    <h5 class="g-font-weight-400 g-font-size-13 g-pl-8 mt-3 mb-0">
-                      <a class="collapsed g-color-primary g-text-underline--none--hover g-pa-10" href="#accordion-12-2-body-03" data-toggle="collapse" data-parent="#accordion-12-2" aria-expanded="false" aria-controls="accordion-12-2-body-03">
-                        <span class="u-accordion__control-icon">
-                          <i class="g-font-style-normal">Read More
-                            <span class="ml-2 fa fa-caret-up"></span>
-                          </i>
-                          <i class="g-font-style-normal">Read Less
-                            <span class="ml-2 fa fa-caret-down"></span>
-                          </i>
-                        </span>
-                      </a>
-                    </h5>
-                  </div>
-                  <!-- End Card -->
-                </div>
-                <!-- End Accordion -->
+                <br><br><br>
+                <div class="row">
+		          <div class="col-md-4 g-mb-30">
+		            <!-- Media -->
+		            <div class="media">
+		              <div class="d-flex mr-2">
+		                <span class="u-icon-v3 g-width-20 g-height-20 g-color-white g-bg-primary g-font-size-12 rounded-circle">
+		                  <i class="fa fa-question"></i>
+		                </span>
+		              </div>
+		              <div class="media-body">
+		                <a class="u-link-v5 g-color-main g-color-primary--hover g-font-weight-600" href="#">Q&amp;A 등록하기</a>
+		                <p>궁금한 점이 있다면 뭐든지 물어보세요!</p>
+		              </div>
+		            </div>
+		            <!-- End Media -->
+		          </div>
+		
+		          <div class="col-md-8 g-mb-30">
+		            <!-- Contact Form -->
+		            <form>
+		              <div class="row">
+		                <div class="col-md-6 form-group g-mb-20">
+		                  <input class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-brd-primary--hover rounded g-py-13 g-px-15" type="text" placeholder="이름">
+		                </div>
+		
+		                <div class="col-md-6 form-group g-mb-20">
+		                  <input class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-brd-primary--hover rounded g-py-13 g-px-15" type="email" placeholder="이메일">
+		                </div>
+		
+		                <div class="col-md-6 form-group g-mb-20">
+		                  <input class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-brd-primary--hover rounded g-py-13 g-px-15" type="text" placeholder="제목">
+		                </div>
+		
+		                <div class="col-md-6 form-group g-mb-20">
+		                  <input class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-brd-primary--hover rounded g-py-13 g-px-15" type="password" placeholder="비밀번호">
+		                </div>
+		
+		                <div class="col-md-12 form-group g-mb-40">
+		                  <textarea class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-brd-primary--hover g-resize-none rounded g-py-13 g-px-15" rows="7" placeholder="내용"></textarea>
+		                </div>
+		                </div>
+		
+		                <div class="text-center">
+		                  <button class="btn u-btn-primary g-font-size-12 text-uppercase g-py-12 g-px-25" type="submit"><b>등록하기</b></button>
+		                </div>
+		              </form>
+		              <!-- End Contact Form -->
+		            </div>
+		          </div>
               </div>
 
               <div class="tab-pane fade" id="nav-5-3-primary-ver--3" role="tabpanel">
@@ -854,59 +898,56 @@
             </div>
             <!-- End Tab panes -->
           </div>
+          
         </div>
 
-        <div class="row">
-          <div class="col-md-4 g-mb-30">
-            <!-- Media -->
-            <div class="media">
-              <div class="d-flex mr-2">
-                <span class="u-icon-v3 g-width-20 g-height-20 g-color-white g-bg-primary g-font-size-12 rounded-circle">
-                  <i class="fa fa-question"></i>
-                </span>
+        
+      </div>
+      <!-- End Help -->
+
+      <!-- Call to Action -->
+      <div class="g-bg-primary">
+        <div class="container g-py-20">
+          <div class="row justify-content-center">
+            <div class="col-md-4 mx-auto g-py-20">
+              <!-- Media -->
+              <div class="media g-px-50--lg">
+                <i class="d-flex g-color-white g-font-size-40 g-pos-rel g-top-3 mr-4 icon-real-estate-048 u-line-icon-pro"></i>
+                <div class="media-body">
+                  <span class="d-block g-color-white g-font-weight-500 g-font-size-17 text-uppercase">무료 배송</span>
+                  <span class="d-block g-color-white-opacity-0_8">2-3일 이내</span>
+                </div>
               </div>
-              <div class="media-body">
-                <a class="u-link-v5 g-color-main g-color-primary--hover g-font-weight-600" href="#">Can't find answer?</a>
-                <p>Do not worry. Our support team<br>will help you.</p>
-              </div>
+              <!-- End Media -->
             </div>
-            <!-- End Media -->
-          </div>
 
-          <div class="col-md-8 g-mb-30">
-            <!-- Contact Form -->
-            <form>
-              <div class="row">
-                <div class="col-md-6 form-group g-mb-20">
-                  <input class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-brd-primary--hover rounded g-py-13 g-px-15" type="text" placeholder="Name">
-                </div>
-
-                <div class="col-md-6 form-group g-mb-20">
-                  <input class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-brd-primary--hover rounded g-py-13 g-px-15" type="email" placeholder="Email">
-                </div>
-
-                <div class="col-md-6 form-group g-mb-20">
-                  <input class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-brd-primary--hover rounded g-py-13 g-px-15" type="text" placeholder="Subject">
-                </div>
-
-                <div class="col-md-6 form-group g-mb-20">
-                  <input class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-brd-primary--hover rounded g-py-13 g-px-15" type="tel" placeholder="Phone">
-                </div>
-
-                <div class="col-md-12 form-group g-mb-40">
-                  <textarea class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-brd-primary--hover g-resize-none rounded g-py-13 g-px-15" rows="7" placeholder="Message"></textarea>
+            <div class="col-md-4 mx-auto g-brd-x--md g-brd-white-opacity-0_3 g-py-20">
+              <!-- Media -->
+              <div class="media g-px-50--lg">
+                <i class="d-flex g-color-white g-font-size-40 g-pos-rel g-top-3 mr-4 icon-real-estate-040 u-line-icon-pro"></i>
+                <div class="media-body">
+                  <span class="d-block g-color-white g-font-weight-500 g-font-size-17 text-uppercase">반품 및 환불</span>
+                  <span class="d-block g-color-white-opacity-0_8">수령 후 7일 이내</span>
                 </div>
               </div>
+              <!-- End Media -->
+            </div>
 
-              <div class="text-center">
-                <button class="btn u-btn-primary g-font-size-12 text-uppercase g-py-12 g-px-25" type="submit">Send Message</button>
+            <div class="col-md-4 mx-auto g-py-20">
+              <!-- Media -->
+              <div class="media g-px-50--lg">
+                <i class="d-flex g-color-white g-font-size-40 g-pos-rel g-top-3 mr-4 icon-hotel-restaurant-062 u-line-icon-pro"></i>
+                <div class="media-body text-left">
+                  <span class="d-block g-color-white g-font-weight-500 g-font-size-17 text-uppercase">24시 접수</span>
+                  <span class="d-block g-color-white-opacity-0_8">상시 주문 접수 대기</span>
+                </div>
               </div>
-            </form>
-            <!-- End Contact Form -->
+              <!-- End Media -->
+            </div>
           </div>
         </div>
       </div>
-      <!-- End Help -->
+      <!-- End Call to Action -->
 
       <!-- Footer -->
       <jsp:include page="common/footer.jsp"/>
@@ -927,30 +968,30 @@
     <div class="u-outer-spaces-helper"></div>
 
     <!-- JS Global Compulsory -->
-    <script src="../assets/vendor/jquery/jquery.min.js"></script>
-    <script src="../assets/vendor/jquery-migrate/jquery-migrate.min.js"></script>
-    <script src="../assets/vendor/popper.js/popper.min.js"></script>
-    <script src="../assets/vendor/bootstrap/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/jquery-migrate/jquery-migrate.min.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/popper.js/popper.min.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/bootstrap/bootstrap.min.js"></script>
 
     <!-- JS Implementing Plugins -->
-    <script src="../assets/vendor/hs-megamenu/src/hs.megamenu.js"></script>
-    <script src="../assets/vendor/malihu-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/hs-megamenu/src/hs.megamenu.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/malihu-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
 
     <!-- JS Unify -->
-    <script src="../assets/js/hs.core.js"></script>
-    <script src="../assets/js/components/hs.header.js"></script>
-    <script src="../assets/js/helpers/hs.hamburgers.js"></script>
-    <script src="../assets/js/components/hs.dropdown.js"></script>
-    <script src="../assets/js/components/hs.scrollbar.js"></script>
-    <script src="../assets/js/components/hs.go-to.js"></script>
-    <script src="../assets/js/components/hs.tabs.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/hs.core.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/components/hs.header.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/helpers/hs.hamburgers.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/components/hs.dropdown.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/components/hs.scrollbar.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/components/hs.go-to.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/components/hs.tabs.js"></script>
 
     <!-- JS Customization -->
-    <script src="../assets/js/custom.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/custom.js"></script>
 
     <!-- JS Plugins Init. -->
     <script>
-      $(document).on('ready', function () {
+        $(document).on('ready', function () {
         // initialization of header
         $.HSCore.components.HSHeader.init($('#js-header'));
         $.HSCore.helpers.HSHamburgers.init('.hamburger');

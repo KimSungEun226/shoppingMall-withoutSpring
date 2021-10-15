@@ -15,8 +15,8 @@
             <div class="row justify-content-between align-items-center g-mx-0--lg">
               <div class="col-12 col-sm-auto order-sm-2 g-py-5 g-py-20--sm text-center">
                 <!-- Logo -->
-                <a class="navbar-brand" href="home-page.jsp">
-                  <img src="assets/img/logo/logo-1.png" alt="Image Description">
+                <a class="navbar-brand" href="${pageContext.request.contextPath}/html/namdo-market/home-page.jsp">
+                  <img src="${pageContext.request.contextPath}/html/namdo-market/assets/img/logo/logo-1.png" alt="Image Description">
                 </a>
                 <!-- End Logo -->
               </div>
