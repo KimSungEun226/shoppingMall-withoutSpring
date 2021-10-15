@@ -12,8 +12,17 @@ import dto.ReviewDTO;
 import util.DbUtil;
 
 public class ReviewDAOImpl implements ReviewDAO {
-	private Properties proFile = DbUtil.getProFile();
+	Properties proFile = new Properties();
+	
 
+	public ReviewDAOImpl() {
+		try {
+			proFile.load(getClass().getClassLoader().getResourceAsStream("cartReviewQuery.properties"));
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	@Override
 	public int createReview(int itemNo, int customerNo, int reviewGrade, String content) throws SQLException {
 		Connection con = null;

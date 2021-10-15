@@ -62,6 +62,6 @@ public interface ItemDAO {
 	  /**
 	   * 상품정보에 해당하는 리뷰 정보 가져오기
 	   * */
-	  List<ReviewDTO> selectReviewByItemNum(String ItemNum) throws SQLException;	
+	  List<ReviewDTO> selectReviewByItemNo(String ItemNo) throws SQLException;	
 	
 }

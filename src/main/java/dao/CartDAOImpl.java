@@ -12,15 +12,23 @@ import dto.CartDTO;
 import util.DbUtil;
 
 public class CartDAOImpl implements CartDAO {
-	private Properties proFile = DbUtil.getProFile();
+	Properties proFile = new Properties();
 	
+
+	public CartDAOImpl() {
+		try {
+			proFile.load(getClass().getClassLoader().getResourceAsStream("cartReviewQuery.properties"));
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	@Override
 	public int addToCart(int customerNo, int itemNo, int cartItemCount) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps =null;
 		int result = 0;
-		String sql = proFile.getProperty("cart.insertCart");
+		String sql = proFile.getProperty("cart.addToCart");
 		try {
 			con = DbUtil.getConnection();
 			ps = con.prepareStatement(sql);
@@ -40,7 +48,7 @@ public class CartDAOImpl implements CartDAO {
 		Connection con = null;
 		PreparedStatement ps =null;
 		int result = 0;
-		String sql = proFile.getProperty("cart.deleteCart");
+		String sql = proFile.getProperty("cart.deleteFromCart");
 		try {
 			con = DbUtil.getConnection();
 			ps = con.prepareStatement(sql);
