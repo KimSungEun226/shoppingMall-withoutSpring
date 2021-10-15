@@ -25,12 +25,15 @@ import service.CustomerServiceImpl;
 public class CustomerLoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private CustomerService customerService = new CustomerServiceImpl();
-	private String url;
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String customerId = request.getParameter("customerId");
 		String pwd = request.getParameter("customerPwd");
+		String url="";
 		try {
+			
+			System.out.println(pwd);
 			CustomerDTO customerDTO = customerService.loginCheck(new CustomerDTO(customerId, pwd));
 			//여기까지 왔다는 이야기는 예외없이 정상이므로 session에 정보를 저장한다.
 			HttpSession session = request.getSession();
@@ -38,11 +41,11 @@ public class CustomerLoginServlet extends HttpServlet {
 			if(customerDTO!=null) {
 				System.out.println("userID : " + customerDTO.getCustomerId());
 				session.setAttribute("customerDTO", customerDTO);
+				session.setAttribute("kkkk", "kkkk");
 				url = "home-page.jsp";
 			}
 			PrintWriter out = response.getWriter();
 	        out.print(url);
-			
 		} catch (Exception e) {
 			System.out.println();
 			PrintWriter out = response.getWriter();

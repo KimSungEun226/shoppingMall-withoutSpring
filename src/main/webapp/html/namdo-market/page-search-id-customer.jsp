@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -40,7 +43,17 @@
   <body>
     <main>
       <!-- Header -->
-	  <jsp:include page="common/header.jsp"/>
+      <c:if test="${sessionScope.customerDTO==null && sessionScope.sellerDTO==null}">
+        <jsp:include page="common/header.jsp"/>
+      </c:if>
+
+      <c:if test="${sessionScope.customerDTO!=null}">
+        <jsp:include page="common/customer-header.jsp"/>
+      </c:if>
+
+      <c:if test="${sessionScope.sellerDTO!=null}">
+        <jsp:include page="common/seller-header.jsp"/>
+      </c:if>
 
 
       <!-- Breadcrumbs -->
@@ -70,7 +83,7 @@
           
             <div class="g-brd-around g-brd-gray-light-v3 g-bg-white rounded g-px-30 g-py-50 mb-4">
               <header class="text-center mb-4">
-                <h1 class="h4 g-color-black g-font-weight-400">아이디 찾기</h1>
+                <h1 class="h4 g-color-black g-font-weight-400">구매자 아이디 찾기</h1>
               </header>
 
               <!-- Form -->
@@ -100,7 +113,7 @@
           
             <div class="g-brd-around g-brd-gray-light-v3 g-bg-white rounded g-px-30 g-py-50 mb-4">
               <header class="text-center mb-4">
-                <h1 class="h4 g-color-black g-font-weight-400">비밀번호 찾기</h1>
+                <h1 class="h4 g-color-black g-font-weight-400">구매자 비밀번호 찾기</h1>
               </header>
 
               <!-- Form -->

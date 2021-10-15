@@ -53,22 +53,17 @@
                     <ul id="account-dropdown-2" class="list-unstyled u-shadow-v29 g-pos-abs g-bg-white g-width-160 g-pb-5 g-mt-19 g-z-index-2"
                         aria-labelledby="account-dropdown-invoker-2">
                       <li>
-                        <a class="d-block g-color-black g-color-primary--hover g-text-underline--none--hover g-font-weight-400 g-py-5 g-px-20" href="page-login-customer.jsp">
-                          로그인
+                        <a class="d-block g-color-black g-color-primary--hover g-text-underline--none--hover g-font-weight-400 g-py-5 g-px-20" href="Myinfo.jsp">
+                          내정보
                         </a>
                       </li>
                       <li>
-                        <a class="d-block g-color-black g-color-primary--hover g-text-underline--none--hover g-font-weight-400 g-py-5 g-px-20" href="page-signup-customer.jsp">
-                          회원가입
-                        </a>
-                      </li>
-                      <li>
-                        <a class="d-block g-color-black g-color-primary--hover g-text-underline--none--hover g-font-weight-400 g-py-5 g-px-20" href="page-cart.jsp">
+                        <a class="d-block g-color-black g-color-primary--hover g-text-underline--none--hover g-font-weight-400 g-py-5 g-px-20" href="page-cart.html">
                           장바구니
                         </a>
                       </li>
                       <li>
-                        <a class="d-block g-color-black g-color-primary--hover g-text-underline--none--hover g-font-weight-400 g-py-5 g-px-20" href="#">
+                        <a class="d-block g-color-black g-color-primary--hover g-text-underline--none--hover g-font-weight-400 g-py-5 g-px-20" href="page-orders-1.html">
                           주문내역
                         </a>
                       </li>
@@ -317,6 +312,8 @@
                             <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">이벤트</a></li>
                           </ul>
                           <!-- End Links -->
+                          
+                          
                         </div>
                       </div>
                     </div>
@@ -359,7 +356,12 @@
                     <!-- End Submenu -->
                   </li>
                   <!-- 고객센터 끝 -->
-
+                  
+                <li class="nav-item hs-has-sub-menu g-mx-10--lg g-mx-15--xl">
+                  <span class="d-block g-font-weight-500 text-uppercase mb-2">
+				   <a class="nav-link text-uppercase g-color-primary--hover g-px-3 g-py-20" href="page-category.jsp"><b>로그아웃</b></a>
+				  </span>
+                </li>
                   
                 </ul>
               </div>

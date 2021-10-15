@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,7 +47,20 @@
 <body>
   <main>
       <!-- Header -->
-      <jsp:include page="common/header-main.jsp"/>
+      
+      <c:if test="${sessionScope.customerDTO==null && sessionScope.sellerDTO==null}">
+        <jsp:include page="common/header-main.jsp"/>
+      </c:if>
+
+      <c:if test="${sessionScope.customerDTO!=null}">
+        <jsp:include page="common/customer-header-main.jsp"/>
+      </c:if>
+
+      <c:if test="${sessionScope.sellerDTO!=null}">
+        <jsp:include page="common/header-main.jsp"/>
+      </c:if>
+
+
 
       <!-- Revolution Slider -->
       <div class="g-overflow-hidden">
