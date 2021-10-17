@@ -38,12 +38,36 @@
 
     <!-- CSS Customization -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/css/custom.css">
+    
+    <script type="text/javascript">
+    function sendUpdate(){
+    	if(document.requestForm.password.value==""){
+    		alert("비밀번호 입력하세요.");
+    		document.requestForm.password.focus();
+    		return;
+    	}
+    	
+    	document.requestForm.methodName.value ="updateForm";
+    	document.requestForm.submit();
+    }
+    
+    function sendDelete(){
+    	if(document.requestForm.password.value==""){
+    		alert("비밀번호 입력하세요.");
+    		document.requestForm.password.focus();
+    		return;
+    	}
+    	
+    	document.requestForm.methodName.value = "deleteBoard";
+    	document.requestForm.submit();
+    }
+    </script>
   </head>
 
   <body>
     <main>
       <!-- Header -->
-      <c:if test="${sessionScope.customerDTO==null && sessionScope.sellerDTO==null}">
+      <c:if test="${sessionScope.customerDTO==null && sessionScope.sellerDTO==null && sessionScope.adminDTO==null}">
         <jsp:include page="common/header.jsp"/>
       </c:if>
 
@@ -55,16 +79,20 @@
         <jsp:include page="common/seller-header.jsp"/>
       </c:if>
 
+      <c:if test="${sessionScope.adminDTO!=null}">
+        <jsp:include page="common/admin-header-main.jsp"/>
+      </c:if>
+
       <!-- Breadcrumbs -->
       <section class="g-brd-bottom g-brd-gray-light-v4 g-py-30">
         <div class="container">
           <ul class="u-list-inline">
             <li class="list-inline-item g-mr-5">
-              <a class="u-link-v5 g-color-text" href="home-page.jsp">요거 묵어봤는감?</a>
+              <a class="u-link-v5 g-color-text" href="${pageContext.request.contextPath}/html/namdo-market/home-page.jsp">요거 묵어봤는감?</a>
               <i class="g-color-gray-light-v2 g-ml-5 fa fa-angle-right"></i>
             </li>
             <li class="list-inline-item g-mr-5">
-              <a class="u-link-v5 g-color-text" href="page-service-center.jsp">고객센터</a>
+              <a class="u-link-v5 g-color-text" href="${pageContext.request.contextPath}/html/namdo-market/page-service-center.jsp">고객센터</a>
               <i class="g-color-gray-light-v2 g-ml-5 fa fa-angle-right"></i>
             </li>
             <li class="list-inline-item g-color-primary">
@@ -94,11 +122,8 @@
                         <th>
                           <ul class="list-unstyled g-color-gray-dark-v4 g-font-size-12 g-line-height-1_6 mb-0">
                             <li><h4 class="h5 g-color-black">제목: <b>${board.boardName}</b></h4></li>
-                            <li>관리자 &nbsp;조회수 2</li>
+                            <li>${requestScope.board.boardDate}&nbsp;&nbsp;&nbsp;&nbsp;조회수 ${requestScope.board.boardViews}</li>
                           </ul>
-                          <div class="text-right">
-                            <a class="text-uppercase g-color-primary--hover g-px-0 g-py-0" href="page-category.jsp">수정</a>&nbsp;&nbsp;<a class="text-uppercase g-color-primary--hover g-px-0 g-py-0" href="page-category.jsp">삭제</a> 
-                          </div>
                           <br>
                         </th>
                         </tr>
@@ -108,7 +133,7 @@
                         <!-- Item-->
                         
                         <tr class="g-brd-bottom g-brd-gray-light-v3">
-                          <td class="text-left g-py-80">상품 내용입니다...</td> 
+                          <td class="text-left g-py-80">${requestScope.board.boardContent}</td> 
                         </tr>
                         
                         <!-- End Item-->
@@ -121,6 +146,24 @@
                 <!-- End Accordion -->
                
             </div>
+            <div class="row g-mb-20"></div>
+            <form name="requestForm" method="post" action="${path}/front">
+              <input type=hidden name="boardNo" value="${board.boardNo}">
+			  <input type=hidden name="key" value="board">
+			  <input type=hidden name="methodName" >
+			  
+			  <div style="width:35%" class="input-group g-rounded-left-3 mb-3">
+                    <span class="input-group-prepend g-width-10">
+                      <span class="input-group-text justify-content-center w-100 g-bg-transparent g-brd-gray-light-v3 g-color-gray-dark-v5">
+                        <i class="icon-media-094 u-line-icon-pro"></i>
+                      </span>
+                    </span>
+                    <input name="password" class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-rounded-left-0 g-rounded-right-3 g-py-10 g-px-15" type="password" placeholder="비밀번호" value="">
+                  </div>
+              <div class="text-right">
+		      	<input class="btn u-btn-primary g-font-size-12 text-uppercase g-py-12 g-px-25" type="button" value="수정하기" style="font-weight: bold" onclick="sendUpdate()">&nbsp;&nbsp;&nbsp;&nbsp;<input class="btn g-color-gray-dark-v5 g-bg-secondary g-font-size-12 text-uppercase g-py-12 g-px-25" type="button" id="cancel" value="삭제하기" style="font-weight: bold" onclick="sendDelete()">
+		      </div>
+		    </form>
             <!-- End Tab panes -->
           </div>
           

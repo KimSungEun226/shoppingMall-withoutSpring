@@ -19,11 +19,14 @@
     	
     	$("#loginButton").click(function(){
     		
+    		
     		//정보가 입력되지 않으면 바로 alert띄운다
     		if($("[name=customerId]").val() == "" || $("[name=customerPwd]").val() == "" ) {
     		    alert("정보를 입력해주세요.");
     		    return;
     	    };
+    	    
+
     	    
     	    $.ajax({
                 url: "../../customerLoginServlet",         //서버요청주소

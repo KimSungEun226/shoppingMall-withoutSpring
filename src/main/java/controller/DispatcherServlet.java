@@ -37,12 +37,24 @@ public class DispatcherServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String key = request.getParameter("key");
 		String methodName = request.getParameter("methodName");
+		
+		System.out.println(key);
+		System.out.println(methodName);
+		
 		try {
+			if(key==null || key.equals("")) {
+				key="board";
+			}
 			
+			if(methodName==null || methodName.equals("")) {
+				methodName="select";
+			}
 
 			System.out.println(map);
 			System.out.println(clzMap);
 			System.out.println(key);
+			System.out.println(methodName);
+			
 			Class<?> clz = clzMap.get(key); //reflection개념을 적용하기 위한 객체를 구한다.
 			
 			//String을 하나의 메소드의 개념으로 만드는 과정
@@ -61,6 +73,7 @@ public class DispatcherServlet extends HttpServlet {
 		}catch(Exception e) {
 			e.printStackTrace();
 			System.out.println("예외발생....");
+			request.setAttribute("errmsg", "예외발생");
 			request.getRequestDispatcher("html/namdo-market/error.jsp").forward(request, response);
 		}
 	}//service끝

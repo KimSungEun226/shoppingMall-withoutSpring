@@ -44,5 +44,7 @@ public interface CustomerService {
 	/**
 	 * contact중복체크를 위한 메소드
 	 * */
-	boolean contactCheck(String customerContact) throws SQLException;	
+	boolean contactCheck(String customerContact) throws SQLException;
+
+	int checkPwd(String id, String pwd) throws SQLException;	
 }

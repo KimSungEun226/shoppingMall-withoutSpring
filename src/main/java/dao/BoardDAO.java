@@ -33,11 +33,16 @@ public interface BoardDAO {
 	 * */
 	int addBoard(BoardDTO board) throws SQLException;
 	
+	/**
+	 * 공지사항 번호에 해당하는 레코드 수정
+	 * @return : 1-수정성공 , 0 - 수정실패
+	 * */
+	int updateBoard(BoardDTO board) throws SQLException;
 	
 	/**
 	 * 공지사항 삭제하는 메소드(관리자만 삭제 가능)
 	 * @return: 0 - 삭제 실패, 1 - 삭제 성공
 	 * */
-	int deleteBoard(int boardNo, int managerNo) throws SQLException;
+	int deleteBoard(String boardNo, String password) throws SQLException;
 	
 }
