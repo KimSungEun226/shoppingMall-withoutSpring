@@ -54,9 +54,9 @@ public class DispatcherServlet extends HttpServlet {
 			ModelAndView mv = (ModelAndView)method.invoke(controller, request, response); //메소드호출
 			
 			if(mv.isRedirect()) { //redirect방식이다.
-				response.sendRedirect("html/namdo-market/"+mv.getViewName());
+				response.sendRedirect(mv.getViewName());
 			}else {
-				request.getRequestDispatcher("html/namdo-market/"+mv.getViewName()).forward(request, response);
+				request.getRequestDispatcher(mv.getViewName()).forward(request, response);
 			}
 		}catch(Exception e) {
 			e.printStackTrace();

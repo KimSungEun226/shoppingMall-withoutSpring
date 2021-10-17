@@ -31,7 +31,22 @@ public interface CustomerDAO {
 	int checkIdAndEmail(String id, String email) throws SQLException;
 	
 	/**
+	 * 아이디에 해당하는 계정 비밀번호 변경
+	 * */
+	int setPwd(String id, String pwd) throws SQLException;
+	
+	/**
 	 * 아이디 중복체크
 	 * */
 	boolean idCheck(String id);
+	
+	/**
+	 * 이메일 중복체크
+	 * */
+	boolean emailCheck(String id);
+	
+	/**
+	 * 연락처 중복체크
+	 * */
+	boolean contactCheck(String id);
 }

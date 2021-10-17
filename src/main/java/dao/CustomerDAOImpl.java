@@ -124,6 +124,28 @@ public class CustomerDAOImpl implements CustomerDAO {
 		return result;
 	}
 
+	
+
+	@Override
+	public int setPwd(String id, String pwd) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		int result = 0;
+		String sql = proFile.getProperty("customer.setpwd");
+		
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setString(1, pwd);
+			ps.setString(2, id);
+			result = ps.executeUpdate();		
+		}finally {
+			DbUtil.dbClose(ps,con);
+		}
+		
+		return result;
+	}
+    
 	@Override
 	public boolean idCheck(String id) {
 		  PreparedStatement ps = null;
@@ -136,6 +158,54 @@ public class CustomerDAOImpl implements CustomerDAO {
 		   con=DbUtil.getConnection();
 		   ps = con.prepareStatement(sql);
 		   ps.setString(1, id);
+		   rs = ps.executeQuery();
+		   if(rs.next()){
+		    result=true;
+		   }
+		  } catch (SQLException e) {
+		   e.printStackTrace();
+		  }finally {
+		   DbUtil.dbClose(rs, ps, con);
+		  }
+		  return result;
+	}
+	
+	@Override
+	public boolean emailCheck(String email) {
+		  PreparedStatement ps = null;
+		  ResultSet rs = null;
+		  Connection con = null;
+		  boolean result=false;
+		  String sql = proFile.getProperty("customer.emailcheck");
+
+		  try {
+		   con=DbUtil.getConnection();
+		   ps = con.prepareStatement(sql);
+		   ps.setString(1, email);
+		   rs = ps.executeQuery();
+		   if(rs.next()){
+		    result=true;
+		   }
+		  } catch (SQLException e) {
+		   e.printStackTrace();
+		  }finally {
+		   DbUtil.dbClose(rs, ps, con);
+		  }
+		  return result;
+	}
+
+	@Override
+	public boolean contactCheck(String contact) {
+		  PreparedStatement ps = null;
+		  ResultSet rs = null;
+		  Connection con = null;
+		  boolean result=false;
+		  String sql = proFile.getProperty("customer.contactcheck");
+
+		  try {
+		   con=DbUtil.getConnection();
+		   ps = con.prepareStatement(sql);
+		   ps.setString(1, contact);
 		   rs = ps.executeQuery();
 		   if(rs.next()){
 		    result=true;

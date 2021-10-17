@@ -13,14 +13,15 @@
 </head>
 <body>
    <h1>
-   ${customerDTO.customerId} <p>
-   ${customerDTO.customerPwd}<p>
-   ${customerDTO.customerName}<p>
-   ${customerDTO.customerBirth}<p>
-   ${customerDTO.customerEmail}<p>
-   ${customerDTO.customerAddr}<p>
-   ${customerDTO.customerContact}<p>
-   ${customerDTO.customerRegDate}<p>
+   ${sellerDTO.sellerId} <p>
+   ${sellerDTO.sellerPwd}<p>
+   ${sellerDTO.sellerName}<p>
+   ${sellerDTO.sellerEmail}<p>
+   ${sellerDTO.sellerAddr}<p>
+   ${sellerDTO.sellerContact}<p>
+   ${sellerDTO.sellerRegDate}<p>
+   
+   
    
    </h1>
 </body>

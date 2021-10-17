@@ -13,19 +13,33 @@ public class SellerDTO {
 	private int sellerBusinessNo; //판매자 사업자번호
 	
 	public SellerDTO() {}
-
-	public SellerDTO(int sellerNo, String sellerPwd, String sellerName, String sellerEmail, String sellerAddr,
-			String sellerContact, String sellerId, String sellerRegDate, int sellerBusinessNo) {
+    
+	
+	
+	public SellerDTO(String sellerId, String sellerPwd) {
 		super();
-		this.sellerNo = sellerNo;
+		this.sellerId = sellerId;
+		this.sellerPwd = sellerPwd;
+	}
+
+
+
+	public SellerDTO(String sellerId, String sellerPwd, String sellerName, String sellerEmail, String sellerAddr,
+			String sellerContact, int sellerBusinessNo) {
+		super();
+		this.sellerId = sellerId;
 		this.sellerPwd = sellerPwd;
 		this.sellerName = sellerName;
 		this.sellerEmail = sellerEmail;
 		this.sellerAddr = sellerAddr;
 		this.sellerContact = sellerContact;
-		this.sellerId = sellerId;
-		this.sellerRegDate = sellerRegDate;
 		this.sellerBusinessNo = sellerBusinessNo;
+	}
+	
+	public SellerDTO(String sellerId, String sellerPwd, String sellerName, String sellerEmail, String sellerAddr,
+			String sellerContact,String sellerRegDate, int sellerBusinessNo) {
+		this(sellerId, sellerPwd, sellerName, sellerEmail, sellerAddr, sellerContact, sellerBusinessNo);
+		this.sellerRegDate = sellerRegDate;
 	}
 
 	public int getSellerNo() {

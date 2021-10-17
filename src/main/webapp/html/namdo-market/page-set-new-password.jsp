@@ -38,13 +38,28 @@
 
     <!-- CSS Customization -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/css/custom.css">
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+    $(function(){
+    	if("${requestScope.pwdInfo}"=="" || "${requestScope.pwdInfo}"==null) {
+    		alert("접근할 수 없습니다.");
+    		history.back();
+    	}
+    	
+    	if("${requestScope.pwdInfo}"=="seller") {
+    		$("[name=key]").attr("value", "seller");
+    	}
+    	
+    	
+    });
+    </script>
     <script type="text/javascript">
     
     function form_check() {
   	  //변수에 담아주기
   	  
-  	  var customerPwd = document.getElementById("customerPwd");
-  	  var customerPwdCheck = document.getElementById("customerPwdCheck");
+  	  var Pwd = document.getElementById("Pwd");
+  	  var PwdCheck = document.getElementById("PwdCheck");
   	  
   	  /*
   	  alert(customerName.value);
@@ -62,25 +77,26 @@
   	  alert(customerPwdCheck.value);
   	  */
   	  
-        
+	  var reg_pwd = /^[a-z0-9_-]{6,18}$/; // 단순 6~18자리
+
   	 
     	  
-   	  if (customerPwd.value == "") { //해당 입력값이 없을 경우 같은말: if(!uid.value)
-   	    alert("비밀번호를 입력하세요.");
-   	    customerPwd.focus(); //focus(): 커서가 깜빡이는 현상, blur(): 커서가 사라지는 현상
+   	  if (Pwd.value == "" || !reg_pwd.test(Pwd.value)) { //해당 입력값이 없을 경우 같은말: if(!uid.value)
+   	    alert("비밀번호를 확인하세요.");
+   	    Pwd.focus(); //focus(): 커서가 깜빡이는 현상, blur(): 커서가 사라지는 현상
    	    return false; //return: 반환하다 return false:  아무것도 반환하지 말아라 아래 코드부터 아무것도 진행하지 말것
    	  };
    	  
-   	  if (customerPwdCheck.value == "") { //해당 입력값이 없을 경우 같은말: if(!uid.value)
-   	    alert("비밀번호(확인)를 입력하세요.");
-   	    customerPwdCheck.focus(); //focus(): 커서가 깜빡이는 현상, blur(): 커서가 사라지는 현상
+   	  if (PwdCheck.value == "" || !reg_pwd.test(PwdCheck.value)) { //해당 입력값이 없을 경우 같은말: if(!uid.value)
+   	    alert("비밀번호(확인)를 확인하세요.");
+   	    PwdCheck.focus(); //focus(): 커서가 깜빡이는 현상, blur(): 커서가 사라지는 현상
    	    return false; //return: 반환하다 return false:  아무것도 반환하지 말아라 아래 코드부터 아무것도 진행하지 말것
    	  };
    	  
-   	  if(customerPwd.value != customerPwdCheck.value) {
+   	  if(Pwd.value != PwdCheck.value) {
    		  alert("비밀번호가 일치하지 않습니다.")
-   		  customerPwdCheck.value = "";
-   		  customerPwdCheck.focus();
+   		  PwdCheck.value = "";
+   		  PwdCheck.focus();
    		  return false;
    	  }
     	  
@@ -91,7 +107,7 @@
   	  
   	}
 
-  
+    	
   
   
     </script>
@@ -101,15 +117,15 @@
     <main>
       <!-- Header -->
       <c:if test="${sessionScope.customerDTO==null && sessionScope.sellerDTO==null}">
-        <jsp:include page="${pageContext.request.contextPath}/html/namdo-market/common/header.jsp"/>
+        <jsp:include page="common/header.jsp"/>
       </c:if>
 
       <c:if test="${sessionScope.customerDTO!=null}">
-        <jsp:include page="${pageContext.request.contextPath}/html/namdo-market/common/customer-header.jsp"/>
+        <jsp:include page="common/customer-header.jsp"/>
       </c:if>
 
       <c:if test="${sessionScope.sellerDTO!=null}">
-        <jsp:include page="${pageContext.request.contextPath}/html/namdo-market/common/seller-header.jsp"/>
+        <jsp:include page="common/seller-header.jsp"/>
       </c:if>
 
 
@@ -149,15 +165,16 @@
               <form name="password_form" class="g-py-15" action="${pageContext.request.contextPath}/front">
 			      <input type="hidden" name="key" value = "customer" /> <!-- Controller를 찾는 정보 -->
 			      <input type="hidden" name="methodName" value = "setPwd" />  <!-- 메소드이름 -->
+			      <input type="hidden" name="id" value = "${requestScope.searchId}"/>
                 <div class="mb-4">
                   <div class="input-group g-rounded-left-5">
-                    <input id="customerPwd" name="customerPwd" class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-rounded-left-0 g-rounded-right-5 g-py-15 g-px-15" type="password" placeholder="비밀번호">
+                    <input name="Pwd" id="Pwd" name="customerPwd" class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-rounded-left-0 g-rounded-right-5 g-py-15 g-px-15" type="password" placeholder="비밀번호(6~18자리)">
                   </div>
                   
                   <br>
                   
                   <div class="input-group g-rounded-left-5">
-                    <input id="customerPwdCheck" class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-rounded-left-0 g-rounded-right-5 g-py-15 g-px-15" type="password" placeholder="비밀번호확인">
+                    <input id="PwdCheck" class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-rounded-left-0 g-rounded-right-5 g-py-15 g-px-15" type="password" placeholder="비밀번호확인(6~18자리)">
                   </div>
                                     
                 </div>
@@ -175,7 +192,7 @@
       <!-- End Login -->
 
       <!-- Footer -->
-      <jsp:include page="${pageContext.request.contextPath}/html/namdo-market/common/footer.jsp"/>
+      <jsp:include page="common/footer.jsp"/>
 
       <a class="js-go-to u-go-to-v2" href="#"
          data-type="fixed"

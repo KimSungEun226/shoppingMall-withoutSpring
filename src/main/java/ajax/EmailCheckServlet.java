@@ -20,14 +20,14 @@ import service.SellerServiceImpl;
 /**
  * Servlet implementation class IdCheckServlet
  */
-@WebServlet("/idCheck")
-public class IdCheckServlet extends HttpServlet {
+@WebServlet("/emailCheck")
+public class EmailCheckServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public IdCheckServlet() {
+    public EmailCheckServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,14 +38,15 @@ public class IdCheckServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html; charset=UTF-8");
 		//넘어온 id받기
-		String id = request.getParameter("id");
+		String email = request.getParameter("email");
 		String info = request.getParameter("info");
+
 		
-		if (info.equals("customer")) { 
-			CustomerService customerService = new CustomerServiceImpl();
-			PrintWriter out = response.getWriter();
+		if (info.equals("customer")) {
 			try {
-				if(customerService.idCheck(id) || !isValidId(id) ) {
+				CustomerService customerService = new CustomerServiceImpl();
+				PrintWriter out = response.getWriter();
+				if(customerService.emailCheck(email) || !isValidEmail(email)) {
 					out.print("사용불가능");
 				}else {
 					out.print("사용가능합니다.");
@@ -54,23 +55,25 @@ public class IdCheckServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 		}else {
-			SellerService sellerService = new SellerServiceImpl();
-			PrintWriter out = response.getWriter();
 			try {
-				if(sellerService.idCheck(id) || !isValidId(id) ) {
+				SellerService sellerService = new SellerServiceImpl();
+				PrintWriter out = response.getWriter();
+				if(sellerService.emailCheck(email) || !isValidEmail(email)) {
 					out.print("사용불가능");
 				}else {
 					out.print("사용가능합니다.");
 				}
 			}catch (Exception e) {
 				e.printStackTrace();
-			}
+			}			
 		}
 	}
-    
-	public static boolean isValidId(String id) {
-        if (id==null) return false;
-        boolean b = Pattern.matches("^[a-zA-Z]{1}[a-zA-Z0-9_]{3,15}$",id.trim());
+	
+	public static boolean isValidEmail(String email) {
+        if (email==null) return false;
+        boolean b = Pattern.matches("[굚w굚~굚-굚.]+@[굚w굚~굚-]+(굚.[굚w굚~굚-]+)+",email.trim());
         return b;
     }
+
+
 }

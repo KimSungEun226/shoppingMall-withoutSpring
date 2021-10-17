@@ -359,7 +359,7 @@
                   
                 <li class="nav-item hs-has-sub-menu g-mx-10--lg g-mx-15--xl">
                   <span class="d-block g-font-weight-500 text-uppercase mb-2">
-				   <a class="nav-link text-uppercase g-color-primary--hover g-px-3 g-py-20" href="page-category.jsp"><b>로그아웃</b></a>
+				   <a class="nav-link text-uppercase g-color-primary--hover g-px-3 g-py-20" href="${pageContext.request.contextPath}/front?key=customer&methodName=logout"><b>로그아웃</b></a>
 				  </span>
                 </li>
                   

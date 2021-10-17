@@ -57,7 +57,7 @@
       </c:if>
 
       <c:if test="${sessionScope.sellerDTO!=null}">
-        <jsp:include page="common/header-main.jsp"/>
+        <jsp:include page="common/seller-header-main.jsp"/>
       </c:if>
 
 

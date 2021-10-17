@@ -9,6 +9,7 @@
   <head>
     <!-- Title -->
     <title>E-commerce Login Page | Unify - Responsive Website Template</title>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>    
     <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     
@@ -41,6 +42,45 @@
 
     <!-- CSS Customization -->
     <link rel="stylesheet" href="../assets/css/custom.css">
+    
+    <script type="text/javascript">
+    
+    $(function(){
+    	
+    	$("#loginButton").click(function(){
+    		
+    		//정보가 입력되지 않으면 바로 alert띄운다
+    		if($("[name=sellerId]").val() == "" || $("[name=sellerPwd]").val() == "" ) {
+    		    alert("정보를 입력해주세요.");
+    		    return;
+    	    };
+    	    
+    	    $.ajax({
+                url: "../../sellerLoginServlet",         //서버요청주소
+                type: "post",                        //method방식(get,post,put,delete)
+                dataType: "text",                    //서버가 응답해주는 데이터의 type(text, html, xml, json)
+                data:{sellerId:$("[name=sellerId]").val(), sellerPwd:$("[name=sellerPwd]").val()} ,   //서버에게 보낼 parameter정보
+                
+                //성공했을때 callback함수
+                success: function(result){    //개수|단어,단어,단어,단어...
+                    if(result == "null" || result=="") alert("정보를 확인해주세요.");
+                    else {
+                    	location.href = result;
+                    }
+                },      
+              //실패했을때 함수
+                error: function(err){
+                	console.log(err);
+                }            
+            });
+    	    
+    	    
+    	    
+    	}); //클릭 끝
+        
+    })
+    
+    </script>    
   </head>
 
   <body>
@@ -60,32 +100,18 @@
 
 
       <!-- Breadcrumbs -->
-      <section class="g-brd-bottom g-brd-gray-light-v4 g-py-30">
-        <div class="container">
-          <ul class="u-list-inline">
-            <li class="list-inline-item g-mr-5">
-              <a class="u-link-v5 g-color-text" href="#">Home</a>
-              <i class="g-color-gray-light-v2 g-ml-5 fa fa-angle-right"></i>
-            </li>
-            
-            <li class="list-inline-item g-color-primary">
-              <span>Login</span>
-            </li>
-          </ul>
-        </div>
-      </section>
-      <!-- End Breadcrumbs -->
-
-	<!-- Login -->
       <section class="container g-pt-100 g-pb-20">
           <div class="col-md-6 col-lg-5 order-lg-2 g-mb-80" style="float: none; margin:0 auto;">
             <div class="g-brd-around g-brd-gray-light-v3 g-bg-white rounded g-px-30 g-py-50 mb-4">
               <header class="text-center mb-4">
-                <h1 class="h4 g-color-black g-font-weight-400">판매자 로그인</h1>
+                <h1 class="h4 g-color-black g-font-weight-400">로그인</h1>
               </header>
 
               <!-- Form -->
-              <form method="post" action="login" class="g-py-15">
+              <form method="post" action="${pageContext.request.contextPath}/front" class="g-py-15">
+                <input type="hidden" name="key" value = "seller" /> <!-- Controller를 찾는 정보 -->
+			    <input type="hidden" name="methodName" value = "login" />  <!-- 메소드이름 -->
+                
                 <div class="mb-4">
                   <div class="input-group g-rounded-left-3">
                     <span class="input-group-prepend g-width-45">
@@ -93,7 +119,7 @@
                         <i class="icon-finance-067 u-line-icon-pro"></i>
                       </span>
                     </span>
-                    <input name="userEmail" class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-rounded-left-0 g-rounded-right-3 g-py-15 g-px-15" type="email" placeholder="아이디">
+                    <input name="sellerId" class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-rounded-left-0 g-rounded-right-3 g-py-15 g-px-15" type="text" placeholder="아이디">
                   </div>
                 </div>
 
@@ -104,7 +130,7 @@
                         <i class="icon-media-094 u-line-icon-pro"></i>
                       </span>
                     </span>
-                    <input name="userPwd" class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-rounded-left-0 g-rounded-right-3 g-py-15 g-px-15" type="password" placeholder="비밀번호">
+                    <input name="sellerPwd" class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-rounded-left-0 g-rounded-right-3 g-py-15 g-px-15" type="password" placeholder="비밀번호">
                   </div>
                 </div>
 
@@ -117,13 +143,17 @@
                 </div>
 
                 <div class="mb-4">
-                  <button type="submit" class="btn btn-block u-btn-primary g-font-size-12 text-uppercase g-py-12 g-px-25" type="button">로그인</button>
+                  <button type="button" class="btn btn-block u-btn-primary g-font-size-12 text-uppercase g-py-12 g-px-25" id="loginButton" type="button">로그인</button>
                 </div>
                 
                 <div style="text-align: center;"><a href="page-login-customer.jsp">구매자 로그인</a></div>
                 <br>
 
-
+                <div class="d-flex justify-content-center text-center g-mb-30">
+                  <div class="d-inline-block align-self-center g-width-50 g-height-1 g-bg-gray-light-v1"></div>
+                  <span class="align-self-center g-color-gray-dark-v5 mx-4">OR</span>
+                  <div class="d-inline-block align-self-center g-width-50 g-height-1 g-bg-gray-light-v1"></div>
+                </div>
 
                 
               </form>

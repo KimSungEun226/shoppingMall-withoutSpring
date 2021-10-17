@@ -2,7 +2,6 @@ package ajax;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,36 +10,33 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import controller.ModelAndView;
-import dto.CustomerDTO;
-import exception.AuthenticationException;
-import net.sf.json.JSONArray;
-import service.CustomerService;
-import service.CustomerServiceImpl;
+import dto.SellerDTO;
+import service.SellerService;
+import service.SellerServiceImpl;
 
 /**
  * Servlet implementation class CustomerLoginServlet
  */
-@WebServlet("/customerLoginServlet")
-public class CustomerLoginServlet extends HttpServlet {
+@WebServlet("/sellerLoginServlet")
+public class SellerLoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private CustomerService customerService = new CustomerServiceImpl();
+	private SellerService sellerService = new SellerServiceImpl();
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String customerId = request.getParameter("customerId");
-		String pwd = request.getParameter("customerPwd");
+		String sellerId = request.getParameter("sellerId");
+		String pwd = request.getParameter("sellerPwd");
 		String url="";
 		try {
 			
 			System.out.println(pwd);
-			CustomerDTO customerDTO = customerService.loginCheck(new CustomerDTO(customerId, pwd));
+			SellerDTO sellerDTO = sellerService.loginCheck(new SellerDTO(sellerId, pwd));
 			//여기까지 왔다는 이야기는 예외없이 정상이므로 session에 정보를 저장한다.
 			HttpSession session = request.getSession();
 			
-			if(customerDTO!=null) {
-				System.out.println("userID : " + customerDTO.getCustomerId());
-				session.setAttribute("customerDTO", customerDTO);
+			if(sellerDTO!=null) {
+				System.out.println("userID : " + sellerDTO.getSellerId());
+				session.setAttribute("sellerDTO", sellerDTO);
 				url = "home-page.jsp";
 			}
 			PrintWriter out = response.getWriter();

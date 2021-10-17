@@ -27,7 +27,22 @@ public interface CustomerService {
 	int checkIdAndEmail(String id, String email) throws SQLException;
 
 	/**
+	 * CustomerDAOImpl에서 해당된 아이디의 비밀번호 바꾸는 메소드
+	 * */
+	int setPwd(String id, String pwd) throws SQLException;
+	
+	/**
 	 * id중복체크를 위한 메소드
 	 * */
 	boolean idCheck(String customerId) throws SQLException;
+	
+	/**
+	 * email중복체크를 위한 메소드
+	 * */
+	boolean emailCheck(String customerEmail) throws SQLException;	
+	
+	/**
+	 * contact중복체크를 위한 메소드
+	 * */
+	boolean contactCheck(String customerContact) throws SQLException;	
 }

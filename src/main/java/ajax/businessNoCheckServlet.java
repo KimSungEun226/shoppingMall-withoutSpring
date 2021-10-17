@@ -20,14 +20,14 @@ import service.SellerServiceImpl;
 /**
  * Servlet implementation class IdCheckServlet
  */
-@WebServlet("/idCheck")
-public class IdCheckServlet extends HttpServlet {
+@WebServlet("/businessNoCheck")
+public class businessNoCheckServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public IdCheckServlet() {
+    public businessNoCheckServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,39 +38,26 @@ public class IdCheckServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html; charset=UTF-8");
 		//넘어온 id받기
-		String id = request.getParameter("id");
-		String info = request.getParameter("info");
+		int businessNo = Integer.parseInt(request.getParameter("businessNo"));
 		
-		if (info.equals("customer")) { 
-			CustomerService customerService = new CustomerServiceImpl();
-			PrintWriter out = response.getWriter();
-			try {
-				if(customerService.idCheck(id) || !isValidId(id) ) {
-					out.print("사용불가능");
-				}else {
-					out.print("사용가능합니다.");
-				}
-			}catch (Exception e) {
-				e.printStackTrace();
+ 
+		SellerService sellerService = new SellerServiceImpl();
+		PrintWriter out = response.getWriter();
+		try {
+			if(sellerService.businessNoCheck(businessNo) || !isValidBusinessNo(businessNo)) {
+				out.print("사용불가능");
+			}else {
+				out.print("사용가능합니다.");
 			}
-		}else {
-			SellerService sellerService = new SellerServiceImpl();
-			PrintWriter out = response.getWriter();
-			try {
-				if(sellerService.idCheck(id) || !isValidId(id) ) {
-					out.print("사용불가능");
-				}else {
-					out.print("사용가능합니다.");
-				}
-			}catch (Exception e) {
-				e.printStackTrace();
-			}
+		}catch (Exception e) {
+			e.printStackTrace();
 		}
+		
 	}
     
-	public static boolean isValidId(String id) {
-        if (id==null) return false;
-        boolean b = Pattern.matches("^[a-zA-Z]{1}[a-zA-Z0-9_]{3,15}$",id.trim());
+	public static boolean isValidBusinessNo(int businessNo) {
+		if (String.valueOf(businessNo)==null) return false;
+        boolean b = Pattern.matches("^[0-9]{10,11}$",String.valueOf(businessNo).trim());
         return b;
     }
 }

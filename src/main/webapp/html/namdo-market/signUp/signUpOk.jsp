@@ -7,17 +7,12 @@
 <title>Insert title here</title>
 <style>
 </style>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
-
 <script type="text/javascript">
-   $(function(){
-	   alert("예외가 발생했습니다.");
-	   history.back();
-   });
- 
+  alert("등록완료")
+  location.href="../home-page.jsp";
 </script>
 </head>
 <body>
-
+ 
 </body>
 </html>

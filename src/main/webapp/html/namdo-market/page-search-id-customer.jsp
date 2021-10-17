@@ -69,7 +69,7 @@
               <i class="g-color-gray-light-v2 g-ml-5 fa fa-angle-right"></i>
             </li>
             <li class="list-inline-item g-color-primary">
-              <span>ID/Password Recovery</span>
+              <span>구매자 ID/Password Recovery</span>
             </li>
           </ul>
         </div>
@@ -121,7 +121,8 @@
               <!-- Form -->
               <form class="g-py-15" action="${pageContext.request.contextPath}/front">
                	  <input type="hidden" name="key" value = "customer" /> <!-- Controller를 찾는 정보 -->
-			      <input type="hidden" name="methodName" value = "checkIdAndEmail" />  <!-- 메소드이름 -->                <div class="mb-4">
+			      <input type="hidden" name="methodName" value = "checkIdAndEmail" />  <!-- 메소드이름 -->                
+			      <div class="mb-4">
                   <div class="input-group g-rounded-left-5">
                     <input name="customerEmail" class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-rounded-left-0 g-rounded-right-5 g-py-15 g-px-15" type="email" placeholder="이메일주소">
                   </div>
