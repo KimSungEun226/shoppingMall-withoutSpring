@@ -16,7 +16,8 @@ import javax.servlet.http.HttpSession;
  */
 @WebFilter(value= {"/html/namdo-market/page-login-customer.jsp","/html/namdo-market/page-login-seller.jsp",
 		"/html/namdo-market/page-search-id-seller.jsp","/html/namdo-market/page-search-id-customer.jsp",
-		"/html/namdo-market/page-signup-customer.jsp","/html/namdo-market/page-signup-seller.jsp"})
+		"/html/namdo-market/page-signup-customer.jsp","/html/namdo-market/page-signup-seller.jsp"
+		,"/html/namdo-market/page-set-new-password.jsp"})
 public class SessionLoginCheckFilter implements Filter {
 
 
@@ -31,7 +32,7 @@ public class SessionLoginCheckFilter implements Filter {
 		HttpSession session = req.getSession();
 		
 		
-		if(session.getAttribute("customerDTO") !=null || session.getAttribute("sellerDTO") !=null ) {
+		if(session.getAttribute("customerDTO") !=null || session.getAttribute("sellerDTO") !=null || session.getAttribute("adminDTO") !=null ) {
 			//에러페이지로 이동
 			req.getRequestDispatcher("home-page.jsp").forward(request, response);
 			return;//메소드를 빠져나가라.

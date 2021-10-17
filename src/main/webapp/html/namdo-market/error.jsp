@@ -11,7 +11,7 @@
 
 <script type="text/javascript">
    $(function(){
-	   alert("예외가 발생했습니다.");
+	   alert("${requestScope.errmsg}");
 	   history.back();
    });
  

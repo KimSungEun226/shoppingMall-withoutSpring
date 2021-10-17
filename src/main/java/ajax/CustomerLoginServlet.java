@@ -31,12 +31,22 @@ public class CustomerLoginServlet extends HttpServlet {
 		String customerId = request.getParameter("customerId");
 		String pwd = request.getParameter("customerPwd");
 		String url="";
+		HttpSession session = request.getSession();
+		
+		if("admin".equals(customerId) && "rhksflwk".equals(pwd)) {
+			session.setAttribute("adminDTO", "adminDTO");
+			url = "home-page.jsp";
+			PrintWriter out = response.getWriter();
+	        out.print(url);
+	        return;
+		}
+		
 		try {
 			
 			System.out.println(pwd);
 			CustomerDTO customerDTO = customerService.loginCheck(new CustomerDTO(customerId, pwd));
 			//여기까지 왔다는 이야기는 예외없이 정상이므로 session에 정보를 저장한다.
-			HttpSession session = request.getSession();
+			
 			
 			if(customerDTO!=null) {
 				System.out.println("userID : " + customerDTO.getCustomerId());

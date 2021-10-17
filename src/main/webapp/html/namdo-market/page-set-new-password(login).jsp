@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-    
+
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Title -->
-    <title>E-commerce Help Page | Unify - Responsive Website Template</title>
+    <title>E-commerce Password Recovery Page | Unify - Responsive Website Template</title>
 
     <!-- Required Meta Tags Always Come First -->
     <meta charset="utf-8">
@@ -38,12 +38,85 @@
 
     <!-- CSS Customization -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/css/custom.css">
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+    $(function(){
+    	if("${sellerDTO}"==null && "${customerDTO}"==null) {
+    		alert("접근할 수 없습니다.");
+    		history.back();
+    	}
+    	
+    	if("${requestScope.pwdInfo}"=="seller") {
+    		$("[name=key]").attr("value", "seller");
+    	}
+    	
+    	
+    });
+    </script>
+    <script type="text/javascript">
+    
+    function form_check() {
+  	  //변수에 담아주기
+  	  
+  	  var Pwd = document.getElementById("Pwd");
+  	  var PwdCheck = document.getElementById("PwdCheck");
+  	  
+  	  /*
+  	  alert(customerName.value);
+  	  alert(customerMonth.val());
+
+  	  alert(customerDay.value);
+  	  alert(customerYear.value);
+  	  
+  	  alert(customerId.value);
+  	  alert(customerAddr.value)
+  	  alert(customerDetailAddr.value)
+  	  alert(customerEmail.value);
+  	  alert(customerContact.value);
+  	  alert(customerPwd.value);
+  	  alert(customerPwdCheck.value);
+  	  */
+  	  
+	  var reg_pwd = /^[a-z0-9_-]{6,18}$/; // 단순 6~18자리
+
+  	 
+    	  
+   	  if (Pwd.value == "" || !reg_pwd.test(Pwd.value)) { //해당 입력값이 없을 경우 같은말: if(!uid.value)
+   	    alert("비밀번호를 확인하세요.");
+   	    Pwd.focus(); //focus(): 커서가 깜빡이는 현상, blur(): 커서가 사라지는 현상
+   	    return false; //return: 반환하다 return false:  아무것도 반환하지 말아라 아래 코드부터 아무것도 진행하지 말것
+   	  };
+   	  
+   	  if (PwdCheck.value == "" || !reg_pwd.test(PwdCheck.value)) { //해당 입력값이 없을 경우 같은말: if(!uid.value)
+   	    alert("비밀번호(확인)를 확인하세요.");
+   	    PwdCheck.focus(); //focus(): 커서가 깜빡이는 현상, blur(): 커서가 사라지는 현상
+   	    return false; //return: 반환하다 return false:  아무것도 반환하지 말아라 아래 코드부터 아무것도 진행하지 말것
+   	  };
+   	  
+   	  if(Pwd.value != PwdCheck.value) {
+   		  alert("비밀번호가 일치하지 않습니다.")
+   		  PwdCheck.value = "";
+   		  PwdCheck.focus();
+   		  return false;
+   	  }
+    	  
+  	  
+
+  	  //입력 값 전송
+  	  document.password_form.submit(); //유효성 검사의 포인트 
+  	  
+  	}
+
+    	
+  
+  
+    </script>
   </head>
 
   <body>
     <main>
       <!-- Header -->
-      <c:if test="${sessionScope.customerDTO==null && sessionScope.sellerDTO==null && sessionScope.adminDTO==null}">
+      <c:if test="${sessionScope.customerDTO==null && sessionScope.sellerDTO==null}">
         <jsp:include page="common/header.jsp"/>
       </c:if>
 
@@ -55,129 +128,68 @@
         <jsp:include page="common/seller-header.jsp"/>
       </c:if>
 
-      <c:if test="${sessionScope.adminDTO!=null}">
-        <jsp:include page="common/admin-header-main.jsp"/>
-      </c:if>
 
       <!-- Breadcrumbs -->
       <section class="g-brd-bottom g-brd-gray-light-v4 g-py-30">
         <div class="container">
           <ul class="u-list-inline">
             <li class="list-inline-item g-mr-5">
-              <a class="u-link-v5 g-color-text" href="home-page.jsp">요거 묵어봤는감?</a>
+              <a class="u-link-v5 g-color-text" href="#">Home</a>
               <i class="g-color-gray-light-v2 g-ml-5 fa fa-angle-right"></i>
             </li>
             <li class="list-inline-item g-mr-5">
-              <a class="u-link-v5 g-color-text" href="page-service-center.jsp">고객센터</a>
+              <a class="u-link-v5 g-color-text" href="#">Pages</a>
               <i class="g-color-gray-light-v2 g-ml-5 fa fa-angle-right"></i>
             </li>
             <li class="list-inline-item g-color-primary">
-              <span>공지사항</span>
+              <span>비밀번호 설정</span>
             </li>
           </ul>
         </div>
       </section>
       <!-- End Breadcrumbs -->
 
-      <!-- Help -->
-      <div class="container g-pt-70 g-pb-70">
-        <div class="row g-mb-20">
-          <h2 class="mb-5">공지사항</h2>
-          <div class="col-md-8 g-mb-30">
-            <!-- Tab panes -->
-            <div id="nav-5-3-primary-ver" class="tab-content g-pt-20 g-pt-0--md">
-
-				<br><br><br>
-                <!-- Accordion -->
-                <div id="accordion-12-1" class="u-accordion u-accordion-color-primary" role="tablist" aria-multiselectable="true">
-                  <div class="g-overflow-x-scroll g-overflow-x-visible--lg">
-                    
-                    <table class="text-left w-100">
-                      <thead class="h6 g-brd-bottom g-brd-gray-light-v3 g-color-black text-uppercase">
-                        <tr>
-                        <th>
-                          <ul class="list-unstyled g-color-gray-dark-v4 g-font-size-12 g-line-height-1_6 mb-0">
-                            <li><h4 class="h5 g-color-black">제목: <b>${board.boardName}</b></h4></li>
-                            <li>관리자 &nbsp;조회수 2</li>
-                          </ul>
-                          <div class="text-right">
-                            <a class="text-uppercase g-color-primary--hover g-px-0 g-py-0" href="page-category.jsp">수정</a>&nbsp;&nbsp;<a class="text-uppercase g-color-primary--hover g-px-0 g-py-0" href="page-category.jsp">삭제</a> 
-                          </div>
-                          <br>
-                        </th>
-                        </tr>
-                      </thead>
-
-                      <tbody>
-                        <!-- Item-->
-                        
-                        <tr class="g-brd-bottom g-brd-gray-light-v3">
-                          <td class="text-left g-py-80">상품 내용입니다...</td> 
-                        </tr>
-                        
-                        <!-- End Item-->
-
-                      </tbody>
-                    </table>
-                  </div>
-                  <!-- End Products Block -->
-                </div>
-                <!-- End Accordion -->
-               
-            </div>
-            <!-- End Tab panes -->
-          </div>
+      <!-- Login -->
+      <section class="container g-py-100">
+        <div class="row justify-content-center">
           
-      
+          
+          <div class="col-sm-9 col-md-7 col-lg-5">
+          
+            <div class="g-brd-around g-brd-gray-light-v3 g-bg-white rounded g-px-30 g-py-50 mb-4">
+              <header class="text-center mb-4">
+                <h1 class="h4 g-color-black g-font-weight-400">비밀번호 설정</h1>
+              </header>
 
-        
-      </div>
-      <!-- End Help -->
-      </div>
-
-      <!-- Call to Action -->
-      <div class="g-bg-primary">
-        <div class="container g-py-20">
-          <div class="row justify-content-center">
-            <div class="col-md-4 mx-auto g-py-20">
-              <!-- Media -->
-              <div class="media g-px-50--lg">
-                <i class="d-flex g-color-white g-font-size-40 g-pos-rel g-top-3 mr-4 icon-real-estate-048 u-line-icon-pro"></i>
-                <div class="media-body">
-                  <span class="d-block g-color-white g-font-weight-500 g-font-size-17 text-uppercase">무료 배송</span>
-                  <span class="d-block g-color-white-opacity-0_8">2-3일 이내</span>
+              <!-- Form -->
+              <form name="password_form" class="g-py-15" action="${pageContext.request.contextPath}/front">
+			      <input type="hidden" name="key" value = "customer" /> <!-- Controller를 찾는 정보 -->
+			      <input type="hidden" name="methodName" value = "setPwd" />  <!-- 메소드이름 -->
+			      <input type="hidden" name="id" value = "${requestScope.searchId}"/>
+                <div class="mb-4">
+                  <div class="input-group g-rounded-left-5">
+                    <input name="Pwd" id="Pwd" name="customerPwd" class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-rounded-left-0 g-rounded-right-5 g-py-15 g-px-15" type="password" placeholder="비밀번호(6~18자리)">
+                  </div>
+                  
+                  <br>
+                  
+                  <div class="input-group g-rounded-left-5">
+                    <input id="PwdCheck" class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-rounded-left-0 g-rounded-right-5 g-py-15 g-px-15" type="password" placeholder="비밀번호확인(6~18자리)">
+                  </div>
+                                    
                 </div>
-              </div>
-              <!-- End Media -->
-            </div>
 
-            <div class="col-md-4 mx-auto g-brd-x--md g-brd-white-opacity-0_3 g-py-20">
-              <!-- Media -->
-              <div class="media g-px-50--lg">
-                <i class="d-flex g-color-white g-font-size-40 g-pos-rel g-top-3 mr-4 icon-real-estate-040 u-line-icon-pro"></i>
-                <div class="media-body">
-                  <span class="d-block g-color-white g-font-weight-500 g-font-size-17 text-uppercase">반품 및 환불</span>
-                  <span class="d-block g-color-white-opacity-0_8">수령 후 7일 이내</span>
-                </div>
-              </div>
-              <!-- End Media -->
+                <button class="btn btn-block u-btn-primary g-font-size-12 text-uppercase g-py-15 g-px-25" type="button" onclick="form_check()">확인</button>
+              </form>
+              
+              <!-- End Form -->
             </div>
+            
 
-            <div class="col-md-4 mx-auto g-py-20">
-              <!-- Media -->
-              <div class="media g-px-50--lg">
-                <i class="d-flex g-color-white g-font-size-40 g-pos-rel g-top-3 mr-4 icon-hotel-restaurant-062 u-line-icon-pro"></i>
-                <div class="media-body text-left">
-                  <span class="d-block g-color-white g-font-weight-500 g-font-size-17 text-uppercase">24시 접수</span>
-                  <span class="d-block g-color-white-opacity-0_8">상시 주문 접수 대기</span>
-                </div>
-              </div>
-              <!-- End Media -->
-            </div>
           </div>
         </div>
-      </div>
-      <!-- End Call to Action -->
+      </section>
+      <!-- End Login -->
 
       <!-- Footer -->
       <jsp:include page="common/footer.jsp"/>
@@ -204,6 +216,9 @@
     <script src="${pageContext.request.contextPath}/html/assets/vendor/bootstrap/bootstrap.min.js"></script>
 
     <!-- JS Implementing Plugins -->
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/appear.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/chosen/chosen.jquery.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/image-select/src/ImageSelect.jquery.js"></script>
     <script src="${pageContext.request.contextPath}/html/assets/vendor/hs-megamenu/src/hs.megamenu.js"></script>
     <script src="${pageContext.request.contextPath}/html/assets/vendor/malihu-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
 
@@ -213,8 +228,9 @@
     <script src="${pageContext.request.contextPath}/html/assets/js/helpers/hs.hamburgers.js"></script>
     <script src="${pageContext.request.contextPath}/html/assets/js/components/hs.dropdown.js"></script>
     <script src="${pageContext.request.contextPath}/html/assets/js/components/hs.scrollbar.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/components/hs.select.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/components/hs.counter.js"></script>
     <script src="${pageContext.request.contextPath}/html/assets/js/components/hs.go-to.js"></script>
-    <script src="${pageContext.request.contextPath}/html/assets/js/components/hs.tabs.js"></script>
 
     <!-- JS Customization -->
     <script src="${pageContext.request.contextPath}/html/assets/js/custom.js"></script>
@@ -226,7 +242,7 @@
         $.HSCore.components.HSHeader.init($('#js-header'));
         $.HSCore.helpers.HSHamburgers.init('.hamburger');
 
-        // initialization of HSMegaMenu component
+        // initialization of HSMegaMenu plugin
         $('.js-mega-menu').HSMegaMenu({
           event: 'hover',
           pageContainer: $('.container'),
@@ -246,14 +262,11 @@
         // initialization of go to
         $.HSCore.components.HSGoTo.init('.js-go-to');
 
-        // Tabs
-        $.HSCore.components.HSTabs.init('[role="tablist"]');
-      });
+        // initialization of custom select
+        $.HSCore.components.HSSelect.init('.js-custom-select');
 
-      $(window).on('resize', function () {
-        setTimeout(function () {
-          $.HSCore.components.HSTabs.init('[role="tablist"]');
-        }, 200);
+        // initialization of counters
+        var counters = $.HSCore.components.HSCounter.init('[class*="js-counter"]');
       });
     </script>
   </body>

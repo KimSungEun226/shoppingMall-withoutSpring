@@ -49,4 +49,6 @@ public interface CustomerDAO {
 	 * 연락처 중복체크
 	 * */
 	boolean contactCheck(String id);
+
+	int checkPwd(String id, String pwd);
 }

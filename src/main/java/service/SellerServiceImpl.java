@@ -2,6 +2,8 @@ package service;
 
 import java.sql.SQLException;
 
+import dao.CustomerDAO;
+import dao.CustomerDAOImpl;
 import dao.SellerDAO;
 import dao.SellerDAOImpl;
 import dto.SellerDTO;
@@ -70,6 +72,13 @@ public class SellerServiceImpl implements SellerService {
 	public boolean businessNoCheck(int sellerBusinessNo) throws SQLException {
 		SellerDAO dao = new SellerDAOImpl();
 		boolean result = dao.businessNoCheck(sellerBusinessNo);
+		return result;
+	}
+
+	@Override
+	public int checkPwd(String id, String pwd) throws SQLException {
+		SellerDAO dao = new SellerDAOImpl();
+		int result = dao.checkPwd(id, pwd);
 		return result;
 	}
 

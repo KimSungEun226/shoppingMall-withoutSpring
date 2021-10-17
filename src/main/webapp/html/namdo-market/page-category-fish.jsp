@@ -48,7 +48,7 @@
       
       
       
-      <c:if test="${sessionScope.customerDTO==null && sessionScope.sellerDTO==null}">
+      <c:if test="${sessionScope.customerDTO==null && sessionScope.sellerDTO==null && sessionScope.adminDTO==null}">
         <jsp:include page="common/header.jsp"/>
       </c:if>
 
@@ -59,6 +59,10 @@
       <c:if test="${sessionScope.sellerDTO!=null}">
         <jsp:include page="common/seller-header.jsp"/>
       </c:if>
+      
+      <c:if test="${sessionScope.adminDTO!=null}">
+        <jsp:include page="common/admin-header-main.jsp"/>
+      </c:if>      
 
       <!-- Breadcrumbs -->
       <section class="g-brd-bottom g-brd-gray-light-v4 g-py-30">

@@ -63,39 +63,7 @@
                 
 
                 <!-- Basket -->
-                <li class="list-inline-item">
-                    <a id="account-dropdown-invoker-2" class="g-color-black-opacity-0_6 g-color-primary--hover g-font-size-15 g-font-weight-400 g-text-underline--none--hover" href="#"
-                       aria-controls="account-dropdown-2"
-                       aria-haspopup="true"
-                       aria-expanded="false"
-                       data-dropdown-event="hover"
-                       data-dropdown-target="#account-dropdown-2"
-                       data-dropdown-type="css-animation"
-                       data-dropdown-duration="300"
-                       data-dropdown-hide-on-scroll="false"
-                       data-dropdown-animation-in="fadeIn"
-                       data-dropdown-animation-out="fadeOut">
-                      계정
-                    </a>
-                    <ul id="account-dropdown-2" class="list-unstyled u-shadow-v29 g-pos-abs g-bg-white g-width-160 g-pb-5 g-mt-19 g-z-index-2"
-                        aria-labelledby="account-dropdown-invoker-2">
-                      <li>
-                        <a class="d-block g-color-black g-color-primary--hover g-text-underline--none--hover g-font-weight-400 g-py-5 g-px-20" href="page-login-security-customer.jsp">
-                          내정보
-                        </a>
-                      </li>
-                      <li>
-                        <a class="d-block g-color-black g-color-primary--hover g-text-underline--none--hover g-font-weight-400 g-py-5 g-px-20" href="page-cart.jsp">
-                          장바구니
-                        </a>
-                      </li>
-                      <li>
-                        <a class="d-block g-color-black g-color-primary--hover g-text-underline--none--hover g-font-weight-400 g-py-5 g-px-20" href="#">
-                          주문내역
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
+                
                 <!-- End Basket -->
               </div>
             </div>

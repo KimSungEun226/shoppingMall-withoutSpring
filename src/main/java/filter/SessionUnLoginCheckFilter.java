@@ -15,7 +15,8 @@ import javax.servlet.http.HttpSession;
  * 로그인이 안되어있는데(세션이 존재하는데) 회원정보 관련 페이지 들어갈 경우!
  */
 @WebFilter(value= {"/html/namdo-market/page-cart.jsp","/html/namdo-market/page-cart-empty.jsp",
-		"/html/namdo-market/page-login-security-customer.jsp","/html/namdo-market/page-login-security-seller.jsp"})
+		"/html/namdo-market/page-login-security-customer.jsp","/html/namdo-market/page-login-security-seller.jsp"
+		,"/html/namdo-market/page-set-new-password(login).jsp"})
 public class SessionUnLoginCheckFilter implements Filter {
 
 

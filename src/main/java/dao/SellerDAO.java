@@ -52,5 +52,7 @@ public interface SellerDAO {
 	/**
 	 * 연락처 중복체크
 	 * */
-	boolean businessNoCheck(int businessNo);	
+	boolean businessNoCheck(int businessNo);
+
+	int checkPwd(String id, String pwd);	
 }
