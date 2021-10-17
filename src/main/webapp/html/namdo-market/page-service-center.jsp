@@ -62,7 +62,7 @@
         <div class="container">
           <ul class="u-list-inline">
             <li class="list-inline-item g-mr-5">
-              <a class="u-link-v5 g-color-text" href="#">요거 묵어봤는감?</a>
+              <a class="u-link-v5 g-color-text" href="${pageContext.request.contextPath}/html/namdo-market/home-page.jsp">요거 묵어봤는감?</a>
               <i class="g-color-gray-light-v2 g-ml-5 fa fa-angle-right"></i>
             </li>
             <li class="list-inline-item g-color-primary">
@@ -159,7 +159,7 @@
 		            <!-- Contact Form -->
 		            <form>
 		                <div class="text-center">
-		                  <button class="btn u-btn-primary g-font-size-12 text-uppercase g-py-12 g-px-25" type="submit"><b>글쓰기</b></button>
+		                  <button class="btn u-btn-primary g-font-size-12 text-uppercase g-py-12 g-px-25" type="button" onclick="location.href='${pageContext.request.contextPath}/html/namdo-market/page-notice-insert.jsp'"><b>글쓰기</b></button>
 		                </div>
 		              </form>
 		              <!-- End Contact Form -->
@@ -1026,5 +1026,6 @@
         }, 200);
       });
     </script>
+    
   </body>
 </html>
