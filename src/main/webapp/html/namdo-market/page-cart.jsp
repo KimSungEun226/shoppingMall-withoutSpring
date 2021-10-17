@@ -146,7 +146,9 @@
                           <td class="text-right g-color-black">
                             <span class="g-color-gray-dark-v2 g-font-size-13 mr-4">${itemDto.itemPrice*itemDto.itemQuantity}</span>
                             <span class="g-color-gray-dark-v4 g-color-black--hover g-cursor-pointer">
-                              <i class="mt-auto fa fa-trash"></i>
+                              <a href="${pageContext.request.contextPath}/front?key=cart&methodName=delete&cartNum=${itemDto.cartNo}">
+                                <i class="mt-auto fa fa-trash" ></i>
+					          </a>
                             </span>
                           </td>
                         </tr>

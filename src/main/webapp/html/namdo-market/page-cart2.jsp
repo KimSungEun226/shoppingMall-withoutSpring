@@ -240,11 +240,21 @@
             </div>
             <!-- End Shopping Cart -->
 
+
+
             <!-- Shipping -->
             <div id="step2">
               <div class="row">
                 <div class="col-md-8 g-mb-30">
-                  <div class="row">
+                   <div class="row">
+                   <div class="col-sm-6 g-mb-20"> 
+                   <label class="d-block g-color-gray-dark-v2 g-font-size-15">
+                    <input class="my-2" type ="checkbox" name = "menus" > 주문자 정보와 동일
+                    </label>
+                     
+                     </div>
+                   </div>
+                  <div class="row">  
                     <div class="col-sm-6 g-mb-20">
                       <div class="form-group">
                         <label class="d-block g-color-gray-dark-v2 g-font-size-13">성명</label>
