@@ -5,16 +5,18 @@ public class AnswerDTO {
 	private int answerNo;              //답변 글 번호
 	private int questionNo;            //질문 글 번호
 	private int sellerNo;              //판매자번호
+	private String answerName; 			//답변 제목 
 	private String answerContent;      //답변 내용
 	private String answerDate;         //답변 작성일자
 	
 	public AnswerDTO() {}
 
-	public AnswerDTO(int answerNo, int questionNo, int sellerNo, String answerContent, String answerDate) {
+	public AnswerDTO(int answerNo, int questionNo, int sellerNo, String answerName, String answerContent, String answerDate) {
 		super();
 		this.answerNo = answerNo;
 		this.questionNo = questionNo;
 		this.sellerNo = sellerNo;
+		this.answerName = answerName;
 		this.answerContent = answerContent;
 		this.answerDate = answerDate;
 	}
@@ -41,6 +43,14 @@ public class AnswerDTO {
 
 	public void setSellerNo(int sellerNo) {
 		this.sellerNo = sellerNo;
+	}
+	
+	public String getAnswerName() {
+		return answerName;
+	}
+
+	public void setAnswerName(String answerName) {
+		this.answerName = answerName;
 	}
 
 	public String getAnswerContent() {

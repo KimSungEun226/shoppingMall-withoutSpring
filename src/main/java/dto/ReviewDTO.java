@@ -21,7 +21,12 @@ public class ReviewDTO {
 	}
 	
 	public ReviewDTO(int reviewNo, int itemNo, int customerNo, int reviewGrade, String reviewContent, String reviewDate) {
-		this(reviewNo, itemNo, customerNo, reviewGrade, reviewContent);
+		super();
+		this.reviewNo = reviewNo;
+		this.itemNo = itemNo;
+		this.customerNo = customerNo;
+		this.reviewGrade = reviewGrade;
+		this.reviewContent = reviewContent;
 		this.reviewDate = reviewDate;
 	}
 

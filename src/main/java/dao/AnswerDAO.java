@@ -7,9 +7,16 @@ import dto.AnswerDTO;
 public interface AnswerDAO {
 	/**
 	 * 답변을 생성하는 기능
-	 * @retrun: 0 - 등록실패 , 1 - 등록성공 
+	 * @return: 0 - 등록실패 , 1 - 등록성공 
 	 * */
 	int createAnswer(AnswerDTO answer) throws SQLException;
+	
+	
+	/**
+	 * 답변을 수정하는 기능 
+	 * @return: 0 - 수정실패 , 1 - 수정성공 
+	 * */
+	int updateAnswer(String answerName, String answerContent, int answerNo, int sellerNo) throws SQLException;
 	
 	
 	/**

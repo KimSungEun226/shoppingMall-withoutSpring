@@ -25,7 +25,7 @@ public class CartDAOImpl implements CartDAO {
 	}
 
 	@Override
-	public int addToCart(int customerNo, int itemNo, int cartItemCount) throws SQLException {
+	public int addToCart(CartDTO cartDTO) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps =null;
 		int result = 0;
@@ -33,10 +33,14 @@ public class CartDAOImpl implements CartDAO {
 		try {
 			con = DbUtil.getConnection();
 			ps = con.prepareStatement(sql);
-			ps.setInt(1, customerNo);
-			ps.setInt(2, itemNo);
-			ps.setInt(3, cartItemCount);
-		
+			//insert into cart values (cart_no_seq.nextval, ?, ?, ?)
+			//CUSTOMER_NO NUMBER
+			ps.setInt(1, cartDTO.getCustomerNo());
+			//ITEM_NO NUMBER
+			ps.setInt(2, cartDTO.getItemNo());
+			//CART_ITEM_COUNT NUMBER
+			ps.setInt(3, cartDTO.getCartItemCount());
+			
 			result = ps.executeUpdate();
 		}finally {
 			DbUtil.dbClose(ps, con);
@@ -44,6 +48,26 @@ public class CartDAOImpl implements CartDAO {
 		return result;
 	}
 
+	@Override
+	public int updateCart(int cartItemCount, int cartNo, int customerNo) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps =null;
+		int result = 0;
+		String sql = proFile.getProperty("cart.updateCart");
+		//update cart set cart_item_count= ? where cart_no = ? and customer_no = ?
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, cartItemCount);
+			ps.setInt(2, cartNo);
+			ps.setInt(3, customerNo);
+			result = ps.executeUpdate();
+		}finally {
+			DbUtil.dbClose(ps, con);
+		}
+		return result;
+	}
+	
 	@Override
 	public int deleteFromCart(int cartNo) throws SQLException {
 		Connection con = null;
@@ -53,9 +77,7 @@ public class CartDAOImpl implements CartDAO {
 		try {
 			con = DbUtil.getConnection();
 			ps = con.prepareStatement(sql);
-			//?°ª
 			ps.setInt(1, cartNo);
-
 			result = ps.executeUpdate();
 		}finally {
 			DbUtil.dbClose(ps, con);
@@ -74,7 +96,6 @@ public class CartDAOImpl implements CartDAO {
 		try {
 			con = DbUtil.getConnection();
 			ps = con.prepareStatement(sql);
-			
 			rs = ps.executeQuery();
 			while(rs.next()) {
 				//public CartDTO(int cartNo, int customerNo, int itemNo, int cartItemCount)
