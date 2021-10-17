@@ -47,9 +47,6 @@
 <body>
   <main>
       <!-- Header -->
-      <script type="text/javascript">
-       alert("${sessionScope.adminDTO}");
-      </script>
       <c:if test="${sessionScope.customerDTO==null && sessionScope.sellerDTO==null && sessionScope.adminDTO==null}">
         <jsp:include page="common/header-main.jsp"/>
       </c:if>

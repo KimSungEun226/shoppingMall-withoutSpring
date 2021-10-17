@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -126,102 +127,33 @@
                         </tr>
                       </thead>
 
+
+
                       <tbody>
+                      <c:forEach items="${requestScope.list}" var="itemDto">
                         <!-- Item-->
                         <tr class="g-brd-bottom g-brd-gray-light-v3">
                           <td class="text-left g-py-25">
                             <img class="d-inline-block g-width-100 mr-4" src="assets/img-temp/150x150/img6.jpg" alt="Image Description">
                             <div class="d-inline-block align-middle">
-                              <h4 class="h6 g-color-black">Sneaker</h4>
-                              <ul class="list-unstyled g-color-gray-dark-v4 g-font-size-12 g-line-height-1_6 mb-0">
-                                <li>Color: Black</li>
-                                <li>Size: MD</li>
-                              </ul>
+                              <h4 class="h6 g-color-black">${itemDto.itemName}</h4>
+                              
                             </div>
                           </td>
-                          <td class="g-color-gray-dark-v2 g-font-size-13">$ 87.00</td>
-                          <td>
-                            <div class="js-quantity input-group u-quantity-v1 g-width-80 g-brd-primary--focus">
-                              <input class="js-result form-control text-center g-font-size-13 rounded-0 g-pa-0" type="text" value="1" readonly>
+                          <td class="g-color-gray-dark-v2 g-font-size-13">${itemDto.itemPrice}</td>
+                          <td class="g-color-gray-dark-v2 g-font-size-13">${itemDto.itemQuantity}</td>
 
-                              <div class="input-group-addon d-flex align-items-center g-width-30 g-brd-gray-light-v2 g-bg-white g-font-size-12 rounded-0 g-px-5 g-py-6">
-                                <i class="js-plus g-color-gray g-color-primary--hover fa fa-angle-up"></i>
-                                <i class="js-minus g-color-gray g-color-primary--hover fa fa-angle-down"></i>
-                              </div>
-                            </div>
-                          </td>
                           <td class="text-right g-color-black">
-                            <span class="g-color-gray-dark-v2 g-font-size-13 mr-4">$ 87.00</span>
+                            <span class="g-color-gray-dark-v2 g-font-size-13 mr-4">${itemDto.itemPrice*itemDto.itemQuantity}</span>
                             <span class="g-color-gray-dark-v4 g-color-black--hover g-cursor-pointer">
                               <i class="mt-auto fa fa-trash"></i>
                             </span>
                           </td>
                         </tr>
+                        </c:forEach>
                         <!-- End Item-->
 
-                        <!-- Item-->
-                        <tr class="g-brd-bottom g-brd-gray-light-v3">
-                          <td class="text-left g-py-25">
-                            <img class="d-inline-block g-width-100 mr-4" src="assets/img-temp/150x150/img3.jpg" alt="Image Description">
-                            <div class="d-inline-block align-middle">
-                              <h4 class="h6 g-color-black">Chukka Shoes</h4>
-                              <ul class="list-unstyled g-color-gray-dark-v4 g-font-size-12 g-line-height-1_6 mb-0">
-                                <li>Color: Black</li>
-                                <li>Size: MD</li>
-                              </ul>
-                            </div>
-                          </td>
-                          <td class="g-color-gray-dark-v2 g-font-size-13">$ 160.00</td>
-                          <td>
-                            <div class="js-quantity input-group u-quantity-v1 g-width-80 g-brd-primary--focus">
-                              <input id="qty2" class="js-result form-control text-center g-font-size-13 rounded-0 g-pa-0" type="text" value="2" readonly>
-
-                              <div class="input-group-addon d-flex align-items-center g-width-30 g-brd-gray-light-v2 g-bg-white g-font-size-12 rounded-0 g-px-5 g-py-6">
-                                <i class="js-plus g-color-gray g-color-primary--hover fa fa-angle-up" onclick="upDownAmount('up')"></i>
-                                <i class="js-minus g-color-gray g-color-primary--hover fa fa-angle-down" onclick="upDownAmout('down')"></i>
-                              </div>
-                            </div>
-                          </td>
-                          <td class="text-right g-color-black">
-                            <span class="g-color-gray-dark-v2 g-font-size-13 mr-4">$ 320.00</span>
-                            <span class="g-color-gray-dark-v4 g-color-black--hover g-cursor-pointer">
-                              <i class="mt-auto fa fa-trash"></i>
-                            </span>
-                          </td>
-                        </tr>
-                        <!-- End Item-->
-
-                        <!-- Item-->
-                        <tr>
-                          <td class="text-left g-pt-25">
-                            <img class="d-inline-block g-width-100 mr-4" src="assets/img-temp/150x150/img7.jpg" alt="Image Description">
-                            <div class="d-inline-block align-middle">
-                              <h4 class="h6 g-color-black">Desk Clock</h4>
-                              <ul class="list-unstyled g-color-gray-dark-v4 g-font-size-12 g-line-height-1_6 mb-0">
-                                <li>Color: Brown Wood</li>
-                                <li>Type: Desk</li>
-                              </ul>
-                            </div>
-                          </td>
-                          <td class="g-color-gray-dark-v2 g-font-size-13">$ 47.00</td>
-                          <td>
-                            <div class="js-quantity input-group u-quantity-v1 g-width-80 g-brd-primary--focus">
-                              <input class="js-result form-control text-center g-font-size-13 rounded-0 g-pa-0" type="text" value="1" readonly>
-
-                              <div class="input-group-addon d-flex align-items-center g-width-30 g-brd-gray-light-v2 g-bg-white g-font-size-12 rounded-0 g-px-5 g-py-6">
-                                <i class="js-plus g-color-gray g-color-primary--hover fa fa-angle-up"></i>
-                                <i class="js-minus g-color-gray g-color-primary--hover fa fa-angle-down"></i>
-                              </div>
-                            </div>
-                          </td>
-                          <td class="text-right g-color-black">
-                            <span class="g-color-gray-dark-v2 g-font-size-13 mr-4">$ 47.00</span>
-                            <span class="g-color-gray-dark-v4 g-color-black--hover g-cursor-pointer">
-                              <i class="mt-auto fa fa-trash"></i>
-                            </span>
-                          </td>
-                        </tr>
-                        <!-- End Item -->
+                        
                       </tbody>
                     </table>
                   </div>

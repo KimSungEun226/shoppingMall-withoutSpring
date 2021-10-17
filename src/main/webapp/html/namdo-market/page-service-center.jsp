@@ -48,7 +48,7 @@
   <body>
     <main>
       <!-- Header -->
-      <c:if test="${sessionScope.customerDTO==null && sessionScope.sellerDTO==null}">
+      <c:if test="${sessionScope.customerDTO==null && sessionScope.sellerDTO==null && sessionScope.adminDTO==null}">
         <jsp:include page="common/header.jsp"/>
       </c:if>
 

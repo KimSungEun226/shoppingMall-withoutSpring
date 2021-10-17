@@ -54,9 +54,5 @@ public class BoardController implements Controller {
     	return new ModelAndView("page-notice.jsp");
     }
 	
-	
-	
-	
-	
-	
+		
 }

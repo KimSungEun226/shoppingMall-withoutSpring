@@ -58,7 +58,7 @@
                         </a>
                       </li>
                       <li>
-                        <a class="d-block g-color-black g-color-primary--hover g-text-underline--none--hover g-font-weight-400 g-py-5 g-px-20" href="page-cart.jsp">
+                        <a class="d-block g-color-black g-color-primary--hover g-text-underline--none--hover g-font-weight-400 g-py-5 g-px-20" href="${pageContext.request.contextPath}/front?key=cart&methodName=select">
                           장바구니
                         </a>
                       </li>
@@ -73,7 +73,7 @@
                 <!-- Basket -->
                 <div class="u-basket d-inline-block g-z-index-3">
                   <div class="g-py-10 g-px-6">
-                    <a href="#" id="basket-bar-invoker" class="u-icon-v1 g-color-white-opacity-0_8 g-color-primary--hover g-font-size-17 g-text-underline--none--hover"
+                    <a href="${pageContext.request.contextPath}/front?key=cart&methodName=select" id="basket-bar-invoker" class="u-icon-v1 g-color-white-opacity-0_8 g-color-primary--hover g-font-size-17 g-text-underline--none--hover"
                        aria-controls="basket-bar"
                        aria-haspopup="true"
                        aria-expanded="false"
