@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +15,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/html/favicon.ico">
 
     <!-- Google Fonts -->
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,900">
@@ -34,7 +35,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/malihu-scrollbar/jquery.mCustomScrollbar.min.css">
 
     <!-- CSS Unify Theme -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/namdo-market/assets/css/styles.e-commerce.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/namdo-market/css/styles.e-commerce.css">
 
     <!-- CSS Customization -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/css/custom.css">
@@ -126,11 +127,10 @@
                         </tr>
                       </thead>
 
+
+
                       <tbody>
-                        <!-- Item-->
-                        
-                        
-                        <c:forEach items="${requestScope.list}" var="itemDto">
+                      <c:forEach items="${requestScope.list}" var="itemDto">
                         <!-- Item-->
                         <tr class="g-brd-bottom g-brd-gray-light-v3">
                           <td class="text-left g-py-25">
@@ -146,7 +146,7 @@
                           <td class="text-right g-color-black">
                             <span class="g-color-gray-dark-v2 g-font-size-13 mr-4">${itemDto.itemPrice*itemDto.itemQuantity}</span>
                             <span class="g-color-gray-dark-v4 g-color-black--hover g-cursor-pointer">
-                              <a href="${pageContext.request.contextPath}/front?key=cart&methodName=delete&cartNo=${itemDto.cartNo}">
+                              <a href="${pageContext.request.contextPath}/front?key=cart&methodName=delete&cartNum=${itemDto.cartNo}">
                                 <i class="mt-auto fa fa-trash" ></i>
 					          </a>
                             </span>
@@ -176,6 +176,7 @@
                   </div>
                   <!-- End Summary -->
 
+                  <button class="btn btn-block u-btn-outline-black g-brd-gray-light-v1 g-bg-black--hover g-font-size-13 text-uppercase g-py-15 mb-4" type="button" onClick="window.location.reload()"><b>장바구니 목록 업데이트</b></button>
                   <button class="btn btn-block u-btn-primary g-font-size-13 text-uppercase g-py-15 mb-4" type="button" data-next-step="#step2"><b>주문하기</b></button>
 
                 </div>
@@ -187,14 +188,6 @@
             <div id="step2">
               <div class="row">
                 <div class="col-md-8 g-mb-30">
-                  <div class="row">
-                   <div class="col-sm-6 g-mb-20"> 
-                   <label class="d-block g-color-gray-dark-v2 g-font-size-15">
-                    <input class="my-2" type ="checkbox" name = "menus" > 주문자 정보와 동일
-                    </label>
-                     
-                     </div>
-                   </div>
                   <div class="row">
                     <div class="col-sm-6 g-mb-20">
                       <div class="form-group">
@@ -302,7 +295,7 @@
                           <ul class="list-unstyled mb-3">
                             <!-- Product -->
                             <li class="d-flex justify-content-start">
-                              <img class="g-width-100 g-height-100 mr-3" src="assets/img-temp/150x150/img6.jpg" alt="Image Description">
+                              <img class="g-width-100 g-height-100 mr-3" src="${pageContext.request.contextPath}/html/namdo-market/assets/img-temp/150x150/img6.jpg" alt="Image Description">
                               <div class="d-block">
                                 <h4 class="h6 g-color-black">Sneaker</h4>
                                 <ul class="list-unstyled g-color-gray-dark-v4 g-font-size-12 g-line-height-1_4 mb-1">

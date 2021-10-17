@@ -3,6 +3,8 @@ package service;
 import java.sql.SQLException;
 import java.util.List;
 
+import dao.ItemDAO;
+import dao.ItemDAOImpl;
 import dto.ItemDTO;
 import dto.ReviewDTO;
 
@@ -31,7 +33,15 @@ public class ItemServiceImpl implements ItemService {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+    
+	@Override
+	public ItemDTO selectByNo(int itemNo) throws SQLException {
+		ItemDAO dao = new ItemDAOImpl();
+		ItemDTO result = dao.selectByItemNo(itemNo);
+		
+		return result;
+	}
+	
 	@Override
 	public List<ItemDTO> selectByRegion(int regionNo) throws SQLException {
 		// TODO Auto-generated method stub
@@ -61,5 +71,7 @@ public class ItemServiceImpl implements ItemService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	
 
 }

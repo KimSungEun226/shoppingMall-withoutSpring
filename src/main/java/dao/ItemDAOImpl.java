@@ -25,7 +25,7 @@ public class ItemDAOImpl implements ItemDAO {
 			   
 			   //현 프로젝트 런타임될때 즉 서버에서 실행될때 classes폴더를 동적으로 가져와서 경로를 설정해야한다.
 			
-			  proFile.load(getClass().getClassLoader().getResourceAsStream("itemQuery.Properties"));
+			  proFile.load(getClass().getClassLoader().getResourceAsStream("itemQuery.properties"));
 		}catch(Exception e) {
 			e.printStackTrace();
 		}	
@@ -193,6 +193,32 @@ public class ItemDAOImpl implements ItemDAO {
 		
 	}
 
+	
+	/**
+	 * 해당하는 번호의 레코드 검색
+	 * */
+	@Override
+	public ItemDTO selectByItemNo(int itemNo) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		ItemDTO itemDTO = null;
+		String sql = proFile.getProperty("item.selectByItemNo");
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, itemNo);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				itemDTO = new ItemDTO(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5),
+						rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getString(9), rs.getFloat(10));
+				}
+		}finally {
+			DbUtil.dbClose(rs, ps, con);
+		}
+		return itemDTO;
+	}	
+	
 	/**
 	 * 해당하는 지역에 포함되는 레코드 검색
 	 * 
@@ -210,14 +236,14 @@ public class ItemDAOImpl implements ItemDAO {
 			con = DbUtil.getConnection();
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, regionNo);
-			
+			rs = ps.executeQuery();
 			while(rs.next()) {
 				ItemDTO itemDTO = new ItemDTO(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5),
 						rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getString(9), rs.getFloat(10));
 			itemRegionList.add(itemDTO);
 				}
 		}finally {
-			DbUtil.dbClose(ps, con);
+			DbUtil.dbClose(rs,ps, con);
 		}
 		return itemRegionList;
 	}
@@ -348,5 +374,7 @@ public class ItemDAOImpl implements ItemDAO {
 		
 		return itemNoList;
 	}
+
+
 
 }
