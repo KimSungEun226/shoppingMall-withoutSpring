@@ -20,6 +20,7 @@ public class BoardDTO {
 		this.boardContent = boardContent;
 		this.password = password;
 	}
+    
     public BoardDTO(String boardNo, String boardName, String boardContent, String password) {
     	this(boardName, boardContent, password);
     	this.boardNo = boardNo;

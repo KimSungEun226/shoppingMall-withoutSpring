@@ -42,7 +42,13 @@ public class DispatcherServlet extends HttpServlet {
 		System.out.println(methodName);
 		
 		try {
+			if(key==null || key.equals("")) {
+				key="board";
+			}
 			
+			if(methodName==null || methodName.equals("")) {
+				methodName="select";
+			}
 
 			System.out.println(map);
 			System.out.println(clzMap);
