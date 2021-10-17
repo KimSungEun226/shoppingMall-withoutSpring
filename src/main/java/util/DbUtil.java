@@ -19,11 +19,6 @@ import javax.sql.DataSource;
  * */
 public class DbUtil {
 	static DataSource ds;
-	private static Properties proFile = new Properties();
-	
-	public static Properties getProFile() {
-		return proFile;
-	}
 	
     /**
      * ·Îµå

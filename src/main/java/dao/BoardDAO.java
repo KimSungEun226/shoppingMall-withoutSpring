@@ -6,6 +6,7 @@ import java.util.List;
 import dto.BoardDTO;
 
 public interface BoardDAO {
+
 	/**
 	 * 공지사항 전체 검색
 	 * */

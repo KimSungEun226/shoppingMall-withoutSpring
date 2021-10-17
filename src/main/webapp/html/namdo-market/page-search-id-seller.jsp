@@ -68,7 +68,7 @@
               <i class="g-color-gray-light-v2 g-ml-5 fa fa-angle-right"></i>
             </li>
             <li class="list-inline-item g-color-primary">
-              <span>ID/Password Recovery</span>
+              <span>판매자 ID/Password Recovery</span>
             </li>
           </ul>
         </div>
@@ -82,25 +82,27 @@
           
             <div class="g-brd-around g-brd-gray-light-v3 g-bg-white rounded g-px-30 g-py-50 mb-4">
               <header class="text-center mb-4">
-                <h1 class="h4 g-color-black g-font-weight-400">아이디 찾기</h1>
+                <h1 class="h4 g-color-black g-font-weight-400">판매자 아이디 찾기</h1>
               </header>
 
               <!-- Form -->
-              <form class="g-py-15">
+              <form class="g-py-15" action="${pageContext.request.contextPath}/front">
+               	  <input type="hidden" name="key" value = "seller" /> <!-- Controller를 찾는 정보 -->
+			      <input type="hidden" name="methodName" value = "searchIdSeller" />  <!-- 메소드이름 -->
                 <div class="mb-4">
                   <div class="input-group g-rounded-left-5">
-                    <input class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-rounded-left-0 g-rounded-right-5 g-py-15 g-px-15" type="email" placeholder="이메일주소">
+                    <input name="sellerEmail" class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-rounded-left-0 g-rounded-right-5 g-py-15 g-px-15" type="email" placeholder="이메일주소">
                   </div>
                   
                   <br>
                   
                   <div class="input-group g-rounded-left-5">
-                    <input class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-rounded-left-0 g-rounded-right-5 g-py-15 g-px-15" type="email" placeholder="이름">
+                    <input name="sellerName" class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-rounded-left-0 g-rounded-right-5 g-py-15 g-px-15" type="text" placeholder="이름">
                   </div>
                                     
                 </div>
 
-                <button class="btn btn-block u-btn-primary g-font-size-12 text-uppercase g-py-15 g-px-25" type="button">아이디 찾기</button>
+                <button class="btn btn-block u-btn-primary g-font-size-12 text-uppercase g-py-15 g-px-25" type="submit">아이디 찾기</button>
               </form>
               <!-- End Form -->
             </div>
@@ -116,21 +118,23 @@
               </header>
 
               <!-- Form -->
-              <form class="g-py-15">
+              <form class="g-py-15" action="${pageContext.request.contextPath}/front">
+               	  <input type="hidden" name="key" value = "seller" /> <!-- Controller를 찾는 정보 -->
+			      <input type="hidden" name="methodName" value = "checkIdAndEmail" />  <!-- 메소드이름 -->     
                 <div class="mb-4">
                   <div class="input-group g-rounded-left-5">
-                    <input class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-rounded-left-0 g-rounded-right-5 g-py-15 g-px-15" type="email" placeholder="이메일주소">
+                    <input name="sellerEmail" class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-rounded-left-0 g-rounded-right-5 g-py-15 g-px-15" type="email" placeholder="이메일주소">
                   </div>
                   
                   <br>
                   
                   <div class="input-group g-rounded-left-5">
-                    <input class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-rounded-left-0 g-rounded-right-5 g-py-15 g-px-15" type="email" placeholder="아이디">
+                    <input name="sellerId" class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-rounded-left-0 g-rounded-right-5 g-py-15 g-px-15" type="text" placeholder="아이디">
                   </div>
                                     
                 </div>
 
-                <button class="btn btn-block u-btn-primary g-font-size-12 text-uppercase g-py-15 g-px-25" type="button">비밀번호 찾기</button>
+                <button class="btn btn-block u-btn-primary g-font-size-12 text-uppercase g-py-15 g-px-25" type="submit">비밀번호 찾기</button>
               </form>
               
               <!-- End Form -->

@@ -6,6 +6,7 @@
 
 
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
     <!-- Title -->
@@ -17,12 +18,14 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <!-- Favicon -->
+
     <link rel="shortcut icon" href="${pageContext.request.contextPath}/html/favicon.ico">
 
     <!-- Google Fonts -->
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,900">
 
     <!-- CSS Global Compulsory -->
+
     <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/icon-line/css/simple-line-icons.css">
 
@@ -139,6 +142,7 @@
                     <!-- Card -->
                     <div class="card g-brd-none g-brd-bottom g-brd-gray-light-v3 rounded-0 g-pb-30 g-mb-30">
                       <div id="accordion-12-1-heading-01" class="u-accordion__header g-color-gray-dark-v4 g-font-weight-500 g-font-size-16 g-pa-0" role="tab">
+
                         <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="${path}/front?key=board&methodName=selectByBoardNo&boardNo=${boardDto.boardNo}">
                           <span class="g-color-primary g-font-weight-700 g-font-size-16 g-line-height-1_2">${boardDto.boardNo}.&nbsp;</span>
                           ${boardDto.boardName}
@@ -192,6 +196,7 @@
                           
                           <td class="text-left g-py-25">
                             <a href="page-category.jsp">
+
                               <img class="d-inline-block g-width-100 mr-4" src="${pageContext.request.contextPath}/html/namdo-market/assets/img-temp/150x150/img6.jpg" alt="Image Description">
                             </a>
                             <div class="d-inline-block align-middle">
@@ -214,6 +219,7 @@
                           <td class="g-width-50 g-py-20">&nbsp;&nbsp;2&nbsp;&nbsp;</td>
                           <td class="text-left g-py-25">
                             <a href="page-category.jsp">
+
                               <img class="d-inline-block g-width-100 mr-4" src="${pageContext.request.contextPath}/html/namdo-market/assets/img-temp/150x150/img3.jpg" alt="Image Description">
                             </a>
                             <div class="d-inline-block align-middle">
@@ -232,6 +238,7 @@
                           <td class="g-width-50 g-py-20">&nbsp;&nbsp;3&nbsp;&nbsp;</td>
                           <td class="text-left g-py-25">
                             <a href="page-category.jsp">
+
                               <img class="d-inline-block g-width-100 mr-4" src="${pageContext.request.contextPath}/html/namdo-market/assets/img-temp/150x150/img7.jpg" alt="Image Description">
                             </a>
                             <div class="d-inline-block align-middle">
@@ -968,6 +975,7 @@
     <div class="u-outer-spaces-helper"></div>
 
     <!-- JS Global Compulsory -->
+
     <script src="${pageContext.request.contextPath}/html/assets/vendor/jquery/jquery.min.js"></script>
     <script src="${pageContext.request.contextPath}/html/assets/vendor/jquery-migrate/jquery-migrate.min.js"></script>
     <script src="${pageContext.request.contextPath}/html/assets/vendor/popper.js/popper.min.js"></script>

@@ -18,6 +18,7 @@ public class BoardServiceImpl implements BoardService {
 		return boardDao.selectAll();
 	}
 
+
 	@Override
 	public List<BoardDTO> selectAll(int pageNo) throws SQLException {
 		return boardDao.getBoardList(pageNo);
@@ -36,7 +37,7 @@ public class BoardServiceImpl implements BoardService {
 		
 		return board;
 	}
-
+	
 	@Override
 	public void addBoard(BoardDTO board) throws SQLException {
 		if( boardDao.addBoard(board) == 0 )

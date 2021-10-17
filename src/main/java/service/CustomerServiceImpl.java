@@ -17,4 +17,55 @@ public class CustomerServiceImpl implements CustomerService{
     	return dto;
 	}
 
+	@Override
+	public int signUpCustomer(CustomerDTO customerDTO) throws SQLException {
+		CustomerDAO dao = new CustomerDAOImpl();
+		int result = dao.signUpCustomer(customerDTO);
+		
+		return result;
+	}
+
+
+
+	@Override
+	public String searchIdCustomer(String name, String email) throws SQLException {
+		CustomerDAO dao = new CustomerDAOImpl();
+		String result = dao.searchIdCustomer(name, email);
+		return result;
+	}
+
+	@Override
+	public int checkIdAndEmail(String id, String email) throws SQLException {
+		CustomerDAO dao = new CustomerDAOImpl();
+		int result = dao.checkIdAndEmail(id, email);
+		return result;
+	}
+
+	@Override
+	public int setPwd(String id, String pwd) throws SQLException {
+		CustomerDAO dao = new CustomerDAOImpl();
+		int result = dao.setPwd(id, pwd);
+		return result;
+	}
+
+	@Override
+	public boolean idCheck(String customerId) throws SQLException {
+		CustomerDAO dao = new CustomerDAOImpl();
+		boolean result = dao.idCheck(customerId);
+		return result;
+	}
+	
+	@Override
+	public boolean emailCheck(String customerEmail) throws SQLException {
+		CustomerDAO dao = new CustomerDAOImpl();
+		boolean result = dao.emailCheck(customerEmail);
+		return result;
+	}
+
+	@Override
+	public boolean contactCheck(String customerContact) throws SQLException {
+		CustomerDAO dao = new CustomerDAOImpl();
+		boolean result = dao.contactCheck(customerContact);
+		return result;
+	}
 }

@@ -11,12 +11,12 @@ public interface ReviewDAO {
 	 * 리뷰를 생성하는 기능
 	 * @retrun: 0 - 등록실패 , 1 - 등록성공 
 	 * */
-	int createReview(int itemNo, int customerNo, int reviewGrade, String content) throws SQLException;
+	int createReview(ReviewDTO review) throws SQLException;
 	
 	/**
 	 * 리뷰 수정하기
 	 * */
-	int updateReview(String content, int reviewNo) throws SQLException;
+	int updateReview(String content, int reviewNo, int customerNo) throws SQLException;
 
 	/**
 	 * 리뷰를 삭제하는 기능 (작성자(구매자)만 삭제가능)

@@ -63,11 +63,30 @@
                 
 
                 <!-- Basket -->
-                <div class="u-basket d-inline-block">
-                  <a class="u-icon-v1 g-color-text g-color-black--hover g-color-black--focus g-font-size-16 g-text-underline--none--hover" href="page-cart.jsp">
-                    <i class="d-inline-block icon-hotel-restaurant-105 u-line-icon-pro"></i>
-                  </a>
-                </div>
+                <li class="list-inline-item">
+                    <a id="account-dropdown-invoker-2" class="g-color-black-opacity-0_6 g-color-primary--hover g-font-size-15 g-font-weight-400 g-text-underline--none--hover" href="#"
+                       aria-controls="account-dropdown-2"
+                       aria-haspopup="true"
+                       aria-expanded="false"
+                       data-dropdown-event="hover"
+                       data-dropdown-target="#account-dropdown-2"
+                       data-dropdown-type="css-animation"
+                       data-dropdown-duration="300"
+                       data-dropdown-hide-on-scroll="false"
+                       data-dropdown-animation-in="fadeIn"
+                       data-dropdown-animation-out="fadeOut">
+                      계정
+                    </a>
+                    <ul id="account-dropdown-2" class="list-unstyled u-shadow-v29 g-pos-abs g-bg-white g-width-160 g-pb-5 g-mt-19 g-z-index-2"
+                        aria-labelledby="account-dropdown-invoker-2">
+                      <li>
+                        <a class="d-block g-color-black g-color-primary--hover g-text-underline--none--hover g-font-weight-400 g-py-5 g-px-20" href="Myinfo2.jsp">
+                          내정보
+                        </a>
+                      </li>
+                      
+                    </ul>
+                  </li>
                 <!-- End Basket -->
               </div>
             </div>
@@ -567,7 +586,7 @@
                   <!-- 고객센터 끝 -->
                   
                   <li class="nav-item g-mx-10--lg g-mx-15--xl">
-                    <a class="nav-link text-uppercase g-color-primary--hover g-px-5 g-py-20" href="page-category.jsp"><b>로그아웃</b></a>
+                    <a class="nav-link text-uppercase g-color-primary--hover g-px-5 g-py-20" href="${pageContext.request.contextPath}/front?key=seller&methodName=logout"><b>로그아웃</b></a>
                   </li>
                   
                 </ul>

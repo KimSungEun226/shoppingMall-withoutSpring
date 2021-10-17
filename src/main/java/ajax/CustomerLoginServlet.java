@@ -41,7 +41,6 @@ public class CustomerLoginServlet extends HttpServlet {
 			if(customerDTO!=null) {
 				System.out.println("userID : " + customerDTO.getCustomerId());
 				session.setAttribute("customerDTO", customerDTO);
-				session.setAttribute("kkkk", "kkkk");
 				url = "home-page.jsp";
 			}
 			PrintWriter out = response.getWriter();

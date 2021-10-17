@@ -62,16 +62,7 @@
                           회원가입
                         </a>
                       </li>
-                      <li>
-                        <a class="d-block g-color-black g-color-primary--hover g-text-underline--none--hover g-font-weight-400 g-py-5 g-px-20" href="page-cart.jsp">
-                          장바구니
-                        </a>
-                      </li>
-                      <li>
-                        <a class="d-block g-color-black g-color-primary--hover g-text-underline--none--hover g-font-weight-400 g-py-5 g-px-20" href="#">
-                          주문내역
-                        </a>
-                      </li>
+                      
                     </ul>
                   </li>
                   <!-- End Account -->

@@ -527,6 +527,7 @@
 
 				  <!-- 고객센터 -->
                   <li class="nav-item g-mx-10--lg g-mx-15--xl">
+
                     <a class="nav-link text-uppercase g-color-primary--hover g-px-5 g-py-20" href="${pageContext.request.contextPath}/front"><b>고객센터</b></a>
                   </li>
                   

@@ -44,6 +44,7 @@ public class BoardController implements Controller {
 		return new ModelAndView("html/namdo-market/page-service-center.jsp");
 	}
 	
+
 	/**
 	 * 상세보기
 	 */

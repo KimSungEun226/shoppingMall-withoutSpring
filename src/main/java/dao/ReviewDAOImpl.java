@@ -15,6 +15,7 @@ public class ReviewDAOImpl implements ReviewDAO {
 	Properties proFile = new Properties();
 	
 
+
 	public ReviewDAOImpl() {
 		try {
 			proFile.load(getClass().getClassLoader().getResourceAsStream("cartReviewQuery.properties"));
@@ -23,8 +24,9 @@ public class ReviewDAOImpl implements ReviewDAO {
 		}
 	}
 	
+	
 	@Override
-	public int createReview(int itemNo, int customerNo, int reviewGrade, String content) throws SQLException {
+	public int createReview(ReviewDTO review) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
 		int result = 0;
@@ -32,10 +34,15 @@ public class ReviewDAOImpl implements ReviewDAO {
 		try {
 			con = DbUtil.getConnection();
 			ps = con.prepareStatement(sql);
-			ps.setInt(1, itemNo);
-			ps.setInt(2, customerNo);
-			ps.setInt(3, reviewGrade);
-			ps.setString(4, content);
+			//insert into review values(review_no_seq.nextval, ?, ?, ?, ?, DEFAULT)
+			//ITEM_NO
+			ps.setInt(1, review.getItemNo());
+			//CUSTOMER_NO
+			ps.setInt(2, review.getCustomerNo());
+			//REVIEW_GRADE
+			ps.setInt(3, review.getReviewGrade());
+			//REVIEW_CONTENT
+			ps.setString(4, review.getReviewContent());
 			result = ps.executeUpdate();
 		}
 		catch(SQLException e) {
@@ -66,7 +73,7 @@ public class ReviewDAOImpl implements ReviewDAO {
 	}
 
 	@Override
-	public int updateReview(String content, int reviewNo) throws SQLException {
+	public int updateReview(String content, int reviewNo, int customerNo) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps =null;
 		int result = 0;
@@ -76,6 +83,7 @@ public class ReviewDAOImpl implements ReviewDAO {
 			ps = con.prepareStatement(sql);
 			ps.setString(1, content);
 			ps.setInt(2, reviewNo);
+			ps.setInt(3, customerNo);
 			result = ps.executeUpdate();
 		}finally {
 			DbUtil.dbClose(ps, con);
@@ -96,7 +104,7 @@ public class ReviewDAOImpl implements ReviewDAO {
 			ps.setInt(1, customerNo);
 			rs = ps.executeQuery();
 			while(rs.next()) {
-				ReviewDTO reviewDto = new ReviewDTO(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5));
+				ReviewDTO reviewDto = new ReviewDTO(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5), rs.getString(6));
 				reivewList.add(reviewDto);
 			}
 		} finally {

@@ -173,13 +173,4 @@ public class BoardDAOImpl implements BoardDAO {
 		return result;
 	}
 
-
-	
-
-
-	
-
-
-	
-
 }

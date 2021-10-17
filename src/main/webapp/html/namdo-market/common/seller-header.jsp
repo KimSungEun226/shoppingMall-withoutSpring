@@ -53,42 +53,16 @@
                     <ul id="account-dropdown-2" class="list-unstyled u-shadow-v29 g-pos-abs g-bg-white g-width-160 g-pb-5 g-mt-19 g-z-index-2"
                         aria-labelledby="account-dropdown-invoker-2">
                       <li>
-                        <a class="d-block g-color-black g-color-primary--hover g-text-underline--none--hover g-font-weight-400 g-py-5 g-px-20" href="Myinfo.jsp">
+                        <a class="d-block g-color-black g-color-primary--hover g-text-underline--none--hover g-font-weight-400 g-py-5 g-px-20" href="Myinfo2.jsp">
                           내정보
                         </a>
                       </li>
-                      <li>
-                        <a class="d-block g-color-black g-color-primary--hover g-text-underline--none--hover g-font-weight-400 g-py-5 g-px-20" href="page-cart.html">
-                          장바구니
-                        </a>
-                      </li>
-                      <li>
-                        <a class="d-block g-color-black g-color-primary--hover g-text-underline--none--hover g-font-weight-400 g-py-5 g-px-20" href="page-orders-1.html">
-                          주문내역
-                        </a>
-                      </li>
+                      
                     </ul>
                   </li>
                   <!-- End Account -->
                 <!-- Basket -->
-                <div class="u-basket d-inline-block g-z-index-3">
-                  <div class="g-py-10 g-px-6">
-                    <a href="#" id="basket-bar-invoker" class="u-icon-v1 g-color-white-opacity-0_8 g-color-primary--hover g-font-size-17 g-text-underline--none--hover"
-                       aria-controls="basket-bar"
-                       aria-haspopup="true"
-                       aria-expanded="false"
-                       data-dropdown-event="hover"
-                       data-dropdown-target="#basket-bar"
-                       data-dropdown-type="css-animation"
-                       data-dropdown-duration="300"
-                       data-dropdown-hide-on-scroll="false"
-                       data-dropdown-animation-in="fadeIn"
-                       data-dropdown-animation-out="fadeOut">
-                      <i class="icon-hotel-restaurant-105 u-line-icon-pro"></i>
-                    </a>
-                  </div>
 
-                </div>
                 <!-- End Basket -->
 
                 <!-- Search -->
@@ -359,7 +333,7 @@
                   
                 <li class="nav-item hs-has-sub-menu g-mx-10--lg g-mx-15--xl">
                   <span class="d-block g-font-weight-500 text-uppercase mb-2">
-				   <a class="nav-link text-uppercase g-color-primary--hover g-px-3 g-py-20" href="page-category.jsp"><b>로그아웃</b></a>
+				   <a class="nav-link text-uppercase g-color-primary--hover g-px-3 g-py-20" href="${pageContext.request.contextPath}/front?key=seller&methodName=logout"><b>로그아웃</b></a>
 				  </span>
                 </li>
                   

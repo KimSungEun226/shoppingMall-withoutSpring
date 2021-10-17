@@ -15,7 +15,7 @@ import util.DbUtil;
 public class ItemDAOImpl implements ItemDAO {
 
 	
-	private Properties proFile = DbUtil.getProFile();
+	Properties proFile = new Properties();
 	
 	public ItemDAOImpl() {
 		try {
@@ -166,7 +166,7 @@ public class ItemDAOImpl implements ItemDAO {
 	}
 	
 	/**
-	*입력된 상품 단어를 포함하는 레코드 검색
+	*입력된 상품 단어를 포함하는 레코드 검색!
 	**/
 	@Override
 	public List<ItemDTO> selectByInputItemName(String input) throws SQLException {

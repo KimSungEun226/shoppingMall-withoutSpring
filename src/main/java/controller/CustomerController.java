@@ -49,9 +49,80 @@ public class CustomerController implements Controller{
 		HttpSession session = request.getSession();
 		session.invalidate();
 		
-		return new ModelAndView("home-page.jsp", true);
+		return new ModelAndView("html/namdo-market/home-page.jsp", true);
 	}
-
-
-
+    
+	
+	
+	public ModelAndView signUp(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		CustomerService customerService = new CustomerServiceImpl();
+		String customerId = request.getParameter("customerId");
+		String customerPwd = request.getParameter("customerPwd");
+		String customerName = request.getParameter("customerName");
+		String customerBirth = request.getParameter("customerYear") + "-" + request.getParameter("customerMonth").substring(0, request.getParameter("customerMonth").length()-1) +"-" + request.getParameter("customerDay"); 
+		String customerEmail = request.getParameter("customerEmail");
+		String customerAddr = request.getParameter("customerAddr")+request.getParameter("customerDetailAddr");
+		String customerContact = request.getParameter("customerContact");
+		
+		
+		System.out.println(customerId +" "+ customerPwd +" "+ customerBirth +" "+ customerEmail +" "+ customerAddr +" "+ customerContact);
+		
+		CustomerDTO customerDTO = new CustomerDTO(customerId, customerPwd, customerName, customerBirth, customerEmail, customerAddr, customerContact);
+		int result = customerService.signUpCustomer(customerDTO);
+		
+		if(result ==0) {
+			request.setAttribute("errmsg", "등록실패입니다만");
+			return new ModelAndView("html/namdo-market/error.jsp");
+			}
+		return new ModelAndView("html/namdo-market/signUp/signUpOk.jsp", true);
+	}
+	
+	public ModelAndView searchIdCustomer(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		CustomerService customerService = new CustomerServiceImpl();
+		String name = request.getParameter("customerName");
+		String email = request.getParameter("customerEmail");
+		String result = customerService.searchIdCustomer(name, email);
+		
+		if(result==null) {
+			request.setAttribute("errmsg", "일치하는 정보의 ID가 존재하지 않습니다.");
+			return new ModelAndView("html/namdo-market/error.jsp");
+		}
+		
+		
+		request.setAttribute("searchId", result);
+		request.setAttribute("info", "customer");
+		return new ModelAndView("html/namdo-market/searchId/searchOk.jsp");
+	}	
+	
+	public ModelAndView checkIdAndEmail(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		CustomerService customerService = new CustomerServiceImpl();
+		String id = request.getParameter("customerId");
+		String email = request.getParameter("customerEmail");
+		int result = customerService.checkIdAndEmail(id, email);
+		if(result==0) {
+			request.setAttribute("errmsg", "정보가 일치하지 않습니다.");
+			return new ModelAndView("html/namdo-market/error.jsp");
+		}
+		
+		request.setAttribute("pwdInfo", "customer");
+		request.setAttribute("searchId", id);
+		return new ModelAndView("html/namdo-market/page-set-new-password.jsp");
+	}	
+	
+	public ModelAndView setPwd(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		CustomerService customerService = new CustomerServiceImpl();
+		String id = request.getParameter("id");
+		String pwd = request.getParameter("Pwd");
+		int result = customerService.setPwd(id, pwd);
+		if(result==0) {
+			request.setAttribute("errmsg", "비밀번호 변경 실패");
+			return new ModelAndView("html/namdo-market/error.jsp");
+		}
+		
+//		String pwdInfo = request.getParameter("pwdInfo");
+//		if(pwdInfo.equals("seller"))
+		request.setAttribute("pwdInfo", "customer");
+		return new ModelAndView("html/namdo-market/searchId/pwdChangeOk.jsp");
+	}	
+	
 }

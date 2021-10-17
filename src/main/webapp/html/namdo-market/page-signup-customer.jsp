@@ -52,29 +52,23 @@
     	  var customerDay = document.getElementById("customerDay");
     	  var customerYear = document.getElementById("customerYear");
     	  var customerId = document.getElementById("customerId");
+    	  var customerAddr = document.getElementById("customerAddr");
+    	  var customerDetailAddr = document.getElementById("customerDetailAddr");
+
     	  var idDupleCheck = document.getElementById("dupleCheck");
+    	  var emailDupleCheck = document.getElementById("dupleCheck2");
+    	  var contactDupleCheck = document.getElementById("dupleCheck3");
     	  var customerEmail = document.getElementById("customerEmail");
     	  var customerContact = document.getElementById("customerContact");
     	  var customerPwd = document.getElementById("customerPwd");
     	  var customerPwdCheck = document.getElementById("customerPwdCheck");
-    	  
-    	  /*
-    	  alert(customerName.value);
-    	  alert(customerMonth.val());
-
-    	  alert(customerDay.value);
-    	  alert(customerYear.value);
-    	  
-    	  alert(customerId.value);
-    	  alert(customerEmail.value);
-    	  alert(customerContact.value);
-    	  alert(customerPwd.value);
-    	  alert(customerPwdCheck.value);
-    	  */
+    	  var reg_name = /^[가-힣]+$/; //한글만
+    	  var reg_num = /^[0-9]*$/; // 숫자만 
+    	  var reg_pwd = /^[a-z0-9_-]{6,18}$/; // 단순 6~18자리
     	  
           
-    	  if (customerName.value == "") { //해당 입력값이 없을 경우 같은말: if(!uid.value)
-    	    alert("아이디를 입력하세요.");
+    	  if (customerName.value == "" || !reg_name.test(customerName.value) || customerName.value.length >5 ) { //해당 입력값이 없을 경우 같은말: if(!uid.value)
+    	    alert("이름을 확인하세요.");
     	    customerName.focus(); //focus(): 커서가 깜빡이는 현상, blur(): 커서가 사라지는 현상
     	    return false; //return: 반환하다 return false:  아무것도 반환하지 말아라 아래 코드부터 아무것도 진행하지 말것
     	  };
@@ -84,50 +78,73 @@
     	    return false;
     	  };
     	  
-    	  if (customerDay.value == "") {
+    	  if (customerDay.value == "" || !reg_num.test(customerDay.value) || customerDay.value.valueOf() >=32) {
       	    alert("생년월일을 확인하세요...");
       	    customerDay.focus(); //focus(): 커서가 깜빡이는 현상, blur(): 커서가 사라지는 현상
       	    return false; 
       	  };
       	  
-    	  if (customerYear.value == "") { //해당 입력값이 없을 경우 같은말: if(!uid.value)
+    	  if (customerYear.value == "" || !reg_num.test(customerYear.value) || customerYear.value.length != 4) { //해당 입력값이 없을 경우 같은말: if(!uid.value)
       	    alert("생년월일을 확인하세요....");
       	    customerYear.focus(); //focus(): 커서가 깜빡이는 현상, blur(): 커서가 사라지는 현상
       	    return false; //return: 반환하다 return false:  아무것도 반환하지 말아라 아래 코드부터 아무것도 진행하지 말것
       	  };      	  
       	  
     	  if (customerId.value == "") { //해당 입력값이 없을 경우 같은말: if(!uid.value)
-      	    alert("아이디를 입력하세요.");
+      	    alert("아이디를 확인하세요.");
       	    customerId.focus(); //focus(): 커서가 깜빡이는 현상, blur(): 커서가 사라지는 현상
       	    return false; //return: 반환하다 return false:  아무것도 반환하지 말아라 아래 코드부터 아무것도 진행하지 말것
       	  };
       	  
-      	  if (idDupleCheck.innerText == "중복입니다.") { //해당 입력값이 없을 경우 같은말: if(!uid.value)
-      	    alert("중복된 아이디는 사용할 수 없습니다.");
+      	  if (idDupleCheck.innerText == "사용불가능") { //해당 입력값이 없을 경우 같은말: if(!uid.value)
+      	    alert("아이디를 확인해주세요.");
       	    customerId.focus(); //focus(): 커서가 깜빡이는 현상, blur(): 커서가 사라지는 현상
       	    return false; //return: 반환하다 return false:  아무것도 반환하지 말아라 아래 코드부터 아무것도 진행하지 말것
       	  };
+
+      	  if (customerAddr.value == "") { //해당 입력값이 없을 경우 같은말: if(!uid.value)
+        	    alert("주소를 입력하세요.");
+        	    return false; //return: 반환하다 return false:  아무것도 반환하지 말아라 아래 코드부터 아무것도 진행하지 말것
+          };
+          
+          if (customerDetailAddr.value == "") { //해당 입력값이 없을 경우 같은말: if(!uid.value)
+      	    alert("상세주소를 입력하세요.");
+      	    return false; //return: 반환하다 return false:  아무것도 반환하지 말아라 아래 코드부터 아무것도 진행하지 말것
+      	  };
+
       	  
-      	  if (customerEmail.value == "") { //해당 입력값이 없을 경우 같은말: if(!uid.value)
+      	  if (customerEmail.value == "" ) { //해당 입력값이 없을 경우 같은말: if(!uid.value)
       	    alert("이메일을 입력하세요.");
       	    customerEmail.focus(); //focus(): 커서가 깜빡이는 현상, blur(): 커서가 사라지는 현상
       	    return false; //return: 반환하다 return false:  아무것도 반환하지 말아라 아래 코드부터 아무것도 진행하지 말것
       	  };
       	  
-      	  if (customerContact.value == "") { //해당 입력값이 없을 경우 같은말: if(!uid.value)
-      	    alert("전화번호를 입력하세요.");
+      	  if (emailDupleCheck.innerText == "사용불가능") { //해당 입력값이 없을 경우 같은말: if(!uid.value)
+        	    alert("이메일을 확인하세요.");
+        	    customerEmail.focus(); //focus(): 커서가 깜빡이는 현상, blur(): 커서가 사라지는 현상
+        	    return false; //return: 반환하다 return false:  아무것도 반환하지 말아라 아래 코드부터 아무것도 진행하지 말것
+        	  };      	  
+      	  
+      	  if (customerContact.value == "" ) { //해당 입력값이 없을 경우 같은말: if(!uid.value)
+      	    alert("전화번호를 확인하세요.");
       	    customerContact.focus(); //focus(): 커서가 깜빡이는 현상, blur(): 커서가 사라지는 현상
       	    return false; //return: 반환하다 return false:  아무것도 반환하지 말아라 아래 코드부터 아무것도 진행하지 말것
       	  };
       	  
-      	   if (customerPwd.value == "") { //해당 입력값이 없을 경우 같은말: if(!uid.value)
-      	    alert("비밀번호를 입력하세요.");
+      	  if (contactDupleCheck.innerText == "사용불가능") { //해당 입력값이 없을 경우 같은말: if(!uid.value)
+        	    alert("연락처를 확인하세요.");
+        	    customerContact.focus(); //focus(): 커서가 깜빡이는 현상, blur(): 커서가 사라지는 현상
+        	    return false; //return: 반환하다 return false:  아무것도 반환하지 말아라 아래 코드부터 아무것도 진행하지 말것
+        	  };
+      	  
+      	   if (customerPwd.value == "" || !reg_pwd.test(customerPwd.value)) { //해당 입력값이 없을 경우 같은말: if(!uid.value)
+      	    alert("비밀번호를 확인하세요.");
       	    customerPwd.focus(); //focus(): 커서가 깜빡이는 현상, blur(): 커서가 사라지는 현상
       	    return false; //return: 반환하다 return false:  아무것도 반환하지 말아라 아래 코드부터 아무것도 진행하지 말것
       	  };
       	  
-      	   if (customerPwdCheck.value == "") { //해당 입력값이 없을 경우 같은말: if(!uid.value)
-      	    alert("비밀번호(확인)를 입력하세요.");
+      	   if (customerPwdCheck.value == "" || !reg_pwd.test(customerPwdCheck.value)) { //해당 입력값이 없을 경우 같은말: if(!uid.value)
+      	    alert("비밀번호(확인)를 확인하세요.");
       	    customerPwdCheck.focus(); //focus(): 커서가 깜빡이는 현상, blur(): 커서가 사라지는 현상
       	    return false; //return: 반환하다 return false:  아무것도 반환하지 말아라 아래 코드부터 아무것도 진행하지 말것
       	  };
@@ -160,7 +177,7 @@
     		  url: "../../idCheck",         //서버요청주소
     		   type: "post",                        //method방식(get,post,put,delete)
     		   dataType: "text",                    //서버가 응답해주는 데이터의 type(text, html, xml, json)
-    		   data:{id:$(this).val()} ,       //서버에게 보낼 parameter정보
+    		   data:{id:$(this).val(), info:"customer"} ,       //서버에게 보낼 parameter정보
     		   
     		   success: function(result){    //개수|단어,단어,단어,단어...
     		       //alert(result);
@@ -175,6 +192,60 @@
     		   
     	   });//ajax끝
   	  });
+    	
+    	$("#customerEmail").keyup(function(){
+    		  
+    		  if($(this).val()=="") {
+    			  $("#dupleCheck2").html("");
+    			  return;  //함수를 빠져나가라.
+    		  }
+    		  
+    		  $.ajax({
+      		  url: "../../emailCheck",         //서버요청주소
+      		   type: "post",                        //method방식(get,post,put,delete)
+      		   dataType: "text",                    //서버가 응답해주는 데이터의 type(text, html, xml, json)
+      		   data:{email:$(this).val(), info:"customer"} ,       //서버에게 보낼 parameter정보
+      		   
+      		   success: function(result){    //개수|단어,단어,단어,단어...
+      		       //alert(result);
+      		       //console.log("result : " + result);
+      		       $("#dupleCheck2").html(result);
+      		       
+      		   },//성공했을때 callback함수      
+      		    //실패했을때 함수
+      		   error: function(err){
+      			   alert(err+"발생했어요")
+      		   }
+      		   
+      	   });//ajax끝
+    	  });
+    	
+    	$("#customerContact").keyup(function(){
+    		  
+    		  if($(this).val()=="") {
+    			  $("#dupleCheck3").html("");
+    			  return;  //함수를 빠져나가라.
+    		  }
+    		  
+    		  $.ajax({
+      		  url: "../../contactCheck",         //서버요청주소
+      		   type: "post",                        //method방식(get,post,put,delete)
+      		   dataType: "text",                    //서버가 응답해주는 데이터의 type(text, html, xml, json)
+      		   data:{contact:$(this).val(), info:"customer"} ,       //서버에게 보낼 parameter정보
+      		   
+      		   success: function(result){    //개수|단어,단어,단어,단어...
+      		       //alert(result);
+      		       //console.log("result : " + result);
+      		       $("#dupleCheck3").html(result);
+      		       
+      		   },//성공했을때 callback함수      
+      		    //실패했을때 함수
+      		   error: function(err){
+      			   alert(err+"발생했어요")
+      		   }
+      		   
+      	   });//ajax끝
+    	  });
     })
     
     </script>
@@ -236,7 +307,7 @@
                 
 
                 <div class="row">
-                  <div class="col-sm-6 col-md-12 col-lg-6 g-mb-20">
+                  <div class="col-sm-4 col-md-6 col-lg-4 g-mb-20">
                     <select id="customerMonth" name="customerMonth" class="js-custom-select u-select-v1 h-100 g-brd-gray-light-v3 g-color-gray-dark-v5 rounded g-py-12" style="width: 100%;"
                             data-placeholder="Month"
                             data-open-icon="fa fa-angle-down"
@@ -257,12 +328,12 @@
                     </select>
                   </div>
 
-                  <div class="col g-mb-20">
+                  <div class="col-sm-3 col-md-3 col-lg-3 g-mb-20">
                     <input id="customerDay" name="customerDay" class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 rounded g-py-15 g-px-15" type="text" placeholder="Day">
                   </div>
 
-                  <div class="col g-mb-20">
-                    <input id="customerYear" name="customerYear" class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 rounded g-py-15 g-px-15" type="text" placeholder="Year">
+                  <div class="col g-mb-20 col-sm-5 col-md-5 col-lg-5" >
+                    <input id="customerYear" name="customerYear" class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 rounded g-py-15 g-px-15" type="text" placeholder="Year ex)1996">
                   </div>
                 </div>
                 
@@ -288,16 +359,30 @@
                   <input id="customerDetailAddr" name="customerDetailAddr" class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 rounded g-py-15 g-px-15" type="text" placeholder="상세주소">
                 </div>
                 
-                <div class="g-mb-20">
-                  <input id="customerEmail" name="customerEmail" class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 rounded g-py-15 g-px-15" type="text" placeholder="이메일">
+                
+                
+               <div class="row">
+                  <div class="col-sm-7 col-md-10 col-lg-7 g-mb-20">
+                    <input id="customerEmail" name="customerEmail" class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 rounded g-py-15 g-px-15" type="email" placeholder="이메일">
+                  </div>
+                  
+                  <div id="dupleCheck2"  class="g-mb-20 g-py-15 g-px-5">
+                    
+                  </div>   
+                </div>
+
+               <div class="row">
+                  <div class="col-sm-8 col-md-10 col-lg-8 g-mb-20">
+                    <input id="customerContact" name="customerContact" class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 rounded g-py-15 g-px-15" type="text" placeholder="전화번호(010-0000-0000)">
+                  </div>
+                  
+                  <div id="dupleCheck3"  class="g-mb-20 g-py-15 g-px-5">
+                    
+                  </div>   
                 </div>
 
                 <div class="g-mb-20">
-                  <input id="customerContact" name="customerContact" class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 rounded g-py-15 g-px-15" type="text" placeholder="전화번호">
-                </div>
-
-                <div class="g-mb-20">
-                  <input id="customerPwd" name="customerPwd" class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 rounded g-py-15 g-px-15" type="password" placeholder="비밀번호">
+                  <input id="customerPwd" name="customerPwd" class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 rounded g-py-15 g-px-15" type="password" placeholder="비밀번호(6~18자리)">
                 </div>
 
                 <div class="g-mb-20">
