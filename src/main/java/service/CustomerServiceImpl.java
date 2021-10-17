@@ -68,4 +68,11 @@ public class CustomerServiceImpl implements CustomerService{
 		boolean result = dao.contactCheck(customerContact);
 		return result;
 	}
+
+	@Override
+	public int checkPwd(String id, String pwd) throws SQLException {
+		CustomerDAO dao = new CustomerDAOImpl();
+		int result = dao.checkPwd(id, pwd);
+		return result;
+	}
 }

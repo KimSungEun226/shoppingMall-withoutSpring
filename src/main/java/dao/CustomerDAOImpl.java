@@ -217,6 +217,31 @@ public class CustomerDAOImpl implements CustomerDAO {
 		  }
 		  return result;
 	}
+
+	@Override
+	public int checkPwd(String id, String pwd) {
+		  PreparedStatement ps = null;
+		  ResultSet rs = null;
+		  Connection con = null;
+		  int result=0;
+		  String sql = proFile.getProperty("customer.pwdcheck");
+
+		  try {
+		   con=DbUtil.getConnection();
+		   ps = con.prepareStatement(sql);
+		   ps.setString(1, id);
+		   ps.setString(2, pwd);
+		   rs = ps.executeQuery();
+		   if(rs.next()){
+		    result=1;
+		   }
+		  } catch (SQLException e) {
+		   e.printStackTrace();
+		  }finally {
+		   DbUtil.dbClose(rs, ps, con);
+		  }
+		  return result;
+	}
 	
 	
 	

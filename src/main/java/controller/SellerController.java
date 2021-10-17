@@ -107,7 +107,23 @@ public class SellerController implements Controller{
 		request.setAttribute("pwdInfo", "seller");
 		request.setAttribute("searchId", id);
 		return new ModelAndView("html/namdo-market/page-set-new-password.jsp");
-	}	
+	}
+
+	public ModelAndView checkPwd(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		SellerService sellerService = new SellerServiceImpl();
+		String id = request.getParameter("id");
+		String pwd = request.getParameter("pwd");
+		System.out.println(id + "   asf " + pwd);
+		int result = sellerService.checkPwd(id, pwd);
+		if(result==0) {
+			request.setAttribute("errmsg", "정보가 일치하지 않습니다.");
+			return new ModelAndView("html/namdo-market/error.jsp");
+		}
+		
+		request.setAttribute("pwdInfo", "seller");
+		request.setAttribute("searchId", id);
+		return new ModelAndView("html/namdo-market/page-set-new-password(login).jsp");
+	}
 	
 	public ModelAndView setPwd(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		SellerService sellerService = new SellerServiceImpl();

@@ -61,7 +61,7 @@ public class CustomerController implements Controller{
 		String customerName = request.getParameter("customerName");
 		String customerBirth = request.getParameter("customerYear") + "-" + request.getParameter("customerMonth").substring(0, request.getParameter("customerMonth").length()-1) +"-" + request.getParameter("customerDay"); 
 		String customerEmail = request.getParameter("customerEmail");
-		String customerAddr = request.getParameter("customerAddr")+request.getParameter("customerDetailAddr");
+		String customerAddr = request.getParameter("customerAddr")+" "+request.getParameter("customerDetailAddr");
 		String customerContact = request.getParameter("customerContact");
 		
 		
@@ -109,10 +109,28 @@ public class CustomerController implements Controller{
 		return new ModelAndView("html/namdo-market/page-set-new-password.jsp");
 	}	
 	
+	public ModelAndView checkPwd(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		CustomerService customerService = new CustomerServiceImpl();
+		String id = request.getParameter("id");
+		String pwd = request.getParameter("pwd");
+		System.out.println(id + " " + pwd);
+		int result = customerService.checkPwd(id, pwd);
+		if(result==0) {
+			request.setAttribute("errmsg", "정보가 일치하지 않습니다.");
+			return new ModelAndView("html/namdo-market/error.jsp");
+		}
+		
+		request.setAttribute("pwdInfo", "customer");
+		request.setAttribute("searchId", id);
+		return new ModelAndView("html/namdo-market/page-set-new-password(login).jsp");
+	}
+	
 	public ModelAndView setPwd(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		CustomerService customerService = new CustomerServiceImpl();
 		String id = request.getParameter("id");
 		String pwd = request.getParameter("Pwd");
+		System.out.println(id + " " + pwd);
+
 		int result = customerService.setPwd(id, pwd);
 		if(result==0) {
 			request.setAttribute("errmsg", "비밀번호 변경 실패");

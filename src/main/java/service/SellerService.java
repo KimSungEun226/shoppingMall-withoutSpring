@@ -49,4 +49,6 @@ public interface SellerService {
 	 * businessNo중복체크를 위한 메소드
 	 * */
 	boolean businessNoCheck(int sellerBusinessNo) throws SQLException;
+
+	int checkPwd(String id, String pwd) throws SQLException;
 }

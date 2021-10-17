@@ -47,8 +47,10 @@
 <body>
   <main>
       <!-- Header -->
-      
-      <c:if test="${sessionScope.customerDTO==null && sessionScope.sellerDTO==null}">
+      <script type="text/javascript">
+       alert("${sessionScope.adminDTO}");
+      </script>
+      <c:if test="${sessionScope.customerDTO==null && sessionScope.sellerDTO==null && sessionScope.adminDTO==null}">
         <jsp:include page="common/header-main.jsp"/>
       </c:if>
 
@@ -60,7 +62,9 @@
         <jsp:include page="common/seller-header-main.jsp"/>
       </c:if>
 
-
+      <c:if test="${sessionScope.adminDTO!=null}">
+        <jsp:include page="common/admin-header-main.jsp"/>
+      </c:if>
 
       <!-- Revolution Slider -->
       <div class="g-overflow-hidden">
