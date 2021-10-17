@@ -531,41 +531,6 @@
                     <a class="nav-link text-uppercase g-color-primary--hover g-px-5 g-py-20" href="${pageContext.request.contextPath}/front"><b>고객센터</b></a>
                   </li>
                   
-                  <!-- 고객센터 -->
-                  <li class="nav-item hs-has-sub-menu g-mx-10--lg g-mx-15--xl">
-                    <a id="nav-link--home" class="nav-link text-uppercase g-color-primary--hover g-px-5 g-py-20" href="page-service-center.jsp"
-                       aria-haspopup="true"
-                       aria-expanded="false"
-                       aria-controls="nav-submenu--home">
-                      <b>고객센터</b>
-                    </a>
-
-                    <!-- Submenu -->
-                    <ul id="nav-submenu--home" class="hs-sub-menu list-unstyled u-shadow-v11 g-min-width-220 g-brd-top g-brd-primary g-brd-top-2 g-mt-7"
-                        aria-labelledby="nav-link--home">
-                      <li class="dropdown-item">
-                        <a class="nav-link g-color-gray-dark-v1" href="page-service-center.jsp">공지사항</a>
-                      </li>
-                      <li class="dropdown-item">
-                        <a class="nav-link g-color-gray-dark-v1" href="page-service-center.jsp#nav-5-3-primary-ver--2">상품 Q&amp;A</a>
-                      </li>
-                      <li class="dropdown-item">
-                        <a class="nav-link g-color-gray-dark-v1" href="home-page.jsp">배송문의</a>
-                      </li>
-                      <li class="dropdown-item">
-                        <a class="nav-link g-color-gray-dark-v1" href="home-page.jsp">사용후기</a>
-                      </li>
-                      <li class="dropdown-item">
-                        <a class="nav-link g-color-gray-dark-v1" href="home-page.jsp">입점문의</a>
-                      </li>
-                      <li class="dropdown-item">
-                        <a class="nav-link g-color-gray-dark-v1" href="home-page.jsp">이벤트</a>
-                      </li>
-                      
-                    </ul>
-                    <!-- End Submenu -->
-                  </li>
-                  <!-- 고객센터 끝 -->
                   
                 </ul>
               </div>

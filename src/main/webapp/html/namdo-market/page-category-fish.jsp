@@ -86,7 +86,7 @@
         <div class="row align-items-center g-pt-40 g-pb-10 g-brd-y g-brd-gray-light-v4 ">
           <!-- Category -->
           <div class="col-md-12 col-lg-10 g-mb-30">
-            <h3 class="h6 mb-3">지역선택:</h3>
+            <h3 class="h6 mb-3">카테고리 선택:</h3>
 
             <div>
               

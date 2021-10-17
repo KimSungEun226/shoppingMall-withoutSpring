@@ -26,10 +26,14 @@ public interface BoardService {
 	 * */
     void addBoard(BoardDTO board) throws SQLException;
 	
+    /**
+	 * BoardImpl의 공지사항을 삭제하는 메소드 호출
+	 * */
+	void updateBoard(BoardDTO board) throws SQLException;
 	
 	/**
 	 * BoardImpl의 공지사항을 삭제하는 메소드 호출
 	 * */
-	void deleteBoard(int boardNo, int managerNo) throws SQLException;
+	void deleteBoard(String boardNo, String password, String path) throws SQLException;
 	
 }
