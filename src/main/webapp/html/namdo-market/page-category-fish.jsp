@@ -194,7 +194,7 @@
 	                    <b>${itemDto.itemName}</b>
 	                  </a>
 	                </h4>
-	                <a id="categoryNo" class="d-inline-block g-color-gray-dark-v5 g-font-size-13" href="#">${itemDto.categoryNo}</a>
+	                <a id="category" class="d-inline-block g-color-gray-dark-v5 g-font-size-13" href="javascript:changeCategoryNoToName();" data-value="${itemDto.categoryNo}" >${itemDto.categoryNo}</a>
 	                <span class="d-block g-color-black g-font-size-17">
 	                <fmt:formatNumber value="${itemDto.itemPrice}"/>원
 	                </span>
@@ -368,7 +368,18 @@
       
     </script>
     <script type="text/javascript">
-      alert(document.getElementById("categoryNo").value);
+      function changeCategoryNoToName(){
+    	  alert(1);
+    	  /* let dom = document.getElementById("category");
+          //alert(dom.getAttribute('data-value'));
+          switch(dom.getAttribute('data-value')){
+          case '1':
+        	  dom.innerHTML = "생선";
+        	  break;
+          } */
+      }
+      
+      
     </script>
   </body>
 </html>
