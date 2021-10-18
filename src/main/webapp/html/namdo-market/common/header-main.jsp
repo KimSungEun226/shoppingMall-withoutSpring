@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -57,8 +59,9 @@
               <div class="col-6 col-sm-auto order-sm-3 g-py-5 g-pr-0 g-py-20--sm">
                 <!-- Login -->
                 <div class="d-inline-block">
-                  <a class="u-icon-v1 g-color-text g-color-black--hover g-color-black--focus g-font-size-16 g-text-underline--none--hover" href="page-login-customer.jsp">
-                    <i class="icon-finance-067 u-line-icon-pro"></i>
+                  <i class="text-right u-icon-v1 g-color-text g-color-black--hover g-color-black--focus g-font-size-15 g-text-underline--none--hover icon-finance-067 u-line-icon-pro"></i>
+                  <a id="account-dropdown-invoker-2" class="g-color-black-opacity-0_6 g-color-primary--hover g-font-size-15 g-font-weight-400 g-text-underline--none--hover" href="page-login-customer.jsp">
+                  로그인
                   </a>
                 </div>
                 <!-- End Login -->
@@ -416,10 +419,10 @@
                     <!-- End Mega Menu -->
                   </li>
                   <!-- 지역별 특산품 끝 -->
-                  
+
                   <!-- 생선 -->
                   <li class="nav-item hs-has-sub-menu g-mx-10--lg g-mx-15--xl">
-                    <a id="nav-link--home" class="nav-link text-uppercase g-color-primary--hover g-px-5 g-py-20" href="page-category-fish.jsp"
+                    <a id="nav-link--home" class="nav-link text-uppercase g-color-primary--hover g-px-5 g-py-20" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByCategoryNo&categoryNo=1"
                        aria-haspopup="true"
                        aria-expanded="false"
                        aria-controls="nav-submenu--home">
@@ -525,13 +528,12 @@
                     <a class="nav-link text-uppercase g-color-primary--hover g-px-5 g-py-20" href="page-category.jsp"><b>수산물 기타</b></a>
                   </li>
 
-				  <!-- 고객센터 -->
+                  <!-- 고객센터 -->
                   <li class="nav-item g-mx-10--lg g-mx-15--xl">
 
                     <a class="nav-link text-uppercase g-color-primary--hover g-px-5 g-py-20" href="${pageContext.request.contextPath}/front"><b>고객센터</b></a>
                   </li>
-                  
-                  
+
                 </ul>
               </div>
               <!-- End Navigation -->

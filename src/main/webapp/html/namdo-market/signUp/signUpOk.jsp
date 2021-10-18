@@ -8,8 +8,8 @@
 <style>
 </style>
 <script type="text/javascript">
-  alert("등록완료")
-  location.href="../home-page.jsp";
+  alert("회원가입이 완료되었습니다.")
+  location.href="../page-login-customer.jsp";
 </script>
 </head>
 <body>

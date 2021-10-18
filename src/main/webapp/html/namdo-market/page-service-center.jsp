@@ -61,7 +61,7 @@
       </c:if>
 
       <c:if test="${sessionScope.adminDTO!=null}">
-        <jsp:include page="common/admin-header-main.jsp"/>
+        <jsp:include page="common/admin-header.jsp"/>
       </c:if>
 
       <!-- Breadcrumbs -->
@@ -162,17 +162,20 @@
 				</c:otherwise>
 				</c:choose>
 				
-                
+				<c:if test="${sessionScope.adminDTO!=null}">
                 <div class="col-md-8 g-mb-30">
-		            <!-- Contact Form -->
-		            <form>
-		                <div class="text-center">
-		                  <button class="btn u-btn-primary g-font-size-12 text-uppercase g-py-12 g-px-25" type="button" onclick="location.href='${pageContext.request.contextPath}/html/namdo-market/page-notice-insert.jsp'"><b>글쓰기</b></button>
-		                </div>
-		              </form>
-		              <!-- End Contact Form -->
+                
+		          <!-- Contact Form -->
+		          <form>
+		            <div class="text-center">
+		              <button class="btn u-btn-primary g-font-size-12 text-uppercase g-py-12 g-px-25" type="button" onclick="location.href='${pageContext.request.contextPath}/html/namdo-market/page-notice-insert.jsp'"><b>글쓰기</b></button>
 		            </div>
-              </div>
+		          </form>
+		         <!-- End Contact Form -->
+		         </div>
+		         </c:if>
+               </div>
+              
 
               <div class="tab-pane fade" id="nav-5-3-primary-ver--2" role="tabpanel">
                 <h3 class="h5 g-color-gray-dark-v2 g-mb-30"><b>상품 Q&amp;A</b></h3>

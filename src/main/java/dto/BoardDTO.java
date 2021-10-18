@@ -26,6 +26,7 @@ public class BoardDTO {
     	this.boardNo = boardNo;
 		
 	}
+    
 	public BoardDTO(String boardNo, String boardName, String boardContent, String boardDate, int boardViews,
 			String password, String fname, int fsize) {
 		this(boardName, boardContent, password);

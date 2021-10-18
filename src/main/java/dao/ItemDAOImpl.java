@@ -18,6 +18,7 @@ public class ItemDAOImpl implements ItemDAO {
 	Properties proFile = new Properties();
 	
 	public ItemDAOImpl() {
+
 //		try {
 //			
 //			 //proFile에 외부 ~.properites 파일을 로딩한다.
@@ -29,6 +30,7 @@ public class ItemDAOImpl implements ItemDAO {
 //		}catch(Exception e) {
 //			e.printStackTrace();
 //		}	
+
 	}
 	
 	/**
@@ -148,9 +150,12 @@ public class ItemDAOImpl implements ItemDAO {
 		PreparedStatement ps =null;
 		ResultSet rs= null;
 		List<ItemDTO> categoryList = new ArrayList<ItemDTO>();
-		String sql = proFile.getProperty("item.selectByCategoryNo"); 
+		System.out.println(categoryNo);
+		String sql = "select * from item where category_No = ?";
+		System.out.println(sql);
 		try {
 			con = DbUtil.getConnection();
+			
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, categoryNo);
 			rs = ps.executeQuery();
@@ -162,6 +167,7 @@ public class ItemDAOImpl implements ItemDAO {
 		} finally {
 			DbUtil.dbClose(rs, ps,con);
 		}
+		
 		return categoryList;
 	}
 	

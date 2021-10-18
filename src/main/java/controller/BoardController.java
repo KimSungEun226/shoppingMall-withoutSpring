@@ -55,7 +55,7 @@ public class BoardController implements Controller {
     	System.out.println(board);
     	request.setAttribute("board", board);
     	
-    	return new ModelAndView("html/namdo-market/page-notice.jsp");
+    	return new ModelAndView("html/namdo-market/page-notice-select.jsp");
     }
 	
 
@@ -103,7 +103,7 @@ public class BoardController implements Controller {
     	BoardDTO board = boardService.selectByBoardNo(boardNo,false);//boolean 형은 조회수 증가여부를 판단하는 값(true일때 조회수증가한다.)
     	request.setAttribute("board", board);
     	
-    	return new ModelAndView("html/namdo-market/page-notice-update.jsp");
+    	return new ModelAndView("html/namdo-market/page-notice-select.jsp");
     }
 	
     /**
@@ -125,7 +125,7 @@ public class BoardController implements Controller {
 		BoardDTO dbBoard = boardService.selectByBoardNo(boardNo, false);
 		
     	request.setAttribute("board", dbBoard);
-    	return new ModelAndView("html/namdo-market/page-notice.jsp");
+    	return new ModelAndView("html/namdo-market/page-notice-select.jsp");
     }
     
     /**
