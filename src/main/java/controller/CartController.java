@@ -38,10 +38,13 @@ public class CartController implements Controller {
 		
 		int customerNo = dto.getCustomerNo();
 		List<CartDTO> cartList = cartService.selectCartByCustomerNo(customerNo);
+		
 		if(cartList ==null || cartList.size() == 0) return new ModelAndView("html/namdo-market/page-cart-empty.jsp");
 		ItemService itemService = new ItemServiceImpl();
 		List<CartViewDTO> cartViewList = new ArrayList<CartViewDTO>();
 		
+		//카트 번호, 회원 번호, 상품 번호, 상품 갯수
+		//필요한거 : 상품 이름, 상품 가격
 		for(CartDTO cart: cartList) {
 			//아이템 번호를 입력으로 받으면 DTO리턴하는 메소드 
 			ItemDTO item = itemService.selectByNo(cart.getItemNo());

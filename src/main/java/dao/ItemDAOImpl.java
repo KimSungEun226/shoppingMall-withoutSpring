@@ -154,7 +154,7 @@ public class ItemDAOImpl implements ItemDAO {
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, categoryNo);
 			rs = ps.executeQuery();
-			if(rs.next()) {
+			while(rs.next()) {
 				ItemDTO itemDTO = new ItemDTO(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5),
  						rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getString(9), rs.getFloat(10));
 				categoryList.add(itemDTO);

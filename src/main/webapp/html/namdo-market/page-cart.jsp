@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -38,6 +38,26 @@
 
     <!-- CSS Customization -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/css/custom.css">
+    
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+       $(function(){
+    	 if($("input:checkbox[id='checkSame']").is(":checked") == true) alert("123");
+    	 
+    	 $("#checkSame").click(function(){
+    		 if($("input:checkbox[id='checkSame']").is(":checked") == true) {
+    			 
+    		 }
+    		 else{
+    			 alert("체크x")
+    		 } 
+    	 })
+    	 
+    	 
+    	 
+    	 });
+    </script>
+    
   </head>
 
   <body>
@@ -129,7 +149,7 @@
                       <tbody>
                         <!-- Item-->
                         
-                        
+                        <c:set var="amount" value="${0}"/>
                         <c:forEach items="${requestScope.list}" var="itemDto">
                         <!-- Item-->
                         <tr class="g-brd-bottom g-brd-gray-light-v3">
@@ -140,11 +160,17 @@
                               
                             </div>
                           </td>
-                          <td class="g-color-gray-dark-v2 g-font-size-13">${itemDto.itemPrice}</td>
+                          <td class="g-color-gray-dark-v2 g-font-size-13">
+                                 <fmt:formatNumber value="${itemDto.itemPrice}"/>원
+                          </td>
                           <td class="g-color-gray-dark-v2 g-font-size-13">${itemDto.itemQuantity}</td>
 
                           <td class="text-right g-color-black">
-                            <span class="g-color-gray-dark-v2 g-font-size-13 mr-4">${itemDto.itemPrice*itemDto.itemQuantity}</span>
+                            <span class="g-color-gray-dark-v2 g-font-size-13 mr-4">
+                            <fmt:formatNumber value="${itemDto.itemPrice*itemDto.itemQuantity}"/>원
+                  
+                            </span>
+                            <c:set var="amount" value="${amount+itemDto.itemPrice*itemDto.itemQuantity}"/>
                             <span class="g-color-gray-dark-v4 g-color-black--hover g-cursor-pointer">
                               <a href="${pageContext.request.contextPath}/front?key=cart&methodName=delete&cartNo=${itemDto.cartNo}">
                                 <i class="mt-auto fa fa-trash" ></i>
@@ -171,7 +197,9 @@
                     
                     <div class="d-flex justify-content-between mb-2">
                       <span class="g-color-black">총 금액 : </span>
-                      <span class="g-color-black g-font-weight-300">$454.00</span>
+                      <span class="g-color-black g-font-weight-300">
+                      <fmt:formatNumber value="${amount}"/>원
+                      </span>
                     </div>
                   </div>
                   <!-- End Summary -->
@@ -190,7 +218,7 @@
                   <div class="row">
                    <div class="col-sm-6 g-mb-20"> 
                    <label class="d-block g-color-gray-dark-v2 g-font-size-15">
-                    <input class="my-2" type ="checkbox" name = "menus" > 주문자 정보와 동일
+                    <input type ="checkbox" id="checkSame" > 주문자 정보와 동일
                     </label>
                      
                      </div>
@@ -199,14 +227,14 @@
                     <div class="col-sm-6 g-mb-20">
                       <div class="form-group">
                         <label class="d-block g-color-gray-dark-v2 g-font-size-13">성명</label>
-                        <input id="inputGroup4" class="form-control u-form-control g-placeholder-gray-light-v1 rounded-0 g-py-15" name="name" type="text" required data-msg="성명을 입력하세요" data-error-class="u-has-error-v1" data-success-class="u-has-success-v1">
+                        <input id="nameInput" class="form-control u-form-control g-placeholder-gray-light-v1 rounded-0 g-py-15" name="name" type="text" required data-msg="성명을 입력하세요" data-error-class="u-has-error-v1" data-success-class="u-has-success-v1">
                       </div>
                     </div>
 
                     <div class="col-sm-6 g-mb-20">
                       <div class="form-group">
                         <label class="d-block g-color-gray-dark-v2 g-font-size-13">이메일</label>
-                        <input id="inputGroup5" class="form-control u-form-control g-placeholder-gray-light-v1 rounded-0 g-py-15" name="email" type="email" placeholder="email@gmail.com" required data-msg="이메일을 입력하세요" data-error-class="u-has-error-v1" data-success-class="u-has-success-v1">
+                        <input id="emailInput" class="form-control u-form-control g-placeholder-gray-light-v1 rounded-0 g-py-15" name="email" type="email" placeholder="email@gmail.com" required data-msg="이메일을 입력하세요" data-error-class="u-has-error-v1" data-success-class="u-has-success-v1">
                       </div>
                     </div>
                   </div>
@@ -215,7 +243,7 @@
                     <div class="col-sm-6 g-mb-20">
                       <div class="form-group">
                         <label class="d-block g-color-gray-dark-v2 g-font-size-13">주소</label>
-                        <input id="inputGroup6" class="form-control u-form-control g-placeholder-gray-light-v1 rounded-0 g-py-15" name="zip" type="text" placeholder="ex)서울시 강남구" onclick="findAddr()" required data-msg="주소를 입력하세요" data-error-class="u-has-error-v1" data-success-class="u-has-success-v1">
+                        <input id="addrInput" class="form-control u-form-control g-placeholder-gray-light-v1 rounded-0 g-py-15" name="zip" type="text" placeholder="ex)서울시 강남구" onclick="findAddr()" required data-msg="주소를 입력하세요" data-error-class="u-has-error-v1" data-success-class="u-has-success-v1">
                       </div>
                     </div>
 
@@ -241,7 +269,7 @@
                     <div class="col-sm-6 g-mb-20">
                       <div class="form-group">
                         <label class="d-block g-color-gray-dark-v2 g-font-size-13">전화번호</label>
-                        <input id="inputGroup10" class="form-control u-form-control g-placeholder-gray-light-v1 rounded-0 g-py-15" name="phoneNumber" type="text" placeholder="+82-10-1234-5678" required data-msg="전화번호를 입력하세요" data-error-class="u-has-error-v1" data-success-class="u-has-success-v1">
+                        <input id="contactInput" class="form-control u-form-control g-placeholder-gray-light-v1 rounded-0 g-py-15" name="phoneNumber" type="text" placeholder="+82-10-1234-5678" required data-msg="전화번호를 입력하세요" data-error-class="u-has-error-v1" data-success-class="u-has-success-v1">
                       </div>
                     </div>
                   </div>
