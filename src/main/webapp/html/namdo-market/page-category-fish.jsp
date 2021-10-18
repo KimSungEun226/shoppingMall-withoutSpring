@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,32 +15,32 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/html/favicon.ico">
 
     <!-- Google Fonts -->
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,900">
 
     <!-- CSS Global Compulsory -->
-    <link rel="stylesheet" href="../assets/vendor/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="../assets/vendor/icon-line/css/simple-line-icons.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/icon-line/css/simple-line-icons.css">
 
     <!-- CSS Implementing Plugins -->
-    <link rel="stylesheet" href="../assets/vendor/icon-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../assets/vendor/icon-line-pro/style.css">
-    <link rel="stylesheet" href="../assets/vendor/icon-hs/style.css">
-    <link rel="stylesheet" href="../assets/vendor/dzsparallaxer/dzsparallaxer.css">
-    <link rel="stylesheet" href="../assets/vendor/dzsparallaxer/dzsscroller/scroller.css">
-    <link rel="stylesheet" href="../assets/vendor/dzsparallaxer/advancedscroller/plugin.css">
-    <link rel="stylesheet" href="../assets/vendor/animate.css">
-    <link rel="stylesheet" href="../assets/vendor/hamburgers/hamburgers.min.css">
-    <link rel="stylesheet" href="../assets/vendor/hs-megamenu/src/hs.megamenu.css">
-    <link rel="stylesheet" href="../assets/vendor/malihu-scrollbar/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/icon-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/icon-line-pro/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/icon-hs/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/dzsparallaxer/dzsparallaxer.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/dzsparallaxer/dzsscroller/scroller.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/dzsparallaxer/advancedscroller/plugin.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/animate.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/hamburgers/hamburgers.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/hs-megamenu/src/hs.megamenu.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/malihu-scrollbar/jquery.mCustomScrollbar.min.css">
 
     <!-- CSS Unify Theme -->
-    <link rel="stylesheet" href="assets/css/styles.e-commerce.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/namdo-market/assets/css/styles.e-commerce.css">
 
     <!-- CSS Customization -->
-    <link rel="stylesheet" href="../assets/css/custom.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/css/custom.css">
   </head>
 
   <body>
@@ -152,7 +153,7 @@
       <!-- Products -->
       <div class="container">
         <!-- Banner -->
-        <div class="g-bg-size-cover g-bg-pos-center g-py-40 g-mt-50" style="background-image: url(assets/img-temp/900x450/sub1_900_450.png);">
+        <div class="g-bg-size-cover g-bg-pos-center g-py-40 g-mt-50" style="background-image: url(${pageContext.request.contextPath}/html/namdo-market/assets/img-temp/900x450/sub1_900_450.png);">
           <div class="g-pos-rel g-z-index-1 g-pa-50">
             <span class="d-block g-color-primary g-font-weight-700 g-font-size-40 mb-0">-40%</span>
             <h2 class="g-color-white g-font-size-50 mb-3">가을 수산물 대축제</h2>
@@ -160,364 +161,76 @@
           </div>
         </div>
         <!-- End Banner -->
-
-        <!-- Products -->
+		<!-- Products -->
         <div class="row g-pt-30 g-mb-50">
-          <div class="col-6 col-lg-3 g-mb-30">
-            <!-- Product -->
-            <figure class="g-pos-rel g-mb-20">
-              <img class="img-fluid" src="assets/img-temp/480x700/main_480_700.png" alt="Image Description">
-              <span class="u-ribbon-v1 g-width-40 g-height-40 g-color-white g-bg-primary g-font-size-13 text-center text-uppercase g-rounded-50x g-top-20 g-right-minus-10 g-px-2 g-py-10">New</span>
-
-            </figure>
-
-            <div class="media">
-              <!-- Product Info -->
-              <div class="d-flex flex-column">
-                <h4 class="h6 g-color-black mb-1">
-                  <a class="u-link-v5 g-color-black g-color-primary--hover" href="#">
-                    Summer shorts
-                  </a>
-                </h4>
-                <a class="d-inline-block g-color-gray-dark-v5 g-font-size-13" href="#">Man</a>
-                <span class="d-block g-color-black g-font-size-17">$52.00</span>
-              </div>
-              <!-- End Product Info -->
-
-              <!-- Products Icons -->
-              <ul class="list-inline media-body text-right">
-                <li class="list-inline-item align-middle mx-0">
-                  <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-color-primary--hover g-font-size-15 rounded-circle" href="#"
-                     data-toggle="tooltip"
-                     data-placement="top"
-                     title="Add to Cart">
-                    <i class="icon-finance-100 u-line-icon-pro"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item align-middle mx-0">
-                  <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-color-primary--hover g-font-size-15 rounded-circle" href="#"
-                     data-toggle="tooltip"
-                     data-placement="top"
-                     title="Add to Wishlist">
-                    <i class="icon-medical-022 u-line-icon-pro"></i>
-                  </a>
-                </li>
-              </ul>
-              <!-- End Products Icons -->
-            </div>
-            <!-- End Product -->
-          </div>
-
-          <div class="col-6 col-lg-3 g-mb-30">
-            <!-- Product -->
-            <figure class="g-pos-rel g-mb-20">
-              <img class="img-fluid" src="assets/img-temp/480x700/main_480_700_2.png" alt="Image Description">
-
-              <span class="u-ribbon-v1 g-width-40 g-height-40 g-color-white g-bg-primary g-font-size-13 text-center text-uppercase g-rounded-50x g-top-20 g-right-minus-10 g-px-2 g-py-10">New</span>
-            </figure>
-
-            <div class="media">
-              <!-- Product Info -->
-              <div class="d-flex flex-column">
-                <h4 class="h6 g-color-black mb-1">
-                  <a class="u-link-v5 g-color-black g-color-primary--hover" href="#">
-                    Stylish shirt
-                  </a>
-                </h4>
-                <a class="d-inline-block g-color-gray-dark-v5 g-font-size-13" href="#">Woman</a>
-                <span class="d-block g-color-black g-font-size-17">$99.00</span>
-              </div>
-              <!-- End Product Info -->
-
-              <!-- Products Icons -->
-              <ul class="list-inline media-body text-right">
-                <li class="list-inline-item align-middle mx-0">
-                  <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-color-primary--hover g-font-size-15 rounded-circle" href="#"
-                     data-toggle="tooltip"
-                     data-placement="top"
-                     title="Add to Cart">
-                    <i class="icon-finance-100 u-line-icon-pro"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item align-middle mx-0">
-                  <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-color-primary--hover g-font-size-15 rounded-circle" href="#"
-                     data-toggle="tooltip"
-                     data-placement="top"
-                     title="Add to Wishlist">
-                    <i class="icon-medical-022 u-line-icon-pro"></i>
-                  </a>
-                </li>
-              </ul>
-              <!-- End Products Icons -->
-            </div>
-            <!-- End Product -->
-          </div>
-
-          <div class="col-6 col-lg-3 g-mb-30">
-            <!-- Product -->
-            <figure class="g-pos-rel g-mb-20">
-              <img class="img-fluid" src="assets/img-temp/480x700/main_480_700_3.png" alt="Image Description">
-
-            </figure>
-
-            <div class="media">
-              <!-- Product Info -->
-              <div class="d-flex flex-column">
-                <h4 class="h6 g-color-black mb-1">
-                  <a class="u-link-v5 g-color-black g-color-primary--hover" href="#">
-                    Classic jacket
-                  </a>
-                </h4>
-                <a class="d-inline-block g-color-gray-dark-v5 g-font-size-13" href="#">Man</a>
-                <span class="d-block g-color-black g-font-size-17">$49.99</span>
-              </div>
-              <!-- End Product Info -->
-
-              <!-- Products Icons -->
-              <ul class="list-inline media-body text-right">
-                <li class="list-inline-item align-middle mx-0">
-                  <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-color-primary--hover g-font-size-15 rounded-circle" href="#"
-                     data-toggle="tooltip"
-                     data-placement="top"
-                     title="Add to Cart">
-                    <i class="icon-finance-100 u-line-icon-pro"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item align-middle mx-0">
-                  <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-color-primary--hover g-font-size-15 rounded-circle" href="#"
-                     data-toggle="tooltip"
-                     data-placement="top"
-                     title="Add to Wishlist">
-                    <i class="icon-medical-022 u-line-icon-pro"></i>
-                  </a>
-                </li>
-              </ul>
-              <!-- End Products Icons -->
-            </div>
-            <!-- End Product -->
-          </div>
-
-          <div class="col-6 col-lg-3 g-mb-30">
-            <!-- Product -->
-            <figure class="g-pos-rel g-mb-20">
-              <img class="img-fluid" src="assets/img-temp/480x700/main_480_700_4.png" alt="Image Description">
-            </figure>
-
-            <div class="media">
-              <!-- Product Info -->
-              <div class="d-flex flex-column">
-                <h4 class="h6 g-color-black mb-1">
-                  <a class="u-link-v5 g-color-black g-color-primary--hover" href="#">
-                    Wool lined parka
-                  </a>
-                </h4>
-                <a class="d-inline-block g-color-gray-dark-v5 g-font-size-13" href="#">Woman</a>
-                <span class="d-block g-color-black g-font-size-17">$82.37</span>
-              </div>
-              <!-- End Product Info -->
-
-              <!-- Products Icons -->
-              <ul class="list-inline media-body text-right">
-                <li class="list-inline-item align-middle mx-0">
-                  <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-color-primary--hover g-font-size-15 rounded-circle" href="#"
-                     data-toggle="tooltip"
-                     data-placement="top"
-                     title="Add to Cart">
-                    <i class="icon-finance-100 u-line-icon-pro"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item align-middle mx-0">
-                  <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-color-primary--hover g-font-size-15 rounded-circle" href="#"
-                     data-toggle="tooltip"
-                     data-placement="top"
-                     title="Add to Wishlist">
-                    <i class="icon-medical-022 u-line-icon-pro"></i>
-                  </a>
-                </li>
-              </ul>
-              <!-- End Products Icons -->
-            </div>
-            <!-- End Product -->
-          </div>
-
-          <div class="col-6 col-lg-3 g-mb-30">
-            <!-- Product -->
-            <figure class="g-pos-rel g-mb-20">
-              <img class="img-fluid" src="assets/img-temp/480x700/main_480_700_5.png" alt="Image Description">
-
-            </figure>
-
-            <div class="media">
-              <!-- Product Info -->
-              <div class="d-flex flex-column">
-                <h4 class="h6 g-color-black mb-1">
-                  <a class="u-link-v5 g-color-black g-color-primary--hover" href="#">
-                    Hooded jeans
-                  </a>
-                </h4>
-                <a class="d-inline-block g-color-gray-dark-v5 g-font-size-13" href="#">Man</a>
-                <span class="d-block g-color-black g-font-size-17">$35.99</span>
-              </div>
-              <!-- End Product Info -->
-
-              <!-- Products Icons -->
-              <ul class="list-inline media-body text-right">
-                <li class="list-inline-item align-middle mx-0">
-                  <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-color-primary--hover g-font-size-15 rounded-circle" href="#"
-                     data-toggle="tooltip"
-                     data-placement="top"
-                     title="Add to Cart">
-                    <i class="icon-finance-100 u-line-icon-pro"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item align-middle mx-0">
-                  <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-color-primary--hover g-font-size-15 rounded-circle" href="#"
-                     data-toggle="tooltip"
-                     data-placement="top"
-                     title="Add to Wishlist">
-                    <i class="icon-medical-022 u-line-icon-pro"></i>
-                  </a>
-                </li>
-              </ul>
-              <!-- End Products Icons -->
-            </div>
-            <!-- End Product -->
-          </div>
-
-          <div class="col-6 col-lg-3 g-mb-30">
-            <!-- Product -->
-            <figure class="g-pos-rel g-mb-20">
-              <img class="img-fluid" src="assets/img-temp/480x700/main_480_700_6.png" alt="Image Description">
-            </figure>
-
-            <div class="media">
-              <!-- Product Info -->
-              <div class="d-flex flex-column">
-                <h4 class="h6 g-color-black mb-1">
-                  <a class="u-link-v5 g-color-black g-color-primary--hover" href="#">
-                    Waterproof jacket
-                  </a>
-                </h4>
-                <a class="d-inline-block g-color-gray-dark-v5 g-font-size-13" href="#">Woman</a>
-                <span class="d-block g-color-black g-font-size-17">$105.99</span>
-              </div>
-              <!-- End Product Info -->
-
-              <!-- Products Icons -->
-              <ul class="list-inline media-body text-right">
-                <li class="list-inline-item align-middle mx-0">
-                  <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-color-primary--hover g-font-size-15 rounded-circle" href="#"
-                     data-toggle="tooltip"
-                     data-placement="top"
-                     title="Add to Cart">
-                    <i class="icon-finance-100 u-line-icon-pro"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item align-middle mx-0">
-                  <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-color-primary--hover g-font-size-15 rounded-circle" href="#"
-                     data-toggle="tooltip"
-                     data-placement="top"
-                     title="Add to Wishlist">
-                    <i class="icon-medical-022 u-line-icon-pro"></i>
-                  </a>
-                </li>
-              </ul>
-              <!-- End Products Icons -->
-            </div>
-            <!-- End Product -->
-          </div>
-
-          <div class="col-6 col-lg-3 g-mb-30">
-            <!-- Product -->
-            <figure class="g-pos-rel g-mb-20">
-              <img class="img-fluid" src="assets/img-temp/480x700/main_480_700_7.png" alt="Image Description">
-
-              <span class="u-ribbon-v1 g-width-40 g-height-40 g-color-white g-bg-primary g-font-size-13 text-center text-uppercase g-rounded-50x g-top-20 g-right-minus-10 g-px-2 g-py-10">New</span>
-
-            </figure>
-
-            <div class="media">
-              <!-- Product Info -->
-              <div class="d-flex flex-column">
-                <h4 class="h6 g-color-black mb-1">
-                  <a class="u-link-v5 g-color-black g-color-primary--hover" href="#">
-                    Classic T-shirt
-                  </a>
-                </h4>
-                <a class="d-inline-block g-color-gray-dark-v5 g-font-size-13" href="#">Man</a>
-                <span class="d-block g-color-black g-font-size-17">$11.00</span>
-              </div>
-              <!-- End Product Info -->
-
-              <!-- Products Icons -->
-              <ul class="list-inline media-body text-right">
-                <li class="list-inline-item align-middle mx-0">
-                  <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-color-primary--hover g-font-size-15 rounded-circle" href="#"
-                     data-toggle="tooltip"
-                     data-placement="top"
-                     title="Add to Cart">
-                    <i class="icon-finance-100 u-line-icon-pro"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item align-middle mx-0">
-                  <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-color-primary--hover g-font-size-15 rounded-circle" href="#"
-                     data-toggle="tooltip"
-                     data-placement="top"
-                     title="Add to Wishlist">
-                    <i class="icon-medical-022 u-line-icon-pro"></i>
-                  </a>
-                </li>
-              </ul>
-              <!-- End Products Icons -->
-            </div>
-            <!-- End Product -->
-          </div>
-
-          <div class="col-6 col-lg-3 g-mb-30">
-            <!-- Product -->
-            <figure class="g-pos-rel g-mb-20">
-              <img class="img-fluid" src="assets/img-temp/480x700/main_480_700_8.png" alt="Image Description">
-            </figure>
-
-            <div class="media">
-              <!-- Product Info -->
-              <div class="d-flex flex-column">
-                <h4 class="h6 g-color-black mb-1">
-                  <a class="u-link-v5 g-color-black g-color-primary--hover" href="#">
-                    Blue skirt
-                  </a>
-                </h4>
-                <a class="d-inline-block g-color-gray-dark-v5 g-font-size-13" href="#">Woman</a>
-                <span class="d-block g-color-black g-font-size-17">$34.00</span>
-              </div>
-              <!-- End Product Info -->
-
-              <!-- Products Icons -->
-              <ul class="list-inline media-body text-right">
-                <li class="list-inline-item align-middle mx-0">
-                  <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-color-primary--hover g-font-size-15 rounded-circle" href="#"
-                     data-toggle="tooltip"
-                     data-placement="top"
-                     title="Add to Cart">
-                    <i class="icon-finance-100 u-line-icon-pro"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item align-middle mx-0">
-                  <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-color-primary--hover g-font-size-15 rounded-circle" href="#"
-                     data-toggle="tooltip"
-                     data-placement="top"
-                     title="Add to Wishlist">
-                    <i class="icon-medical-022 u-line-icon-pro"></i>
-                  </a>
-                </li>
-              </ul>
-              <!-- End Products Icons -->
-            </div>
-            <!-- End Product -->
-          </div>
-        </div>
-        <!-- End Products -->
-
+		<c:choose>
+			<c:when test="${empty requestScope.itemList}">
+			  <div id="accordion-12-1" class="u-accordion u-accordion-color-primary" role="tablist" aria-multiselectable="true">
+                   <!-- Card -->
+                   <div class="card g-brd-none g-brd-bottom g-brd-gray-light-v3 rounded-0 g-pb-30 g-mb-30">
+                     <div id="accordion-12-1-heading-01" class="u-accordion__header g-color-gray-dark-v4 g-font-weight-500 g-font-size-16 g-pa-0" role="tab">
+                         등록된 상품이 없습니다.
+                     </div>
+                   </div>
+                   <!-- End Card -->
+                 </div>
+			</c:when>
+			
+			<c:otherwise>
+			<c:forEach items="${requestScope.itemList}" var="itemDto">
+			  <div class="col-6 col-lg-3 g-mb-30">
+	            <!-- Product -->
+	            <figure class="g-pos-rel g-mb-20">
+	              <img class="img-fluid" src="${pageContext.request.contextPath}/html/namdo-market/assets/img-temp/480x700/main_480_700.png" alt="Image Description">
+	              <span class="u-ribbon-v1 g-width-40 g-height-40 g-color-white g-bg-primary g-font-size-13 text-center text-uppercase g-rounded-50x g-top-20 g-right-minus-10 g-px-2 g-py-10">New</span>
+	
+	            </figure>
+	
+	            <div class="media">
+	              <!-- Product Info -->
+	              <div class="d-flex flex-column">
+	                <h4 class="h6 g-color-black mb-1">
+	                  <a class="u-link-v5 g-color-black g-color-primary--hover" href="#">
+	                    <b>${itemDto.itemName}</b>
+	                  </a>
+	                </h4>
+	                <a id="category" class="d-inline-block g-color-gray-dark-v5 g-font-size-13" href="javascript:changeCategoryNoToName();" data-value="${itemDto.categoryNo}" >${itemDto.categoryNo}</a>
+	                <span class="d-block g-color-black g-font-size-17">
+	                <fmt:formatNumber value="${itemDto.itemPrice}"/>원
+	                </span>
+	              </div>
+	              <!-- End Product Info -->
+	
+	              <!-- Products Icons -->
+	              <ul class="list-inline media-body text-right">
+	                <li class="list-inline-item align-middle mx-0">
+	                  <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-color-primary--hover g-font-size-15 rounded-circle" href="#"
+	                     data-toggle="tooltip"
+	                     data-placement="top"
+	                     title="Add to Cart">
+	                    <i class="icon-finance-100 u-line-icon-pro"></i>
+	                  </a>
+	                </li>
+	                <li class="list-inline-item align-middle mx-0">
+	                  <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-color-primary--hover g-font-size-15 rounded-circle" href="#"
+	                     data-toggle="tooltip"
+	                     data-placement="top"
+	                     title="Add to Wishlist">
+	                    <i class="icon-medical-022 u-line-icon-pro"></i>
+	                  </a>
+	                </li>
+	              </ul>
+	              <!-- End Products Icons -->
+	            </div>
+	            <!-- End Product -->
+	          </div>
+               
+			</c:forEach>
+			</c:otherwise>
+			</c:choose>
+			
+			
+		
         <hr class="g-mb-60">
 
         <!-- Pagination -->
@@ -552,10 +265,9 @@
           </ul>
         </nav>
         <!-- End Pagination -->
-      </div>
-      <!-- End Products -->
+      
 
-
+		</div>
       <!-- Footer -->
       <jsp:include page="common/footer.jsp"/>
       
@@ -575,34 +287,34 @@
     <div class="u-outer-spaces-helper"></div>
 
     <!-- JS Global Compulsory -->
-    <script src="../assets/vendor/jquery/jquery.min.js"></script>
-    <script src="../assets/vendor/jquery-migrate/jquery-migrate.min.js"></script>
-    <script src="../assets/vendor/popper.js/popper.min.js"></script>
-    <script src="../assets/vendor/bootstrap/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/jquery-migrate/jquery-migrate.min.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/popper.js/popper.min.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/bootstrap/bootstrap.min.js"></script>
 
     <!-- JS Implementing Plugins -->
-    <script src="../assets/vendor/jquery-ui/ui/widget.js"></script>
-    <script src="../assets/vendor/jquery-ui/ui/widgets/menu.js"></script>
-    <script src="../assets/vendor/jquery-ui/ui/widgets/mouse.js"></script>
-    <script src="../assets/vendor/jquery-ui/ui/widgets/slider.js"></script>
-    <script src="../assets/vendor/dzsparallaxer/dzsparallaxer.js"></script>
-    <script src="../assets/vendor/dzsparallaxer/dzsscroller/scroller.js"></script>
-    <script src="../assets/vendor/dzsparallaxer/advancedscroller/plugin.js"></script>
-    <script src="../assets/vendor/hs-megamenu/src/hs.megamenu.js"></script>
-    <script src="../assets/vendor/malihu-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/jquery-ui/ui/widget.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/jquery-ui/ui/widgets/menu.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/jquery-ui/ui/widgets/mouse.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/jquery-ui/ui/widgets/slider.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/dzsparallaxer/dzsparallaxer.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/dzsparallaxer/dzsscroller/scroller.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/dzsparallaxer/advancedscroller/plugin.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/hs-megamenu/src/hs.megamenu.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/malihu-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
 
     <!-- JS Unify -->
-    <script src="../assets/js/hs.core.js"></script>
-    <script src="../assets/js/components/hs.header.js"></script>
-    <script src="../assets/js/helpers/hs.hamburgers.js"></script>
-    <script src="../assets/js/components/hs.dropdown.js"></script>
-    <script src="../assets/js/components/hs.scrollbar.js"></script>
-    <script src="../assets/js/helpers/hs.rating.js"></script>
-    <script src="../assets/js/components/hs.slider.js"></script>
-    <script src="../assets/js/components/hs.go-to.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/hs.core.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/components/hs.header.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/helpers/hs.hamburgers.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/components/hs.dropdown.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/components/hs.scrollbar.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/helpers/hs.rating.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/components/hs.slider.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/components/hs.go-to.js"></script>
 
     <!-- JS Customization -->
-    <script src="../assets/js/custom.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/custom.js"></script>
 
     <!-- JS Plugins Init. -->
     <script>
@@ -653,6 +365,21 @@
     	  }
 
       }
+      
+    </script>
+    <script type="text/javascript">
+      function changeCategoryNoToName(){
+    	  alert(1);
+    	  /* let dom = document.getElementById("category");
+          //alert(dom.getAttribute('data-value'));
+          switch(dom.getAttribute('data-value')){
+          case '1':
+        	  dom.innerHTML = "생선";
+        	  break;
+          } */
+      }
+      
+      
     </script>
   </body>
 </html>

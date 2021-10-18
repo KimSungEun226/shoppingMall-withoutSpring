@@ -41,15 +41,96 @@
     
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript">
+    
+    //유효성체크
+    function form_check() {
+    	  //변수에 담아주기
+    	  var customerName = document.getElementById("customerName");
+    	  var customerAddr = document.getElementById("customerAddr");
+    	  var customerDetailAddr = document.getElementById("customerDetailAddr");
+
+    	  var customerEmail = document.getElementById("customerEmail");
+    	  var customerContact = document.getElementById("customerContact");
+
+    	  var reg_name = /^[가-힣]+$/; //한글만
+    	  var reg_num = /^[0-9]*$/; // 숫자만 
+    	  var reg_pwd = /^[a-z0-9_-]{6,18}$/; // 단순 6~18자리
+    	  
+          
+    	  if (customerName.value == "" || !reg_name.test(customerName.value) || customerName.value.length >5 ) { //해당 입력값이 없을 경우 같은말: if(!uid.value)
+    	    alert("이름을 확인하세요.");
+    	    customerName.focus(); //focus(): 커서가 깜빡이는 현상, blur(): 커서가 사라지는 현상
+    	    return false; //return: 반환하다 return false:  아무것도 반환하지 말아라 아래 코드부터 아무것도 진행하지 말것
+    	  };
+
+
+      	  if (customerAddr.value == "") { //해당 입력값이 없을 경우 같은말: if(!uid.value)
+        	    alert("주소를 입력하세요.");
+        	    return false; //return: 반환하다 return false:  아무것도 반환하지 말아라 아래 코드부터 아무것도 진행하지 말것
+          };
+          
+          if (customerDetailAddr.value == "") { //해당 입력값이 없을 경우 같은말: if(!uid.value)
+      	    alert("상세주소를 입력하세요.");
+      	    return false; //return: 반환하다 return false:  아무것도 반환하지 말아라 아래 코드부터 아무것도 진행하지 말것
+      	  };
+
+      	  
+      	  if (customerEmail.value == "" ) { //해당 입력값이 없을 경우 같은말: if(!uid.value)
+      	    alert("이메일을 입력하세요.");
+      	    customerEmail.focus(); //focus(): 커서가 깜빡이는 현상, blur(): 커서가 사라지는 현상
+      	    return false; //return: 반환하다 return false:  아무것도 반환하지 말아라 아래 코드부터 아무것도 진행하지 말것
+      	  };
+      	  
+      	 	  
+      	  
+      	  if (customerContact.value == "" ) { //해당 입력값이 없을 경우 같은말: if(!uid.value)
+      	    alert("전화번호를 확인하세요.");
+      	    customerContact.focus(); //focus(): 커서가 깜빡이는 현상, blur(): 커서가 사라지는 현상
+      	    return false; //return: 반환하다 return false:  아무것도 반환하지 말아라 아래 코드부터 아무것도 진행하지 말것
+      	  };
+      	  
+      	  
+    	  
+
+    	  //입력 값 전송
+    	  //document.signUp_form.submit(); //유효성 검사의 포인트 
+    	  
+    	}       
+    
        $(function(){
     	 if($("input:checkbox[id='checkSame']").is(":checked") == true) alert("123");
     	 
     	 $("#checkSame").click(function(){
     		 if($("input:checkbox[id='checkSame']").is(":checked") == true) {
+    			 $("#detailAddr").hide();
+    			 $("#addrInput2").hide();
+    			 
+    			 $("#nameInput").val("${customerDTO.customerName}");
+    			 $("#nameInput").attr("readonly",true);
+    			 $("#emailInput").val("${customerDTO.customerEmail}");
+    			 $("#emailInput").attr("readonly",true);
+    			 $("#addrInput1").val("${customerDTO.customerAddr}");
+    			 $("#addrInput1").attr("readonly",true);
+    			 $("#contactInput").val("${customerDTO.customerContact}");
+    			 $("#contactInput").attr("readonly",true);
+    			 
     			 
     		 }
     		 else{
-    			 alert("체크x")
+    			 $("#nameInput").val("");
+    			 $("#emailInput").val("");
+    			 $("#addrInput1").val("");
+    			 $("#addrInput2").val("");
+    			 $("#detailAddr").val("");
+    			 $("#contactInput").val("");
+    			 
+    			 $("#nameInput").removeAttr("readonly");
+    			 $("#emailInput").removeAttr("readonly");
+    			 $("#addrInput1").removeAttr("readonly");
+    			 $("#contactInput").removeAttr("readonly");
+    			 
+    			 $("#detailAddr").show();
+    			 $("#addrInput2").show();
     		 } 
     	 })
     	 
@@ -150,6 +231,8 @@
                         <!-- Item-->
                         
                         <c:set var="amount" value="${0}"/>
+                        <c:set var="count" value="${0}"/>
+
                         <c:forEach items="${requestScope.list}" var="itemDto">
                         <!-- Item-->
                         <tr class="g-brd-bottom g-brd-gray-light-v3">
@@ -171,6 +254,8 @@
                   
                             </span>
                             <c:set var="amount" value="${amount+itemDto.itemPrice*itemDto.itemQuantity}"/>
+                            <c:set var="count" value="${count+1}"/>
+                            
                             <span class="g-color-gray-dark-v4 g-color-black--hover g-cursor-pointer">
                               <a href="${pageContext.request.contextPath}/front?key=cart&methodName=delete&cartNo=${itemDto.cartNo}">
                                 <i class="mt-auto fa fa-trash" ></i>
@@ -243,23 +328,23 @@
                     <div class="col-sm-6 g-mb-20">
                       <div class="form-group">
                         <label class="d-block g-color-gray-dark-v2 g-font-size-13">주소</label>
-                        <input id="addrInput" class="form-control u-form-control g-placeholder-gray-light-v1 rounded-0 g-py-15" name="zip" type="text" placeholder="ex)서울시 강남구" onclick="findAddr()" required data-msg="주소를 입력하세요" data-error-class="u-has-error-v1" data-success-class="u-has-success-v1">
+                        <input id="addrInput1" class="form-control u-form-control g-placeholder-gray-light-v1 rounded-0 g-py-15" name="zip" type="text" placeholder="ex)서울시 강남구" onclick="findAddr()" required data-msg="주소를 입력하세요" data-error-class="u-has-error-v1" data-success-class="u-has-success-v1">
                       </div>
                     </div>
 
                     <div class="col-sm-6 g-mb-20">
                       <div class="form-group">
                         <label class="d-block g-color-gray-dark-v2 g-font-size-13">&nbsp;</label>
-                        <input id="inputGroup7" class="form-control u-form-control g-placeholder-gray-light-v1 rounded-0 g-py-15" name="address" type="text">
+                        <input id="addrInput2" class="form-control u-form-control g-placeholder-gray-light-v1 rounded-0 g-py-15" name="address" type="text">
                       </div>
                     </div>
                   </div>
 
-                  <div class="row">
+                  <div class="row" id="detailAddr">
                     <div class="col-sm-6 g-mb-20">
                       <div class="form-group">
                         <label class="d-block g-color-gray-dark-v2 g-font-size-13">상세주소</label>
-                        <input id="inputGroup8" class="form-control u-form-control g-placeholder-gray-light-v1 rounded-0 g-py-15" name="detail_address" type="text" placeholder="ex)101동 101호" required data-msg="상세주소를 입력하세요" data-error-class="u-has-error-v1" data-success-class="u-has-success-v1">
+                        <input id="detailAddrInput" class="form-control u-form-control g-placeholder-gray-light-v1 rounded-0 g-py-15" name="detail_address" type="text" placeholder="ex)101동 101호" required data-msg="상세주소를 입력하세요" data-error-class="u-has-error-v1" data-success-class="u-has-success-v1">
                       </div>
                     </div>
 
@@ -321,57 +406,36 @@
                     <div id="accordion-03" class="mb-4" role="tablist" aria-multiselectable="true">
                       <div id="accordion-03-heading-03" class="g-brd-y g-brd-gray-light-v2 py-3" role="tab">
                         <h5 class="g-font-weight-400 g-font-size-default mb-0">
-                          <a class="g-color-gray-dark-v4 g-text-underline--none--hover" href="#accordion-03-body-03" data-toggle="collapse" data-parent="#accordion-03" aria-expanded="false" aria-controls="accordion-03-body-03">3 items in cart
+                          <a class="g-color-gray-dark-v4 g-text-underline--none--hover" href="#accordion-03-body-03" data-toggle="collapse" data-parent="#accordion-03" aria-expanded="false" aria-controls="accordion-03-body-03">${count} items in cart
                             <span class="ml-3 fa fa-angle-down"></span></a>
                         </h5>
                       </div>
                       <div id="accordion-03-body-03" class="collapse" role="tabpanel" aria-labelledby="accordion-03-heading-03">
                         <div class="g-py-15">
                           <ul class="list-unstyled mb-3">
-                            <!-- Product -->
+                          
+                          
+                          <c:forEach items="${requestScope.list}" var="itemDto">
+                          
+                            
+
                             <li class="d-flex justify-content-start">
                               <img class="g-width-100 g-height-100 mr-3" src="assets/img-temp/150x150/img6.jpg" alt="Image Description">
                               <div class="d-block">
-                                <h4 class="h6 g-color-black">Sneaker</h4>
+                                <h4 class="h6 g-color-black">${itemDto.itemName}</h4>
                                 <ul class="list-unstyled g-color-gray-dark-v4 g-font-size-12 g-line-height-1_4 mb-1">
-                                  <li>Color: Black</li>
-                                  <li>Size: MD</li>
-                                  <li>QTY: 1</li>
+                                  
+                                  <li>수량: ${itemDto.itemQuantity} </li>
                                 </ul>
-                                <span class="d-block g-color-black g-font-weight-400">$ 87.00</span>
+                                <span class="d-block g-color-black g-font-weight-400">
+                                <fmt:formatNumber value="${itemDto.itemPrice}"/>원
+                                </span>
                               </div>
                             </li>
                             <!-- End Product -->
-
-                            <!-- Product -->
-                            <li class="d-flex justify-content-start g-brd-top g-brd-gray-light-v3 pt-4 mt-4">
-                              <img class="g-width-100 g-height-100 mr-3" src="${pageContext.request.contextPath}/html/namdo-market/assets/img-temp/150x150/img3.jpg" alt="Image Description">
-                              <div class="d-block">
-                                <h4 class="h6 g-color-black">Chukka Shoes</h4>
-                                <ul class="list-unstyled g-color-gray-dark-v4 g-font-size-12 g-line-height-1_4 mb-1">
-                                  <li>Color: Black</li>
-                                  <li>Size: MD</li>
-                                  <li>QTY: 2</li>
-                                </ul>
-                                <span class="d-block g-color-black g-font-weight-400">$ 160.00</span>
-                              </div>
-                            </li>
-                            <!-- End Product -->
-
-                            <!-- Product -->
-                            <li class="d-flex justify-content-start g-brd-top g-brd-gray-light-v3 pt-4 mt-4">
-                              <img class="g-width-100 g-height-100 mr-3" src="${pageContext.request.contextPath}/html/namdo-market/assets/img-temp/150x150/img7.jpg" alt="Image Description">
-                              <div class="d-block">
-                                <h4 class="h6 g-color-black">Desk Clock</h4>
-                                <ul class="list-unstyled g-color-gray-dark-v4 g-font-size-12 g-line-height-1_4 mb-1">
-                                  <li>Color: Brown Wood</li>
-                                  <li>Type: Desk</li>
-                                  <li>QTY: 1</li>
-                                </ul>
-                                <span class="d-block g-color-black g-font-weight-400">$ 47.00</span>
-                              </div>
-                            </li>
-                            <!-- End Product -->
+                            
+                            
+                           </c:forEach>
                           </ul>
                         </div>
                       </div>
@@ -380,7 +444,7 @@
 
                     <div class="d-flex justify-content-between mb-2">
                       <span class="g-color-black">총 금액</span>
-                      <span class="g-color-black g-font-weight-300">$454.00</span>
+                      <span class="g-color-black g-font-weight-300"><fmt:formatNumber value="${amount}"/>원</span>
                     </div>
                   </div>
                   <!-- End Order Summary -->
