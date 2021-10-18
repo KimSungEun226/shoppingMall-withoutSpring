@@ -5,17 +5,22 @@ public class OrderDetailDTO {
     private int itemNo;               //상품 번호
     private int orderNo;              //주문번호
     private int orderItemCount;       //상품개수
-    private int orderItemPrice;       //상품가격
     
     public OrderDetailDTO() {}
 
-	public OrderDetailDTO(int orderDetailNo, int itemNo, int orderNo, int orderItemCount, int orderItemPrice) {
+	public OrderDetailDTO(int itemNo, int orderNo, int orderItemCount) {
+		super();
+		this.itemNo = itemNo;
+		this.orderNo = orderNo;
+		this.orderItemCount = orderItemCount;
+	}    
+    
+	public OrderDetailDTO(int orderDetailNo, int itemNo, int orderNo, int orderItemCount) {
 		super();
 		this.orderDetailNo = orderDetailNo;
 		this.itemNo = itemNo;
 		this.orderNo = orderNo;
 		this.orderItemCount = orderItemCount;
-		this.orderItemPrice = orderItemPrice;
 	}
 
 	public int getOrderDetailNo() {
@@ -50,13 +55,6 @@ public class OrderDetailDTO {
 		this.orderItemCount = orderItemCount;
 	}
 
-	public int getOrderItemPrice() {
-		return orderItemPrice;
-	}
-
-	public void setOrderItemPrice(int orderItemPrice) {
-		this.orderItemPrice = orderItemPrice;
-	}
     
     
 }

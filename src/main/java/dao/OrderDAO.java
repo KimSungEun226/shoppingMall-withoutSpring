@@ -10,7 +10,7 @@ public interface OrderDAO {
 	 * 주문하는 메소드
 	 * @return: 0 - 주문 실패, 1 - 주문 성공
 	 * */
-	int orderItem(OrderDTO order) throws SQLException;
+	OrderDTO orderItem(OrderDTO order) throws SQLException;
 	
 	
 	/**

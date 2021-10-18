@@ -41,22 +41,23 @@
     
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript">
-    
+      
     //유효성체크
     function form_check() {
+    	
     	  //변수에 담아주기
-    	  var customerName = document.getElementById("customerName");
-    	  var customerAddr = document.getElementById("customerAddr");
-    	  var customerDetailAddr = document.getElementById("customerDetailAddr");
+    	  var customerName = document.getElementById("nameInput");
+    	  var customerAddr = document.getElementById("addrInput1");
+    	  var customerDetailAddr = document.getElementById("detailAddrInput");
 
-    	  var customerEmail = document.getElementById("customerEmail");
-    	  var customerContact = document.getElementById("customerContact");
+    	  var customerContact = document.getElementById("contactInput");
 
     	  var reg_name = /^[가-힣]+$/; //한글만
     	  var reg_num = /^[0-9]*$/; // 숫자만 
-    	  var reg_pwd = /^[a-z0-9_-]{6,18}$/; // 단순 6~18자리
+
+          var reg_contact = /01[016789]-[^0][0-9]{2,3}-[0-9]{3,4}/;
     	  
-          
+    	  
     	  if (customerName.value == "" || !reg_name.test(customerName.value) || customerName.value.length >5 ) { //해당 입력값이 없을 경우 같은말: if(!uid.value)
     	    alert("이름을 확인하세요.");
     	    customerName.focus(); //focus(): 커서가 깜빡이는 현상, blur(): 커서가 사라지는 현상
@@ -69,36 +70,29 @@
         	    return false; //return: 반환하다 return false:  아무것도 반환하지 말아라 아래 코드부터 아무것도 진행하지 말것
           };
           
-          if (customerDetailAddr.value == "") { //해당 입력값이 없을 경우 같은말: if(!uid.value)
+          if (customerDetailAddr.value == "" && !document.getElementById("checkSame").checked) { //해당 입력값이 없을 경우 같은말: if(!uid.value)
       	    alert("상세주소를 입력하세요.");
       	    return false; //return: 반환하다 return false:  아무것도 반환하지 말아라 아래 코드부터 아무것도 진행하지 말것
       	  };
 
       	  
-      	  if (customerEmail.value == "" ) { //해당 입력값이 없을 경우 같은말: if(!uid.value)
-      	    alert("이메일을 입력하세요.");
-      	    customerEmail.focus(); //focus(): 커서가 깜빡이는 현상, blur(): 커서가 사라지는 현상
-      	    return false; //return: 반환하다 return false:  아무것도 반환하지 말아라 아래 코드부터 아무것도 진행하지 말것
-      	  };
-      	  
       	 	  
       	  
-      	  if (customerContact.value == "" ) { //해당 입력값이 없을 경우 같은말: if(!uid.value)
+      	  if (customerContact.value == "" || !reg_contact.test(customerContact.value) ) { //해당 입력값이 없을 경우 같은말: if(!uid.value)
       	    alert("전화번호를 확인하세요.");
       	    customerContact.focus(); //focus(): 커서가 깜빡이는 현상, blur(): 커서가 사라지는 현상
       	    return false; //return: 반환하다 return false:  아무것도 반환하지 말아라 아래 코드부터 아무것도 진행하지 말것
       	  };
       	  
       	  
-    	  
+    	  alert("유효성검사완료");
 
     	  //입력 값 전송
-    	  //document.signUp_form.submit(); //유효성 검사의 포인트 
+    	  document.check_form.submit(); //유효성 검사의 포인트 
     	  
     	}       
     
        $(function(){
-    	 if($("input:checkbox[id='checkSame']").is(":checked") == true) alert("123");
     	 
     	 $("#checkSame").click(function(){
     		 if($("input:checkbox[id='checkSame']").is(":checked") == true) {
@@ -121,7 +115,7 @@
     			 $("#emailInput").val("");
     			 $("#addrInput1").val("");
     			 $("#addrInput2").val("");
-    			 $("#detailAddr").val("");
+    			 $("#detailAddrInput").val("");
     			 $("#contactInput").val("");
     			 
     			 $("#nameInput").removeAttr("readonly");
@@ -178,7 +172,11 @@
 
       <!-- Checkout Form -->
       <div class="container g-pt-100 g-pb-70">
-        <form class="js-validate js-step-form" data-progress-id="#stepFormProgress" data-steps-id="#stepFormSteps">
+        <form name="check_form" class="js-validate js-step-form" data-progress-id="#stepFormProgress" data-steps-id="#stepFormSteps" action="${pageContext.request.contextPath}/front">
+			      <input type="hidden" name="key" value = "order" /> <!-- Controller를 찾는 정보 -->
+			      <input type="hidden" name="methodName" value = "addOrder" />  <!-- 메소드이름 -->
+                  
+                  
           <div class="g-mb-100">
             <!-- Step Titles -->
             <ul id="stepFormProgress" class="js-step-progress row justify-content-center list-inline text-center g-font-size-17 mb-0">
@@ -290,7 +288,7 @@
                   <!-- End Summary -->
 
                   <button class="btn btn-block u-btn-primary g-font-size-13 text-uppercase g-py-15 mb-4" type="button" data-next-step="#step2"><b>주문하기</b></button>
-
+			<input type="hidden" name="amount" value = "${amount}" />  <!-- 메소드이름 -->
                 </div>
               </div>
             </div>
@@ -312,30 +310,25 @@
                     <div class="col-sm-6 g-mb-20">
                       <div class="form-group">
                         <label class="d-block g-color-gray-dark-v2 g-font-size-13">성명</label>
-                        <input id="nameInput" class="form-control u-form-control g-placeholder-gray-light-v1 rounded-0 g-py-15" name="name" type="text" required data-msg="성명을 입력하세요" data-error-class="u-has-error-v1" data-success-class="u-has-success-v1">
+                        <input id="nameInput" class="form-control u-form-control g-placeholder-gray-light-v1 rounded-0 g-py-15" name="name" type="text" >
                       </div>
                     </div>
 
-                    <div class="col-sm-6 g-mb-20">
-                      <div class="form-group">
-                        <label class="d-block g-color-gray-dark-v2 g-font-size-13">이메일</label>
-                        <input id="emailInput" class="form-control u-form-control g-placeholder-gray-light-v1 rounded-0 g-py-15" name="email" type="email" placeholder="email@gmail.com" required data-msg="이메일을 입력하세요" data-error-class="u-has-error-v1" data-success-class="u-has-success-v1">
-                      </div>
-                    </div>
+                    
                   </div>
 
                   <div class="row">
                     <div class="col-sm-6 g-mb-20">
                       <div class="form-group">
                         <label class="d-block g-color-gray-dark-v2 g-font-size-13">주소</label>
-                        <input id="addrInput1" class="form-control u-form-control g-placeholder-gray-light-v1 rounded-0 g-py-15" name="zip" type="text" placeholder="ex)서울시 강남구" onclick="findAddr()" required data-msg="주소를 입력하세요" data-error-class="u-has-error-v1" data-success-class="u-has-success-v1">
+                        <input name="addrInput1" id="addrInput1" class="form-control u-form-control g-placeholder-gray-light-v1 rounded-0 g-py-15" name="zip" type="text" placeholder="ex)서울시 강남구" onclick="findAddr()" >
                       </div>
                     </div>
 
                     <div class="col-sm-6 g-mb-20">
                       <div class="form-group">
                         <label class="d-block g-color-gray-dark-v2 g-font-size-13">&nbsp;</label>
-                        <input id="addrInput2" class="form-control u-form-control g-placeholder-gray-light-v1 rounded-0 g-py-15" name="address" type="text">
+                        <input name="addrInput2" id="addrInput2" class="form-control u-form-control g-placeholder-gray-light-v1 rounded-0 g-py-15" name="address" type="text">
                       </div>
                     </div>
                   </div>
@@ -344,7 +337,7 @@
                     <div class="col-sm-6 g-mb-20">
                       <div class="form-group">
                         <label class="d-block g-color-gray-dark-v2 g-font-size-13">상세주소</label>
-                        <input id="detailAddrInput" class="form-control u-form-control g-placeholder-gray-light-v1 rounded-0 g-py-15" name="detail_address" type="text" placeholder="ex)101동 101호" required data-msg="상세주소를 입력하세요" data-error-class="u-has-error-v1" data-success-class="u-has-success-v1">
+                        <input name="detailAddrInput" id="detailAddrInput" class="form-control u-form-control g-placeholder-gray-light-v1 rounded-0 g-py-15" name="detail_address" type="text" placeholder="ex)101동 101호" >
                       </div>
                     </div>
 
@@ -354,7 +347,7 @@
                     <div class="col-sm-6 g-mb-20">
                       <div class="form-group">
                         <label class="d-block g-color-gray-dark-v2 g-font-size-13">전화번호</label>
-                        <input id="contactInput" class="form-control u-form-control g-placeholder-gray-light-v1 rounded-0 g-py-15" name="phoneNumber" type="text" placeholder="+82-10-1234-5678" required data-msg="전화번호를 입력하세요" data-error-class="u-has-error-v1" data-success-class="u-has-success-v1">
+                        <input id="contactInput" class="form-control u-form-control g-placeholder-gray-light-v1 rounded-0 g-py-15" name="phoneNumber" type="text" placeholder="+82-10-1234-5678" >
                       </div>
                     </div>
                   </div>
@@ -394,7 +387,7 @@
                   </table>
                   <!-- 배송정보 -->
 				  <br>
-                  <button class="btn u-btn-primary g-font-size-13 text-uppercase g-px-40 g-py-15" type="button" data-next-step="#step3">결제하기</button>
+                  <button class="btn u-btn-primary g-font-size-13 text-uppercase g-px-40 g-py-15" type="button" onclick="form_check()" >결제하기</button>
                 </div>
 
                 <div class="col-md-4 g-mb-30">
@@ -785,11 +778,11 @@
 	        var roadAddr = data.roadAddress; // 도로명 주소 변수
 	        var jibunAddr = data.jibunAddress; // 지번 주소 변수
 	        // 우편번호와 주소 정보를 해당 필드에 넣는다.
-	        document.getElementById('inputGroup6').value = data.zonecode;
+	        document.getElementById('addrInput1').value = data.zonecode;
 	        if(roadAddr !== ''){
-	          document.getElementById("inputGroup7").value = roadAddr;
+	          document.getElementById("addrInput2").value = roadAddr;
 	          }else if(jibunAddr !== ''){
-	            document.getElementById("inputGroup7").value = jibunAddr;
+	            document.getElementById("addrInput2").value = jibunAddr;
 	          }
 	      }
 	    }).open();

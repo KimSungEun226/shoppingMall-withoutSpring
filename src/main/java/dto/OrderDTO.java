@@ -13,9 +13,17 @@ public class OrderDTO {
     private List<OrderDetailDTO> orderDetailList;
     
     public OrderDTO() {}
-
+    
+    public OrderDTO(int customerNo, String orderAddr, String orderStatus, int orderTotalPrice) {
+		super();
+		this.customerNo = customerNo;
+		this.orderAddr = orderAddr;
+		this.orderStatus = orderStatus;
+		this.orderTotalPrice = orderTotalPrice;
+	}
+    
 	public OrderDTO(int orderNo, int customerNo, String orderDate, String orderAddr, String orderStatus,
-			int orderTotalPrice, List<OrderDetailDTO> orderDetailList) {
+			int orderTotalPrice) {
 		super();
 		this.orderNo = orderNo;
 		this.customerNo = customerNo;
@@ -23,7 +31,6 @@ public class OrderDTO {
 		this.orderAddr = orderAddr;
 		this.orderStatus = orderStatus;
 		this.orderTotalPrice = orderTotalPrice;
-		this.orderDetailList = orderDetailList;
 	}
 
 	public int getOrderNo() {
@@ -80,6 +87,13 @@ public class OrderDTO {
 
 	public void setOrderDetailList(List<OrderDetailDTO> orderDetailList) {
 		this.orderDetailList = orderDetailList;
+	}
+
+	@Override
+	public String toString() {
+		return "OrderDTO [orderNo=" + orderNo + ", customerNo=" + customerNo + ", orderDate=" + orderDate
+				+ ", orderAddr=" + orderAddr + ", orderStatus=" + orderStatus + ", orderTotalPrice=" + orderTotalPrice
+				+ ", orderDetailList=" + orderDetailList + "]";
 	}
     
 	
