@@ -41,6 +41,17 @@
 
     <!-- CSS Customization -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/css/custom.css">
+    
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+      $(function(){
+    	  $("a[id='1']").text("생선");
+    	  $("a[id='2']").text("카테고리2번에 해당");
+    	  
+    	  
+      });
+    </script>
+    
   </head>
 
   <body>
@@ -194,7 +205,7 @@
 	                    <b>${itemDto.itemName}</b>
 	                  </a>
 	                </h4>
-	                <a id="category" class="d-inline-block g-color-gray-dark-v5 g-font-size-13" href="javascript:changeCategoryNoToName();" data-value="${itemDto.categoryNo}" >${itemDto.categoryNo}</a>
+	                <a id="${itemDto.categoryNo}" class="d-inline-block g-color-gray-dark-v5 g-font-size-13" >${itemDto.categoryNo}</a>
 	                <span class="d-block g-color-black g-font-size-17">
 	                <fmt:formatNumber value="${itemDto.itemPrice}"/>원
 	                </span>
@@ -226,6 +237,55 @@
 	          </div>
                
 			</c:forEach>
+			
+			<div class="col-6 col-lg-3 g-mb-30">
+	            <!-- Product -->
+	            <figure class="g-pos-rel g-mb-20">
+	              <img class="img-fluid" src="${pageContext.request.contextPath}/html/namdo-market/assets/img-temp/480x700/main_480_700.png" alt="Image Description">
+	              <span class="u-ribbon-v1 g-width-40 g-height-40 g-color-white g-bg-primary g-font-size-13 text-center text-uppercase g-rounded-50x g-top-20 g-right-minus-10 g-px-2 g-py-10">New</span>
+	
+	            </figure>
+	
+	            <div class="media">
+	              <!-- Product Info -->
+	              <div class="d-flex flex-column">
+	                <h4 class="h6 g-color-black mb-1">
+	                  <a class="u-link-v5 g-color-black g-color-primary--hover" href="#">
+	                    <b>시험용</b>
+	                  </a>
+	                </h4>
+	                <a id="2" class="d-inline-block g-color-gray-dark-v5 g-font-size-13" >2</a>
+	                <span class="d-block g-color-black g-font-size-17">
+	                <fmt:formatNumber value="15555555555"/>원
+	                </span>
+	              </div>
+	              <!-- End Product Info -->
+	
+	              <!-- Products Icons -->
+	              <ul class="list-inline media-body text-right">
+	                <li class="list-inline-item align-middle mx-0">
+	                  <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-color-primary--hover g-font-size-15 rounded-circle" href="#"
+	                     data-toggle="tooltip"
+	                     data-placement="top"
+	                     title="Add to Cart">
+	                    <i class="icon-finance-100 u-line-icon-pro"></i>
+	                  </a>
+	                </li>
+	                <li class="list-inline-item align-middle mx-0">
+	                  <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-color-primary--hover g-font-size-15 rounded-circle" href="#"
+	                     data-toggle="tooltip"
+	                     data-placement="top"
+	                     title="Add to Wishlist">
+	                    <i class="icon-medical-022 u-line-icon-pro"></i>
+	                  </a>
+	                </li>
+	              </ul>
+	              <!-- End Products Icons -->
+	            </div>
+	            <!-- End Product -->
+	          </div>
+			
+			
 			</c:otherwise>
 			</c:choose>
 			
