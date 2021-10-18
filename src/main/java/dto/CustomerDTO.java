@@ -50,6 +50,24 @@ public class CustomerDTO {
 		this.customerContact = customerContact;
 		this.customerRegDate = customerRegDate;
 	}
+	
+	
+
+	public CustomerDTO(int customerNo, String customerId, String customerPwd, String customerName, String customerBirth,
+			String customerEmail, String customerAddr, String customerContact, String customerRegDate) {
+		super();
+		this.customerNo = customerNo;
+		this.customerId = customerId;
+		this.customerPwd = customerPwd;
+		this.customerName = customerName;
+		this.customerBirth = customerBirth;
+		this.customerEmail = customerEmail;
+		this.customerAddr = customerAddr;
+		this.customerContact = customerContact;
+		this.customerRegDate = customerRegDate;
+	}
+
+
 
 	public int getCustomerNo() {
 		return customerNo;

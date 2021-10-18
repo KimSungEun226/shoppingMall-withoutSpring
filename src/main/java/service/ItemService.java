@@ -27,6 +27,11 @@ public interface ItemService {
 	  * */
 	  List<ItemDTO> selectByInput(String input) throws SQLException;
 	  
+	  /**
+	  * ItemDAOImpl에서 해당하는 번호에 포함되는 레코드 검색 메소드 호출
+	  * */
+	  ItemDTO selectByNo(int itemNo) throws SQLException;
+	  
 	  
 	 /**
 	  * ItemDAOImpl에서 해당하는 지역에 포함되는 레코드 검색 메소드 호출
@@ -53,5 +58,6 @@ public interface ItemService {
 	  /**
 	   * ItemDAOImpl에서 상품정보에 해당하는 리뷰 정보 메소드 호출
 	   * */
-	  List<ReviewDTO> selectReviewByItemNum(String ItemNum) throws SQLException;	    
+	  List<ReviewDTO> selectReviewByItemNum(String ItemNum) throws SQLException;
+
 }

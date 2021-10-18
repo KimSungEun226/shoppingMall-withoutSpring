@@ -58,6 +58,7 @@ public class BoardController implements Controller {
     	return new ModelAndView("html/namdo-market/page-notice-select.jsp");
     }
 	
+
 	
 	/**
 	 * 등록하기

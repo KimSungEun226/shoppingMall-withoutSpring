@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -20,24 +20,44 @@
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,900">
 
     <!-- CSS Global Compulsory -->
-    <link rel="stylesheet" href="../assets/vendor/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="../assets/vendor/icon-line/css/simple-line-icons.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/icon-line/css/simple-line-icons.css">
 
     <!-- CSS Implementing Plugins -->
-    <link rel="stylesheet" href="../assets/vendor/icon-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../assets/vendor/icon-line-pro/style.css">
-    <link rel="stylesheet" href="../assets/vendor/icon-hs/style.css">
-    <link rel="stylesheet" href="../assets/vendor/chosen/chosen.css">
-    <link rel="stylesheet" href="../assets/vendor/animate.css">
-    <link rel="stylesheet" href="../assets/vendor/hamburgers/hamburgers.min.css">
-    <link rel="stylesheet" href="../assets/vendor/hs-megamenu/src/hs.megamenu.css">
-    <link rel="stylesheet" href="../assets/vendor/malihu-scrollbar/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/icon-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/icon-line-pro/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/icon-hs/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/chosen/chosen.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/animate.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/hamburgers/hamburgers.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/hs-megamenu/src/hs.megamenu.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/malihu-scrollbar/jquery.mCustomScrollbar.min.css">
 
     <!-- CSS Unify Theme -->
-    <link rel="stylesheet" href="assets/css/styles.e-commerce.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/namdo-market/assets/css/styles.e-commerce.css">
 
     <!-- CSS Customization -->
-    <link rel="stylesheet" href="../assets/css/custom.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/css/custom.css">
+    
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+       $(function(){
+    	 if($("input:checkbox[id='checkSame']").is(":checked") == true) alert("123");
+    	 
+    	 $("#checkSame").click(function(){
+    		 if($("input:checkbox[id='checkSame']").is(":checked") == true) {
+    			 
+    		 }
+    		 else{
+    			 alert("체크x")
+    		 } 
+    	 })
+    	 
+    	 
+    	 
+    	 });
+    </script>
+    
   </head>
 
   <body>
@@ -128,100 +148,40 @@
 
                       <tbody>
                         <!-- Item-->
-                        <tr class="g-brd-bottom g-brd-gray-light-v3">
-                          <td class="text-left g-py-25">
-                            <img class="d-inline-block g-width-100 mr-4" src="assets/img-temp/150x150/img6.jpg" alt="Image Description">
-                            <div class="d-inline-block align-middle">
-                              <h4 class="h6 g-color-black">Sneaker</h4>
-                              <ul class="list-unstyled g-color-gray-dark-v4 g-font-size-12 g-line-height-1_6 mb-0">
-                                <li>Color: Black</li>
-                                <li>Size: MD</li>
-                              </ul>
-                            </div>
-                          </td>
-                          <td class="g-color-gray-dark-v2 g-font-size-13">$ 87.00</td>
-                          <td>
-                            <div class="js-quantity input-group u-quantity-v1 g-width-80 g-brd-primary--focus">
-                              <input class="js-result form-control text-center g-font-size-13 rounded-0 g-pa-0" type="text" value="1" readonly>
-
-                              <div class="input-group-addon d-flex align-items-center g-width-30 g-brd-gray-light-v2 g-bg-white g-font-size-12 rounded-0 g-px-5 g-py-6">
-                                <i class="js-plus g-color-gray g-color-primary--hover fa fa-angle-up"></i>
-                                <i class="js-minus g-color-gray g-color-primary--hover fa fa-angle-down"></i>
-                              </div>
-                            </div>
-                          </td>
-                          <td class="text-right g-color-black">
-                            <span class="g-color-gray-dark-v2 g-font-size-13 mr-4">$ 87.00</span>
-                            <span class="g-color-gray-dark-v4 g-color-black--hover g-cursor-pointer">
-                              <i class="mt-auto fa fa-trash"></i>
-                            </span>
-                          </td>
-                        </tr>
-                        <!-- End Item-->
-
+                        
+                        <c:set var="amount" value="${0}"/>
+                        <c:forEach items="${requestScope.list}" var="itemDto">
                         <!-- Item-->
                         <tr class="g-brd-bottom g-brd-gray-light-v3">
                           <td class="text-left g-py-25">
-                            <img class="d-inline-block g-width-100 mr-4" src="assets/img-temp/150x150/img3.jpg" alt="Image Description">
+                            <img class="d-inline-block g-width-100 mr-4" src="${pageContext.request.contextPath}/html/namdo-market/assets/img-temp/150x150/img6.jpg" alt="Image Description">
                             <div class="d-inline-block align-middle">
-                              <h4 class="h6 g-color-black">Chukka Shoes</h4>
-                              <ul class="list-unstyled g-color-gray-dark-v4 g-font-size-12 g-line-height-1_6 mb-0">
-                                <li>Color: Black</li>
-                                <li>Size: MD</li>
-                              </ul>
+                              <h4 class="h6 g-color-black">${itemDto.itemName}</h4>
+                              
                             </div>
                           </td>
-                          <td class="g-color-gray-dark-v2 g-font-size-13">$ 160.00</td>
-                          <td>
-                            <div class="js-quantity input-group u-quantity-v1 g-width-80 g-brd-primary--focus">
-                              <input id="qty2" class="js-result form-control text-center g-font-size-13 rounded-0 g-pa-0" type="text" value="2" readonly>
+                          <td class="g-color-gray-dark-v2 g-font-size-13">
+                                 <fmt:formatNumber value="${itemDto.itemPrice}"/>원
+                          </td>
+                          <td class="g-color-gray-dark-v2 g-font-size-13">${itemDto.itemQuantity}</td>
 
-                              <div class="input-group-addon d-flex align-items-center g-width-30 g-brd-gray-light-v2 g-bg-white g-font-size-12 rounded-0 g-px-5 g-py-6">
-                                <i class="js-plus g-color-gray g-color-primary--hover fa fa-angle-up" onclick="upDownAmount('up')"></i>
-                                <i class="js-minus g-color-gray g-color-primary--hover fa fa-angle-down" onclick="upDownAmout('down')"></i>
-                              </div>
-                            </div>
-                          </td>
                           <td class="text-right g-color-black">
-                            <span class="g-color-gray-dark-v2 g-font-size-13 mr-4">$ 320.00</span>
+                            <span class="g-color-gray-dark-v2 g-font-size-13 mr-4">
+                            <fmt:formatNumber value="${itemDto.itemPrice*itemDto.itemQuantity}"/>원
+                  
+                            </span>
+                            <c:set var="amount" value="${amount+itemDto.itemPrice*itemDto.itemQuantity}"/>
                             <span class="g-color-gray-dark-v4 g-color-black--hover g-cursor-pointer">
-                              <i class="mt-auto fa fa-trash"></i>
+                              <a href="${pageContext.request.contextPath}/front?key=cart&methodName=delete&cartNo=${itemDto.cartNo}">
+                                <i class="mt-auto fa fa-trash" ></i>
+					          </a>
                             </span>
                           </td>
                         </tr>
+                        </c:forEach>
                         <!-- End Item-->
 
-                        <!-- Item-->
-                        <tr>
-                          <td class="text-left g-pt-25">
-                            <img class="d-inline-block g-width-100 mr-4" src="assets/img-temp/150x150/img7.jpg" alt="Image Description">
-                            <div class="d-inline-block align-middle">
-                              <h4 class="h6 g-color-black">Desk Clock</h4>
-                              <ul class="list-unstyled g-color-gray-dark-v4 g-font-size-12 g-line-height-1_6 mb-0">
-                                <li>Color: Brown Wood</li>
-                                <li>Type: Desk</li>
-                              </ul>
-                            </div>
-                          </td>
-                          <td class="g-color-gray-dark-v2 g-font-size-13">$ 47.00</td>
-                          <td>
-                            <div class="js-quantity input-group u-quantity-v1 g-width-80 g-brd-primary--focus">
-                              <input class="js-result form-control text-center g-font-size-13 rounded-0 g-pa-0" type="text" value="1" readonly>
-
-                              <div class="input-group-addon d-flex align-items-center g-width-30 g-brd-gray-light-v2 g-bg-white g-font-size-12 rounded-0 g-px-5 g-py-6">
-                                <i class="js-plus g-color-gray g-color-primary--hover fa fa-angle-up"></i>
-                                <i class="js-minus g-color-gray g-color-primary--hover fa fa-angle-down"></i>
-                              </div>
-                            </div>
-                          </td>
-                          <td class="text-right g-color-black">
-                            <span class="g-color-gray-dark-v2 g-font-size-13 mr-4">$ 47.00</span>
-                            <span class="g-color-gray-dark-v4 g-color-black--hover g-cursor-pointer">
-                              <i class="mt-auto fa fa-trash"></i>
-                            </span>
-                          </td>
-                        </tr>
-                        <!-- End Item -->
+                        
                       </tbody>
                     </table>
                   </div>
@@ -237,12 +197,13 @@
                     
                     <div class="d-flex justify-content-between mb-2">
                       <span class="g-color-black">총 금액 : </span>
-                      <span class="g-color-black g-font-weight-300">$454.00</span>
+                      <span class="g-color-black g-font-weight-300">
+                      <fmt:formatNumber value="${amount}"/>원
+                      </span>
                     </div>
                   </div>
                   <!-- End Summary -->
 
-                  <button class="btn btn-block u-btn-outline-black g-brd-gray-light-v1 g-bg-black--hover g-font-size-13 text-uppercase g-py-15 mb-4" type="button" onClick="window.location.reload()"><b>장바구니 목록 업데이트</b></button>
                   <button class="btn btn-block u-btn-primary g-font-size-13 text-uppercase g-py-15 mb-4" type="button" data-next-step="#step2"><b>주문하기</b></button>
 
                 </div>
@@ -255,17 +216,25 @@
               <div class="row">
                 <div class="col-md-8 g-mb-30">
                   <div class="row">
+                   <div class="col-sm-6 g-mb-20"> 
+                   <label class="d-block g-color-gray-dark-v2 g-font-size-15">
+                    <input type ="checkbox" id="checkSame" > 주문자 정보와 동일
+                    </label>
+                     
+                     </div>
+                   </div>
+                  <div class="row">
                     <div class="col-sm-6 g-mb-20">
                       <div class="form-group">
                         <label class="d-block g-color-gray-dark-v2 g-font-size-13">성명</label>
-                        <input id="inputGroup4" class="form-control u-form-control g-placeholder-gray-light-v1 rounded-0 g-py-15" name="name" type="text" required data-msg="성명을 입력하세요" data-error-class="u-has-error-v1" data-success-class="u-has-success-v1">
+                        <input id="nameInput" class="form-control u-form-control g-placeholder-gray-light-v1 rounded-0 g-py-15" name="name" type="text" required data-msg="성명을 입력하세요" data-error-class="u-has-error-v1" data-success-class="u-has-success-v1">
                       </div>
                     </div>
 
                     <div class="col-sm-6 g-mb-20">
                       <div class="form-group">
                         <label class="d-block g-color-gray-dark-v2 g-font-size-13">이메일</label>
-                        <input id="inputGroup5" class="form-control u-form-control g-placeholder-gray-light-v1 rounded-0 g-py-15" name="email" type="email" placeholder="email@gmail.com" required data-msg="이메일을 입력하세요" data-error-class="u-has-error-v1" data-success-class="u-has-success-v1">
+                        <input id="emailInput" class="form-control u-form-control g-placeholder-gray-light-v1 rounded-0 g-py-15" name="email" type="email" placeholder="email@gmail.com" required data-msg="이메일을 입력하세요" data-error-class="u-has-error-v1" data-success-class="u-has-success-v1">
                       </div>
                     </div>
                   </div>
@@ -274,7 +243,7 @@
                     <div class="col-sm-6 g-mb-20">
                       <div class="form-group">
                         <label class="d-block g-color-gray-dark-v2 g-font-size-13">주소</label>
-                        <input id="inputGroup6" class="form-control u-form-control g-placeholder-gray-light-v1 rounded-0 g-py-15" name="zip" type="text" placeholder="ex)서울시 강남구" onclick="findAddr()" required data-msg="주소를 입력하세요" data-error-class="u-has-error-v1" data-success-class="u-has-success-v1">
+                        <input id="addrInput" class="form-control u-form-control g-placeholder-gray-light-v1 rounded-0 g-py-15" name="zip" type="text" placeholder="ex)서울시 강남구" onclick="findAddr()" required data-msg="주소를 입력하세요" data-error-class="u-has-error-v1" data-success-class="u-has-success-v1">
                       </div>
                     </div>
 
@@ -300,7 +269,7 @@
                     <div class="col-sm-6 g-mb-20">
                       <div class="form-group">
                         <label class="d-block g-color-gray-dark-v2 g-font-size-13">전화번호</label>
-                        <input id="inputGroup10" class="form-control u-form-control g-placeholder-gray-light-v1 rounded-0 g-py-15" name="phoneNumber" type="text" placeholder="+82-10-1234-5678" required data-msg="전화번호를 입력하세요" data-error-class="u-has-error-v1" data-success-class="u-has-success-v1">
+                        <input id="contactInput" class="form-control u-form-control g-placeholder-gray-light-v1 rounded-0 g-py-15" name="phoneNumber" type="text" placeholder="+82-10-1234-5678" required data-msg="전화번호를 입력하세요" data-error-class="u-has-error-v1" data-success-class="u-has-success-v1">
                       </div>
                     </div>
                   </div>
@@ -376,7 +345,7 @@
 
                             <!-- Product -->
                             <li class="d-flex justify-content-start g-brd-top g-brd-gray-light-v3 pt-4 mt-4">
-                              <img class="g-width-100 g-height-100 mr-3" src="assets/img-temp/150x150/img3.jpg" alt="Image Description">
+                              <img class="g-width-100 g-height-100 mr-3" src="${pageContext.request.contextPath}/html/namdo-market/assets/img-temp/150x150/img3.jpg" alt="Image Description">
                               <div class="d-block">
                                 <h4 class="h6 g-color-black">Chukka Shoes</h4>
                                 <ul class="list-unstyled g-color-gray-dark-v4 g-font-size-12 g-line-height-1_4 mb-1">
@@ -391,7 +360,7 @@
 
                             <!-- Product -->
                             <li class="d-flex justify-content-start g-brd-top g-brd-gray-light-v3 pt-4 mt-4">
-                              <img class="g-width-100 g-height-100 mr-3" src="assets/img-temp/150x150/img7.jpg" alt="Image Description">
+                              <img class="g-width-100 g-height-100 mr-3" src="${pageContext.request.contextPath}/html/namdo-market/assets/img-temp/150x150/img7.jpg" alt="Image Description">
                               <div class="d-block">
                                 <h4 class="h6 g-color-black">Desk Clock</h4>
                                 <ul class="list-unstyled g-color-gray-dark-v4 g-font-size-12 g-line-height-1_4 mb-1">
@@ -437,7 +406,7 @@
                             <i class="fa" data-check-icon="&#xf00c"></i>
                           </span>
                           Pay with Credit Card
-                        <img class="g-width-50 ml-2" src="assets/img-temp/200x55/creditcard.png" alt="Image Description">
+                        <img class="g-width-50 ml-2" src="${pageContext.request.contextPath}/html/namdo-market/assets/img-temp/200x55/creditcard.png" alt="Image Description">
                       </label>
                     </li>
                     <li class="my-3">
@@ -447,7 +416,7 @@
                             <i class="fa" data-check-icon="&#xf00c"></i>
                           </span>
                           Pay with Kakao Pay
-                        <img class="g-width-70 ml-2" src="assets/img-temp/200x55/kakaopay.png" alt="Image Description">
+                        <img class="g-width-70 ml-2" src="${pageContext.request.contextPath}/html/namdo-market/assets/img-temp/200x55/kakaopay.png" alt="Image Description">
                       </label>
                     </li>
                     
@@ -549,7 +518,7 @@
                           <ul class="list-unstyled mb-3">
                             <!-- Product -->
                             <li class="d-flex justify-content-start">
-                              <img class="g-width-100 g-height-100 mr-3" src="assets/img-temp/150x150/img6.jpg" alt="Image Description">
+                              <img class="g-width-100 g-height-100 mr-3" src="${pageContext.request.contextPath}/html/namdo-market/assets/img-temp/150x150/img6.jpg" alt="Image Description">
                               <div class="d-block">
                                 <h4 class="h6 g-color-black">Sneaker</h4>
                                 <ul class="list-unstyled g-color-gray-dark-v4 g-font-size-12 g-line-height-1_4 mb-1">
@@ -564,7 +533,7 @@
 
                             <!-- Product -->
                             <li class="d-flex justify-content-start g-brd-top g-brd-gray-light-v3 pt-4 mt-4">
-                              <img class="g-width-100 g-height-100 mr-3" src="assets/img-temp/150x150/img3.jpg" alt="Image Description">
+                              <img class="g-width-100 g-height-100 mr-3" src="${pageContext.request.contextPath}/html/namdo-market/assets/img-temp/150x150/img3.jpg" alt="Image Description">
                               <div class="d-block">
                                 <h4 class="h6 g-color-black">Chukka Shoes</h4>
                                 <ul class="list-unstyled g-color-gray-dark-v4 g-font-size-12 g-line-height-1_4 mb-1">
@@ -579,7 +548,7 @@
 
                             <!-- Product -->
                             <li class="d-flex justify-content-start g-brd-top g-brd-gray-light-v3 pt-4 mt-4">
-                              <img class="g-width-100 g-height-100 mr-3" src="assets/img-temp/150x150/img7.jpg" alt="Image Description">
+                              <img class="g-width-100 g-height-100 mr-3" src="${pageContext.request.contextPath}/html/namdo-market/assets/img-temp/150x150/img7.jpg" alt="Image Description">
                               <div class="d-block">
                                 <h4 class="h6 g-color-black">Desk Clock</h4>
                                 <ul class="list-unstyled g-color-gray-dark-v4 g-font-size-12 g-line-height-1_4 mb-1">
@@ -658,32 +627,32 @@
     <div class="u-outer-spaces-helper"></div>
 
     <!-- JS Global Compulsory -->
-    <script src="../assets/vendor/jquery/jquery.min.js"></script>
-    <script src="../assets/vendor/jquery-migrate/jquery-migrate.min.js"></script>
-    <script src="../assets/vendor/popper.js/popper.min.js"></script>
-    <script src="../assets/vendor/bootstrap/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/jquery-migrate/jquery-migrate.min.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/popper.js/popper.min.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/bootstrap/bootstrap.min.js"></script>
 
     <!-- JS Implementing Plugins -->
-    <script src="../assets/vendor/hs-megamenu/src/hs.megamenu.js"></script>
-    <script src="../assets/vendor/malihu-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="../assets/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
-    <script src="../assets/vendor/chosen/chosen.jquery.js"></script>
-    <script src="../assets/vendor/image-select/src/ImageSelect.jquery.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/hs-megamenu/src/hs.megamenu.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/malihu-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/chosen/chosen.jquery.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/image-select/src/ImageSelect.jquery.js"></script>
 
     <!-- JS Unify -->
-    <script src="../assets/js/hs.core.js"></script>
-    <script src="../assets/js/components/hs.header.js"></script>
-    <script src="../assets/js/helpers/hs.hamburgers.js"></script>
-    <script src="../assets/js/components/hs.dropdown.js"></script>
-    <script src="../assets/js/components/hs.scrollbar.js"></script>
-    <script src="../assets/js/components/hs.select.js"></script>
-    <script src="../assets/js/components/hs.count-qty.js"></script>
-    <script src="../assets/js/components/hs.step-form.js"></script>
-    <script src="../assets/js/components/hs.validation.js"></script>
-    <script src="../assets/js/components/hs.go-to.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/hs.core.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/components/hs.header.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/helpers/hs.hamburgers.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/components/hs.dropdown.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/components/hs.scrollbar.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/components/hs.select.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/components/hs.count-qty.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/components/hs.step-form.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/components/hs.validation.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/components/hs.go-to.js"></script>
 
     <!-- JS Customization -->
-    <script src="../assets/js/custom.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/custom.js"></script>
 
     <!-- JS Plugins Init. -->
     <script>

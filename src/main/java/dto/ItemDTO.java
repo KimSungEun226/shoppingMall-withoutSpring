@@ -114,7 +114,7 @@ public class ItemDTO {
 	}
 
 
-	public String isItemApprove() {
+	public String getItemApprove() {
 		return itemApprove;
 	}
 

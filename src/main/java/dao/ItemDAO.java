@@ -34,7 +34,10 @@ public interface ItemDAO {
 	   * */
 	  List<ItemDTO> selectByItemRegion(int regionNo) throws SQLException;
 	  
-	 
+	  /**
+	   * 해당하는 번호의 레코드 검색
+	   * */
+	  ItemDTO selectByItemNo(int itemNo) throws SQLException;
 	  
 	  /**
 	  * 상품 등록하기
