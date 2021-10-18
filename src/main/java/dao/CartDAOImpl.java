@@ -91,7 +91,7 @@ public class CartDAOImpl implements CartDAO {
 		Connection con = null;
 		PreparedStatement ps =null;
 		ResultSet rs= null;
-		List<CartDTO> cartList = null;
+		List<CartDTO> cartList = new ArrayList<CartDTO>();
 		String sql = proFile.getProperty("cart.selectByCustomerNo");
 		System.out.println(sql);
 		try {

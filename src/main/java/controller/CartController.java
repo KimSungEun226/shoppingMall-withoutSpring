@@ -35,13 +35,10 @@ public class CartController implements Controller {
 		HttpSession session = request.getSession();
 		CustomerDTO dto = (CustomerDTO)session.getAttribute("customerDTO");
 		
-		System.out.println(dto);
 		
 		int customerNo = dto.getCustomerNo();
-		System.out.println("cN : " + customerNo);
 		List<CartDTO> cartList = cartService.selectCartByCustomerNo(customerNo);
-		System.out.println(cartList);
-		if(cartList ==null) return new ModelAndView("html/namdo-market/page-cart-empty.jsp");
+		if(cartList ==null || cartList.size() == 0) return new ModelAndView("html/namdo-market/page-cart-empty.jsp");
 		ItemService itemService = new ItemServiceImpl();
 		List<CartViewDTO> cartViewList = new ArrayList<CartViewDTO>();
 		
@@ -50,7 +47,6 @@ public class CartController implements Controller {
 			ItemDTO item = itemService.selectByNo(cart.getItemNo());
 			cartViewList.add(new CartViewDTO(cart.getCartNo(), item.getItemName(), item.getItemPrice(), cart.getCartItemCount()));
 		}
-		System.out.println(cartViewList);
 		request.setAttribute("list", cartViewList);
 		return new ModelAndView("html/namdo-market/page-cart.jsp");
 	}
@@ -66,8 +62,6 @@ public class CartController implements Controller {
 			return new ModelAndView("html/namdo-market/error.jsp");
 		}
 		
-		request.setAttribute("key", "cart");
-		request.setAttribute("methodName", "select");
-        return new ModelAndView("front", true);
+        return new ModelAndView("front?key=cart&methodName=select", true);
 	}	
 }

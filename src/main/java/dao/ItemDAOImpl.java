@@ -18,17 +18,17 @@ public class ItemDAOImpl implements ItemDAO {
 	Properties proFile = new Properties();
 	
 	public ItemDAOImpl() {
-		try {
-			
-			 //proFile에 외부 ~.properites 파일을 로딩한다.
-			   //proFile.load(new FileInputStream("src/dbQuery.properties"));
-			   
-			   //현 프로젝트 런타임될때 즉 서버에서 실행될때 classes폴더를 동적으로 가져와서 경로를 설정해야한다.
-			
-			  proFile.load(getClass().getClassLoader().getResourceAsStream("itemQuery.properties"));
-		}catch(Exception e) {
-			e.printStackTrace();
-		}	
+//		try {
+//			
+//			 //proFile에 외부 ~.properites 파일을 로딩한다.
+//			   //proFile.load(new FileInputStream("src/dbQuery.properties"));
+//			   
+//			   //현 프로젝트 런타임될때 즉 서버에서 실행될때 classes폴더를 동적으로 가져와서 경로를 설정해야한다.
+//			
+//			  proFile.load(getClass().getClassLoader().getResourceAsStream("itemQuery.properties"));
+//		}catch(Exception e) {
+//			e.printStackTrace();
+//		}	
 	}
 	
 	/**
@@ -206,7 +206,7 @@ public class ItemDAOImpl implements ItemDAO {
 		String sql = proFile.getProperty("item.selectByItemNo");
 		try {
 			con = DbUtil.getConnection();
-			ps = con.prepareStatement(sql);
+			ps = con.prepareStatement("select * from item where item_No =?");
 			ps.setInt(1, itemNo);
 			rs = ps.executeQuery();
 			if(rs.next()) {
