@@ -47,15 +47,12 @@
 <body>
   <main>
       <!-- Header -->
-      <script type="text/javascript">
-       alert("${sessionScope.adminDTO}");
-      </script>
       <c:if test="${sessionScope.customerDTO==null && sessionScope.sellerDTO==null && sessionScope.adminDTO==null}">
         <jsp:include page="common/header-main.jsp"/>
       </c:if>
 
       <c:if test="${sessionScope.customerDTO!=null}">
-        <jsp:include page="common/customer-header-main.jsp"/>
+      <jsp:include page="common/customer-header-main.jsp"/>
       </c:if>
 
       <c:if test="${sessionScope.sellerDTO!=null}">
@@ -66,6 +63,7 @@
         <jsp:include page="common/admin-header-main.jsp"/>
       </c:if>
 
+
       <!-- Revolution Slider -->
       <div class="g-overflow-hidden">
         <div id="rev_slider_1086_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container" data-alias="woobig1" data-source="gallery" style="margin:0px auto;background-color:transparent;padding:0px;margin-top:0px;margin-bottom:0px;">
@@ -73,7 +71,7 @@
           <div id="rev_slider_1086_1" class="rev_slider fullwidthabanner" style="display:none;" data-version="5.4.1">
             <ul>    <!-- SLIDE  -->
               <li data-index="rs-3076" data-transition="slideremovehorizontal" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb="assets/img-temp/1920x1080/img5.jpg" data-rotate="0" data-fstransition="fade" data-fsmasterspeed="1000" data-fsslotamount="7" data-saveperformance="off" data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
-                <!-- MAIN IMAGE -->S
+                <!-- MAIN IMAGE -->
                 <img src="assets/img/bg/secondary.png" alt="Image description" data-lazyload="assets/img-temp/1920x1080/img5.jpg" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="5" class="rev-slidebg">
                 <!-- LAYERS -->
 

@@ -80,7 +80,7 @@
       </c:if>
 
       <c:if test="${sessionScope.adminDTO!=null}">
-        <jsp:include page="common/admin-header-main.jsp"/>
+        <jsp:include page="common/admin-header.jsp"/>
       </c:if>
 
       <!-- Breadcrumbs -->
@@ -147,6 +147,7 @@
                
             </div>
             <div class="row g-mb-20"></div>
+            <c:if test="${sessionScope.adminDTO!=null}">
             <form name="requestForm" method="post" action="${path}/front">
               <input type=hidden name="boardNo" value="${board.boardNo}">
 			  <input type=hidden name="key" value="board">
@@ -164,6 +165,7 @@
 		      	<input class="btn u-btn-primary g-font-size-12 text-uppercase g-py-12 g-px-25" type="button" value="수정하기" style="font-weight: bold" onclick="sendUpdate()">&nbsp;&nbsp;&nbsp;&nbsp;<input class="btn g-color-gray-dark-v5 g-bg-secondary g-font-size-12 text-uppercase g-py-12 g-px-25" type="button" id="cancel" value="삭제하기" style="font-weight: bold" onclick="sendDelete()">
 		      </div>
 		    </form>
+		    </c:if>
             <!-- End Tab panes -->
           </div>
           

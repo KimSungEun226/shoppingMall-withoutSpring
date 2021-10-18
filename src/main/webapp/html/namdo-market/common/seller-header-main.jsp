@@ -64,6 +64,7 @@
 
                 <!-- Basket -->
                 <li class="list-inline-item">
+                  <i class="text-right u-icon-v1 g-color-text g-color-black--hover g-color-black--focus g-font-size-15 g-text-underline--none--hover icon-finance-067 u-line-icon-pro"></i>
                     <a id="account-dropdown-invoker-2" class="g-color-black-opacity-0_6 g-color-primary--hover g-font-size-15 g-font-weight-400 g-text-underline--none--hover" href="#"
                        aria-controls="account-dropdown-2"
                        aria-haspopup="true"
@@ -75,13 +76,22 @@
                        data-dropdown-hide-on-scroll="false"
                        data-dropdown-animation-in="fadeIn"
                        data-dropdown-animation-out="fadeOut">
-                      계정
                     </a>
                     <ul id="account-dropdown-2" class="list-unstyled u-shadow-v29 g-pos-abs g-bg-white g-width-160 g-pb-5 g-mt-19 g-z-index-2"
                         aria-labelledby="account-dropdown-invoker-2">
                       <li>
                         <a class="d-block g-color-black g-color-primary--hover g-text-underline--none--hover g-font-weight-400 g-py-5 g-px-20" href="page-login-security-seller.jsp">
                           내정보
+                        </a>
+                      </li>
+                      <li>
+                        <a class="d-block g-color-black g-color-primary--hover g-text-underline--none--hover g-font-weight-400 g-py-5 g-px-20" href="page-login-security-seller.jsp">
+                          판매정보
+                        </a>
+                      </li>
+                      <li>
+                        <a class="d-block g-color-black g-color-primary--hover g-text-underline--none--hover g-font-weight-400 g-py-5 g-px-20" href="${pageContext.request.contextPath}/front?key=seller&methodName=logout">
+                          로그아웃
                         </a>
                       </li>
                       
@@ -550,45 +560,11 @@
                   </li>
 
                   <!-- 고객센터 -->
-                  <li class="nav-item hs-has-sub-menu g-mx-10--lg g-mx-15--xl">
-                    <a id="nav-link--home" class="nav-link text-uppercase g-color-primary--hover g-px-5 g-py-20" href="#"
-                       aria-haspopup="true"
-                       aria-expanded="false"
-                       aria-controls="nav-submenu--home">
-                      <b>고객센터</b>
-                    </a>
-
-                    <!-- Submenu -->
-                    <ul id="nav-submenu--home" class="hs-sub-menu list-unstyled u-shadow-v11 g-min-width-220 g-brd-top g-brd-primary g-brd-top-2 g-mt-7"
-                        aria-labelledby="nav-link--home">
-                      <li class="dropdown-item">
-                        <a class="nav-link g-color-gray-dark-v1" href="home-page.jsp">공지사항</a>
-                      </li>
-                      <li class="dropdown-item">
-                        <a class="nav-link g-color-gray-dark-v1" href="home-page.jsp">상품 Q&amp;A</a>
-                      </li>
-                      <li class="dropdown-item">
-                        <a class="nav-link g-color-gray-dark-v1" href="home-page.jsp">배송문의</a>
-                      </li>
-                      <li class="dropdown-item">
-                        <a class="nav-link g-color-gray-dark-v1" href="home-page.jsp">사용후기</a>
-                      </li>
-                      <li class="dropdown-item">
-                        <a class="nav-link g-color-gray-dark-v1" href="home-page.jsp">입점문의</a>
-                      </li>
-                      <li class="dropdown-item">
-                        <a class="nav-link g-color-gray-dark-v1" href="home-page.jsp">이벤트</a>
-                      </li>
-                      
-                    </ul>
-                    <!-- End Submenu -->
-                  </li>
-                  <!-- 고객센터 끝 -->
-                  
                   <li class="nav-item g-mx-10--lg g-mx-15--xl">
-                    <a class="nav-link text-uppercase g-color-primary--hover g-px-5 g-py-20" href="${pageContext.request.contextPath}/front?key=seller&methodName=logout"><b>로그아웃</b></a>
+
+                    <a class="nav-link text-uppercase g-color-primary--hover g-px-5 g-py-20" href="${pageContext.request.contextPath}/front"><b>고객센터</b></a>
                   </li>
-                  
+
                 </ul>
               </div>
               <!-- End Navigation -->
@@ -597,5 +573,8 @@
         </div>
       </header>
       <!-- End Header -->
+      <script type="text/javascript">
+        document.getElementById("account-dropdown-invoker-2").innerHTML = "판매자 ${sessionScope.sellerDTO.sellerName}님"
+      </script>
 </body>
 </html>

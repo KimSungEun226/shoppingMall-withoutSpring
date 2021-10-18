@@ -25,7 +25,7 @@ public class ItemDAOImpl implements ItemDAO {
 			   
 			   //현 프로젝트 런타임될때 즉 서버에서 실행될때 classes폴더를 동적으로 가져와서 경로를 설정해야한다.
 			
-			  proFile.load(getClass().getClassLoader().getResourceAsStream("itemQuery.Properties"));
+			  proFile.load(getClass().getClassLoader().getResourceAsStream("itemQuery.properties"));
 		}catch(Exception e) {
 			e.printStackTrace();
 		}	
@@ -148,13 +148,16 @@ public class ItemDAOImpl implements ItemDAO {
 		PreparedStatement ps =null;
 		ResultSet rs= null;
 		List<ItemDTO> categoryList = new ArrayList<ItemDTO>();
-		String sql = proFile.getProperty("item.selectByCategoryNo"); 
+		System.out.println(categoryNo);
+		String sql = "select * from item where category_No = ?";
+		System.out.println(sql);
 		try {
 			con = DbUtil.getConnection();
+			
 			ps = con.prepareStatement(sql);
-			ps.setInt(2, categoryNo);
+			ps.setInt(1, categoryNo);
 			rs = ps.executeQuery();
-			if(rs.next()) {
+			while(rs.next()) {
 				ItemDTO itemDTO = new ItemDTO(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5),
  						rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getString(9), rs.getFloat(10));
 				categoryList.add(itemDTO);
@@ -162,6 +165,7 @@ public class ItemDAOImpl implements ItemDAO {
 		} finally {
 			DbUtil.dbClose(rs, ps,con);
 		}
+		
 		return categoryList;
 	}
 	
