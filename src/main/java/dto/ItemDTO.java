@@ -18,6 +18,23 @@ public class ItemDTO {
 	public ItemDTO(){}
 
 
+	
+	
+	public ItemDTO(int categoryNo, int sellerNo, int regionNo, String itemName, int itemPrice, int itemStock,
+			String itemDescription) {
+		super();
+		this.categoryNo = categoryNo;
+		this.sellerNo = sellerNo;
+		this.regionNo = regionNo;
+		this.itemName = itemName;
+		this.itemPrice = itemPrice;
+		this.itemStock = itemStock;
+		this.itemDescription = itemDescription;
+	}
+
+
+
+
 	public ItemDTO(int itemNo, int categoryNo, int sellerNo, int regionNo, String itemName, int itemPrice, int itemStock,
 			String itemAddDate, String itemApprove, float itemGrade) {
 		super();
@@ -150,6 +167,17 @@ public class ItemDTO {
 
 	public void setItemDescription(String itemDescription) {
 		this.itemDescription = itemDescription;
+	}
+
+
+
+
+	@Override
+	public String toString() {
+		return "ItemDTO [itemNo=" + itemNo + ", categoryNo=" + categoryNo + ", sellerNo=" + sellerNo + ", regionNo="
+				+ regionNo + ", itemName=" + itemName + ", itemPrice=" + itemPrice + ", itemStock=" + itemStock
+				+ ", itemAddDate=" + itemAddDate + ", itemApprove=" + itemApprove + ", itemGrade=" + itemGrade
+				+ ", itemDescription=" + itemDescription + "]";
 	};
 	
 	

@@ -168,6 +168,7 @@
       <!-- End Filters -->
 
       <!-- Products -->
+      
       <div class="container">
         <!-- Banner -->
         <div class="g-bg-size-cover g-bg-pos-center g-py-40 g-mt-50" style="background-image: url(${pageContext.request.contextPath}/html/namdo-market/assets/img-temp/900x450/sub1_900_450.png);">
@@ -198,7 +199,8 @@
 			  <div class="col-6 col-lg-3 g-mb-30">
 	            <!-- Product -->
 	            <figure class="g-pos-rel g-mb-20">
-	              <img class="img-fluid" src="'${pageContext.request.contextPath}/html/namdo-market/assets/img-temp/480x700/' + img002 (44)" alt="Image Description">
+
+	              <a href="${pageContext.request.contextPath}/front?key=item&methodName=selectDetail&itemNo=${itemDto.itemNo}"><img class="img-fluid" src="'${pageContext.request.contextPath}/html/namdo-market/assets/img-temp/480x700/' + img002 (44)" alt="Image Description"></a>
 	              <span class="u-ribbon-v1 g-width-40 g-height-40 g-color-white g-bg-primary g-font-size-13 text-center text-uppercase g-rounded-50x g-top-20 g-right-minus-10 g-px-2 g-py-10">New</span>
 	
 	            </figure>

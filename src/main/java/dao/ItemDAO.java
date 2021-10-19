@@ -43,7 +43,7 @@ public interface ItemDAO {
 	  * 상품 등록하기
 	  * @return : 1-삽입성공 , 0 - 삽입실패
 	  * */
-	  int insertItem(ItemDTO item) throws SQLException;
+	  ItemDTO insertItem(ItemDTO item) throws SQLException;
 	  
 	  
 	  /**

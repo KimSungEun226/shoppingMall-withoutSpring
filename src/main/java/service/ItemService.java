@@ -42,7 +42,7 @@ public interface ItemService {
 	  /**
 	  * ItemDAOImpl에서 레코드 삽입 메소드 호출
 	  * */
-	  void insert(ItemDTO item) throws SQLException;
+	  ItemDTO insert(ItemDTO item) throws SQLException;
 	  
 	  /**
 	   * ItemDAOImpl에서 상품번호에 해당하는 레코드 삭제 메소드 호출

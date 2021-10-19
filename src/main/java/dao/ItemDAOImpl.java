@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Properties;
 
 import dto.ItemDTO;
+import dto.OrderDTO;
 import dto.ReviewDTO;
 import paging.PageCnt;
 import util.DbUtil;
@@ -261,46 +262,79 @@ public class ItemDAOImpl implements ItemDAO {
 	  * */
 
 	@Override
-	public int insertItem(ItemDTO item) throws SQLException {
+	public ItemDTO insertItem(ItemDTO item) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
-		int result = 0;
-		String sql = proFile.getProperty("item.insertItem");
+
+		ItemDTO resultDTO = null;
+		int result;
+		String sql = "insert into item values(seq_item_no.nextval, ?, ?, ?, ?, ?, ?, default, default, ?, ?)";
+
 		
 		try {
 			con = DbUtil.getConnection();
+			con.setAutoCommit(false); // 자동커밋해지
+
 			ps = con.prepareStatement(sql);
-			//insert into item values(item_no.nextval, ?, ?, ?, ?, ?, ?, default, default, ?)
-			// 상품 번호 
-			ps.setInt(1, item.getItemNo());
+			
 			//카테고리번호
-		    ps.setInt(2,item.getCategoryNo());
+		    ps.setInt(1,item.getCategoryNo());
 		    //판매자 번호
-	        ps.setInt(3, item.getSellerNo());
+	        ps.setInt(2, item.getSellerNo());
 	        //지역번호
-		    ps.setInt(4, item.getRegionNo());
+		    ps.setInt(3, item.getRegionNo());
 		    //상품이름
-		    ps.setString(5, item.getItemName());
+		    ps.setString(4, item.getItemName());
 		    //상품 가격
-		    ps.setInt(6, item.getItemPrice());
+		    ps.setInt(5, item.getItemPrice());
 		    //상품 재고량
-			ps.setInt(7, item.getItemStock());
-			//상품등록일
-			ps.setString(8, item.getItemAddDate());
-			//상품승인여부
-		    ps.setString(9, item.getItemApprove());
-		    //상품평점
-		    ps.setFloat(10, item.getItemGrade());
+			ps.setInt(6, item.getItemStock());
+			//상품평점
+		    ps.setFloat(7, 0);
+		    //상품설명
+		    ps.setString(8, item.getItemDescription());
+
 		    result = ps.executeUpdate();
+		    
+		    if (result > 0) {
+		    	resultDTO = selectItemRecent(con);
+		    	if (resultDTO==null) {
+			    	con.rollback();
+			    	throw new SQLException("등록실패(최신값 불러오기)");
+			    }
+		    }
+		    
 		    
 		}catch(SQLException e){
 			e.printStackTrace();
 		}finally {
+			con.commit();
 			DbUtil.dbClose(ps, con);
 		}
-		return result;
-
+		return resultDTO;		
 	}
+	
+	
+	//바로 추가된 Order를 가져온다.
+	public ItemDTO selectItemRecent(Connection con) throws SQLException {
+		PreparedStatement ps =null;
+		ResultSet rs =null;
+		ItemDTO result =null;
+		String sql = "select * from item order by item_no desc";
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+			result = new ItemDTO(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5), 
+			  rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getString(9), rs.getFloat(10), rs.getString(11));
+			}
+			
+		}finally {
+			DbUtil.dbClose(rs, ps, null);
+		}
+		
+		return result;
+	 }	
 
 	/**
 	   * 상품 번호에 해당하는 상품 수정(상품번호)
