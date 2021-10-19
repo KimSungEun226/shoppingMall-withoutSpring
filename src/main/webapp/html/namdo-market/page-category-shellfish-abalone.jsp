@@ -87,11 +87,11 @@
               <i class="g-color-gray-light-v2 g-ml-5 fa fa-angle-right"></i>
             </li>
             <li class="list-inline-item g-mr-5">
-              <a class="u-link-v5 g-color-text" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByCategoryNo&categoryNo=1">생선</a>
+              <a class="u-link-v5 g-color-text" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByCategoryNo&categoryNo=4">해산물/어패류</a>
               <i class="g-color-gray-light-v2 g-ml-5 fa fa-angle-right"></i>
             </li>
             <li class="list-inline-item g-color-primary">
-              <span>굴비</span>
+              <span>전복</span>
             </li>
           </ul>
         </div>
@@ -120,22 +120,30 @@
                 <span class="d-block u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
                   <i class="fa" data-check-icon="&#xf00c"></i>
                 </span>
-                굴비
+                전복
               </label>
               <label class="form-check-inline u-check u-link-v5 g-color-gray-dark-v4 g-color-primary--hover g-pl-25 mb-0 mx-2">
                 <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="radio" name="fish-check" onclick="fishCheck(3)">
                 <span class="d-block u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
                   <i class="fa" data-check-icon="&#xf00c"></i>
                 </span>
-                낙지
+                바지락
               </label>
               <label class="form-check-inline u-check u-link-v5 g-color-gray-dark-v4 g-color-primary--hover g-pl-25 mb-0 mx-2">
                 <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="radio" name="fish-check" onclick="fishCheck(4)">
                 <span class="d-block u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
                   <i class="fa" data-check-icon="&#xf00c"></i>
                 </span>
-                홍어
+                꼬막
               </label>
+              <label class="form-check-inline u-check u-link-v5 g-color-gray-dark-v4 g-color-primary--hover g-pl-25 mb-0 mx-2">
+                <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="radio" name="fish-check" onclick="fishCheck(5)">
+                <span class="d-block u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
+                  <i class="fa" data-check-icon="&#xf00c"></i>
+                </span>
+                새우
+              </label>
+              
             </div>
     	
           </div>
@@ -211,7 +219,7 @@
 	                    <b>${itemDto.itemName}</b>
 	                  </a>
 	                </h4>
-	                <a id="${itemDto.categoryNo}" class="d-inline-block g-color-gray-dark-v5 g-font-size-13" >${itemDto.categoryNo}</a>
+	                <a id="${itemDto.categoryNo}" class="d-inline-block g-color-gray-dark-v5 g-font-size-13" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByCategoryNo&categoryNo=${itemDto.categoryNo}">${itemDto.categoryNo}</a>
 	                <span class="d-block g-color-black g-font-size-17">
 	                <fmt:formatNumber value="${itemDto.itemPrice}"/>원
 	                </span>
@@ -370,17 +378,19 @@
     </script>
     
     <script type="text/javascript">
-    function fishCheck(n){
-		location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByCategoryNo&categoryNo=1";
+      function fishCheck(n){
+		location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByCategoryNo&categoryNo=4";
 		if(n==2){
-    		location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=굴비";
+    		location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=전복";
     	}else if(n==3){
-    		location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=낙지";
-    	}else {
-    		location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=홍어";
+    		location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=바지락";
+    	}else if(n==4){
+    		location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=꼬막";
+    	}else if(n==5){
+    		location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=새우";
     	}
-
       }
+      
     </script>
   </body>
 </html>

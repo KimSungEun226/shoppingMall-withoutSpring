@@ -139,7 +139,7 @@
                         <div class="col-sm-6 col-md-2 g-mb-30 g-mb-0--sm">
                           <!-- Links -->
                           <span class="d-block g-font-weight-500 text-uppercase mb-2">
-							<a class="nav-link text-uppercase g-color-primary--hover g-px-0 g-py-0" href="page-category.jsp"><b>지역별 특산품</b></a>
+							<a class="nav-link text-uppercase g-color-primary--hover g-px-0 g-py-0" href="${pageContext.request.contextPath}/html/namdo-market/page-category-region-all.jsp"><b>지역별 특산품</b></a>
 						  </span>
 
                           <ul class="list-unstyled mb-0">
@@ -159,7 +159,7 @@
                           <!-- End Links -->
                         </div>
                         
-                        <div class="col-sm-6 col-md-2 g-mb-30 g-mb-0--sm">
+                        <div class="col-sm-6 col-md-3 g-mb-30 g-mb-0--sm">
                           <!-- Links -->
                           <span class="d-block g-font-weight-500 text-uppercase mb-2"><br></span>
 
@@ -185,13 +185,13 @@
                           
                             <div class="mb-5">
                               <span class="d-block g-font-weight-500 text-uppercase mb-2">
-							    <a class="nav-link text-uppercase g-color-primary--hover g-px-0 g-py-0" href="page-category-fish.jsp"><b>생선</b></a>
+							    <a class="nav-link text-uppercase g-color-primary--hover g-px-0 g-py-0" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByCategoryNo&categoryNo=1"><b>생선</b></a>
 							  </span>
 
                             <ul class="list-unstyled mb-0">
-                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="page-category-fish-gulbi.jsp">굴비</a></li>
-                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="page-category-fish-octopus.jsp">세발낙지</a></li>
-                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="page-category-fish-skates.jsp">홍어</a></li>
+                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=굴비">굴비</a></li>
+                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=낙지">낙지</a></li>
+                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=홍어">홍어</a></li>
                              
                             </ul>
                           </div>
@@ -200,11 +200,11 @@
                           <!-- Links -->
                           <div class="mb-5">
                             <span class="d-block g-font-weight-500 text-uppercase mb-2">
-							  <a class="nav-link text-uppercase g-color-primary--hover g-px-0 g-py-0" href="page-category.jsp"><b>건어물</b></a>
+							  <a class="nav-link text-uppercase g-color-primary--hover g-px-0 g-py-0" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByCategoryNo&categoryNo=2"><b>건어물</b></a>
 							</span>
 
                             <ul class="list-unstyled mb-0">
-                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="page-category.jsp">멸치</a></li>
+                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=멸치">멸치</a></li>
                              
                             </ul>
                           </div>
@@ -213,32 +213,32 @@
                           <!-- Links -->
                             <div class="mb-5">
                               <span class="d-block g-font-weight-500 text-uppercase mb-2">
-								<a class="nav-link text-uppercase g-color-primary--hover g-px-0 g-py-0" href="page-category.jsp"><b>김/해초류</b></a>
+								<a class="nav-link text-uppercase g-color-primary--hover g-px-0 g-py-0" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByCategoryNo&categoryNo=3"><b>김/해초류</b></a>
 							  </span>
 
                             <ul class="list-unstyled mb-0">
-                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="page-category.jsp">김</a></li>
-                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="page-category.jsp">미역</a></li>
+                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=김">김</a></li>
+                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=미역">미역</a></li>
                              
                             </ul>
                           </div>
                           <!-- End Links -->
                         </div>
                         
-                        <div class="col-sm-6 col-md-3 g-mb-30 g-mb-0--sm">
+                        <div class="col-sm-6 col-md-2 g-mb-30 g-mb-0--sm">
                           
                           
                           <!-- Links -->
                           <div class="mb-5">
                             <span class="d-block g-font-weight-500 text-uppercase mb-2">
-							  <a class="nav-link text-uppercase g-color-primary--hover g-px-0 g-py-0" href="page-category.jsp"><b>해산물/어패류</b></a>
+							  <a class="nav-link text-uppercase g-color-primary--hover g-px-0 g-py-0" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByCategoryNo&categoryNo=4"><b>해산물/어패류</b></a>
 							</span>
 
                             <ul class="list-unstyled mb-0">
-                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="page-category.jsp">전복</a></li>
-                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="page-category.jsp">바지락</a></li>
-                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="page-category.jsp">꼬막</a></li>
-                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="page-category.jsp">새우</a></li>
+                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=전복">전복</a></li>
+                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=바지락">바지락</a></li>
+                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=꼬막">꼬막</a></li>
+                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=새우">새우</a></li>
                              
                             </ul>
                           </div>
@@ -247,7 +247,7 @@
                           <!-- Links -->
                           <div class="mb-5">
                             <span class="d-block g-font-weight-500 text-uppercase mb-2">
-                              <a class="nav-link text-uppercase g-color-primary--hover g-px-0 g-py-0" href="page-category.jsp"><b>젓갈</b></a>
+                              <a class="nav-link text-uppercase g-color-primary--hover g-px-0 g-py-0" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByCategoryNo&categoryNo=5"><b>젓갈</b></a>
                             </span>
                    
                           </div>
@@ -256,7 +256,7 @@
                           <!-- Links -->
                           <div class="mb-5">
                             <span class="d-block g-font-weight-500 text-uppercase mb-2">
-							  <a class="nav-link text-uppercase g-color-primary--hover g-px-0 g-py-0" href="page-category.jsp"><b>수산물 기타</b></a>
+							  <a class="nav-link text-uppercase g-color-primary--hover g-px-0 g-py-0" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByCategoryNo&categoryNo=6"><b>수산물 기타</b></a>
 							</span>
 
                           </div>
@@ -266,22 +266,9 @@
                         <div class="col-sm-6 col-md-2 g-mb-30 g-mb-0--sm">
                           <!-- Links -->
                           <span class="d-block g-font-weight-500 text-uppercase mb-2">
-							<a class="nav-link text-uppercase g-color-primary--hover g-px-0 g-py-0" href="page-category.jsp"><b>고객센터</b></a>
+							<a class="nav-link text-uppercase g-color-primary--hover g-px-0 g-py-0" href="${pageContext.request.contextPath}/front"><b>고객센터</b><span class="u-label g-bg-primary rounded g-ml-10">New</span></a>
 						  </span>
 
-                          <ul class="list-unstyled mb-0">
-                            <li>
-                              <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">공지사항
-                                <span class="u-label g-bg-primary rounded g-ml-10">New</span>
-                              </a>
-                            </li>
-                            <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">상품 Q&amp;A</a></li>
-                            <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">배송문의</a></li>
-                            <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">사용후기</a></li>
-                            <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">입점문의</a></li>
-                            <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">이벤트</a></li>
-                          </ul>
-                          <!-- End Links -->
                         </div>
                       </div>
                     </div>
@@ -464,7 +451,7 @@
                         <a class="nav-link g-color-gray-dark-v1" href="page-category-fish-gulbi.jsp">굴비</a>
                       </li>
                       <li class="dropdown-item">
-                        <a class="nav-link g-color-gray-dark-v1" href="page-category-fish-octopus.jsp">세발낙지</a>
+                        <a class="nav-link g-color-gray-dark-v1" href="page-category-fish-octopus.jsp">낙지</a>
                       </li>
                       <li class="dropdown-item">
                         <a class="nav-link g-color-gray-dark-v1" href="page-category-fish-skates.jsp">홍어</a>

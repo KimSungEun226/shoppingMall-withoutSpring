@@ -37,7 +37,7 @@
               
               <!-- Account -->
                   <li class="list-inline-item">
-                    <a id="account-dropdown-invoker-2" class="g-color-white-opacity-0_6 g-color-primary--hover g-font-weight-400 g-text-underline--none--hover" href="#"
+                    <a id="account-dropdown-invoker-2" class="g-color-white-opacity-0_6 g-color-primary--hover g-font-weight-400 g-text-underline--none--hover" href="page-login-security-customer.jsp"
                        aria-controls="account-dropdown-2"
                        aria-haspopup="true"
                        aria-expanded="false"
@@ -63,10 +63,16 @@
                         </a>
                       </li>
                       <li>
-                        <a class="d-block g-color-black g-color-primary--hover g-text-underline--none--hover g-font-weight-400 g-py-5 g-px-20" href="#">
+                        <a class="d-block g-color-black g-color-primary--hover g-text-underline--none--hover g-font-weight-400 g-py-5 g-px-20" href="page-orders.jsp">
                           주문내역
                         </a>
                       </li>
+                      <li>
+                        <a class="d-block g-color-black g-color-primary--hover g-text-underline--none--hover g-font-weight-400 g-py-5 g-px-20" href="href="${pageContext.request.contextPath}/front?key=customer&methodName=logout">
+                          로그아웃
+                        </a>
+                      </li>
+                      
                     </ul>
                   </li>
                   <!-- End Account -->
@@ -113,7 +119,7 @@
                     <div class="input-group">
                       <input class="form-control g-font-size-13" type="search" placeholder="Search Here...">
                       <div class="input-group-append p-0">
-                        <button class="btn u-btn-primary g-font-size-12 text-uppercase g-py-13 g-px-15" type="submit">Go</button>
+                        <button class="btn u-btn-primary g-font-size-12 text-uppercase g-py-13 g-px-15" type="submit">검색</button>
                       </div>
                     </div>
                   </form>
@@ -163,13 +169,23 @@
                       <i class="hs-icon hs-icon-arrow-bottom g-font-size-11 g-ml-7"></i>
                     </a>
 
+                    <!-- 전체 카테고리 -->
+                  <li class="hs-has-mega-menu nav-item g-mx-10--lg g-mx-15--xl"
+                      data-animation-in="fadeIn"
+                      data-animation-out="fadeOut"
+                      data-position="right">
+                    <a id="mega-menu-label-4" class="nav-link text-uppercase g-color-primary--hover g-px-5 g-py-20" href="#" aria-haspopup="true" aria-expanded="false">
+                      <b>전체 카테고리</b>
+                      <i class="hs-icon hs-icon-arrow-bottom g-font-size-11 g-ml-7"></i>
+                    </a>
+
                     <!-- 전체 카테고리 메뉴 -->
                     <div class="w-100 hs-mega-menu u-shadow-v11 g-text-transform-none g-brd-top g-brd-primary g-brd-top-2 g-bg-white g-pa-30 g-mt-7" aria-labelledby="mega-menu-label-4">
                       <div class="row">
                         <div class="col-sm-6 col-md-2 g-mb-30 g-mb-0--sm">
                           <!-- Links -->
                           <span class="d-block g-font-weight-500 text-uppercase mb-2">
-							<a class="nav-link text-uppercase g-color-primary--hover g-px-0 g-py-0" href="page-category.jsp"><b>지역별 특산품</b></a>
+							<a class="nav-link text-uppercase g-color-primary--hover g-px-0 g-py-0" href="${pageContext.request.contextPath}/html/namdo-market/page-category-region-all.jsp"><b>지역별 특산품</b></a>
 						  </span>
 
                           <ul class="list-unstyled mb-0">
@@ -215,13 +231,13 @@
                           
                             <div class="mb-5">
                               <span class="d-block g-font-weight-500 text-uppercase mb-2">
-							    <a class="nav-link text-uppercase g-color-primary--hover g-px-0 g-py-0" href="${pageContext.request.contextPath}/html/namdo-market/page-category-fish.jsp"><b>생선</b></a>
+							    <a class="nav-link text-uppercase g-color-primary--hover g-px-0 g-py-0" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByCategoryNo&categoryNo=1"><b>생선</b></a>
 							  </span>
 
                             <ul class="list-unstyled mb-0">
-                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/html/namdo-market/page-category-fish-gulbi.jsp">굴비</a></li>
-                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/html/namdo-market/page-category-fish-octopus.jsp">세발낙지</a></li>
-                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/html/namdo-market/page-category-fish-skates.jsp">홍어</a></li>
+                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=굴비">굴비</a></li>
+                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=낙지">낙지</a></li>
+                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=홍어">홍어</a></li>
                              
                             </ul>
                           </div>
@@ -230,11 +246,11 @@
                           <!-- Links -->
                           <div class="mb-5">
                             <span class="d-block g-font-weight-500 text-uppercase mb-2">
-							  <a class="nav-link text-uppercase g-color-primary--hover g-px-0 g-py-0" href="page-category.jsp"><b>건어물</b></a>
+							  <a class="nav-link text-uppercase g-color-primary--hover g-px-0 g-py-0" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByCategoryNo&categoryNo=2"><b>건어물</b></a>
 							</span>
 
                             <ul class="list-unstyled mb-0">
-                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="page-category.jsp">멸치</a></li>
+                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=멸치">멸치</a></li>
                              
                             </ul>
                           </div>
@@ -243,12 +259,12 @@
                           <!-- Links -->
                             <div class="mb-5">
                               <span class="d-block g-font-weight-500 text-uppercase mb-2">
-								<a class="nav-link text-uppercase g-color-primary--hover g-px-0 g-py-0" href="page-category.jsp"><b>김/해초류</b></a>
+								<a class="nav-link text-uppercase g-color-primary--hover g-px-0 g-py-0" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByCategoryNo&categoryNo=3"><b>김/해초류</b></a>
 							  </span>
 
                             <ul class="list-unstyled mb-0">
-                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="page-category.jsp">김</a></li>
-                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="page-category.jsp">미역</a></li>
+                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=김">김</a></li>
+                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=미역">미역</a></li>
                              
                             </ul>
                           </div>
@@ -261,14 +277,14 @@
                           <!-- Links -->
                           <div class="mb-5">
                             <span class="d-block g-font-weight-500 text-uppercase mb-2">
-							  <a class="nav-link text-uppercase g-color-primary--hover g-px-0 g-py-0" href="page-category.jsp"><b>해산물/어패류</b></a>
+							  <a class="nav-link text-uppercase g-color-primary--hover g-px-0 g-py-0" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByCategoryNo&categoryNo=4"><b>해산물/어패류</b></a>
 							</span>
 
                             <ul class="list-unstyled mb-0">
-                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="page-category.jsp">전복</a></li>
-                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="page-category.jsp">바지락</a></li>
-                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="page-category.jsp">꼬막</a></li>
-                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="page-category.jsp">새우</a></li>
+                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=전복">전복</a></li>
+                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=바지락">바지락</a></li>
+                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=꼬막">꼬막</a></li>
+                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=새우">새우</a></li>
                              
                             </ul>
                           </div>
@@ -277,7 +293,7 @@
                           <!-- Links -->
                           <div class="mb-5">
                             <span class="d-block g-font-weight-500 text-uppercase mb-2">
-                              <a class="nav-link text-uppercase g-color-primary--hover g-px-0 g-py-0" href="page-category.jsp"><b>젓갈</b></a>
+                              <a class="nav-link text-uppercase g-color-primary--hover g-px-0 g-py-0" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByCategoryNo&categoryNo=5"><b>젓갈</b></a>
                             </span>
                    
                           </div>
@@ -286,7 +302,7 @@
                           <!-- Links -->
                           <div class="mb-5">
                             <span class="d-block g-font-weight-500 text-uppercase mb-2">
-							  <a class="nav-link text-uppercase g-color-primary--hover g-px-0 g-py-0" href="page-category.jsp"><b>수산물 기타</b></a>
+							  <a class="nav-link text-uppercase g-color-primary--hover g-px-0 g-py-0" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByCategoryNo&categoryNo=6"><b>수산물 기타</b></a>
 							</span>
 
                           </div>

@@ -180,12 +180,14 @@ public class ItemDAOImpl implements ItemDAO {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		List<ItemDTO> inputItemNameList = new ArrayList<ItemDTO>();  
-		String sql = proFile.getProperty("item.selectByInputItemName");
+		String sql = "select * from item where item_Name like ?";
 		
 		try {
 			con =DbUtil.getConnection();
 			ps = con.prepareStatement(sql);
-			ps.setString(1, input);
+			ps.setString(1, "%"+input+"%");
+			System.out.println(ps);
+			
 			rs =ps.executeQuery(); 
 		while(rs.next()) {
 			ItemDTO itemDTO = new ItemDTO(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5),
