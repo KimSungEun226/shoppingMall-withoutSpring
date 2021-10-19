@@ -57,10 +57,10 @@ public class ItemServiceImpl implements ItemService {
 	}
 
 	@Override
-	public ItemDTO insert(ItemDTO item) throws SQLException {
+	public int insert(ItemDTO item) throws SQLException {
 		
 		ItemDAO dao = new ItemDAOImpl();
-        ItemDTO result = dao.insertItem(item);	    
+        int result = dao.insertItem(item);	    
 		
 		return result;
 	}

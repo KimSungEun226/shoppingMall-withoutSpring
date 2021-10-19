@@ -48,7 +48,7 @@ public class CartController implements Controller {
 		for(CartDTO cart: cartList) {
 			//아이템 번호를 입력으로 받으면 DTO리턴하는 메소드 
 			ItemDTO item = itemService.selectByNo(cart.getItemNo());
-			cartViewList.add(new CartViewDTO(cart.getCartNo(), item.getItemName(), item.getItemPrice(), cart.getCartItemCount()));
+			cartViewList.add(new CartViewDTO(cart.getCartNo(), item.getItemName(), item.getItemPrice(), cart.getCartItemCount(), item.getMainImg()));
 		}
 		request.setAttribute("list", cartViewList);
 		return new ModelAndView("html/namdo-market/page-cart.jsp");

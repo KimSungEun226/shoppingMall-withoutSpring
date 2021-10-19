@@ -235,7 +235,7 @@
                         <!-- Item-->
                         <tr class="g-brd-bottom g-brd-gray-light-v3">
                           <td class="text-left g-py-25">
-                            <img class="d-inline-block g-width-100 mr-4" src="${pageContext.request.contextPath}/html/namdo-market/assets/img-temp/150x150/img6.jpg" alt="Image Description">
+                            <img class="d-inline-block g-width-100 mr-4" src="${pageContext.request.contextPath}/save/${itemDto.mainImg}" alt="Image Description">
                             <div class="d-inline-block align-middle">
                               <h4 class="h6 g-color-black">${itemDto.itemName}</h4>
                               
@@ -413,7 +413,7 @@
                             
 
                             <li class="d-flex justify-content-start">
-                              <img class="g-width-100 g-height-100 mr-3" src="assets/img-temp/150x150/img6.jpg" alt="Image Description">
+                              <img class="g-width-100 g-height-100 mr-3" src="${pageContext.request.contextPath}/save/${itemDto.mainImg}" alt="Image Description">
                               <div class="d-block">
                                 <h4 class="h6 g-color-black">${itemDto.itemName}</h4>
                                 <ul class="list-unstyled g-color-gray-dark-v4 g-font-size-12 g-line-height-1_4 mb-1">
