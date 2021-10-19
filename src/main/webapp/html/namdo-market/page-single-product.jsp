@@ -105,7 +105,7 @@
             <div class="g-px-40--lg g-pt-70">
               <!-- Product Info -->
               <div class="g-mb-30">
-                <h1 class="g-font-weight-300 mb-4">[영암군농협쌀조합] 달마지쌀골드</h1>
+                <h1 class="g-font-weight-300 mb-4">${item.itemName}</h1>
                 <p><!-- Dress is the "rain mac" version of our beloved essential the Unify Parka. Crafted from a water resistant fluid memory fabric to create an elegant draped effect when thrown on, this lightweight shell will take you from season to season and protect you from that unexpected shower. --></p>
               </div>
               <!-- End Product Info -->
@@ -113,7 +113,7 @@
               <!-- Price -->
               <div class="g-mb-30">
                 <h2 class="g-color-gray-dark-v5 g-font-weight-400 g-font-size-12 text-uppercase mb-2">판매가</h2>
-                <span class="g-color-black g-font-weight-500 g-font-size-30 mr-2">80,900원</span>
+                <span class="g-color-black g-font-weight-500 g-font-size-30 mr-2">${item.itemPrice}</span>
               </div>
               <!-- End Price -->
 
@@ -129,7 +129,7 @@
                   <div class="g-py-10">
                     <p class="g-font-size-12 mb-2">원산지: 국내</p>
                     <p class="g-font-size-12 mb-2">배송비: 무료</p>
-                    <p class="g-font-size-12 mb-2">공급사: 영암군농협쌀조합공동사업법인</p>
+                    <p class="g-font-size-12 mb-2">공급사: ${item.sellerNo}</p>
                     <p class="g-font-size-12 mb-2">배송정보: 제주 및 도서산간지역은 추가배송비가 발생합니다.</p>
                   </div>
                 </div>
