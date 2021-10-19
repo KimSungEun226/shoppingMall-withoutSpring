@@ -13,6 +13,7 @@
 </head>
 <body>
    <h1>
+   ${customerDTO.customerNo}<p>
    ${customerDTO.customerId} <p>
    ${customerDTO.customerPwd}<p>
    ${customerDTO.customerName}<p>

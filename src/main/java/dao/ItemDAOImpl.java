@@ -49,7 +49,7 @@ public class ItemDAOImpl implements ItemDAO {
  			rs = ps.executeQuery();
  			while(rs.next()) {
  				ItemDTO itemDTO = new ItemDTO(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5),
- 						rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getString(9), rs.getFloat(10));
+ 						rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getString(9), rs.getFloat(10), rs.getString(11));
 				
 				itemlist.add(itemDTO);
 			}
@@ -107,7 +107,7 @@ public class ItemDAOImpl implements ItemDAO {
 			rs = ps.executeQuery();
 			while(rs.next()) {
 				ItemDTO itemDTO = new ItemDTO(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5),
- 						rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getString(9), rs.getFloat(10));
+ 						rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getString(9), rs.getFloat(10), rs.getString(11));
 				
 				pageList.add(itemDTO);
 			}
@@ -161,7 +161,7 @@ public class ItemDAOImpl implements ItemDAO {
 			rs = ps.executeQuery();
 			while(rs.next()) {
 				ItemDTO itemDTO = new ItemDTO(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5),
- 						rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getString(9), rs.getFloat(10));
+ 						rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getString(9), rs.getFloat(10), rs.getString(11));
 				categoryList.add(itemDTO);
 			}
 		} finally {
@@ -191,7 +191,7 @@ public class ItemDAOImpl implements ItemDAO {
 			rs =ps.executeQuery(); 
 		while(rs.next()) {
 			ItemDTO itemDTO = new ItemDTO(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5),
-						rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getString(9), rs.getFloat(10));
+						rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getString(9), rs.getFloat(10), rs.getString(11));
 			inputItemNameList.add(itemDTO); 
 			}
 		}finally {
@@ -219,7 +219,7 @@ public class ItemDAOImpl implements ItemDAO {
 			rs = ps.executeQuery();
 			if(rs.next()) {
 				itemDTO = new ItemDTO(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5),
-						rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getString(9), rs.getFloat(10));
+						rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getString(9), rs.getFloat(10), rs.getString(11));
 				}
 		}finally {
 			DbUtil.dbClose(rs, ps, con);
@@ -247,7 +247,7 @@ public class ItemDAOImpl implements ItemDAO {
 			rs = ps.executeQuery();
 			while(rs.next()) {
 				ItemDTO itemDTO = new ItemDTO(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5),
-						rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getString(9), rs.getFloat(10));
+						rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getString(9), rs.getFloat(10), rs.getString(11));
 			itemRegionList.add(itemDTO);
 				}
 		}finally {
@@ -267,7 +267,7 @@ public class ItemDAOImpl implements ItemDAO {
 		Connection con = null;
 		PreparedStatement ps = null;
 		int result = 0;
-		String sql = proFile.getProperty("item.insertItem");
+		String sql = "insert into item values(item_no.nextval, ?, ?, ?, ?, ?, ?, default, default, ?, ?)";
 		
 		try {
 			con = DbUtil.getConnection();
@@ -293,6 +293,8 @@ public class ItemDAOImpl implements ItemDAO {
 		    ps.setString(9, item.getItemApprove());
 		    //상품평점
 		    ps.setFloat(10, item.getItemGrade());
+		    //상품설명
+		    ps.setString(11, item.getItemDescription());
 		    result = ps.executeUpdate();
 		    
 		}catch(SQLException e){

@@ -1,8 +1,11 @@
 package dao;
 
 import java.sql.SQLException;
+import java.util.List;
 
+import dto.CartDTO;
 import dto.OrderDTO;
+import dto.OrderDetailDTO;
 
 public interface OrderDAO {
     
@@ -10,7 +13,7 @@ public interface OrderDAO {
 	 * 주문하는 메소드
 	 * @return: 0 - 주문 실패, 1 - 주문 성공
 	 * */
-	int orderItem(OrderDTO order) throws SQLException;
+	int orderItem(OrderDTO order, List<CartDTO> cartList) throws SQLException;
 	
 	
 	/**
@@ -19,6 +22,6 @@ public interface OrderDAO {
 	 * */
 	int deleteOrder(int orderNo) throws SQLException;
 	
-	
+
 	
 }

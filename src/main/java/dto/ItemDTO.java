@@ -3,17 +3,17 @@ package dto;
 
 
 public class ItemDTO {
-	private int itemNo;          //상품 번호   db에서는 item_No
-	private int categoryNo;      //카테고리번호
-	private int sellerNo;        //판매자 번호
-	private int regionNo;        //지역번호
-	private String itemName;     //상품이름
-	private int itemPrice ;      //상품 가격
-	private int itemStock;       //상품 재고량
-	private String itemAddDate;  //상품등록일
-	private String itemApprove; //상품승인여부
-	private float itemGrade;     //상품평점
-	
+	private int itemNo;             //상품 번호   db에서는 item_No
+	private int categoryNo;         //카테고리번호
+	private int sellerNo;           //판매자 번호
+	private int regionNo;           //지역번호
+	private String itemName;        //상품이름
+	private int itemPrice ;         //상품 가격
+	private int itemStock;           //상품 재고량
+	private String itemAddDate;      //상품등록일
+	private String itemApprove;       //상품승인여부
+	private float itemGrade;          //상품평점
+	private String itemDescription;   //제품설명
 	
 	public ItemDTO(){}
 
@@ -31,6 +31,15 @@ public class ItemDTO {
 		this.itemAddDate = itemAddDate;
 		this.itemApprove = itemApprove;
 		this.itemGrade = itemGrade;
+	}
+	
+	
+
+
+	public ItemDTO(int itemNo, int categoryNo, int sellerNo, int regionNo, String itemName, int itemPrice,
+			int itemStock, String itemAddDate, String itemApprove, float itemGrade, String itemDescription) {
+		this(itemNo, categoryNo, sellerNo, regionNo, itemName, itemPrice, itemStock, itemAddDate, itemApprove, itemGrade);
+		this.itemDescription = itemDescription;
 	}
 
 
@@ -131,6 +140,16 @@ public class ItemDTO {
 
 	public void setItemGrade(float itemGrade) {
 		this.itemGrade = itemGrade;
+	}
+
+
+	public String getItemDescription() {
+		return itemDescription;
+	}
+
+
+	public void setItemDescription(String itemDescription) {
+		this.itemDescription = itemDescription;
 	};
 	
 	
