@@ -169,16 +169,6 @@
                       <i class="hs-icon hs-icon-arrow-bottom g-font-size-11 g-ml-7"></i>
                     </a>
 
-                    <!-- 전체 카테고리 -->
-                  <li class="hs-has-mega-menu nav-item g-mx-10--lg g-mx-15--xl"
-                      data-animation-in="fadeIn"
-                      data-animation-out="fadeOut"
-                      data-position="right">
-                    <a id="mega-menu-label-4" class="nav-link text-uppercase g-color-primary--hover g-px-5 g-py-20" href="#" aria-haspopup="true" aria-expanded="false">
-                      <b>전체 카테고리</b>
-                      <i class="hs-icon hs-icon-arrow-bottom g-font-size-11 g-ml-7"></i>
-                    </a>
-
                     <!-- 전체 카테고리 메뉴 -->
                     <div class="w-100 hs-mega-menu u-shadow-v11 g-text-transform-none g-brd-top g-brd-primary g-brd-top-2 g-bg-white g-pa-30 g-mt-7" aria-labelledby="mega-menu-label-4">
                       <div class="row">

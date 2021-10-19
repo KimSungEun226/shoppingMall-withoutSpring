@@ -378,9 +378,10 @@
     </script>
     
     <script type="text/javascript">
-      function fishCheck(n){
-		location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByCategoryNo&categoryNo=4";
-		if(n==2){
+    function fishCheck(n){
+    	if(n==1){
+    		location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByCategoryNo&categoryNo=4";
+      	}else if(n==2){
     		location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=전복";
     	}else if(n==3){
     		location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=바지락";

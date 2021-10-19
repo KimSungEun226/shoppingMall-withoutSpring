@@ -361,8 +361,9 @@
     
     <script type="text/javascript">
       function fishCheck(n){
-		location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByCategoryNo&categoryNo=3";
-		if(n==2){
+    	if(n==1){
+    		  location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByCategoryNo&categoryNo=3";
+      	}else if(n==2){
     		location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=김";
     	}else if(n==3){
     		location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=미역";

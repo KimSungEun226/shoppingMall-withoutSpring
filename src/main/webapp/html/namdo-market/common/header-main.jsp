@@ -266,24 +266,24 @@
                           <!-- Links -->
                           <div class="mb-5">
                             <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                              <span class="d-block g-font-weight-900 text-uppercase mb-2">강진군</span>
+                              <span class="d-block g-font-weight-600 text-uppercase mb-2">강진군</span>
                             </a>
                           </div>
 
                           <div class="mb-5">
                             <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                              <span class="d-block g-font-weight-900 text-uppercase mb-2">담양군</span>
+                              <span class="d-block g-font-weight-600 text-uppercase mb-2">담양군</span>
                             </a>
                           </div>
                           
                           <div class="mb-5">
                             <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                              <span class="d-block g-font-weight-900 text-uppercase mb-2">여수시</span>
+                              <span class="d-block g-font-weight-600 text-uppercase mb-2">여수시</span>
                             </a>
                           </div>
 
 						  <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                            <span class="d-block g-font-weight-900 text-uppercase mb-2">진도군</span>
+                            <span class="d-block g-font-weight-600 text-uppercase mb-2">진도군</span>
                           </a>
                           
                         </div>
@@ -292,24 +292,24 @@
                           <!-- Links -->
                           <div class="mb-5">
                             <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                              <span class="d-block g-font-weight-900 text-uppercase mb-2">고흥군</span>
+                              <span class="d-block g-font-weight-600 text-uppercase mb-2">고흥군</span>
                             </a>
                           </div>
 
                           <div class="mb-5">
                             <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                              <span class="d-block g-font-weight-900 text-uppercase mb-2">목포시</span>
+                              <span class="d-block g-font-weight-600 text-uppercase mb-2">목포시</span>
                             </a>
                           </div>
                           
                           <div class="mb-5">
                             <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                              <span class="d-block g-font-weight-900 text-uppercase mb-2">영광군</span>
+                              <span class="d-block g-font-weight-600 text-uppercase mb-2">영광군</span>
                             </a>
                           </div>
 
 						  <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                            <span class="d-block g-font-weight-900 text-uppercase mb-2">화순군</span>
+                            <span class="d-block g-font-weight-600 text-uppercase mb-2">화순군</span>
                           </a>
 
                         </div>
@@ -318,24 +318,24 @@
                           <!-- Links -->
                           <div class="mb-5">
                             <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                              <span class="d-block g-font-weight-900 text-uppercase mb-2">곡성군</span>
+                              <span class="d-block g-font-weight-600 text-uppercase mb-2">곡성군</span>
                             </a>
                           </div>
 
                           <div class="mb-5">
                             <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                              <span class="d-block g-font-weight-900 text-uppercase mb-2">무안군</span>
+                              <span class="d-block g-font-weight-600 text-uppercase mb-2">무안군</span>
                             </a>
                           </div>
                           
                           <div class="mb-5">
                             <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                              <span class="d-block g-font-weight-900 text-uppercase mb-2">영암군</span>
+                              <span class="d-block g-font-weight-600 text-uppercase mb-2">영암군</span>
                             </a>
                           </div>
 
 						  <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                            <span class="d-block g-font-weight-900 text-uppercase mb-2">해남군</span>
+                            <span class="d-block g-font-weight-600 text-uppercase mb-2">해남군</span>
 						  </a>
                         </div>
 
@@ -343,24 +343,24 @@
                           <!-- Links -->
                           <div class="mb-5">
                           <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                            <span class="d-block g-font-weight-900 text-uppercase mb-2">광양시</span>
+                            <span class="d-block g-font-weight-600 text-uppercase mb-2">광양시</span>
                           </a>
                           </div>
 
                           <div class="mb-5">
                           <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                            <span class="d-block g-font-weight-900 text-uppercase mb-2">보성군</span>
+                            <span class="d-block g-font-weight-600 text-uppercase mb-2">보성군</span>
                           </a>
                           </div>
                           
                           <div class="mb-5">
                           <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                            <span class="d-block g-font-weight-900 text-uppercase mb-2">완도군</span>
+                            <span class="d-block g-font-weight-600 text-uppercase mb-2">완도군</span>
                           </a>
                           </div>
 
 						  <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                            <span class="d-block g-font-weight-900 text-uppercase mb-2">함평군</span>
+                            <span class="d-block g-font-weight-600 text-uppercase mb-2">함평군</span>
 						  </a>
                         </div>
 
@@ -368,18 +368,18 @@
                           <!-- Links -->
                           <div class="mb-5">
                             <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                              <span class="d-block g-font-weight-900 text-uppercase mb-2">구례군</span>
+                              <span class="d-block g-font-weight-600 text-uppercase mb-2">구례군</span>
                             </a>
                           </div>
 
                           <div class="mb-5">
                             <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                              <span class="d-block g-font-weight-900 text-uppercase mb-2">순천시</span>
+                              <span class="d-block g-font-weight-600 text-uppercase mb-2">순천시</span>
                             </a>
                           </div>
 
 						  <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                            <span class="d-block g-font-weight-900 text-uppercase mb-2">장성군</span>
+                            <span class="d-block g-font-weight-600 text-uppercase mb-2">장성군</span>
 						  </a>
                         </div>
                         
@@ -387,18 +387,18 @@
                           <!-- Links -->
                           <div class="mb-5">
 	                        <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-	                          <span class="d-block g-font-weight-900 text-uppercase mb-2">나주시</span>
+	                          <span class="d-block g-font-weight-600 text-uppercase mb-2">나주시</span>
 	                        </a>
                           </div>
 
                           <div class="mb-5">
                             <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                              <span class="d-block g-font-weight-900 text-uppercase mb-2">신안군</span>
+                              <span class="d-block g-font-weight-600 text-uppercase mb-2">신안군</span>
                             </a>
                           </div>
 
 						  <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                            <span class="d-block g-font-weight-900 text-uppercase mb-2">장흥군</span>
+                            <span class="d-block g-font-weight-600 text-uppercase mb-2">장흥군</span>
 						  </a>
                         </div>
                       </div>

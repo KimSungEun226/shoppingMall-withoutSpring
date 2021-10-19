@@ -357,11 +357,12 @@
     </script>
     
     <script type="text/javascript">
-      function fishCheck(n){
-    	  location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByCategoryNo&categoryNo=2";
-    	  if(n==2){
-    		  location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=멸치";
-    	  }
+    function fishCheck(n){
+    	if(n==1){
+    		  location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByCategoryNo&categoryNo=2";
+      	}else if(n==2){
+    		location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=멸치";
+    	}
 
       }
       

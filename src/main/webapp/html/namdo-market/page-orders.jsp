@@ -88,17 +88,9 @@
             <aside class="g-brd-around g-brd-gray-light-v4 rounded g-px-20 g-py-30">
               <!-- Profile Picture -->
               <div class="text-center g-pos-rel g-mb-30">
-                <div class="g-width-100 g-height-100 mx-auto mb-3">
-                  <img class="img-fluid rounded-circle" src="assets/img-temp/100x100/img1.jpg" alt="Image Decor">
-                </div>
 
                 <span id="name" class="d-block g-font-weight-500"></span>
 
-                <span class="u-icon-v3 u-icon-size--xs g-color-white--hover g-bg-primary--hover rounded-circle g-pos-abs g-top-0 g-right-15 g-cursor-pointer" title="Change Profile Picture"
-                      data-toggle="tooltip"
-                      data-placement="top">
-                  <i class="icon-finance-067 u-line-icon-pro"></i>
-                </span>
               </div>
               <!-- End Profile Picture -->
 
@@ -142,7 +134,7 @@
             <!-- End Links -->
 
             <div class="mb-5">
-              <h3 class="h6 d-inline-block">주문 수 : 2 개</h3>
+              <h3 class="h6 d-inline-block">주문 중인 상품 : 2 개</h3>
             </div>
 
             <!-- Order Block -->
@@ -403,7 +395,7 @@
       });
     </script>
     <script type="text/javascript">
-        document.getElementById("name").innerHTML = "<b>${sessionScope.customerDTO.customerName}님</b>"
+        document.getElementById("name").innerHTML = "<b>${sessionScope.customerDTO.customerName} 님</b>"
     </script>
   </body>
 </html>

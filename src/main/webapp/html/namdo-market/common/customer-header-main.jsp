@@ -53,11 +53,7 @@
                 </div>
                 <!-- End Search -->
               </div>
-              
-              
 
-                
-               
               <div class="col-6 col-sm-auto order-sm-3 g-py-5 g-pr-0 g-py-20--sm">
 				
                 <!-- Basket -->
@@ -299,24 +295,24 @@
                           <!-- Links -->
                           <div class="mb-5">
                             <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                              <span class="d-block g-font-weight-900 text-uppercase mb-2">강진군</span>
+                              <span class="d-block g-font-weight-600 text-uppercase mb-2">강진군</span>
                             </a>
                           </div>
 
                           <div class="mb-5">
                             <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                              <span class="d-block g-font-weight-900 text-uppercase mb-2">담양군</span>
+                              <span class="d-block g-font-weight-600 text-uppercase mb-2">담양군</span>
                             </a>
                           </div>
                           
                           <div class="mb-5">
                             <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                              <span class="d-block g-font-weight-900 text-uppercase mb-2">여수시</span>
+                              <span class="d-block g-font-weight-600 text-uppercase mb-2">여수시</span>
                             </a>
                           </div>
 
 						  <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                            <span class="d-block g-font-weight-900 text-uppercase mb-2">진도군</span>
+                            <span class="d-block g-font-weight-600 text-uppercase mb-2">진도군</span>
                           </a>
                           
                         </div>
@@ -325,24 +321,24 @@
                           <!-- Links -->
                           <div class="mb-5">
                             <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                              <span class="d-block g-font-weight-900 text-uppercase mb-2">고흥군</span>
+                              <span class="d-block g-font-weight-600 text-uppercase mb-2">고흥군</span>
                             </a>
                           </div>
 
                           <div class="mb-5">
                             <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                              <span class="d-block g-font-weight-900 text-uppercase mb-2">목포시</span>
+                              <span class="d-block g-font-weight-600 text-uppercase mb-2">목포시</span>
                             </a>
                           </div>
                           
                           <div class="mb-5">
                             <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                              <span class="d-block g-font-weight-900 text-uppercase mb-2">영광군</span>
+                              <span class="d-block g-font-weight-600 text-uppercase mb-2">영광군</span>
                             </a>
                           </div>
 
 						  <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                            <span class="d-block g-font-weight-900 text-uppercase mb-2">화순군</span>
+                            <span class="d-block g-font-weight-600 text-uppercase mb-2">화순군</span>
                           </a>
 
                         </div>
@@ -351,24 +347,24 @@
                           <!-- Links -->
                           <div class="mb-5">
                             <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                              <span class="d-block g-font-weight-900 text-uppercase mb-2">곡성군</span>
+                              <span class="d-block g-font-weight-600 text-uppercase mb-2">곡성군</span>
                             </a>
                           </div>
 
                           <div class="mb-5">
                             <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                              <span class="d-block g-font-weight-900 text-uppercase mb-2">무안군</span>
+                              <span class="d-block g-font-weight-600 text-uppercase mb-2">무안군</span>
                             </a>
                           </div>
                           
                           <div class="mb-5">
                             <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                              <span class="d-block g-font-weight-900 text-uppercase mb-2">영암군</span>
+                              <span class="d-block g-font-weight-600 text-uppercase mb-2">영암군</span>
                             </a>
                           </div>
 
 						  <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                            <span class="d-block g-font-weight-900 text-uppercase mb-2">해남군</span>
+                            <span class="d-block g-font-weight-600 text-uppercase mb-2">해남군</span>
 						  </a>
                         </div>
 
@@ -376,24 +372,24 @@
                           <!-- Links -->
                           <div class="mb-5">
                           <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                            <span class="d-block g-font-weight-900 text-uppercase mb-2">광양시</span>
+                            <span class="d-block g-font-weight-600 text-uppercase mb-2">광양시</span>
                           </a>
                           </div>
 
                           <div class="mb-5">
                           <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                            <span class="d-block g-font-weight-900 text-uppercase mb-2">보성군</span>
+                            <span class="d-block g-font-weight-600 text-uppercase mb-2">보성군</span>
                           </a>
                           </div>
                           
                           <div class="mb-5">
                           <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                            <span class="d-block g-font-weight-900 text-uppercase mb-2">완도군</span>
+                            <span class="d-block g-font-weight-600 text-uppercase mb-2">완도군</span>
                           </a>
                           </div>
 
 						  <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                            <span class="d-block g-font-weight-900 text-uppercase mb-2">함평군</span>
+                            <span class="d-block g-font-weight-600 text-uppercase mb-2">함평군</span>
 						  </a>
                         </div>
 
@@ -401,18 +397,18 @@
                           <!-- Links -->
                           <div class="mb-5">
                             <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                              <span class="d-block g-font-weight-900 text-uppercase mb-2">구례군</span>
+                              <span class="d-block g-font-weight-600 text-uppercase mb-2">구례군</span>
                             </a>
                           </div>
 
                           <div class="mb-5">
                             <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                              <span class="d-block g-font-weight-900 text-uppercase mb-2">순천시</span>
+                              <span class="d-block g-font-weight-600 text-uppercase mb-2">순천시</span>
                             </a>
                           </div>
 
 						  <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                            <span class="d-block g-font-weight-900 text-uppercase mb-2">장성군</span>
+                            <span class="d-block g-font-weight-600 text-uppercase mb-2">장성군</span>
 						  </a>
                         </div>
                         
@@ -420,18 +416,18 @@
                           <!-- Links -->
                           <div class="mb-5">
 	                        <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-	                          <span class="d-block g-font-weight-900 text-uppercase mb-2">나주시</span>
+	                          <span class="d-block g-font-weight-600 text-uppercase mb-2">나주시</span>
 	                        </a>
                           </div>
 
                           <div class="mb-5">
                             <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                              <span class="d-block g-font-weight-900 text-uppercase mb-2">신안군</span>
+                              <span class="d-block g-font-weight-600 text-uppercase mb-2">신안군</span>
                             </a>
                           </div>
 
 						  <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                            <span class="d-block g-font-weight-900 text-uppercase mb-2">장흥군</span>
+                            <span class="d-block g-font-weight-600 text-uppercase mb-2">장흥군</span>
 						  </a>
                         </div>
                       </div>
@@ -442,7 +438,7 @@
                   
                   <!-- 생선 -->
                   <li class="nav-item hs-has-sub-menu g-mx-10--lg g-mx-15--xl">
-                    <a id="nav-link--home" class="nav-link text-uppercase g-color-primary--hover g-px-5 g-py-20" href="page-category-fish.jsp"
+                    <a id="nav-link--home" class="nav-link text-uppercase g-color-primary--hover g-px-5 g-py-20" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByCategoryNo&categoryNo=1"
                        aria-haspopup="true"
                        aria-expanded="false"
                        aria-controls="nav-submenu--home">
@@ -453,13 +449,13 @@
                     <ul id="nav-submenu--home" class="hs-sub-menu list-unstyled u-shadow-v11 g-min-width-220 g-brd-top g-brd-primary g-brd-top-2 g-mt-7"
                         aria-labelledby="nav-link--home">
                       <li class="dropdown-item">
-                        <a class="nav-link g-color-gray-dark-v1" href="page-category-fish-gulbi.jsp">굴비</a>
+                        <a class="nav-link g-color-gray-dark-v1" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=굴비">굴비</a>
                       </li>
                       <li class="dropdown-item">
-                        <a class="nav-link g-color-gray-dark-v1" href="page-category-fish-octopus.jsp">낙지</a>
+                        <a class="nav-link g-color-gray-dark-v1" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=낙지">낙지</a>
                       </li>
                       <li class="dropdown-item">
-                        <a class="nav-link g-color-gray-dark-v1" href="page-category-fish-skates.jsp">홍어</a>
+                        <a class="nav-link g-color-gray-dark-v1" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=홍어">홍어</a>
                       </li>
                     </ul>
                     <!-- End Submenu -->
@@ -468,7 +464,7 @@
                   
                   <!-- 건어물 -->
                   <li class="nav-item hs-has-sub-menu g-mx-10--lg g-mx-15--xl">
-                    <a id="nav-link--home" class="nav-link text-uppercase g-color-primary--hover g-px-5 g-py-20" href="page-category.jsp"
+                    <a id="nav-link--home" class="nav-link text-uppercase g-color-primary--hover g-px-5 g-py-20" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByCategoryNo&categoryNo=2"
                        aria-haspopup="true"
                        aria-expanded="false"
                        aria-controls="nav-submenu--home">
@@ -479,7 +475,7 @@
                     <ul id="nav-submenu--home" class="hs-sub-menu list-unstyled u-shadow-v11 g-min-width-220 g-brd-top g-brd-primary g-brd-top-2 g-mt-7"
                         aria-labelledby="nav-link--home">
                       <li class="dropdown-item">
-                        <a class="nav-link g-color-gray-dark-v1" href="page-category.jsp">멸치</a>
+                        <a class="nav-link g-color-gray-dark-v1" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=멸치">멸치</a>
                       </li>
                     </ul>
                     <!-- End Submenu -->
@@ -488,7 +484,7 @@
                   
                  <!-- 김/해초류 -->
                   <li class="nav-item hs-has-sub-menu g-mx-10--lg g-mx-15--xl">
-                    <a id="nav-link--home" class="nav-link text-uppercase g-color-primary--hover g-px-5 g-py-20" href="page-category.jsp"
+                    <a id="nav-link--home" class="nav-link text-uppercase g-color-primary--hover g-px-5 g-py-20" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByCategoryNo&categoryNo=3"
                        aria-haspopup="true"
                        aria-expanded="false"
                        aria-controls="nav-submenu--home">
@@ -499,10 +495,10 @@
                     <ul id="nav-submenu--home" class="hs-sub-menu list-unstyled u-shadow-v11 g-min-width-220 g-brd-top g-brd-primary g-brd-top-2 g-mt-7"
                         aria-labelledby="nav-link--home">
                       <li class="dropdown-item">
-                        <a class="nav-link g-color-gray-dark-v1" href="page-category.jsp">김</a>
+                        <a class="nav-link g-color-gray-dark-v1" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=김">김</a>
                       </li>
                       <li class="dropdown-item">
-                        <a class="nav-link g-color-gray-dark-v1" href="page-category.jsp">미역</a>
+                        <a class="nav-link g-color-gray-dark-v1" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=미역">미역</a>
                       </li>
                     </ul>
                     <!-- End Submenu -->
@@ -511,7 +507,7 @@
                   
                   <!-- 해산물/어패류 -->
                   <li class="nav-item hs-has-sub-menu g-mx-10--lg g-mx-15--xl">
-                    <a id="nav-link--home" class="nav-link text-uppercase g-color-primary--hover g-px-5 g-py-20" href="page-category.jsp"
+                    <a id="nav-link--home" class="nav-link text-uppercase g-color-primary--hover g-px-5 g-py-20" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByCategoryNo&categoryNo=4"
                        aria-haspopup="true"
                        aria-expanded="false"
                        aria-controls="nav-submenu--home">
@@ -522,16 +518,16 @@
                     <ul id="nav-submenu--home" class="hs-sub-menu list-unstyled u-shadow-v11 g-min-width-220 g-brd-top g-brd-primary g-brd-top-2 g-mt-7"
                         aria-labelledby="nav-link--home">
                       <li class="dropdown-item">
-                        <a class="nav-link g-color-gray-dark-v1" href="page-category.jsp">전복</a>
+                        <a class="nav-link g-color-gray-dark-v1" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=전복">전복</a>
                       </li>
                       <li class="dropdown-item">
-                        <a class="nav-link g-color-gray-dark-v1" href="page-category.jsp">바지락</a>
+                        <a class="nav-link g-color-gray-dark-v1" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=바지락">바지락</a>
                       </li>
                       <li class="dropdown-item">
-                        <a class="nav-link g-color-gray-dark-v1" href="page-category.jsp">꼬막</a>
+                        <a class="nav-link g-color-gray-dark-v1" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=꼬막">꼬막</a>
                       </li>
                       <li class="dropdown-item">
-                        <a class="nav-link g-color-gray-dark-v1" href="page-category.jsp">새우</a>
+                        <a class="nav-link g-color-gray-dark-v1" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=새우">새우</a>
                       </li>
                     </ul>
                     <!-- End Submenu -->
@@ -540,12 +536,12 @@
                     
                   <!-- 젓갈 -->
                   <li class="nav-item g-mx-10--lg g-mx-15--xl">
-                    <a class="nav-link text-uppercase g-color-primary--hover g-px-5 g-py-20" href="page-category.jsp"><b>젓갈</b></a>
+                    <a class="nav-link text-uppercase g-color-primary--hover g-px-5 g-py-20" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByCategoryNo&categoryNo=5"><b>젓갈</b></a>
                   </li>
                   
                   <!-- 수산물 기타 -->
                   <li class="nav-item g-mx-10--lg g-mx-15--xl">
-                    <a class="nav-link text-uppercase g-color-primary--hover g-px-5 g-py-20" href="page-category.jsp"><b>수산물 기타</b></a>
+                    <a class="nav-link text-uppercase g-color-primary--hover g-px-5 g-py-20" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByCategoryNo&categoryNo=6"><b>수산물 기타</b></a>
                   </li>
 
                   <!-- 고객센터 -->
