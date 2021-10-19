@@ -32,7 +32,7 @@ public interface ItemDAO {
 	  /**
 	   * 해당하는 지역에 포함되는 레코드 검색
 	   * */
-	  List<ItemDTO> selectByItemRegion(int regionNo) throws SQLException;
+	  List<ItemDTO> selectByRegion(int regionNo) throws SQLException;
 	  
 	  /**
 	   * 해당하는 번호의 레코드 검색

@@ -42,14 +42,14 @@ public class ItemDAOImpl implements ItemDAO {
  		PreparedStatement ps = null;
  		ResultSet rs =null;
  		List<ItemDTO>itemlist = new ArrayList<>();
- 		String sql = proFile.getProperty("item.selectAll");
+ 		String sql = "select * from item";
  		try {
  			con = DbUtil.getConnection();
  			ps = con.prepareStatement(sql);
  			rs = ps.executeQuery();
  			while(rs.next()) {
  				ItemDTO itemDTO = new ItemDTO(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5),
- 						rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getString(9), rs.getFloat(10), rs.getString(11));
+ 						rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getString(9), rs.getFloat(10));
 				
 				itemlist.add(itemDTO);
 			}
@@ -107,7 +107,7 @@ public class ItemDAOImpl implements ItemDAO {
 			rs = ps.executeQuery();
 			while(rs.next()) {
 				ItemDTO itemDTO = new ItemDTO(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5),
- 						rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getString(9), rs.getFloat(10), rs.getString(11));
+ 						rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getString(9), rs.getFloat(10));
 				
 				pageList.add(itemDTO);
 			}
@@ -161,7 +161,7 @@ public class ItemDAOImpl implements ItemDAO {
 			rs = ps.executeQuery();
 			while(rs.next()) {
 				ItemDTO itemDTO = new ItemDTO(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5),
- 						rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getString(9), rs.getFloat(10), rs.getString(11));
+ 						rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getString(9), rs.getFloat(10));
 				categoryList.add(itemDTO);
 			}
 		} finally {
@@ -169,6 +169,34 @@ public class ItemDAOImpl implements ItemDAO {
 		}
 		
 		return categoryList;
+	}
+	
+	/**
+	 * 해당하는 지역에 포함되는 레코드 검색
+	 * 
+	 **/
+	@Override
+	public List<ItemDTO> selectByRegion(int regionNo) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		List<ItemDTO> itemRegionList = new ArrayList<ItemDTO>();
+		String sql = "select * from item where region_No = ?";
+		
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, regionNo);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				ItemDTO itemDTO = new ItemDTO(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5),
+						rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getString(9), rs.getFloat(10));
+			itemRegionList.add(itemDTO);
+				}
+		}finally {
+			DbUtil.dbClose(rs,ps, con);
+		}
+		return itemRegionList;
 	}
 	
 	/**
@@ -191,7 +219,7 @@ public class ItemDAOImpl implements ItemDAO {
 			rs =ps.executeQuery(); 
 		while(rs.next()) {
 			ItemDTO itemDTO = new ItemDTO(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5),
-						rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getString(9), rs.getFloat(10), rs.getString(11));
+						rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getString(9), rs.getFloat(10));
 			inputItemNameList.add(itemDTO); 
 			}
 		}finally {
@@ -219,44 +247,14 @@ public class ItemDAOImpl implements ItemDAO {
 			rs = ps.executeQuery();
 			if(rs.next()) {
 				itemDTO = new ItemDTO(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5),
-						rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getString(9), rs.getFloat(10), rs.getString(11));
+						rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getString(9), rs.getFloat(10));
 				}
 		}finally {
 			DbUtil.dbClose(rs, ps, con);
 		}
 		return itemDTO;
 	}	
-	
-	/**
-	 * 해당하는 지역에 포함되는 레코드 검색
-	 * 
-	 **/
-	
-	@Override
-	public List<ItemDTO> selectByItemRegion(int regionNo) throws SQLException {
-		Connection con = null;
-		PreparedStatement ps = null;
-		ResultSet rs = null;
-		List<ItemDTO> itemRegionList = new ArrayList<ItemDTO>();
-		String sql = proFile.getProperty("item.selectByItemRegion");
-		
-		try {
-			con = DbUtil.getConnection();
-			ps = con.prepareStatement(sql);
-			ps.setInt(1, regionNo);
-			rs = ps.executeQuery();
-			while(rs.next()) {
-				ItemDTO itemDTO = new ItemDTO(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5),
-						rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getString(9), rs.getFloat(10), rs.getString(11));
-			itemRegionList.add(itemDTO);
-				}
-		}finally {
-			DbUtil.dbClose(rs,ps, con);
-		}
-		return itemRegionList;
-	}
-	
-	
+
 	/**
 	  * 상품 등록하기
 	  * @return : 1-삽입성공 , 0 - 삽입실패
@@ -267,7 +265,7 @@ public class ItemDAOImpl implements ItemDAO {
 		Connection con = null;
 		PreparedStatement ps = null;
 		int result = 0;
-		String sql = "insert into item values(item_no.nextval, ?, ?, ?, ?, ?, ?, default, default, ?, ?)";
+		String sql = proFile.getProperty("item.insertItem");
 		
 		try {
 			con = DbUtil.getConnection();
@@ -293,8 +291,6 @@ public class ItemDAOImpl implements ItemDAO {
 		    ps.setString(9, item.getItemApprove());
 		    //상품평점
 		    ps.setFloat(10, item.getItemGrade());
-		    //상품설명
-		    ps.setString(11, item.getItemDescription());
 		    result = ps.executeUpdate();
 		    
 		}catch(SQLException e){

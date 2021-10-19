@@ -131,8 +131,8 @@
                       data-animation-in="fadeIn"
                       data-animation-out="fadeOut"
                       data-position="right">
-                    <a id="mega-menu-label-4" class="nav-link text-uppercase g-color-primary--hover g-px-5 g-py-20" href="#" aria-haspopup="true" aria-expanded="false">
-                      <b>전체 카테고리</b>
+                    <a id="mega-menu-label-4" class="nav-link text-uppercase g-color-primary--hover g-px-5 g-py-20" href="${pageContext.request.contextPath}/front?key=item&methodName=selectAll" aria-haspopup="true" aria-expanded="false">
+                      <b>전체</b>
                       <i class="hs-icon hs-icon-arrow-bottom g-font-size-11 g-ml-7"></i>
                     </a>
 
@@ -142,20 +142,20 @@
                         <div class="col-sm-6 col-md-2 g-mb-30 g-mb-0--sm">
                           <!-- Links -->
                           <span class="d-block g-font-weight-500 text-uppercase mb-2">
-							<a class="nav-link text-uppercase g-color-primary--hover g-px-0 g-py-0" href="${pageContext.request.contextPath}/html/namdo-market/page-category-region-all.jsp"><b>지역별 특산품</b></a>
+							<a class="nav-link text-uppercase g-color-primary--hover g-px-0 g-py-0" href="#"><b>지역별 특산품</b></a>
 						  </span>
 
                           <ul class="list-unstyled mb-0">
                             <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">강진군</a></li>
-                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">고흥군</a></li>
+                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByRegionNo&regionNo=14">고흥군</a></li>
                               <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">곡성군</a></li>
                               <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">광양시</a></li>
                               <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">구례군</a></li>
                               <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">나주시</a></li>
                               <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">담양군</a></li>
-                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">목포시</a></li>
-                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">무안군</a></li>
-                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">보성군</a></li>
+                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByRegionNo&regionNo=2">목포시</a></li>
+                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByRegionNo&regionNo=3">무안군</a></li>
+                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByRegionNo&regionNo=4">보성군</a></li>
                               <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">순천시</a></li>
                               
                           </ul>
@@ -168,16 +168,16 @@
 
                           <ul class="list-unstyled mb-0">
                             <li>
-                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">신안군</a></li>
-                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">여수시</a></li>
-                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">영광군</a></li>
+                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByRegionNo&regionNo=6">신안군</a></li>
+                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByRegionNo&regionNo=7">여수시</a></li>
+                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByRegionNo&regionNo=1">영광군</a></li>
                               <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">영암군</a></li>
-                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">완도군</a></li>
+                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByRegionNo&regionNo=8">완도군</a></li>
                               <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">장성군</a></li>
                               <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">장흥군</a></li>
-                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">진도군</a></li>
+                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByRegionNo&regionNo=11">진도군</a></li>
                               <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">화순군</a></li>
-                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">해남군</a></li>
+                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByRegionNo&regionNo=9">해남군</a></li>
                               <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">함평군</a></li>
                           </ul>
                           <!-- End Links -->
@@ -195,6 +195,7 @@
                               <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=굴비">굴비</a></li>
                               <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=낙지">낙지</a></li>
                               <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=홍어">홍어</a></li>
+                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=홍어">장어</a></li>
                              
                             </ul>
                           </div>
@@ -208,7 +209,7 @@
 
                             <ul class="list-unstyled mb-0">
                               <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=멸치">멸치</a></li>
-                             
+                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=황태채">황태채</a></li>
                             </ul>
                           </div>
                           <!-- End Links -->
@@ -289,149 +290,160 @@
                       <i class="hs-icon hs-icon-arrow-bottom g-font-size-11 g-ml-7"></i>
                     </a>
 
-                    <!-- Mega Menu -->
+                    <!-- 지역별 특산품 메뉴 -->
                     <div class="w-100 hs-mega-menu u-shadow-v11 g-text-transform-none g-brd-top g-brd-primary g-brd-top-2 g-bg-white g-pa-30 g-mt-7" aria-labelledby="mega-menu-label-4">
                       <div class="row">
-                      
-                        <div class="col-sm-5 col-md-2 g-mb-30 g-mb-0--sm">
-                          <!-- Links -->
-                          <div class="mb-5">
-                            <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                              <span class="d-block g-font-weight-600 text-uppercase mb-2">강진군</span>
-                            </a>
-                          </div>
-
-                          <div class="mb-5">
-                            <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                              <span class="d-block g-font-weight-600 text-uppercase mb-2">담양군</span>
-                            </a>
-                          </div>
+                        
+                        <div class="col-sm-6 col-md-2 g-mb-30 g-mb-0--sm">
+                         
+                          <!-- ㄱ Links -->
                           
                           <div class="mb-5">
-                            <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                              <span class="d-block g-font-weight-600 text-uppercase mb-2">여수시</span>
-                            </a>
-                          </div>
-
-						  <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                            <span class="d-block g-font-weight-600 text-uppercase mb-2">진도군</span>
-                          </a>
                           
+                            <span class="d-block g-font-weight-500 text-uppercase mb-2">
+							  <a class="text-uppercase g-font-size-14 g-px-0 g-py-0"><b>ㄱ</b></a>
+							</span>
+
+                            <ul class="list-unstyled mb-0">
+                              <li><a class="d-block g-color-text g-font-size-14 g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">강진군</a></li>
+                              <li><a class="d-block g-color-text g-font-size-14 g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByRegionNo&regionNo=14">고흥군</a></li>
+                              <li><a class="d-block g-color-text g-font-size-14 g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">곡성군</a></li>
+                              <li><a class="d-block g-color-text g-font-size-14 g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">광양시</a></li>
+                              <li><a class="d-block g-color-text g-font-size-14 g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">구례군</a></li>
+                            </ul>
+                          </div>
+                          <!-- End Links -->
+                          
+                          <!-- ㄴ Links -->
+                          <div class="mb-0">
+                            <span class="d-block g-font-weight-500 text-uppercase mb-2">
+							  <a class="text-uppercase g-font-size-14 g-px-0 g-py-0"><b>ㄴ</b></a>
+							</span>
+
+                            <ul class="list-unstyled mb-0">
+                              <li><a class="d-block g-color-text g-font-size-14 g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">나주시</a></li>
+                             
+                            </ul>
+                          </div>
+                          <!-- End Links -->
+
                         </div>
                         
                         <div class="col-sm-6 col-md-2 g-mb-30 g-mb-0--sm">
-                          <!-- Links -->
-                          <div class="mb-5">
-                            <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                              <span class="d-block g-font-weight-600 text-uppercase mb-2">고흥군</span>
-                            </a>
-                          </div>
-
-                          <div class="mb-5">
-                            <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                              <span class="d-block g-font-weight-600 text-uppercase mb-2">목포시</span>
-                            </a>
-                          </div>
                           
-                          <div class="mb-5">
-                            <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                              <span class="d-block g-font-weight-600 text-uppercase mb-2">영광군</span>
-                            </a>
-                          </div>
-
-						  <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                            <span class="d-block g-font-weight-600 text-uppercase mb-2">화순군</span>
-                          </a>
-
-                        </div>
-
-                        <div class="col-sm-6 col-md-2 g-mb-30 g-mb-0--sm">
-                          <!-- Links -->
-                          <div class="mb-5">
-                            <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                              <span class="d-block g-font-weight-600 text-uppercase mb-2">곡성군</span>
-                            </a>
-                          </div>
-
-                          <div class="mb-5">
-                            <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                              <span class="d-block g-font-weight-600 text-uppercase mb-2">무안군</span>
-                            </a>
-                          </div>
                           
+                          <!-- ㄷ Links -->
                           <div class="mb-5">
-                            <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                              <span class="d-block g-font-weight-600 text-uppercase mb-2">영암군</span>
-                            </a>
-                          </div>
+                            <span class="d-block g-font-weight-500 text-uppercase mb-2">
+							  <a class="text-uppercase g-font-size-14 g-px-0 g-py-0"><b>ㄷ</b></a>
+							</span>
 
-						  <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                            <span class="d-block g-font-weight-600 text-uppercase mb-2">해남군</span>
-						  </a>
-                        </div>
-
-                        <div class="col-sm-6 col-md-2 g-mb-30 g-mb-0--sm">
-                          <!-- Links -->
-                          <div class="mb-5">
-                          <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                            <span class="d-block g-font-weight-600 text-uppercase mb-2">광양시</span>
-                          </a>
+                            <ul class="list-unstyled mb-0">
+                              <li><a class="d-block g-color-text g-font-size-14 g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">담양군</a></li>
+                             
+                            </ul>
                           </div>
-
-                          <div class="mb-5">
-                          <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                            <span class="d-block g-font-weight-600 text-uppercase mb-2">보성군</span>
-                          </a>
-                          </div>
+                          <!-- End Links -->
                           
-                          <div class="mb-5">
-                          <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                            <span class="d-block g-font-weight-600 text-uppercase mb-2">완도군</span>
-                          </a>
+                          
+                          <!-- ㅁ Links -->
+                          
+                            <div class="mb-5">
+                              <span class="d-block g-font-weight-500 text-uppercase mb-2">
+							    <a class="text-uppercase g-font-size-14 g-px-0 g-py-0"><b>ㅁ</b></a>
+							  </span>
+
+                            <ul class="list-unstyled mb-0">
+                              <li><a class="d-block g-color-text g-font-size-14 g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByRegionNo&regionNo=2">목포시</a></li>
+                              <li><a class="d-block g-color-text g-font-size-14 g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByRegionNo&regionNo=3">무안군</a></li>
+                             
+                            </ul>
                           </div>
+                          <!-- End Links -->
 
-						  <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                            <span class="d-block g-font-weight-600 text-uppercase mb-2">함평군</span>
-						  </a>
-                        </div>
-
-                        <div class="col-sm-6 col-md-2 g-mb-30 g-mb-0--sm">
-                          <!-- Links -->
-                          <div class="mb-5">
-                            <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                              <span class="d-block g-font-weight-600 text-uppercase mb-2">구례군</span>
-                            </a>
-                          </div>
-
-                          <div class="mb-5">
-                            <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                              <span class="d-block g-font-weight-600 text-uppercase mb-2">순천시</span>
-                            </a>
-                          </div>
-
-						  <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                            <span class="d-block g-font-weight-600 text-uppercase mb-2">장성군</span>
-						  </a>
                         </div>
                         
                         <div class="col-sm-6 col-md-2 g-mb-30 g-mb-0--sm">
-                          <!-- Links -->
-                          <div class="mb-5">
-	                        <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-	                          <span class="d-block g-font-weight-600 text-uppercase mb-2">나주시</span>
-	                        </a>
-                          </div>
 
+                          <!-- ㅂ Links -->
                           <div class="mb-5">
-                            <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                              <span class="d-block g-font-weight-600 text-uppercase mb-2">신안군</span>
-                            </a>
-                          </div>
+                            <span class="d-block g-font-weight-500 text-uppercase mb-2">
+							  <a class="text-uppercase g-font-size-14 g-px-0 g-py-0"><b>ㅂ</b></a>
+							</span>
 
-						  <a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover" href="page-category.jsp">
-                            <span class="d-block g-font-weight-600 text-uppercase mb-2">장흥군</span>
-						  </a>
+                            <ul class="list-unstyled mb-0">
+                              <li><a class="d-block g-color-text g-font-size-14 g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByRegionNo&regionNo=4">보성군</a></li>
+                             
+                            </ul>
+                          </div>
+                          <!-- End Links -->
+
+						  <!-- ㅅ Links -->
+                            <div class="mb-2">
+                              <span class="d-block g-font-weight-500 text-uppercase mb-2">
+								<a class="text-uppercase g-font-size-14 g-px-0 g-py-0"><b>ㅅ</b></a>
+							  </span>
+
+                            <ul class="list-unstyled mb-0">
+                              <li><a class="d-block g-color-text g-font-size-14 g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">순천시</a></li>
+                              <li><a class="d-block g-color-text g-font-size-14 g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByRegionNo&regionNo=6">신안군</a></li>
+                             
+                            </ul>
+                          </div>
+                          <!-- End Links -->
                         </div>
+
+                        <div class="col-sm-6 col-md-2 g-mb-30 g-mb-0--sm">
+                          <!-- ㅇ Links -->
+                          <div class="mb-2">
+                            <span class="d-block g-font-weight-500 text-uppercase mb-2">
+							  <a class="text-uppercase g-font-size-14 g-px-0 g-py-0"><b>ㅇ</b></a>
+							</span>
+
+                            <ul class="list-unstyled mb-0">
+                              <li><a class="d-block g-color-text g-font-size-14 g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByRegionNo&regionNo=7">여수시</a></li>
+                              <li><a class="d-block g-color-text g-font-size-14 g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByRegionNo&regionNo=1">영광군</a></li>
+                              <li><a class="d-block g-color-text g-font-size-14 g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">영암군</a></li>
+                              <li><a class="d-block g-color-text g-font-size-14 g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByRegionNo&regionNo=8">완도군</a></li>
+                             
+                            </ul>
+                          </div>
+                          <!-- End Links -->
+                        </div>
+                        
+                        <div class="col-sm-6 col-md-2 g-mb-30 g-mb-0--sm">
+                          <!-- ㅈ Links -->
+                          <div class="mb-5">
+                            <span class="d-block g-font-weight-500 text-uppercase mb-2">
+							  <a class="text-uppercase g-font-size-14 g-px-0 g-py-0"><b>ㅈ</b></a>
+							</span>
+
+                            <ul class="list-unstyled mb-0">
+                              <li><a class="d-block g-color-text g-font-size-14 g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">장성군</a></li>
+                              <li><a class="d-block g-color-text g-font-size-14 g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">장흥군</a></li>
+                              <li><a class="d-block g-color-text g-font-size-14 g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByRegionNo&regionNo=11">진도군</a></li>
+                             
+                            </ul>
+                          </div>
+                          <!-- End Links -->
+						</div>
+                        <div class="col-sm-6 col-md-2 g-mb-30 g-mb-0--sm">
+                          <!-- ㅎ Links -->
+                          <div class="mb-2">
+                            <span class="d-block g-font-weight-500 text-uppercase mb-2">
+							  <a class="text-uppercase g-font-size-14 g-px-0 g-py-0"><b>ㅎ</b></a>
+							</span>
+
+                            <ul class="list-unstyled mb-0">
+                              <li><a class="d-block g-color-text g-font-size-14 g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">화순군</a></li>
+                              <li><a class="d-block g-color-text g-font-size-14 g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByRegionNo&regionNo=9">해남군</a></li>
+                              <li><a class="d-block g-color-text g-font-size-14 g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">함평군</a></li>
+                             
+                            </ul>
+                          </div>
+                          <!-- End Links -->
+                        </div>
+
                       </div>
                     </div>
                     <!-- End Mega Menu -->
@@ -459,6 +471,9 @@
                       <li class="dropdown-item">
                         <a class="nav-link g-color-gray-dark-v1" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=홍어">홍어</a>
                       </li>
+                      <li class="dropdown-item">
+                        <a class="nav-link g-color-gray-dark-v1" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=장어">장어</a>
+                      </li>
                     </ul>
                     <!-- End Submenu -->
                   </li>
@@ -478,6 +493,9 @@
                         aria-labelledby="nav-link--home">
                       <li class="dropdown-item">
                         <a class="nav-link g-color-gray-dark-v1" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=멸치">멸치</a>
+                      </li>
+                      <li class="dropdown-item">
+                        <a class="nav-link g-color-gray-dark-v1" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=황태채">황태채</a>
                       </li>
                     </ul>
                     <!-- End Submenu -->

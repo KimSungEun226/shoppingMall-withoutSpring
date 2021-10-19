@@ -26,13 +26,13 @@ public class ItemController implements Controller{
 	/**
 	 * 전체검색
 	 * */
-	public ModelAndView select(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ModelAndView selectAll(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
 		List<ItemDTO> itemList = itemService.selectAll();
 
-		request.setAttribute("list", itemList); //뷰에서 ${requestScope.list}
+		request.setAttribute("itemList", itemList); //뷰에서 ${requestScope.list}
 		
-		return new ModelAndView("html/namdo-market/page-service-center.jsp");
+		return new ModelAndView("html/namdo-market/page-category-all.jsp");
 	}
 	
 
@@ -62,6 +62,40 @@ public class ItemController implements Controller{
     	return new ModelAndView("html/namdo-market/page-category-" + category);
     }
 	
+	/**
+	 * 지역에 따른 검색 결과
+	 */
+	public ModelAndView selectByRegionNo(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
+    	int regionNo =  Integer.parseInt(request.getParameter("regionNo"));
+    	List<ItemDTO> itemList = itemService.selectByRegion(regionNo);
+    	System.out.println("아이템 개수: " + itemList.size());
+    	request.setAttribute("itemList", itemList);
+    	
+    	String region = "yeonggwang.jsp";
+    	if(regionNo == 2) {
+    		region = "mokpo.jsp";
+    	}else if(regionNo == 3) {
+    		region = "muan.jsp";
+    	}else if(regionNo == 4) {
+    		region = "boseong.jsp";
+    	}else if(regionNo == 6) {
+    		region = "sinan.jsp";
+    	}else if(regionNo == 7) {
+    		region = "yeosu.jsp";
+    	}else if(regionNo == 8) {
+    		region = "wando.jsp";
+    	}else if(regionNo == 9) {
+    		region = "haenam.jsp";
+    	}else if(regionNo == 11) {
+    		region = "jindo.jsp";
+    	}else if(regionNo == 14) {
+    		region = "goheung.jsp";
+    	}
+    	
+    	return new ModelAndView("html/namdo-market/page-category-region-" + region);
+    }
+	
 	
 	/**
 	 * ItemDAOImpl에서 입력된 단어를 포함하는 레코드 검색 메소드 호출
@@ -85,8 +119,12 @@ public class ItemController implements Controller{
 			submenu = "fish-octopus.jsp";
 		}else if("홍어".equals(fish)) {
 			submenu = "fish-skates.jsp";
+		}else if("장어".equals(fish)) {
+			submenu = "fish-eel.jsp";
 		}else if("멸치".equals(fish)) {
 			submenu = "dried-anchovy.jsp";
+		}else if("황태채".equals(fish)) {
+			submenu = "dried-pollack.jsp";
 		}else if("김".equals(fish)) {
 			submenu = "seaweed-gim.jsp";
 		}else if("미역".equals(fish)) {
@@ -105,7 +143,6 @@ public class ItemController implements Controller{
 		
 		
 	}
-	
 	
 	
 }

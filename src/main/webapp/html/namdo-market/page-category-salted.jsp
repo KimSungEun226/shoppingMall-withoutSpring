@@ -59,6 +59,9 @@
   <body>
     <main>
       <!-- Header -->
+      
+      
+      
       <c:if test="${sessionScope.customerDTO==null && sessionScope.sellerDTO==null && sessionScope.adminDTO==null}">
         <jsp:include page="common/header.jsp"/>
       </c:if>
@@ -84,88 +87,12 @@
               <i class="g-color-gray-light-v2 g-ml-5 fa fa-angle-right"></i>
             </li>
             <li class="list-inline-item g-color-primary">
-              <span>생선</span>
+              <span>젓갈</span>
             </li>
           </ul>
         </div>
       </section>
       <!-- End Breadcrumbs -->
-
-      <!-- Filters -->
-      <div class="container">
-        <!-- Filters -->
-        <div class="row align-items-center g-pt-40 g-pb-10 g-brd-y g-brd-gray-light-v4 ">
-          <!-- Category -->
-          <div class="col-md-12 col-lg-10 g-mb-30">
-            <h3 class="h6 mb-3">카테고리 선택:</h3>
-
-            <div>
-              
-              <label class="form-check-inline u-check u-link-v5 g-color-gray-dark-v4 g-color-primary--hover g-pl-25 mb-0 mr-2">
-                <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="radio" name="fish-check" onclick="fishCheck(1)" checked>
-                <span class="d-block u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
-                  <i class="fa" data-check-icon="&#xf00c"></i>
-                </span>
-                전체
-              </label>
-              <label class="form-check-inline u-check u-link-v5 g-color-gray-dark-v4 g-color-primary--hover g-pl-25 mb-0 mx-2">
-                <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="radio" name="fish-check" onclick="fishCheck(2)">
-                <span class="d-block u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
-                  <i class="fa" data-check-icon="&#xf00c"></i>
-                </span>
-                굴비
-              </label>
-              <label class="form-check-inline u-check u-link-v5 g-color-gray-dark-v4 g-color-primary--hover g-pl-25 mb-0 mx-2">
-                <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="radio" name="fish-check" onclick="fishCheck(3)">
-                <span class="d-block u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
-                  <i class="fa" data-check-icon="&#xf00c"></i>
-                </span>
-                낙지
-              </label>
-              <label class="form-check-inline u-check u-link-v5 g-color-gray-dark-v4 g-color-primary--hover g-pl-25 mb-0 mx-2">
-                <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="radio" name="fish-check" onclick="fishCheck(4)">
-                <span class="d-block u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
-                  <i class="fa" data-check-icon="&#xf00c"></i>
-                </span>
-                홍어
-              </label>
-              <label class="form-check-inline u-check u-link-v5 g-color-gray-dark-v4 g-color-primary--hover g-pl-25 mb-0 mx-2">
-                <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="radio" name="fish-check" onclick="fishCheck(5)">
-                <span class="d-block u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
-                  <i class="fa" data-check-icon="&#xf00c"></i>
-                </span>
-                장어
-              </label>
-            </div>
-    	
-          </div>
-          <!-- End Category -->
-			
-
-            <!-- Sort By -->
-            <div class="col-sm-2 col-md-2 g-mb-30">
-              <h3 class="h6 mb-3">정렬:</h3>
-
-              <!-- Secondary Button -->
-              <div class="d-inline-block btn-group">
-                <button type="button" class="btn btn-secondary dropdown-toggle h6 align-middle g-brd-none g-color-text g-color-primary--hover g-bg-transparent g-pa-0 g-ma-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  추천순
-                </button>
-                <div class="dropdown-menu rounded-0">
-                  <a class="dropdown-item g-color-gray-dark-v4 g-font-weight-300" href="#">판매량순</a>
-                  <a class="dropdown-item g-color-gray-dark-v4 g-font-weight-300" href="#">신상품순</a>
-                  <a class="dropdown-item g-color-gray-dark-v4 g-font-weight-300" href="#">낮은가격순</a>
-                  <a class="dropdown-item g-color-gray-dark-v4 g-font-weight-300" href="#">높은가격순</a>
-                </div>
-              </div>
-              <!-- End Secondary Button -->
-            </div>
-            <!-- End Sort By -->
-   
-        </div>
-        <!-- End Filters -->
-      </div>
-      <!-- End Filters -->
 
       <!-- Products -->
       <div class="container">
@@ -198,7 +125,7 @@
 			  <div class="col-6 col-lg-3 g-mb-30">
 	            <!-- Product -->
 	            <figure class="g-pos-rel g-mb-20">
-	              <img class="img-fluid" src="'${pageContext.request.contextPath}/html/namdo-market/assets/img-temp/480x700/' + img002 (44)" alt="Image Description">
+	              <img class="img-fluid" src="${pageContext.request.contextPath}/html/namdo-market/assets/img-temp/480x700/main_480_700.png" alt="Image Description">
 	              <span class="u-ribbon-v1 g-width-40 g-height-40 g-color-white g-bg-primary g-font-size-13 text-center text-uppercase g-rounded-50x g-top-20 g-right-minus-10 g-px-2 g-py-10">New</span>
 	
 	            </figure>
@@ -369,22 +296,5 @@
       });
     </script>
     
-    <script type="text/javascript">
-      function fishCheck(n){
-    	if(n==1){
-    		  location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByCategoryNo&categoryNo=1";
-      	}else if(n==2){
-    		location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=굴비";
-    	}else if(n==3){
-    		location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=낙지";
-    	}else if(n==4){
-    		location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=홍어";
-    	}else if(n==5){
-    		location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=장어";
-    	}
-
-      }
-      
-    </script>
   </body>
 </html>

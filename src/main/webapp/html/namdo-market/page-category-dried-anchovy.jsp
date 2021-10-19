@@ -122,6 +122,13 @@
                 </span>
                 멸치
               </label>
+              <label class="form-check-inline u-check u-link-v5 g-color-gray-dark-v4 g-color-primary--hover g-pl-25 mb-0 mx-2">
+                <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="radio" name="fish-check" onclick="fishCheck(3)" checked>
+                <span class="d-block u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
+                  <i class="fa" data-check-icon="&#xf00c"></i>
+                </span>
+                황태채
+              </label>
               
             </div>
     	
@@ -362,6 +369,8 @@
     		  location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByCategoryNo&categoryNo=2";
       	}else if(n==2){
     		location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=멸치";
+    	}else if(n==3){
+    		location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=황태채";
     	}
 
       }

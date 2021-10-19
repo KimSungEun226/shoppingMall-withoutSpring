@@ -136,6 +136,13 @@
                 </span>
                 홍어
               </label>
+              <label class="form-check-inline u-check u-link-v5 g-color-gray-dark-v4 g-color-primary--hover g-pl-25 mb-0 mx-2">
+                <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="radio" name="fish-check" onclick="fishCheck(5)">
+                <span class="d-block u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
+                  <i class="fa" data-check-icon="&#xf00c"></i>
+                </span>
+                장어
+              </label>
             </div>
     	
           </div>
@@ -370,15 +377,17 @@
     </script>
     
     <script type="text/javascript">
-      function fishCheck(n){
+    function fishCheck(n){
     	if(n==1){
     		  location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByCategoryNo&categoryNo=1";
       	}else if(n==2){
     		location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=굴비";
     	}else if(n==3){
     		location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=낙지";
-    	}else {
+    	}else if(n==4){
     		location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=홍어";
+    	}else if(n==5){
+    		location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=장어";
     	}
 
       }
