@@ -59,9 +59,12 @@ public class ItemServiceImpl implements ItemService {
 	}
 
 	@Override
-	public void insert(ItemDTO item) throws SQLException {
-		// TODO Auto-generated method stub
-
+	public ItemDTO insert(ItemDTO item) throws SQLException {
+		
+		ItemDAO dao = new ItemDAOImpl();
+        ItemDTO result = dao.insertItem(item);	    
+		
+		return result;
 	}
 
 	@Override

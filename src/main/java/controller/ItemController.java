@@ -2,13 +2,19 @@ package controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Enumeration;
 import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import dto.ItemDTO;
+import dto.SellerDTO;
 import service.ItemService;
 import service.ItemServiceImpl;
 
@@ -106,6 +112,48 @@ public class ItemController implements Controller{
 		
 	}
 	
+	
+	/**
+	 * 등록하기
+	 * */
+	public ModelAndView insert(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String saveDir = request.getServletContext().getRealPath("/save");
+		int maxSize = 1024*1024*100; //100M
+		String encoding = "UTF-8";
+		
+		MultipartRequest m = new MultipartRequest(request, saveDir, maxSize, encoding, new DefaultFileRenamePolicy());
+		
+		HttpSession session = request.getSession();
+		
+		SellerDTO dto = (SellerDTO)session.getAttribute("sellerDTO");
+		int sellerNo = dto.getSellerNo();
+		
+		int categoryNo = Integer.parseInt(m.getParameter("categoryNo"));
+		int regionNo = Integer.parseInt(m.getParameter("regionNo"));
+		String itemName = m.getParameter("itemName");
+		int itemPrice = Integer.parseInt(m.getParameter("itemPrice"));
+		int itemStock = Integer.parseInt(m.getParameter("itemStock"));
+		String itemDescription = m.getParameter("itemDescription");
+		
+	    //Enumeration e = m.getFileNames();
+		
+	  //파일 첨부가 되었다면...
+  		if(m.getFilesystemName("mainImg") !=null ) {
+  			System.out.println(m.getFilesystemName("mainImg"));
+  			
+  			
+  		}		
+   
+	    //ItemDTO newItem = itemService.insert(new ItemDTO(categoryNo, sellerNo, regionNo, itemName, itemPrice, itemStock, itemDescription));
+
+//		if (newItem==null) {
+//			request.setAttribute("errmsg", "등록실패");
+//			return new ModelAndView("html/namdo-market/error.jsp");
+//		}
+//		
+//        return new ModelAndView("html/namdo-market/item/insertOk.jsp");
+	    return new ModelAndView("html/namdo-market/home-page.jsp");
+    }
 	
 	
 }
