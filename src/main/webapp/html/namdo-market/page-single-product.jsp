@@ -14,29 +14,41 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/html/favicon.ico">
 
     <!-- Google Fonts -->
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,900">
 
     <!-- CSS Global Compulsory -->
-    <link rel="stylesheet" href="../assets/vendor/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/bootstrap/bootstrap.min.css">
 
     <!-- CSS Implementing Plugins -->
-    <link rel="stylesheet" href="../assets/vendor/icon-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../assets/vendor/icon-line-pro/style.css">
-    <link rel="stylesheet" href="../assets/vendor/icon-hs/style.css">
-    <link rel="stylesheet" href="../assets/vendor/animate.css">
-    <link rel="stylesheet" href="../assets/vendor/hamburgers/hamburgers.min.css">
-    <link rel="stylesheet" href="../assets/vendor/hs-megamenu/src/hs.megamenu.css">
-    <link rel="stylesheet" href="../assets/vendor/slick-carousel/slick/slick.css">
-    <link rel="stylesheet" href="../assets/vendor/malihu-scrollbar/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/icon-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/icon-line-pro/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/icon-hs/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/animate.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/hamburgers/hamburgers.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/hs-megamenu/src/hs.megamenu.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/slick-carousel/slick/slick.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/malihu-scrollbar/jquery.mCustomScrollbar.min.css">
 
     <!-- CSS Unify Theme -->
-    <link rel="stylesheet" href="assets/css/styles.e-commerce.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/namdo-market/assets/css/styles.e-commerce.css">
 
     <!-- CSS Customization -->
-    <link rel="stylesheet" href="../assets/css/custom.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/css/custom.css">
+    
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+      $(function(){
+    	  $("a[id='1']").text("생선");
+    	  $("a[id='2']").text("건어물");
+    	  $("a[id='3']").text("김/해초류");
+    	  $("a[id='4']").text("해산물/어패류");
+    	  $("a[id='5']").text("젓갈");
+    	  $("a[id='6']").text("수산물 기타");
+      });
+    </script>
   </head>
 
   <body>
@@ -62,20 +74,22 @@
         <div class="container">
           <ul class="u-list-inline">
             <li class="list-inline-item g-mr-5">
-              <a class="u-link-v5 g-color-text" href="#">Home</a>
+              <a class="u-link-v5 g-color-text" href="${pageContext.request.contextPath}/html/namdo-market/home-page.jsp">요거 묵어봤는감?</a>
               <i class="g-color-gray-light-v2 g-ml-5 fa fa-angle-right"></i>
             </li>
             <li class="list-inline-item g-mr-5">
-              <a class="u-link-v5 g-color-text" href="#">Pages</a>
+              <a class="u-link-v5 g-color-text" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByCategoryNo&categoryNo=${item.categoryNo}" id="${item.categoryNo}">  </a>
               <i class="g-color-gray-light-v2 g-ml-5 fa fa-angle-right"></i>
             </li>
             <li class="list-inline-item g-color-primary">
-              <span>Single Product 3</span>
+              <span>${item.itemName}</span>
             </li>
           </ul>
         </div>
       </section>
       <!-- End Breadcrumbs -->
+ 
+      
 
       <!-- Product Description -->
       <div class="container g-py-50">
@@ -129,7 +143,7 @@
                   <div class="g-py-10">
                     <p class="g-font-size-12 mb-2">원산지: 국내</p>
                     <p class="g-font-size-12 mb-2">배송비: 무료</p>
-                    <p class="g-font-size-12 mb-2">공급사: ${item.sellerNo}</p>
+                    <p class="g-font-size-12 mb-2">공급사: (보류)  ${item.sellerNo}</p>
                     <p class="g-font-size-12 mb-2">배송정보: 제주 및 도서산간지역은 추가배송비가 발생합니다.</p>
                   </div>
                 </div>
@@ -196,7 +210,6 @@
                     장바구니 담기 <i class="align-middle ml-2 icon-finance-100 u-line-icon-pro"></i>
                   </button>
                 </div>
-                
               </div>
               <!-- End Buttons -->
 
@@ -239,21 +252,20 @@
                       </tr>
                       <tr class="g-color-gray-dark-v4 g-font-size-12">
                         <td class="align-top g-width-350 g-py-5">배송 지역: 전국지역</td>
-                        
-                        
                       </tr>
+                      
                       <tr class="g-color-gray-dark-v4 g-font-size-12">
                         <td class="align-top g-width-350 g-py-5">배송 비용: 무료</td>
-                        
-                        
                       </tr>
+                      
                       <tr class="g-color-gray-dark-v4 g-font-size-12">
                         <td class="align-top g-width-350 g-py-5">배송 기간: 3일 ~ 7일</td>
-                        
                       </tr>
+                      
                       <tr class="g-color-gray-dark-v4 g-font-size-12">
                         <td class="align-top g-width-350 g-py-5">배송 안내: 산간벽지나 도서지방은 별도의 추가금액을 지불하셔야 하는 경우가 있습니다.</td>
                       </tr>
+                      
                       <tr class="g-color-gray-dark-v4 g-font-size-12">
                         <td class="align-top g-width-350 g-py-5">고객님께서 주문하신 상품은 입금 확인후 배송해 드립니다. 다만, 상품종류에 따라서 상품의 배송이 다소 지연될 수 있습니다.</td>
                       </tr>
@@ -683,32 +695,32 @@
     <div class="u-outer-spaces-helper"></div>
 
     <!-- JS Global Compulsory -->
-    <script src="../assets/vendor/jquery/jquery.min.js"></script>
-    <script src="../assets/vendor/jquery-migrate/jquery-migrate.min.js"></script>
-    <script src="../assets/vendor/popper.js/popper.min.js"></script>
-    <script src="../assets/vendor/bootstrap/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/jquery-migrate/jquery-migrate.min.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/popper.js/popper.min.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/bootstrap/bootstrap.min.js"></script>
 
     <!-- JS Implementing Plugins -->
-    <script src="../assets/vendor/slick-carousel/slick/slick.js"></script>
-    <script src="../assets/vendor/hs-megamenu/src/hs.megamenu.js"></script>
-    <script src="../assets/vendor/jquery.countdown.min.js"></script>
-    <script src="../assets/vendor/malihu-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/slick-carousel/slick/slick.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/hs-megamenu/src/hs.megamenu.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/jquery.countdown.min.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/malihu-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
 
     <!-- JS Unify -->
-    <script src="../assets/js/hs.core.js"></script>
-    <script src="../assets/js/components/hs.header.js"></script>
-    <script src="../assets/js/helpers/hs.hamburgers.js"></script>
-    <script src="../assets/js/components/hs.dropdown.js"></script>
-    <script src="../assets/js/components/hs.scrollbar.js"></script>
-    <script src="../assets/js/components/hs.countdown.js"></script>
-    <script src="../assets/js/components/hs.carousel.js"></script>
-    <script src="../assets/js/components/hs.tabs.js"></script>
-    <script src="../assets/js/components/hs.count-qty.js"></script>
-    <script src="../assets/js/components/hs.go-to.js"></script>
-    <script src="../assets/js/helpers/hs.rating.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/hs.core.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/components/hs.header.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/helpers/hs.hamburgers.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/components/hs.dropdown.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/components/hs.scrollbar.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/components/hs.countdown.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/components/hs.carousel.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/components/hs.tabs.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/components/hs.count-qty.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/components/hs.go-to.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/helpers/hs.rating.js"></script>
 
     <!-- JS Customization -->
-    <script src="../assets/js/custom.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/custom.js"></script>
 
     <!-- JS Plugins Init. -->
     <script>
