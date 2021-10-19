@@ -55,6 +55,12 @@ public class OrderDetailDTO {
 		this.orderItemCount = orderItemCount;
 	}
 
+	@Override
+	public String toString() {
+		return "OrderDetailDTO [orderDetailNo=" + orderDetailNo + ", itemNo=" + itemNo + ", orderNo=" + orderNo
+				+ ", orderItemCount=" + orderItemCount + "]";
+	}
+
     
     
 }

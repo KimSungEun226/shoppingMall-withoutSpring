@@ -4,18 +4,22 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
+import dto.CartDTO;
 import dto.OrderDTO;
+import dto.OrderDetailDTO;
 import util.DbUtil;
 
 public class OrderDAOImpl implements OrderDAO {
     
 	@Override
-	public OrderDTO orderItem(OrderDTO order) throws SQLException {
+	public int orderItem(OrderDTO order, List<CartDTO> cartList) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps =null;
 		int result = 0;
 		int delResult = 0;
+		int lastResult = 0;
 		OrderDTO dbDTO=null;
 		String sql = "insert into order_item values(ORDER_NO_SEQ.nextval,?,sysdate, ?, ?, ?)";
 		try {
@@ -43,13 +47,25 @@ public class OrderDAOImpl implements OrderDAO {
 					con.rollback();
 					throw new SQLException("주문이 실패했습니다.,,,,");
 				}
+				
+				//이제 cartDetail들을 테이블에 넣어주자.
+				for (CartDTO cart: cartList) {
+					int temp_result = 0;
+					OrderDetailDTO orderDetail = new OrderDetailDTO(cart.getItemNo(), dbDTO.getOrderNo(), cart.getCartItemCount());
+					temp_result = addOrderDetail(orderDetail, con);
+					if(temp_result == 0) {
+						con.rollback();
+						throw new SQLException("주문이 실패했습니다...(orderDetail넣기 실패");
+					}
+				}
+				lastResult = 1;
 			}
 			
 		}finally {
 			con.commit();
 			DbUtil.dbClose(ps, con);
 		}
-		return dbDTO;
+		return lastResult;
 	}
     
 	//회원번호에 해당하는 카트목록 전부 삭제한다.
@@ -96,4 +112,25 @@ public class OrderDAOImpl implements OrderDAO {
     
 	
 	
+	
+	//orderDetail받으면 insert시켜주는
+	public int addOrderDetail(OrderDetailDTO orderDetail, Connection con) throws SQLException {
+		PreparedStatement ps = null;
+		int result = 0;
+		String sql = "insert into order_detail values(ORDER_DETAIL_NO_SEQ.nextval, ?, ?, ?)";
+		
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, orderDetail.getItemNo());
+			ps.setInt(2, orderDetail.getOrderNo());
+			ps.setInt(3, orderDetail.getOrderItemCount());
+			result = ps.executeUpdate();		
+		}finally {
+			DbUtil.dbClose(ps,null);
+		}
+		
+		return result;
+	}
+
+
 }

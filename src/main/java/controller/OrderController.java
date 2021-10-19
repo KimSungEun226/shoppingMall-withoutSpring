@@ -37,26 +37,23 @@ public class OrderController implements Controller {
 		
 		
 		int customerNo = dto.getCustomerNo();
-		System.out.println(request.getParameter("amount"));
 		int total = Integer.parseInt(request.getParameter("amount"));
 		List<CartDTO> cartList = cartService.selectCartByCustomerNo(customerNo);
 		
 		//주소설정
 		if(request.getParameter("addrInput2").equals("") || request.getParameter("addrInput2")==null ) addr = request.getParameter("addrInput1");
 		else addr = request.getParameter("addrInput2") + " " + request.getParameter("detailAddrInput");
-		List<OrderDetailDTO> detailList = new ArrayList<OrderDetailDTO>();
 		
 		
 		//1이면 주문성공, 0이면 실패
-		OrderDTO dbOrder = orderService.orderItems(new OrderDTO(customerNo, addr, "배송중", total));
+		int result = orderService.orderItems(new OrderDTO(customerNo, addr, "배송중", total), cartList);
 		
-		
-				
-		for (CartDTO cart: cartList) {
-			OrderDetailDTO orderDetail = new OrderDetailDTO(cart.getItemNo(), dbOrder.getOrderNo(), cart.getCartItemCount());
+		if(result ==0) {
+			request.setAttribute("errmsg", "주문실패!!!");
+			return new ModelAndView("html/namdo-market/error.jsp");
 		}
-		
-		return null;
+		else return new ModelAndView("html/namdo-market/order/orderOk.jsp");
+
 	}
 
 }
