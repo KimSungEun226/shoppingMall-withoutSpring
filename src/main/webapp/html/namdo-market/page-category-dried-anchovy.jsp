@@ -59,6 +59,9 @@
   <body>
     <main>
       <!-- Header -->
+      
+      
+      
       <c:if test="${sessionScope.customerDTO==null && sessionScope.sellerDTO==null && sessionScope.adminDTO==null}">
         <jsp:include page="common/header.jsp"/>
       </c:if>
@@ -83,8 +86,12 @@
               <a class="u-link-v5 g-color-text" href="${pageContext.request.contextPath}/html/namdo-market/home-page.jsp">요거 묵어봤는감?</a>
               <i class="g-color-gray-light-v2 g-ml-5 fa fa-angle-right"></i>
             </li>
+            <li class="list-inline-item g-mr-5">
+              <a class="u-link-v5 g-color-text" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByCategoryNo&categoryNo=2">건어물</a>
+              <i class="g-color-gray-light-v2 g-ml-5 fa fa-angle-right"></i>
+            </li>
             <li class="list-inline-item g-color-primary">
-              <span>생선</span>
+              <span>멸치</span>
             </li>
           </ul>
         </div>
@@ -102,33 +109,20 @@
             <div>
               
               <label class="form-check-inline u-check u-link-v5 g-color-gray-dark-v4 g-color-primary--hover g-pl-25 mb-0 mr-2">
-                <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="radio" name="fish-check" onclick="fishCheck(1)" checked>
+                <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="radio" name="fish-check" onclick="fishCheck(1)">
                 <span class="d-block u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
                   <i class="fa" data-check-icon="&#xf00c"></i>
                 </span>
                 전체
               </label>
               <label class="form-check-inline u-check u-link-v5 g-color-gray-dark-v4 g-color-primary--hover g-pl-25 mb-0 mx-2">
-                <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="radio" name="fish-check" onclick="fishCheck(2)">
+                <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="radio" name="fish-check" onclick="fishCheck(2)" checked>
                 <span class="d-block u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
                   <i class="fa" data-check-icon="&#xf00c"></i>
                 </span>
-                굴비
+                멸치
               </label>
-              <label class="form-check-inline u-check u-link-v5 g-color-gray-dark-v4 g-color-primary--hover g-pl-25 mb-0 mx-2">
-                <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="radio" name="fish-check" onclick="fishCheck(3)">
-                <span class="d-block u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
-                  <i class="fa" data-check-icon="&#xf00c"></i>
-                </span>
-                낙지
-              </label>
-              <label class="form-check-inline u-check u-link-v5 g-color-gray-dark-v4 g-color-primary--hover g-pl-25 mb-0 mx-2">
-                <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="radio" name="fish-check" onclick="fishCheck(4)">
-                <span class="d-block u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
-                  <i class="fa" data-check-icon="&#xf00c"></i>
-                </span>
-                홍어
-              </label>
+              
             </div>
     	
           </div>
@@ -191,7 +185,7 @@
 			  <div class="col-6 col-lg-3 g-mb-30">
 	            <!-- Product -->
 	            <figure class="g-pos-rel g-mb-20">
-	              <img class="img-fluid" src="'${pageContext.request.contextPath}/html/namdo-market/assets/img-temp/480x700/' + img002 (44)" alt="Image Description">
+	              <img class="img-fluid" src="${pageContext.request.contextPath}/html/namdo-market/assets/img-temp/480x700/main_480_700.png" alt="Image Description">
 	              <span class="u-ribbon-v1 g-width-40 g-height-40 g-color-white g-bg-primary g-font-size-13 text-center text-uppercase g-rounded-50x g-top-20 g-right-minus-10 g-px-2 g-py-10">New</span>
 	
 	            </figure>
@@ -363,15 +357,11 @@
     </script>
     
     <script type="text/javascript">
-      function fishCheck(n){
+    function fishCheck(n){
     	if(n==1){
-    		  location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByCategoryNo&categoryNo=1";
+    		  location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByCategoryNo&categoryNo=2";
       	}else if(n==2){
-    		location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=굴비";
-    	}else if(n==3){
-    		location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=낙지";
-    	}else {
-    		location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=홍어";
+    		location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=멸치";
     	}
 
       }

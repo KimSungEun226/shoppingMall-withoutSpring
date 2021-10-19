@@ -36,9 +36,12 @@ public class ItemServiceImpl implements ItemService {
 	}
 
 	@Override
-	public List<ItemDTO> selectByInput(String input) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+	public List<ItemDTO> selectByInputItemName(String input) throws SQLException {
+		System.out.println(input);
+		List<ItemDTO> itemListByName = itemDao.selectByInputItemName(input);
+		System.out.println(itemListByName);
+		if(itemListByName==null) throw new SQLException("'"+input+"'에 해당하는 상품을 조회할 수 없습니다.");
+		return itemListByName;
 	}
     
 	@Override

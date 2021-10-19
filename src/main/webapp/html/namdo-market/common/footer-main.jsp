@@ -21,15 +21,16 @@
                     <!-- Links -->
                     <ul class="list-unstyled g-font-size-13 mb-0">
                       <li class="g-mb-10">
-                        <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#">SmartPhone</a></li>
+                        <li class="g-mb-10">
+                        <a class="u-link-v5 g-color-gray-dark-v5 g-color-primary--hover" href="#">1열 제품1</a></li>
                       <li class="g-my-10">
-                        <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#">Laptop</a></li>
+                        <a class="u-link-v5 g-color-gray-dark-v5 g-color-primary--hover" href="#">1열 제품2</a></li>
                       <li class="g-my-10">
-                        <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#">Mouse</a></li>
+                        <a class="u-link-v5 g-color-gray-dark-v5 g-color-primary--hover" href="#">1열 제품3</a></li>
                       <li class="g-my-10">
-                        <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#">Monitor</a></li>
+                        <a class="u-link-v5 g-color-gray-dark-v5 g-color-primary--hover" href="#">1열 제품4</a></li>
                       <li class="g-my-10">
-                        <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#">Watch</a></li>
+                        <a class="u-link-v5 g-color-gray-dark-v5 g-color-primary--hover" href="#">1열 제품5</a></li>
                     </ul>
                     <!-- End Links -->
                   </div>
@@ -38,15 +39,15 @@
                     <!-- Links -->
                     <ul class="list-unstyled g-font-size-13 mb-0">
                       <li class="g-mb-10">
-                        <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#">Tablet</a></li>
+                        <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#">2열 제품1</a></li>
                       <li class="g-my-10">
-                        <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#">Accessorie</a></li>
+                        <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#">2열 제품2</a></li>
                       <li class="g-my-10">
-                        <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#">Mouses Pad</a></li>
+                        <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#">2열 제품3</a></li>
                       <li class="g-my-10">
-                        <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#">Handset</a></li>
+                        <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#">2열 제품4</a></li>
                       <li class="g-my-10">
-                        <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#">Phablet</a></li>
+                        <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#">2열 제품5</a></li>
                     </ul>
                     <!-- End Links -->
                   </div>
@@ -55,13 +56,13 @@
                     <!-- Links -->
                     <ul class="list-unstyled g-font-size-13 mb-0">
                       <li class="g-mb-10">
-                        <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#">Speakers</a></li>
+                        <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#">3열 제품1</a></li>
                       <li class="g-my-10">
-                        <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#">Camera</a></li>
+                        <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#">3열 제품2</a></li>
                       <li class="g-my-10">
-                        <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#">Play Station</a></li>
+                        <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#">3열 제품3</a></li>
                       <li class="g-my-10">
-                        <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#">Xbox</a></li>
+                        <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#">4열 제품4</a></li>
                     </ul>
                     <!-- End Links -->
                   </div>
@@ -76,13 +77,13 @@
                     <!-- Links -->
                     <ul class="list-unstyled g-font-size-13 mb-0">
                       <li class="g-mb-10">
-                        <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#">Logitech</a></li>
+                        <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#">1열 브랜드1</a></li>
                       <li class="g-my-10">
-                        <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#">Samsung</a></li>
+                        <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#">1열 브랜드2</a></li>
                       <li class="g-my-10">
-                        <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#">Microsoft</a></li>
+                        <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#">1열 브랜드3</a></li>
                       <li class="g-my-10">
-                        <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#">Apple</a></li>
+                        <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#">1열 브랜드4</a></li>
                     </ul>
                     <!-- End Links -->
                   </div>
@@ -91,13 +92,13 @@
                     <!-- Links -->
                     <ul class="list-unstyled g-font-size-13 mb-0">
                       <li class="g-mb-10">
-                        <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#">Huawei</a></li>
+                        <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#">2열 브랜드1</a></li>
                       <li class="g-my-10">
-                        <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#">Motorola</a></li>
+                        <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#">2열 브랜드2</a></li>
                       <li class="g-my-10">
-                        <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#">Sony</a></li>
+                        <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#">2열 브랜드3</a></li>
                       <li class="g-my-10">
-                        <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#">Nokia</a></li>
+                        <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#">2열 브랜드4</a></li>
                     </ul>
                     <!-- End Links -->
                   </div>

@@ -25,7 +25,7 @@ public interface ItemService {
 	 /**
 	  * ItemDAOImpl에서 입력된 단어를 포함하는 레코드 검색 메소드 호출
 	  * */
-	  List<ItemDTO> selectByInput(String input) throws SQLException;
+	  List<ItemDTO> selectByInputItemName(String input) throws SQLException;
 	  
 	  /**
 	  * ItemDAOImpl에서 해당하는 번호에 포함되는 레코드 검색 메소드 호출
