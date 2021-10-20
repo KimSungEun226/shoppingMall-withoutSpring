@@ -162,7 +162,7 @@ public class ItemDAOImpl implements ItemDAO {
 			rs = ps.executeQuery();
 			while(rs.next()) {
 				ItemDTO itemDTO = new ItemDTO(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5),
- 						rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getString(9), rs.getFloat(10));
+ 						rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getString(9), rs.getFloat(10), rs.getString(11), rs.getString(12), rs.getString(13));
 				categoryList.add(itemDTO);
 			}
 		} finally {
@@ -191,7 +191,7 @@ public class ItemDAOImpl implements ItemDAO {
 			rs = ps.executeQuery();
 			while(rs.next()) {
 				ItemDTO itemDTO = new ItemDTO(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5),
-						rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getString(9), rs.getFloat(10));
+						rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getString(9), rs.getFloat(10), rs.getString(11), rs.getString(12), rs.getString(13));
 			itemRegionList.add(itemDTO);
 				}
 		}finally {
@@ -220,7 +220,7 @@ public class ItemDAOImpl implements ItemDAO {
 			rs =ps.executeQuery(); 
 		while(rs.next()) {
 			ItemDTO itemDTO = new ItemDTO(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5),
-						rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getString(9), rs.getFloat(10));
+						rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getString(9), rs.getFloat(10), rs.getString(11), rs.getString(12), rs.getString(13));
 			inputItemNameList.add(itemDTO); 
 			}
 		}finally {
@@ -248,7 +248,7 @@ public class ItemDAOImpl implements ItemDAO {
 			rs = ps.executeQuery();
 			if(rs.next()) {
 				itemDTO = new ItemDTO(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5),
-						rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getString(9), rs.getFloat(10));
+						rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getString(9), rs.getFloat(10), rs.getString(11), rs.getString(12), rs.getString(13));
 				}
 		}finally {
 			DbUtil.dbClose(rs, ps, con);
@@ -262,18 +262,16 @@ public class ItemDAOImpl implements ItemDAO {
 	  * */
 
 	@Override
-	public ItemDTO insertItem(ItemDTO item) throws SQLException {
+	public int insertItem(ItemDTO item) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
 
-		ItemDTO resultDTO = null;
-		int result;
-		String sql = "insert into item values(seq_item_no.nextval, ?, ?, ?, ?, ?, ?, default, default, ?, ?)";
+		int result = 0;
+		String sql = "insert into item values(seq_item_no.nextval, ?, ?, ?, ?, ?, ?, default, default, ?, ?, ?, ?)";
 
 		
 		try {
 			con = DbUtil.getConnection();
-			con.setAutoCommit(false); // 자동커밋해지
 
 			ps = con.prepareStatement(sql);
 			
@@ -293,48 +291,25 @@ public class ItemDAOImpl implements ItemDAO {
 		    ps.setFloat(7, 0);
 		    //상품설명
 		    ps.setString(8, item.getItemDescription());
+		    //메인이미지이름
+		    ps.setString(9, item.getMainImg());
+		    //디테일이미지이름
+		    ps.setString(10, item.getDetailImg());
 
 		    result = ps.executeUpdate();
 		    
-		    if (result > 0) {
-		    	resultDTO = selectItemRecent(con);
-		    	if (resultDTO==null) {
-			    	con.rollback();
-			    	throw new SQLException("등록실패(최신값 불러오기)");
-			    }
-		    }
 		    
 		    
 		}catch(SQLException e){
 			e.printStackTrace();
 		}finally {
-			con.commit();
 			DbUtil.dbClose(ps, con);
 		}
-		return resultDTO;		
+		return result;		
 	}
 	
 	
-	//바로 추가된 Order를 가져온다.
-	public ItemDTO selectItemRecent(Connection con) throws SQLException {
-		PreparedStatement ps =null;
-		ResultSet rs =null;
-		ItemDTO result =null;
-		String sql = "select * from item order by item_no desc";
-		try {
-			ps = con.prepareStatement(sql);
-			rs = ps.executeQuery();
-			if(rs.next()) {
-			result = new ItemDTO(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5), 
-			  rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getString(9), rs.getFloat(10), rs.getString(11));
-			}
-			
-		}finally {
-			DbUtil.dbClose(rs, ps, null);
-		}
-		
-		return result;
-	 }	
+	
 
 	/**
 	   * 상품 번호에 해당하는 상품 수정(상품번호)

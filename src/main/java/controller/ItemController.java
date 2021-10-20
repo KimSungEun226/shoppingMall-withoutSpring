@@ -173,24 +173,26 @@ public class ItemController implements Controller{
 		int itemStock = Integer.parseInt(m.getParameter("itemStock"));
 		String itemDescription = m.getParameter("itemDescription");
 		
-	    //Enumeration e = m.getFileNames();
+		ItemDTO itemDTO = new ItemDTO(categoryNo, sellerNo, regionNo, itemName, itemPrice, itemStock, itemDescription);
 		
-	  //파일 첨부가 되었다면...
-  		if(m.getFilesystemName("mainImg") !=null ) {
-  			System.out.println(m.getFilesystemName("mainImg"));
-  			
-  			
-  		}		
-   
-	    //ItemDTO newItem = itemService.insert(new ItemDTO(categoryNo, sellerNo, regionNo, itemName, itemPrice, itemStock, itemDescription));
+		
+		if(m.getFilesystemName("mainImg") !=null ) {
+  			itemDTO.setMainImg(m.getFilesystemName("mainImg"));
+  		}
+		
+		if(m.getFilesystemName("detailImg") !=null ) {
+  			itemDTO.setDetailImg(m.getFilesystemName("detailImg"));
+  		}
+		
+	    int result = itemService.insert(itemDTO);
 
-//		if (newItem==null) {
-//			request.setAttribute("errmsg", "등록실패");
-//			return new ModelAndView("html/namdo-market/error.jsp");
-//		}
-//		
-//        return new ModelAndView("html/namdo-market/item/insertOk.jsp");
-	    return new ModelAndView("html/namdo-market/home-page.jsp");
+		if (result == 0) {
+			request.setAttribute("errmsg", "등록실패");
+			return new ModelAndView("html/namdo-market/error.jsp");
+		}
+		
+        return new ModelAndView("html/namdo-market/item/insertOk.jsp");
+        
     }
 
 }

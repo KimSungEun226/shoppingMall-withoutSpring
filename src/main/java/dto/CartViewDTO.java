@@ -6,15 +6,17 @@ public class CartViewDTO {
 	private String itemName;
 	private int itemPrice;
 	private int itemQuantity;
+	private String mainImg;
 	
 	public CartViewDTO() {}
 
-	public CartViewDTO(int cartNo, String itemName, int itemPrice, int itemQuantity) {
+	public CartViewDTO(int cartNo, String itemName, int itemPrice, int itemQuantity, String mainImg) {
 		super();
 		this.cartNo = cartNo;
 		this.itemName = itemName;
 		this.itemPrice = itemPrice;
 		this.itemQuantity = itemQuantity;
+		this.mainImg = mainImg;
 	}
     
 	
@@ -49,6 +51,14 @@ public class CartViewDTO {
 
 	public void setItemQuantity(int itemQuantity) {
 		this.itemQuantity = itemQuantity;
+	}
+
+	public String getMainImg() {
+		return mainImg;
+	}
+
+	public void setMainImg(String mainImg) {
+		this.mainImg = mainImg;
 	}
 	
 	

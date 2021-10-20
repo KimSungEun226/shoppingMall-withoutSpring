@@ -101,14 +101,9 @@
 
                  data-nav-for="#carouselCus2">
               <div class="js-slide g-bg-cover g-bg-black-opacity-0_1--after">
-                <img class="img-fluid w-100" src="assets/img-temp/ssal.jpg" alt="Image Description">
+                <img class="img-fluid w-100" src="${pageContext.request.contextPath}/save/ssal.jpg" alt="Image Description">
               </div>
-              <div class="js-slide g-bg-cover g-bg-black-opacity-0_1--after">
-                <img class="img-fluid w-100" src="assets/img-temp/ssal.jpg" alt="Image Description">
-              </div>
-              <div class="js-slide g-bg-cover g-bg-black-opacity-0_1--after">
-                <img class="img-fluid w-100" src="assets/img-temp/650x750/img3.jpg" alt="Image Description">
-              </div>
+              
             </div>
 
             

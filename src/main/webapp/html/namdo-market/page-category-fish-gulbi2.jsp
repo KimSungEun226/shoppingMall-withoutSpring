@@ -59,21 +59,22 @@
   <body>
     <main>
       <!-- Header -->
+      
       <c:if test="${sessionScope.customerDTO==null && sessionScope.sellerDTO==null && sessionScope.adminDTO==null}">
-        <jsp:include page="common/header-main.jsp"/>
+        <jsp:include page="common/header.jsp"/>
       </c:if>
 
       <c:if test="${sessionScope.customerDTO!=null}">
-        <jsp:include page="common/customer-header-main.jsp"/>
+        <jsp:include page="common/customer-header.jsp"/>
       </c:if>
 
       <c:if test="${sessionScope.sellerDTO!=null}">
-        <jsp:include page="common/seller-header-main.jsp"/>
+        <jsp:include page="common/seller-header.jsp"/>
       </c:if>
       
       <c:if test="${sessionScope.adminDTO!=null}">
         <jsp:include page="common/admin-header-main.jsp"/>
-      </c:if>
+      </c:if>      
 
       <!-- Breadcrumbs -->
       <section class="g-brd-bottom g-brd-gray-light-v4 g-py-30">
@@ -101,7 +102,7 @@
         <div class="row align-items-center g-pt-40 g-pb-10 g-brd-y g-brd-gray-light-v4 ">
           <!-- Category -->
           <div class="col-md-12 col-lg-10 g-mb-30">
-            <h3 class="h6 mb-3">종류 선택:</h3>
+            <h3 class="h6 mb-3">카테고리 선택:</h3>
 
             <div>
               
@@ -120,7 +121,7 @@
                 굴비
               </label>
               <label class="form-check-inline u-check u-link-v5 g-color-gray-dark-v4 g-color-primary--hover g-pl-25 mb-0 mx-2">
-                <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="radio" name="fish-check" onclick="fishCheck(3)" >
+                <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="radio" name="fish-check" onclick="fishCheck(3)">
                 <span class="d-block u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
                   <i class="fa" data-check-icon="&#xf00c"></i>
                 </span>
@@ -184,6 +185,140 @@
         <!-- End Banner -->
 		<!-- Products -->
         <div class="row g-pt-30 g-mb-50">
+          <div class="col-6 col-lg-3 g-mb-30">
+            <!-- Product -->
+            <figure class="g-pos-rel g-mb-20">
+              <img class="img-fluid" src="assets/img-temp/480x700/main_480_700.png" alt="Image Description">
+              <span class="u-ribbon-v1 g-width-40 g-height-40 g-color-white g-bg-primary g-font-size-13 text-center text-uppercase g-rounded-50x g-top-20 g-right-minus-10 g-px-2 g-py-10">New</span>
+            </figure>
+
+            <div class="media">
+              <!-- Product Info -->
+              <div class="d-flex flex-column">
+                <h4 class="h6 g-color-black mb-1">
+                  <a class="u-link-v5 g-color-black g-color-primary--hover" href="${pageContext.request.contextPath}/front">
+                    Summer shorts
+                  </a>
+                </h4>
+                <a class="d-inline-block g-color-gray-dark-v5 g-font-size-13" href="#">Man</a>
+                <span class="d-block g-color-black g-font-size-17">$52.00</span>
+              </div>
+              <!-- End Product Info -->
+
+              <!-- Products Icons -->
+              <ul class="list-inline media-body text-right">
+                <li class="list-inline-item align-middle mx-0">
+                  <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-color-primary--hover g-font-size-15 rounded-circle" href="#"
+                     data-toggle="tooltip"
+                     data-placement="top"
+                     title="Add to Cart">
+                    <i class="icon-finance-100 u-line-icon-pro"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item align-middle mx-0">
+                  <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-color-primary--hover g-font-size-15 rounded-circle" href="#"
+                     data-toggle="tooltip"
+                     data-placement="top"
+                     title="Add to Wishlist">
+                    <i class="icon-medical-022 u-line-icon-pro"></i>
+                  </a>
+                </li>
+              </ul>
+              <!-- End Products Icons -->
+            </div>
+            <!-- End Product -->
+          </div>
+
+          <div class="col-6 col-lg-3 g-mb-30">
+            <!-- Product -->
+            <figure class="g-pos-rel g-mb-20">
+              <img class="img-fluid" src="assets/img-temp/480x700/main_480_700_3.png" alt="Image Description">
+            </figure>
+
+            <div class="media">
+              <!-- Product Info -->
+              <div class="d-flex flex-column">
+                <h4 class="h6 g-color-black mb-1">
+                  <a class="u-link-v5 g-color-black g-color-primary--hover" href="#">
+                    Classic jacket
+                  </a>
+                </h4>
+                <a class="d-inline-block g-color-gray-dark-v5 g-font-size-13" href="#">Man</a>
+                <span class="d-block g-color-black g-font-size-17">$49.99</span>
+              </div>
+              <!-- End Product Info -->
+
+              <!-- Products Icons -->
+              <ul class="list-inline media-body text-right">
+                <li class="list-inline-item align-middle mx-0">
+                  <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-color-primary--hover g-font-size-15 rounded-circle" href="#"
+                     data-toggle="tooltip"
+                     data-placement="top"
+                     title="Add to Cart">
+                    <i class="icon-finance-100 u-line-icon-pro"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item align-middle mx-0">
+                  <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-color-primary--hover g-font-size-15 rounded-circle" href="#"
+                     data-toggle="tooltip"
+                     data-placement="top"
+                     title="Add to Wishlist">
+                    <i class="icon-medical-022 u-line-icon-pro"></i>
+                  </a>
+                </li>
+              </ul>
+              <!-- End Products Icons -->
+            </div>
+            <!-- End Product -->
+          </div>
+
+          <div class="col-6 col-lg-3 g-mb-30">
+            <!-- Product -->
+            <figure class="g-pos-rel g-mb-20">
+              <img class="img-fluid" src="assets/img-temp/480x700/main_480_700_5.png" alt="Image Description">
+
+            </figure>
+
+            <div class="media">
+              <!-- Product Info -->
+              <div class="d-flex flex-column">
+                <h4 class="h6 g-color-black mb-1">
+                  <a class="u-link-v5 g-color-black g-color-primary--hover" href="#">
+                    Hooded jeans
+                  </a>
+                </h4>
+                <a class="d-inline-block g-color-gray-dark-v5 g-font-size-13" href="#">Man</a>
+                <span class="d-block g-color-black g-font-size-17">$35.99</span>
+              </div>
+              <!-- End Product Info -->
+
+              <!-- Products Icons -->
+              <ul class="list-inline media-body text-right">
+                <li class="list-inline-item align-middle mx-0">
+                  <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-color-primary--hover g-font-size-15 rounded-circle" href="#"
+                     data-toggle="tooltip"
+                     data-placement="top"
+                     title="Add to Cart">
+                    <i class="icon-finance-100 u-line-icon-pro"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item align-middle mx-0">
+                  <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-color-primary--hover g-font-size-15 rounded-circle" href="#"
+                     data-toggle="tooltip"
+                     data-placement="top"
+                     title="Add to Wishlist">
+                    <i class="icon-medical-022 u-line-icon-pro"></i>
+                  </a>
+                </li>
+              </ul>
+              <!-- End Products Icons -->
+            </div>
+            <!-- End Product -->
+          </div>
+
+        </div>
+        <!-- End Products -->
+
 		<c:choose>
 			<c:when test="${empty requestScope.itemList}">
 			  <div id="accordion-12-1" class="u-accordion u-accordion-color-primary" role="tablist" aria-multiselectable="true">
@@ -202,7 +337,7 @@
 			  <div class="col-6 col-lg-3 g-mb-30">
 	            <!-- Product -->
 	            <figure class="g-pos-rel g-mb-20">
-	              <a href="${pageContext.request.contextPath}/front?key=item&methodName=selectDetail&itemNo=${itemDto.itemNo}"><img class="img-fluid" src="${pageContext.request.contextPath}/html/namdo-market/assets/img-temp/480x700/main_480_700.png" alt="Image Description"></a>
+	             <a href="${pageContext.request.contextPath}/front?key=item&methodName=selectDetail&itemNo=${itemDto.itemNo}"><img class="img-fluid" src="${pageContext.request.contextPath}/html/namdo-market/assets/img-temp/480x700/main_480_700.png" alt="item image" ></a>
 	              <span class="u-ribbon-v1 g-width-40 g-height-40 g-color-white g-bg-primary g-font-size-13 text-center text-uppercase g-rounded-50x g-top-20 g-right-minus-10 g-px-2 g-py-10">New</span>
 	
 	            </figure>
@@ -247,14 +382,6 @@
 	          </div>
                
 			</c:forEach>
-			
-			<div class="col-6 col-lg-3 g-mb-30">
-	            <!-- Product -->
-	            <figure class="g-pos-rel g-mb-20">
-	              <img class="img-fluid" src="${pageContext.request.contextPath}/html/namdo-market/assets/img-temp/480x700/main_480_700.png" alt="Image Description">
-	              <span class="u-ribbon-v1 g-width-40 g-height-40 g-color-white g-bg-primary g-font-size-13 text-center text-uppercase g-rounded-50x g-top-20 g-right-minus-10 g-px-2 g-py-10">New</span>
-	
-	            </figure>
 
 			</c:otherwise>
 			</c:choose>

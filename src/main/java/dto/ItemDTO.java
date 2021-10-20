@@ -15,6 +15,9 @@ public class ItemDTO {
 	private float itemGrade;          //상품평점
 	private String itemDescription;   //제품설명
 	
+	private String mainImg;   
+	private String detailImg;
+	
 	public ItemDTO(){}
 
 
@@ -32,7 +35,12 @@ public class ItemDTO {
 		this.itemDescription = itemDescription;
 	}
 
-
+	public ItemDTO(int categoryNo, int sellerNo, int regionNo, String itemName, int itemPrice, int itemStock,
+			String itemDescription, String mainImg, String detailImg) {
+		this(categoryNo, sellerNo, regionNo, itemName, itemPrice, itemStock, itemDescription);
+		this.mainImg = mainImg;
+		this.detailImg= detailImg;
+	}
 
 
 	public ItemDTO(int itemNo, int categoryNo, int sellerNo, int regionNo, String itemName, int itemPrice, int itemStock,
@@ -58,6 +66,30 @@ public class ItemDTO {
 		this(itemNo, categoryNo, sellerNo, regionNo, itemName, itemPrice, itemStock, itemAddDate, itemApprove, itemGrade);
 		this.itemDescription = itemDescription;
 	}
+	
+	
+
+
+	public ItemDTO(int itemNo, int categoryNo, int sellerNo, int regionNo, String itemName, int itemPrice,
+			int itemStock, String itemAddDate, String itemApprove, float itemGrade, String itemDescription,
+			String mainImg, String detailImg) {
+		super();
+		this.itemNo = itemNo;
+		this.categoryNo = categoryNo;
+		this.sellerNo = sellerNo;
+		this.regionNo = regionNo;
+		this.itemName = itemName;
+		this.itemPrice = itemPrice;
+		this.itemStock = itemStock;
+		this.itemAddDate = itemAddDate;
+		this.itemApprove = itemApprove;
+		this.itemGrade = itemGrade;
+		this.itemDescription = itemDescription;
+		this.mainImg = mainImg;
+		this.detailImg = detailImg;
+	}
+
+
 
 
 	public int getItemNo() {
@@ -178,10 +210,37 @@ public class ItemDTO {
 				+ regionNo + ", itemName=" + itemName + ", itemPrice=" + itemPrice + ", itemStock=" + itemStock
 				+ ", itemAddDate=" + itemAddDate + ", itemApprove=" + itemApprove + ", itemGrade=" + itemGrade
 				+ ", itemDescription=" + itemDescription + "]";
+	}
+
+
+
+
+	public String getMainImg() {
+		return mainImg;
+	}
+
+
+
+
+	public void setMainImg(String mainImg) {
+		this.mainImg = mainImg;
+	}
+
+
+
+
+	public String getDetailImg() {
+		return detailImg;
+	}
+
+
+
+
+	public void setDetailImg(String detailImg) {
+		this.detailImg = detailImg;
 	};
 	
-	
-	
+
 	
 	
 }
