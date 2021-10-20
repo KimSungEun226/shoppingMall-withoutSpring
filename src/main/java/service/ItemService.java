@@ -60,4 +60,6 @@ public interface ItemService {
 	   * */
 	  List<ReviewDTO> selectReviewByItemNum(String ItemNum) throws SQLException;
 
+	  
+	  List<ItemDTO> selectBySellerNo(int sellerNo) throws SQLException;
 }

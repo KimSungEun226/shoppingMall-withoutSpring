@@ -67,4 +67,7 @@ public interface ItemDAO {
 	   * */
 	  List<ReviewDTO> selectReviewByItemNo(String ItemNo) throws SQLException;	
 	
+	  
+	  List<ItemDTO> selectBySellerNo(int sellerNo) throws SQLException;
+
 }

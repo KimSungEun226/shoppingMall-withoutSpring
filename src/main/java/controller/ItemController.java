@@ -295,4 +295,15 @@ public class ItemController implements Controller{
         return new ModelAndView("html/namdo-market/item/updateOk.jsp");
         
     }
+	
+	public ModelAndView selectBySellerNo(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    	int sellerNo =  Integer.parseInt(request.getParameter("sellerNo"));
+    	List<ItemDTO> itemList = itemService.selectBySellerNo(sellerNo);
+    	//System.out.println("아이템 개수: " + itemList.size());
+    	request.setAttribute("sellerItemList", itemList);
+    	return new ModelAndView("html/namdo-market/page-sold-item-list.jsp");
+    }
+	
+	
+	
 }
