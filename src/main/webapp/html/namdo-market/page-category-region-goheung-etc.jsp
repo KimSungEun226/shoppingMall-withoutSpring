@@ -87,8 +87,12 @@
               <a class="u-link-v5 g-color-text" href="#">지역별 특산품</a>
               <i class="g-color-gray-light-v2 g-ml-5 fa fa-angle-right"></i>
             </li>
+            <li class="list-inline-item g-mr-5">
+              <a class="u-link-v5 g-color-text" href="#">고흥군</a>
+              <i class="g-color-gray-light-v2 g-ml-5 fa fa-angle-right"></i>
+            </li>
             <li class="list-inline-item g-color-primary">
-              <span>보성군</span>
+              <span>기타</span>
             </li>
           </ul>
         </div>
@@ -106,7 +110,7 @@
             <div>
               
               <label class="form-check-inline u-check u-link-v5 g-color-gray-dark-v4 g-color-primary--hover g-pl-25 mb-0 mr-2">
-                <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="radio" name="fish-check" onclick="fishCheck(1)" checked>
+                <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="radio" name="fish-check" onclick="fishCheck(1)">
                 <span class="d-block u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
                   <i class="fa" data-check-icon="&#xf00c"></i>
                 </span>
@@ -117,9 +121,15 @@
                 <span class="d-block u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
                   <i class="fa" data-check-icon="&#xf00c"></i>
                 </span>
-                굴비
+                새우
               </label>
-              
+              <label class="form-check-inline u-check u-link-v5 g-color-gray-dark-v4 g-color-primary--hover g-pl-25 mb-0 mx-2">
+                <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="radio" name="fish-check" onclick="fishCheck(3)" checked>
+                <span class="d-block u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
+                  <i class="fa" data-check-icon="&#xf00c"></i>
+                </span>
+                기타
+              </label>
             </div>
     	
           </div>
@@ -359,14 +369,7 @@
     		location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByCategoryNo&categoryNo=4";
       	}else if(n==2){
     		location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=전복";
-    	}else if(n==3){
-    		location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=바지락";
-    	}else if(n==4){
-    		location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=꼬막";
-    	}else if(n==5){
-    		location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=새우";
     	}
-      }
       
     </script>
   </body>

@@ -59,24 +59,21 @@
   <body>
     <main>
       <!-- Header -->
-      
-      
-      
       <c:if test="${sessionScope.customerDTO==null && sessionScope.sellerDTO==null && sessionScope.adminDTO==null}">
-        <jsp:include page="common/header.jsp"/>
+        <jsp:include page="common/header-main.jsp"/>
       </c:if>
 
       <c:if test="${sessionScope.customerDTO!=null}">
-        <jsp:include page="common/customer-header.jsp"/>
+        <jsp:include page="common/customer-header-main.jsp"/>
       </c:if>
 
       <c:if test="${sessionScope.sellerDTO!=null}">
-        <jsp:include page="common/seller-header.jsp"/>
+        <jsp:include page="common/seller-header-main.jsp"/>
       </c:if>
       
       <c:if test="${sessionScope.adminDTO!=null}">
         <jsp:include page="common/admin-header-main.jsp"/>
-      </c:if>      
+      </c:if>
 
       <!-- Breadcrumbs -->
       <section class="g-brd-bottom g-brd-gray-light-v4 g-py-30">
@@ -104,7 +101,7 @@
         <div class="row align-items-center g-pt-40 g-pb-10 g-brd-y g-brd-gray-light-v4 ">
           <!-- Category -->
           <div class="col-md-12 col-lg-10 g-mb-30">
-            <h3 class="h6 mb-3">카테고리 선택:</h3>
+            <h3 class="h6 mb-3">종류 선택:</h3>
 
             <div>
               
@@ -117,6 +114,13 @@
               </label>
               <label class="form-check-inline u-check u-link-v5 g-color-gray-dark-v4 g-color-primary--hover g-pl-25 mb-0 mx-2">
                 <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="radio" name="fish-check" onclick="fishCheck(2)">
+                <span class="d-block u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
+                  <i class="fa" data-check-icon="&#xf00c"></i>
+                </span>
+                새우
+              </label>
+              <label class="form-check-inline u-check u-link-v5 g-color-gray-dark-v4 g-color-primary--hover g-pl-25 mb-0 mx-2">
+                <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="radio" name="fish-check" onclick="fishCheck(3)">
                 <span class="d-block u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
                   <i class="fa" data-check-icon="&#xf00c"></i>
                 </span>
@@ -358,8 +362,10 @@
     <script type="text/javascript">
       function fishCheck(n){
     	if(n==1){
-    		location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByCategoryNo&categoryNo=4";
+    		location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByRegionNo&regionNo=14";
       	}else if(n==2){
+    		location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=전복";
+    	}else if(n==3){
     		location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=전복";
     	}
       

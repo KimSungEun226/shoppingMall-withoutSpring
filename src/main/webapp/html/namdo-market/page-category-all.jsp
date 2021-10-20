@@ -60,15 +60,15 @@
     <main>
       <!-- Header -->
       <c:if test="${sessionScope.customerDTO==null && sessionScope.sellerDTO==null && sessionScope.adminDTO==null}">
-        <jsp:include page="common/header.jsp"/>
+        <jsp:include page="common/header-main.jsp"/>
       </c:if>
 
       <c:if test="${sessionScope.customerDTO!=null}">
-        <jsp:include page="common/customer-header.jsp"/>
+        <jsp:include page="common/customer-header-main.jsp"/>
       </c:if>
 
       <c:if test="${sessionScope.sellerDTO!=null}">
-        <jsp:include page="common/seller-header.jsp"/>
+        <jsp:include page="common/seller-header-main.jsp"/>
       </c:if>
       
       <c:if test="${sessionScope.adminDTO!=null}">
