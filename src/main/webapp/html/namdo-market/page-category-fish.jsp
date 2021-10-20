@@ -199,8 +199,9 @@
 			  <div class="col-6 col-lg-3 g-mb-30">
 	            <!-- Product -->
 	            <figure class="g-pos-rel g-mb-20">
+                 
 
-	              <a href="${pageContext.request.contextPath}/front?key=item&methodName=selectDetail&itemNo=${itemDto.itemNo}"><img class="img-fluid" src="${pageContext.request.contextPath}/save/${itemDto.mainImg}" alt="Image Description"></a>
+	              <!--  --><a href="${pageContext.request.contextPath}/front?key=item&methodName=selectDetail&itemNo=${itemDto.itemNo}"><img class="img-fluid " src="${pageContext.request.contextPath}/save/${itemDto.mainImg}" alt="Image Description"></a>
 	              <span class="u-ribbon-v1 g-width-40 g-height-40 g-color-white g-bg-primary g-font-size-13 text-center text-uppercase g-rounded-50x g-top-20 g-right-minus-10 g-px-2 g-py-10">New</span>
 	
 	            </figure>

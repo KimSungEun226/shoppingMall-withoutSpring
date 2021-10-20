@@ -55,7 +55,7 @@ public interface ItemDAO {
 	   * 상품 번호에 해당하는 상품 수정(상품번호)
 	   * @return : 1-수정성공 , 0 - 수정실패
 	   **/
-	  int updateItemNo(int itemNo) throws SQLException;
+	  int updateItem(ItemDTO itemDTO) throws SQLException;
 	 	  
 	  
 	 

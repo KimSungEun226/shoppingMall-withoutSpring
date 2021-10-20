@@ -68,7 +68,7 @@
                         </a>
                       </li>
                       <li>
-                        <a class="d-block g-color-black g-color-primary--hover g-text-underline--none--hover g-font-weight-400 g-py-5 g-px-20" href="href="${pageContext.request.contextPath}/front?key=customer&methodName=logout">
+                        <a class="d-block g-color-black g-color-primary--hover g-text-underline--none--hover g-font-weight-400 g-py-5 g-px-20" href="${pageContext.request.contextPath}/front?key=customer&methodName=logout">
                           로그아웃
                         </a>
                       </li>

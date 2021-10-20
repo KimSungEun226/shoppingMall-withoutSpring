@@ -1,5 +1,6 @@
 package service;
 
+import java.io.File;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -80,9 +81,12 @@ public class ItemServiceImpl implements ItemService {
 	}
 
 	@Override
-	public int update(int itemNo) throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
+	public int update(ItemDTO itemDTO) throws SQLException {
+		ItemDAO dao = new ItemDAOImpl();
+		int result = dao.updateItem(itemDTO);
+		
+		
+		return result;
 	}
 
 	@Override

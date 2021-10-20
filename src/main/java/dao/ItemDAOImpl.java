@@ -50,7 +50,7 @@ public class ItemDAOImpl implements ItemDAO {
  			rs = ps.executeQuery();
  			while(rs.next()) {
  				ItemDTO itemDTO = new ItemDTO(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5),
- 						rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getString(9), rs.getFloat(10));
+ 						rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getString(9), rs.getFloat(10), rs.getString(11), rs.getString(12), rs.getString(13));
 				
 				itemlist.add(itemDTO);
 			}
@@ -108,7 +108,7 @@ public class ItemDAOImpl implements ItemDAO {
 			rs = ps.executeQuery();
 			while(rs.next()) {
 				ItemDTO itemDTO = new ItemDTO(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5),
- 						rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getString(9), rs.getFloat(10));
+ 						rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getString(9), rs.getFloat(10), rs.getString(11), rs.getString(12), rs.getString(13));
 				
 				pageList.add(itemDTO);
 			}
@@ -269,10 +269,10 @@ public class ItemDAOImpl implements ItemDAO {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		ItemDTO itemDTO = null;
-		String sql = proFile.getProperty("item.selectByItemNo");
+		String sql = "select * from item where item_No=?";
 		try {
 			con = DbUtil.getConnection();
-			ps = con.prepareStatement("select * from item where item_No =?");
+			ps = con.prepareStatement(sql);
 			ps.setInt(1, itemNo);
 			rs = ps.executeQuery();
 			if(rs.next()) {
@@ -341,21 +341,29 @@ public class ItemDAOImpl implements ItemDAO {
 	
 
 	/**
-	   * 상품 번호에 해당하는 상품 수정(상품번호)
+	   * 상품 번호에 해당하는 레코드 수정(상품번호)
 	   * @return : 1-수정성공 , 0 - 수정실패
 	   **/
 	
 	@Override
-	public int updateItemNo(int itemNo) throws SQLException {
+	public int updateItem(ItemDTO itemDTO) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
 		int result = 0;
-		String sql = proFile.getProperty("item.updateItemNo");
+		String sql = "update item set category_no= ?, region_no=?, item_name=?, item_price=?, item_stock=?, item_description=?, main_img=?, detail_img=? where item_no=?";
 		
 		try {
 			con = DbUtil.getConnection();
 			ps = con.prepareStatement(sql);
-			ps.setInt(1, itemNo);
+			ps.setInt(1, itemDTO.getCategoryNo());
+			ps.setInt(2, itemDTO.getRegionNo());
+			ps.setString(3, itemDTO.getItemName());
+			ps.setInt(4, itemDTO.getItemPrice());
+			ps.setInt(5, itemDTO.getItemStock());
+			ps.setString(6, itemDTO.getItemDescription());
+			ps.setString(7, itemDTO.getMainImg());
+			ps.setString(8, itemDTO.getDetailImg());
+			ps.setInt(9, itemDTO.getItemNo());
 			result = ps.executeUpdate();
 			
 		}finally {

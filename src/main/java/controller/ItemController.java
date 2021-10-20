@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Enumeration;
@@ -198,5 +199,104 @@ public class ItemController implements Controller{
         return new ModelAndView("html/namdo-market/item/insertOk.jsp");
         
     }
+    
 
+    
+	public ModelAndView selectDetail(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
+		int itemNo =  Integer.parseInt(request.getParameter("itemNo"));
+		ItemDTO itemDTO = itemService.selectByNo(itemNo);
+		
+		if (itemDTO ==null) {
+			request.setAttribute("errmsg", "등록된 제품이 존재하지 않습니다.");
+			return new ModelAndView("html/namdo-market/error.jsp");
+		}
+		
+		request.setAttribute("item", itemDTO);
+		
+		return new ModelAndView("html/namdo-market/page-single-product.jsp");
+	}
+	
+	/**
+	 * 수정전에 item정보를 request에 담아 전달하기 위해 사용하는 메소드
+	 * */
+	public ModelAndView checkUpdate(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		//우선 현재 접속된 판매자 번호와 등록된 아이템의 판매자 번호가 같은지 확인
+		
+		int itemNo = Integer.parseInt(request.getParameter("itemNo"));
+		
+		ItemService itemService = new ItemServiceImpl();
+		
+		ItemDTO itemDTO = itemService.selectByNo(itemNo);
+		
+		request.setAttribute("itemDTO", itemDTO);
+		
+        return new ModelAndView("html/namdo-market/page-item-update.jsp");
+        
+    }
+	
+	
+	/**
+	 * 수정하기
+	 * */
+	public ModelAndView update(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		//우선 현재 접속된 판매자 번호와 등록된 아이템의 판매자 번호가 같은지 확인
+		
+		int itemNo = Integer.parseInt(request.getParameter("itemNo"));
+		
+		ItemDTO prevItem = itemService.selectByNo(itemNo);
+		String prevmainImg = prevItem.getMainImg();
+		String prevdetailImg = prevItem.getDetailImg();
+		
+		String saveDir = request.getServletContext().getRealPath("/save");
+		int maxSize = 1024*1024*100; //100M
+		String encoding = "UTF-8";
+		
+		MultipartRequest m = new MultipartRequest(request, saveDir, maxSize, encoding, new DefaultFileRenamePolicy());
+		
+		HttpSession session = request.getSession();
+		
+		SellerDTO dto = (SellerDTO)session.getAttribute("sellerDTO");
+		int sellerNo = dto.getSellerNo();
+		
+		int categoryNo = Integer.parseInt(m.getParameter("categoryNo"));
+		int regionNo = Integer.parseInt(m.getParameter("regionNo"));
+		String itemName = m.getParameter("itemName");
+		int itemPrice = Integer.parseInt(m.getParameter("itemPrice"));
+		int itemStock = Integer.parseInt(m.getParameter("itemStock"));
+		String itemDescription = m.getParameter("itemDescription");
+		
+		ItemDTO itemDTO = new ItemDTO(categoryNo, sellerNo, regionNo, itemName, itemPrice, itemStock, itemDescription);
+		itemDTO.setItemNo(prevItem.getItemNo());
+		
+		if(m.getFilesystemName("mainImg") !=null ) {
+  			itemDTO.setMainImg(m.getFilesystemName("mainImg"));
+  		}
+		
+		if(m.getFilesystemName("detailImg") !=null ) {
+  			itemDTO.setDetailImg(m.getFilesystemName("detailImg"));
+  		}
+		
+	    int result = itemService.update(itemDTO);
+
+		if (result == 0) {
+			request.setAttribute("errmsg", "수정실패");
+			return new ModelAndView("html/namdo-market/error.jsp");
+		}
+		
+		//수정이 성공했다면 기존에 있던 이미지 삭제!
+		if(prevItem.getMainImg() != null) {
+			//폴더에서 삭제
+			new File(saveDir+"/"+prevmainImg).delete();
+		}
+		
+		if(prevItem.getDetailImg() != null) {
+			//폴더에서 삭제
+			new File(saveDir+"/"+prevdetailImg).delete();
+		}
+
+		
+        return new ModelAndView("html/namdo-market/item/updateOk.jsp");
+        
+    }
 }

@@ -56,7 +56,7 @@ public interface ItemService {
 	  /**
 	   * ItemDAOImpl에서 상품번호에 해당하는 레코드 수정 메소드 호출
 	   * */
-	  int update(int itemNo) throws SQLException;
+	  int update(ItemDTO itemDTO) throws SQLException;
 	  
 	  
 	  /**
