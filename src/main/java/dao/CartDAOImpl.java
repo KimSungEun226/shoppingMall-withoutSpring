@@ -32,18 +32,42 @@ public class CartDAOImpl implements CartDAO {
 		String sql = proFile.getProperty("cart.addToCart");
 		try {
 			con = DbUtil.getConnection();
-			ps = con.prepareStatement(sql);
-			//insert into cart values (cart_no_seq.nextval, ?, ?, ?)
-			//CUSTOMER_NO NUMBER
-			ps.setInt(1, cartDTO.getCustomerNo());
-			//ITEM_NO NUMBER
-			ps.setInt(2, cartDTO.getItemNo());
-			//CART_ITEM_COUNT NUMBER
-			ps.setInt(3, cartDTO.getCartItemCount());
+			CartDTO dbDTO = selectCartByCustomerNoAndItemNo(cartDTO.getCustomerNo(), cartDTO.getItemNo(), con);
+			if(dbDTO ==null) {
+				ps = con.prepareStatement(sql);
+				//insert into cart values (cart_no_seq.nextval, ?, ?, ?)
+				//CUSTOMER_NO NUMBER
+				ps.setInt(1, cartDTO.getCustomerNo());
+				//ITEM_NO NUMBER
+				ps.setInt(2, cartDTO.getItemNo());
+				//CART_ITEM_COUNT NUMBER
+				ps.setInt(3, cartDTO.getCartItemCount());
+				
+				result = ps.executeUpdate();
+			}else {
+				result = updateCart(dbDTO.getCartItemCount()+cartDTO.getCartItemCount(), dbDTO.getCartNo(), dbDTO.getCustomerNo());
+			}
 			
-			result = ps.executeUpdate();
+			
 		}finally {
 			DbUtil.dbClose(ps, con);
+		}
+		return result;
+	}
+
+	public int updateCart(int cartItemCount, int cartNo, int customerNo, Connection con) throws SQLException {
+		PreparedStatement ps =null;
+		int result = 0;
+		String sql = proFile.getProperty("cart.updateCart");
+		//update cart set cart_item_count= ? where cart_no = ? and customer_no = ?
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, cartItemCount);
+			ps.setInt(2, cartNo);
+			ps.setInt(3, customerNo);
+			result = ps.executeUpdate();
+		}finally {
+			DbUtil.dbClose(ps, null);
 		}
 		return result;
 	}
@@ -63,10 +87,10 @@ public class CartDAOImpl implements CartDAO {
 			ps.setInt(3, customerNo);
 			result = ps.executeUpdate();
 		}finally {
-			DbUtil.dbClose(ps, con);
+			DbUtil.dbClose(ps, null);
 		}
 		return result;
-	}
+	}	
 	
 	@Override
 	public int deleteFromCart(int cartNo) throws SQLException {
@@ -111,6 +135,28 @@ public class CartDAOImpl implements CartDAO {
 			DbUtil.dbClose(rs, ps,con);
 		}
 		return cartList;
+	}
+
+	
+	public CartDTO selectCartByCustomerNoAndItemNo(int customerNo, int itemNo, Connection con) throws SQLException {
+		PreparedStatement ps =null;
+		ResultSet rs= null;
+		CartDTO result = null;
+		String sql = proFile.getProperty("cart.selectByCustomerNoAndItemNo");
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, customerNo);
+			ps.setInt(2, itemNo);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				//public CartDTO(int cartNo, int customerNo, int itemNo, int cartItemCount)
+				result = new CartDTO(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4));
+				
+			}
+		}finally {
+			DbUtil.dbClose(rs, ps,null);
+		}
+		return result;
 	}
 
 }

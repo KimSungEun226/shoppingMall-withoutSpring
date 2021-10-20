@@ -8,21 +8,11 @@
 <style>
 </style>
 <script type="text/javascript">
-
+  alert("장바구니 추가 완료!!")
+  history.back();
 </script>
 </head>
 <body>
-   <h1>
-   ${sellerDTO.sellerId} <p>
-   ${sellerDTO.sellerPwd}<p>
-   ${sellerDTO.sellerName}<p>
-   ${sellerDTO.sellerEmail}<p>
-   ${sellerDTO.sellerAddr}<p>
-   ${sellerDTO.sellerContact}<p>
-   ${sellerDTO.sellerRegDate}<p>
-   
-   
-   
-   </h1>
+ 
 </body>
 </html>

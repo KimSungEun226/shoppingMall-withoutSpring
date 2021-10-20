@@ -10,13 +10,20 @@ public class CartDTO {
 	
 	public CartDTO() {}
 
-
-	public CartDTO(int cartNo, int customerNo, int itemNo, int cartItemCount) {
+   
+	
+	public CartDTO(int customerNo, int itemNo, int cartItemCount) {
 		super();
-		this.cartNo = cartNo;
 		this.customerNo = customerNo;
 		this.itemNo = itemNo;
 		this.cartItemCount = cartItemCount;
+	}
+
+
+
+	public CartDTO(int cartNo, int customerNo, int itemNo, int cartItemCount) {
+        this(customerNo, itemNo, cartItemCount);
+		this.cartNo = cartNo;
 	}
 
 

@@ -52,6 +52,7 @@ public class CustomerLoginServlet extends HttpServlet {
 				System.out.println("userID : " + customerDTO.getCustomerId());
 				session.setAttribute("customerDTO", customerDTO);
 				url = "home-page.jsp";
+				//url = "login/loginOk.jsp";
 			}
 			PrintWriter out = response.getWriter();
 	        out.print(url);

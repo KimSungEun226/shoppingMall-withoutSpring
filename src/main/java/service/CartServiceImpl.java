@@ -11,8 +11,9 @@ public class CartServiceImpl implements CartService {
 
 	@Override
 	public int addToCart(CartDTO cart) throws SQLException {
-		// TODO Auto-generated method stub
-        return 0;
+		CartDAO dao = new CartDAOImpl();
+		int result = dao.addToCart(cart);
+        return result;
 	}
 
 	@Override

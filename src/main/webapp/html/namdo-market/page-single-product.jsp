@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -40,6 +42,7 @@
     
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript">
+    
       $(function(){
     	  $("a[id='1']").text("생선");
     	  $("a[id='2']").text("건어물");
@@ -47,6 +50,52 @@
     	  $("a[id='4']").text("해산물/어패류");
     	  $("a[id='5']").text("젓갈");
     	  $("a[id='6']").text("수산물 기타");
+    	  
+    	  
+    	  if(${sellerDTO!=null}) {
+    		  $("#cart").text("수정하기");
+    	  };
+    	  
+    	  
+    	  $("#cart").click(function(){
+    		
+    		  var count = $("#orderCount").val();
+    		  var uri = ""
+    		  
+    		  
+    		  //만약 고객의 입장이라면
+     		  if(${customerDTO!=null}) {
+    			  uri = "${pageContext.request.contextPath}/front?key=cart&methodName=add&itemNo=${item.itemNo}&itemCount="+count;
+     			  location.href = uri;
+        		  return;
+    		  } 
+    		  
+    		  else if(${sellerDTO!=null}){
+    			  var sellerNo1 = "${item.sellerNo}";
+    			  var sellerNo2 = "${sellerDTO.sellerNo}";
+    			  
+    			  if(sellerNo1 != sellerNo2) 
+    			      alert("권한이 없습니다.");
+    			  else{
+    				  uri = "${pageContext.request.contextPath}/front?key=item&methodName=checkUpdate&itemNo=${item.itemNo}";
+    				  location.href = uri;
+    			  }
+    			  return;
+    		  }
+    		  
+    		  else if(${adminDTO!=null}) {
+    			  alert("권한이 없습니다.");
+    		  }
+    		  
+    		  else{
+    			  location.href = "${pageContext.request.contextPath}/html/namdo-market/page-login-customer.jsp";
+    			  return;
+    		  }
+    		  
+    	  })
+    	  
+    	  
+    	  
       });
     </script>
   </head>
@@ -97,11 +146,9 @@
           <div class="col-lg-7">
             <!-- Carousel -->
             <div id="carouselCus1" class="js-carousel g-pt-10 g-mb-10"
-                 data-infinite="true"
-
-                 data-nav-for="#carouselCus2">
+                 data-infinite="true">
               <div class="js-slide g-bg-cover g-bg-black-opacity-0_1--after">
-                <img class="img-fluid w-100" src="${pageContext.request.contextPath}/save/ssal.jpg" alt="Image Description">
+                <img class="img-fluid w-100 g-height-600" src="${pageContext.request.contextPath}/save/${item.mainImg}" alt="Image Description">
               </div>
               
             </div>
@@ -109,8 +156,7 @@
             
             <!-- End Carousel -->
           </div>
-
-          <div class="col-lg-5">
+       <div class="col-lg-5">
             <div class="g-px-40--lg g-pt-70">
               <!-- Product Info -->
               <div class="g-mb-30">
@@ -122,7 +168,10 @@
               <!-- Price -->
               <div class="g-mb-30">
                 <h2 class="g-color-gray-dark-v5 g-font-weight-400 g-font-size-12 text-uppercase mb-2">판매가</h2>
-                <span class="g-color-black g-font-weight-500 g-font-size-30 mr-2">${item.itemPrice}</span>
+                <span class="g-color-black g-font-weight-500 g-font-size-30 mr-2">
+                     <fmt:formatNumber value="${item.itemPrice}"/>원
+                
+                </span>
               </div>
               <!-- End Price -->
 
@@ -188,7 +237,7 @@
                 <h5 class="g-color-gray-dark-v5 g-font-weight-400 g-font-size-default mb-0">수량</h5>
 
                 <div class="js-quantity input-group u-quantity-v1 g-width-80 g-brd-primary--focus">
-                  <input class="js-result form-control text-center g-font-size-13 rounded-0" type="text" value="1" readonly>
+                  <input id="orderCount" class="js-result form-control text-center g-font-size-13 rounded-0" type="text" value="1" readonly>
 
                   <div class="input-group-addon d-flex align-items-center g-brd-gray-light-v2 g-width-30 g-bg-white g-font-size-13 rounded-0 g-pa-5">
                     <i class="js-plus g-color-gray g-color-primary--hover fa fa-angle-up"></i>
@@ -201,7 +250,7 @@
               <!-- Buttons -->
               <div class="row g-mx-minus-5 g-mb-20">
                 <div class="col g-px-5 g-mb-10">
-                  <button class="btn btn-block u-btn-primary g-font-size-12 text-uppercase g-py-15 g-px-25" type="button">
+                  <button id="cart" class="btn btn-block u-btn-primary g-font-size-12 text-uppercase g-py-15 g-px-25" type="button">
                     장바구니 담기 <i class="align-middle ml-2 icon-finance-100 u-line-icon-pro"></i>
                   </button>
                 </div>
@@ -345,15 +394,12 @@
             <div class="tab-pane fade show active g-pt-50" id="nav-1-2-accordion-default-hor-left-underline--1" role="tabpanel">
               <h2 class="h4 mb-3" style="text-align: center">상세설명</h2>
 
-              <div class="row justify-content-center">
-                <div class="col-md-4 g-mb-30">
-                  <p>1. 이 상품의 좋은점</p>
-                  <p>2. 이 상품의 좋은점</p>
+                <div class="col-md-20 g-mb-30" style>
+                  ${item.itemDescription}
                 </div>
 
                 
                 
-              </div>
 	      <!-- Features -->
 	      <div class="g-brd-y g-brd-gray-light-v4">
 	        <div class="container g-py-30">
@@ -393,62 +439,16 @@
 	      <!-- End Features -->
 	
 	      <!-- Details -->
-	      <div id="details" class="container-fluid g-px-0">
-	        <div class="row no-gutters g-min-height-100vh">
-	          <div class="col-md-6 align-self-center">
-	            <div class="g-width-60x mx-auto g-px-50--lg g-py-100">
-	              <span class="d-block g-font-size-15 text-uppercase mb-5">&lt;1></span>
-	              <h3 class="mb-4">영암의 명품쌀 달마지쌀 골드</h3>
-	              <p>2015 전국 12대 고품질 브랜드 쌀로 선정된 영암군(군수 전동평)의 대표브랜드 달마지쌀 골드</p>
-	            </div>
-	          </div>
-	
-	          <div class="col-md-6 g-bg-size-cover g-min-height-300" data-bg-img-src="assets/img-temp/900x600/ssal01.jpg"></div>
-	        </div>
-	      </div>
-	      <!-- End Details -->
-	
-	      <!-- Craftmanship -->
-	      <div class="container-fluid g-px-0">
-	        <div class="row no-gutters g-min-height-100vh">
-	          <div class="col-md-6 order-md-2 align-self-center">
-	            <div class="g-width-60x mx-auto g-px-50--lg g-py-100">
-	              <span class="d-block g-font-size-15 text-uppercase mb-5">&lt;2></span>
-	              <h3 class="mb-4">친환경 유기농 달마지쌀 골드</h3>
-	              <p>농림축산식품부가 주최하고 한국소비단체협의회에서 주관한 전국 고품질 브랜드 쌀 종합평가 결과, 영암지역의 달마지쌀 골드가 대한민국 최고의 쌀로 입증</p>
-	            </div>
-	          </div>
-	
-	          <div class="col-md-6 order-md-1 g-bg-size-cover g-min-height-300" data-bg-img-src="assets/img-temp/900x600/ssal02.jpg"></div>
-	        </div>
-	      </div>
-	      <!-- End Craftmanship -->
-	
-	      <!-- Caring -->
-	      <div class="container-fluid g-px-0">
-	        <div class="row no-gutters g-min-height-100vh">
-	          <div class="col-md-6 align-self-center">
-	            <div class="g-width-60x mx-auto g-px-50--lg g-py-100">
-	              <span class="d-block g-font-size-15 text-uppercase mb-5">&lt;3></span>
-	              <h3 class="mb-4">전국 12대 고품질 브랜드쌀 7회 선정</h3>
-	              <p>최고품질 쌀 "하이아미"는 외관 품질이 매우 양호하고 부드럽고 고소한 맛이 나며 황 함유 아미노산이 다량 함유된 기능성 고품질 품종입니다.</p>
-	            </div>
-	          </div>
-	
-	          <div class="col-md-6 g-bg-size-cover g-min-height-300" data-bg-img-src="assets/img-temp/900x600/ssal03.jpg"></div>
-	        </div>
-	      </div>
-	      <!-- End Caring -->
-        </div>
+	      
 
-            <div class="tab-pane fade g-pt-50" id="nav-1-2-accordion-default-hor-left-underline--2" role="tabpanel">
+            <!-- <div class="tab-pane fade g-pt-50" id="nav-1-2-accordion-default-hor-left-underline--2" role="tabpanel" type='hidden'>
               <div class="row justify-content-center">
                 <div class="col-lg-9">
                   <h2 class="h4 mb-5">사용후기</h2>
 
-                  <!-- Review -->
+                  Review
                   <div class="g-brd-bottom g-brd-gray-light-v4 g-pb-30 g-mb-50">
-                    <!-- Media -->
+                    Media
                     <div class="media g-mb-30">
                       <img class="d-flex g-width-60 g-height-60 rounded-circle g-mt-3 g-mr-20" src="assets/img-temp/100x100/img1.jpg" alt="Image Description">
                       <div class="media-body">
@@ -456,7 +456,7 @@
                           <div class="d-block">
                             <h5 class="h6">James Coolman</h5>
 
-                            <!-- Rating -->
+                            Rating
                             <ul class="js-rating u-rating-v1 g-font-size-13 g-color-gray-light-v3 mb-0" data-hover-classes="g-color-primary">
                               <li class="g-color-primary g-line-height-1_4">
                                 <i class="fa fa-star"></i>
@@ -474,7 +474,7 @@
                                 <i class="fa fa-star"></i>
                               </li>
                             </ul>
-                            <!-- End Rating -->
+                            End Rating
 
                             <span class="d-block g-color-gray-dark-v5 g-font-size-11">June 7, 2017</span>
                           </div>
@@ -499,9 +499,9 @@
                         </ul>
                       </div>
                     </div>
-                    <!-- End Media -->
+                    End Media
 
-                    <!-- Media -->
+                    Media
                     <div class="media g-brd-top g-brd-gray-light-v4 g-pt-30 g-ml-40 g-mb-30">
                       <img class="d-flex g-width-60 g-height-60 rounded-circle g-mt-3 g-mr-15" src="assets/img-temp/100x100/img2.jpg" alt="Image Description">
                       <div class="media-body">
@@ -509,7 +509,7 @@
                           <div class="d-block">
                             <h5 class="h6">Alberta Watson</h5>
 
-                            <!-- Rating -->
+                            Rating
                             <ul class="js-rating u-rating-v1 g-font-size-13 g-color-gray-light-v3 mb-0" data-hover-classes="g-color-primary">
                               <li class="g-color-primary g-line-height-1_4">
                                 <i class="fa fa-star"></i>
@@ -527,7 +527,7 @@
                                 <i class="fa fa-star"></i>
                               </li>
                             </ul>
-                            <!-- End Rating -->
+                            End Rating
 
                             <span class="d-block g-color-gray-dark-v5 g-font-size-11">June 7, 2017</span>
                           </div>
@@ -552,9 +552,9 @@
                         </ul>
                       </div>
                     </div>
-                    <!-- End Media -->
+                    End Media
 
-                    <!-- Media -->
+                    Media
                     <div class="media g-brd-top g-brd-gray-light-v4 g-pt-30 g-mb-30">
                       <img class="d-flex g-width-60 g-height-60 rounded-circle g-mt-3 g-mr-15" src="assets/img-temp/100x100/img3.jpg" alt="Image Description">
                       <div class="media-body">
@@ -562,7 +562,7 @@
                           <div class="d-block">
                             <h5 class="h6">Maria Lee</h5>
 
-                            <!-- Rating -->
+                            Rating
                             <ul class="js-rating u-rating-v1 g-font-size-13 g-color-gray-light-v3 mb-0" data-hover-classes="g-color-primary">
                               <li class="g-color-primary g-line-height-1_4">
                                 <i class="fa fa-star"></i>
@@ -580,7 +580,7 @@
                                 <i class="fa fa-star"></i>
                               </li>
                             </ul>
-                            <!-- End Rating -->
+                            End Rating
 
                             <span class="d-block g-color-gray-dark-v5 g-font-size-11">June 7, 2017</span>
                           </div>
@@ -605,13 +605,13 @@
                         </ul>
                       </div>
                     </div>
-                    <!-- End Media -->
+                    End Media
                   </div>
-                  <!-- End Review -->
+                  End Review
 
                   <h2 class="h4 mb-5">Add Review</h2>
 
-                  <!-- Comment Form -->
+                  Comment Form
                   <form>
                     <div class="row">
                       <div class="col-md-6 form-group g-mb-30">
@@ -623,7 +623,7 @@
                       </div>
                     </div>
                   </form>
-                  <!-- End Comment Form -->
+                  End Comment Form
 
                   <div class="g-mb-30">
                     <textarea class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-brd-primary--focus g-resize-none rounded-3 g-py-13 g-px-15" rows="12" placeholder="Your message"></textarea>
@@ -634,7 +634,7 @@
                       <button class="btn u-btn-primary g-font-size-12 text-uppercase g-py-15 g-px-25" type="submit" role="button">Add Comment</button>
                     </div>
 
-                    <!-- Rating -->
+                    Rating
                     <div class="col-5 col-sm-4 col-md-3">
                       <h3 class="h6 mb-1">Rate:</h3>
 
@@ -655,12 +655,12 @@
                           <i class="fa fa-star"></i>
                         </li>
                       </ul>
-                      <!-- End Rating -->
+                      End Rating
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
           <!-- End Tab panes -->
         </div>
@@ -668,6 +668,7 @@
       <!-- End Description & Review -->
 
       <!-- Products -->
+         <img class="img-fluid" src="${pageContext.request.contextPath}/save/${item.detailImg}" alt="namdo insa" style="display: block; margin-left: auto; margin-right: auto;">
       
       <!-- End Products -->
 

@@ -54,6 +54,30 @@ public class CartController implements Controller {
 		return new ModelAndView("html/namdo-market/page-cart.jsp");
 	}
 	
+	public ModelAndView add(HttpServletRequest request, HttpServletResponse response) throws Exception{
+		HttpSession session = request.getSession();
+		CustomerDTO customer = (CustomerDTO)session.getAttribute("customerDTO");
+		
+		int customerNo = customer.getCustomerNo();
+		int itemNo = Integer.parseInt(request.getParameter("itemNo"));
+		int itemCount = Integer.parseInt(request.getParameter("itemCount"));
+
+		//우선 카트에 해당 고객이 해당 아이템을 갖고 있는지 확인
+		
+		
+		CartDTO cart = new CartDTO(customerNo, itemNo, itemCount);
+		
+		int result = cartService.addToCart(cart);
+		
+		
+		if (result==0) {
+			request.setAttribute("errmsg", "삭제실패");
+			return new ModelAndView("html/namdo-market/error.jsp");
+		}
+		
+        return new ModelAndView("html/namdo-market/cart/addOk.jsp");
+	}
+	
 	
 	public ModelAndView delete(HttpServletRequest request, HttpServletResponse response) throws Exception{
 		int cartNo = Integer.parseInt(request.getParameter("cartNo"));
