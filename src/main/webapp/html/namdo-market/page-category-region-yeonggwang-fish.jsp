@@ -43,16 +43,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/css/custom.css">
     
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript">
-      $(function(){
-    	  $("a[id='1']").text("생선");
-    	  $("a[id='2']").text("건어물");
-    	  $("a[id='3']").text("김/해초류");
-    	  $("a[id='4']").text("해산물/어패류");
-    	  $("a[id='5']").text("젓갈");
-    	  $("a[id='6']").text("수산물 기타");
-      });
-    </script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/namdo-market.js"></script>
     
   </head>
 
@@ -87,12 +78,8 @@
               <a class="u-link-v5 g-color-text" href="#">지역별 특산품</a>
               <i class="g-color-gray-light-v2 g-ml-5 fa fa-angle-right"></i>
             </li>
-            <li class="list-inline-item g-mr-5">
-              <a class="u-link-v5 g-color-text" href="#">고흥군</a>
-              <i class="g-color-gray-light-v2 g-ml-5 fa fa-angle-right"></i>
-            </li>
             <li class="list-inline-item g-color-primary">
-              <span>새우</span>
+              <span>영광군</span>
             </li>
           </ul>
         </div>
@@ -110,25 +97,18 @@
             <div>
               
               <label class="form-check-inline u-check u-link-v5 g-color-gray-dark-v4 g-color-primary--hover g-pl-25 mb-0 mr-2">
-                <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="radio" name="fish-check" onclick="fishCheck(1)">
+                <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="radio" name="cat-check" onclick="regionSelect(1)">
                 <span class="d-block u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
                   <i class="fa" data-check-icon="&#xf00c"></i>
                 </span>
                 전체
               </label>
               <label class="form-check-inline u-check u-link-v5 g-color-gray-dark-v4 g-color-primary--hover g-pl-25 mb-0 mx-2">
-                <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="radio" name="fish-check" onclick="fishCheck(2)" checked>
+                <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="radio" name="cat-check" onclick="categoryOfRegionSelect(1,1)" checked>
                 <span class="d-block u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
                   <i class="fa" data-check-icon="&#xf00c"></i>
                 </span>
-                새우
-              </label>
-              <label class="form-check-inline u-check u-link-v5 g-color-gray-dark-v4 g-color-primary--hover g-pl-25 mb-0 mx-2">
-                <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="radio" name="fish-check" onclick="fishCheck(3)">
-                <span class="d-block u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
-                  <i class="fa" data-check-icon="&#xf00c"></i>
-                </span>
-                기타
+                생선
               </label>
             </div>
     	
@@ -362,15 +342,6 @@
         $.HSCore.components.HSSlider.init('#rangeSlider1');
       });
     </script>
-    
-    <script type="text/javascript">
-      function fishCheck(n){
-    	if(n==1){
-    		location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByCategoryNo&categoryNo=4";
-      	}else if(n==2){
-    		location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=전복";
-    	}
-      
-    </script>
+
   </body>
 </html>

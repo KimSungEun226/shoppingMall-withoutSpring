@@ -38,6 +38,10 @@ public interface ItemService {
 	  * */
 	  List<ItemDTO> selectByRegion(int regionNo) throws SQLException;
 	  
+	  /**
+	   * ItemDAOImpl에서 해당하는 지역의 카테고리를 검색하는 메소드 호출
+	   */
+	  List<ItemDTO> selectByCategoryOfRegion(int regionNo, int categoryNo) throws SQLException;
 	  
 	  /**
 	  * ItemDAOImpl에서 레코드 삽입 메소드 호출

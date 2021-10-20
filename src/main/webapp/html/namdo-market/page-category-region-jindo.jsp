@@ -43,17 +43,8 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/css/custom.css">
     
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript">
-      $(function(){
-    	  $("a[id='1']").text("생선");
-    	  $("a[id='2']").text("건어물");
-    	  $("a[id='3']").text("김/해초류");
-    	  $("a[id='4']").text("해산물/어패류");
-    	  $("a[id='5']").text("젓갈");
-    	  $("a[id='6']").text("수산물 기타");
-      });
-    </script>
     
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/namdo-market.js"></script>
   </head>
 
   <body>
@@ -106,18 +97,18 @@
             <div>
               
               <label class="form-check-inline u-check u-link-v5 g-color-gray-dark-v4 g-color-primary--hover g-pl-25 mb-0 mr-2">
-                <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="radio" name="fish-check" onclick="fishCheck(1)" checked>
+                <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="radio" name="cat-check" onclick="regionSelect(11)" checked>
                 <span class="d-block u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
                   <i class="fa" data-check-icon="&#xf00c"></i>
                 </span>
                 전체
               </label>
               <label class="form-check-inline u-check u-link-v5 g-color-gray-dark-v4 g-color-primary--hover g-pl-25 mb-0 mx-2">
-                <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="radio" name="fish-check" onclick="fishCheck(2)">
+                <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="radio" name="cat-check" onclick="categoryOfRegionSelect(11, 6)">
                 <span class="d-block u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
                   <i class="fa" data-check-icon="&#xf00c"></i>
                 </span>
-                굴비
+                수산물 기타
               </label>
             </div>
     	
@@ -352,21 +343,6 @@
       });
     </script>
     
-    <script type="text/javascript">
-      function fishCheck(n){
-    	if(n==1){
-    		location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByCategoryNo&categoryNo=4";
-      	}else if(n==2){
-    		location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=전복";
-    	}else if(n==3){
-    		location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=바지락";
-    	}else if(n==4){
-    		location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=꼬막";
-    	}else if(n==5){
-    		location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=새우";
-    	}
-      }
-      
-    </script>
+    
   </body>
 </html>

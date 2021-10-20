@@ -35,6 +35,11 @@ public interface ItemDAO {
 	  List<ItemDTO> selectByRegion(int regionNo) throws SQLException;
 	  
 	  /**
+	   * 해당하는 지역의 카테고리 레코드 검색
+	   */
+	  List<ItemDTO> selectByCategoryOfRegion(int regionNo, int categoryNo) throws SQLException;
+	  
+	  /**
 	   * 해당하는 번호의 레코드 검색
 	   * */
 	  ItemDTO selectByItemNo(int itemNo) throws SQLException;

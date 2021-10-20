@@ -57,6 +57,14 @@ public class ItemServiceImpl implements ItemService {
 	}
 
 	@Override
+	public List<ItemDTO> selectByCategoryOfRegion(int regionNo, int categoryNo) throws SQLException {
+		List<ItemDTO> itemList = itemDao.selectByCategoryOfRegion(regionNo, categoryNo);
+		
+		if(itemList==null) throw new SQLException(regionNo+"번 지역의 " + categoryNo + "에 해당하는 상품을 조회할 수 없습니다.");
+		return itemList;
+	}
+	
+	@Override
 	public int insert(ItemDTO item) throws SQLException {
 		
 		ItemDAO dao = new ItemDAOImpl();
@@ -82,6 +90,8 @@ public class ItemServiceImpl implements ItemService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	
 
 	
 

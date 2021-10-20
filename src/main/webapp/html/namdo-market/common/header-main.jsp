@@ -60,7 +60,7 @@
                 <!-- Login -->
                 <div class="d-inline-block">
                   <i class="text-right u-icon-v1 g-color-text g-color-black--hover g-color-black--focus g-font-size-15 g-text-underline--none--hover icon-finance-067 u-line-icon-pro"></i>
-                  <a id="account-dropdown-invoker-2" class="g-color-black-opacity-0_6 g-color-primary--hover g-font-size-15 g-font-weight-400 g-text-underline--none--hover" href="page-login-customer.jsp">
+                  <a id="account-dropdown-invoker-2" class="g-color-black-opacity-0_6 g-color-primary--hover g-font-size-15 g-font-weight-400 g-text-underline--none--hover" href="${pageContext.request.contextPath}/html/namdo-market/page-login-customer.jsp">
                   로그인
                   </a>
                 </div>
@@ -289,7 +289,7 @@
 							</span>
 
                             <ul class="list-unstyled mb-0">
-                              <li><a class="d-block g-color-text g-font-size-14 g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">강진군</a></li>
+                              <li><a class="d-block g-color-text g-font-size-14 g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByCategoryOfRegion&regionNo=14&input=새우">강진군</a></li>
                               <li><a class="d-block g-color-text g-font-size-14 g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByRegionNo&regionNo=14">고흥군</a></li>
                               <li><a class="d-block g-color-text g-font-size-14 g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">곡성군</a></li>
                               <li><a class="d-block g-color-text g-font-size-14 g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">광양시</a></li>

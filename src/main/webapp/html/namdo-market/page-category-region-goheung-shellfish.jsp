@@ -43,16 +43,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/css/custom.css">
     
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript">
-      $(function(){
-    	  $("a[id='1']").text("생선");
-    	  $("a[id='2']").text("건어물");
-    	  $("a[id='3']").text("김/해초류");
-    	  $("a[id='4']").text("해산물/어패류");
-    	  $("a[id='5']").text("젓갈");
-    	  $("a[id='6']").text("수산물 기타");
-      });
-    </script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/js/namdo-market.js"></script>
     
   </head>
 
@@ -83,8 +74,16 @@
               <a class="u-link-v5 g-color-text" href="${pageContext.request.contextPath}/html/namdo-market/home-page.jsp">요거 묵어봤는감?</a>
               <i class="g-color-gray-light-v2 g-ml-5 fa fa-angle-right"></i>
             </li>
+            <li class="list-inline-item g-mr-5">
+              <a class="u-link-v5 g-color-text" href="#">지역별 특산품</a>
+              <i class="g-color-gray-light-v2 g-ml-5 fa fa-angle-right"></i>
+            </li>
+            <li class="list-inline-item g-mr-5">
+              <a class="u-link-v5 g-color-text" href="${pageContext.request.contextPath}/html/namdo-market/page-category-region-goheung.jsp">고흥군</a>
+              <i class="g-color-gray-light-v2 g-ml-5 fa fa-angle-right"></i>
+            </li>
             <li class="list-inline-item g-color-primary">
-              <span>건어물</span>
+              <span>해산물/어패류</span>
             </li>
           </ul>
         </div>
@@ -100,29 +99,27 @@
             <h3 class="h6 mb-3">종류 선택:</h3>
 
             <div>
-              
               <label class="form-check-inline u-check u-link-v5 g-color-gray-dark-v4 g-color-primary--hover g-pl-25 mb-0 mr-2">
-                <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="radio" name="cat-check" onclick="catCheck(1)" checked>
+                <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="radio" name="cat-check" onclick="regionSelect(14)">
                 <span class="d-block u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
                   <i class="fa" data-check-icon="&#xf00c"></i>
                 </span>
                 전체
               </label>
               <label class="form-check-inline u-check u-link-v5 g-color-gray-dark-v4 g-color-primary--hover g-pl-25 mb-0 mx-2">
-                <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="radio" name="cat-check" onclick="catCheck(2)">
+                <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="radio" name="cat-check" onclick="categoryOfRegionSelect(14,4)">
                 <span class="d-block u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
                   <i class="fa" data-check-icon="&#xf00c"></i>
                 </span>
-                멸치
+                해산물/어패류
               </label>
               <label class="form-check-inline u-check u-link-v5 g-color-gray-dark-v4 g-color-primary--hover g-pl-25 mb-0 mx-2">
-                <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="radio" name="cat-check" onclick="catCheck(3)">
+                <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="radio" name="cat-check" onclick="categoryOfRegionSelect(14,6)" checked>
                 <span class="d-block u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
                   <i class="fa" data-check-icon="&#xf00c"></i>
                 </span>
-                황태채
+                수산물 기타
               </label>
-              
             </div>
     	
           </div>
@@ -185,7 +182,7 @@
 			  <div class="col-6 col-lg-3 g-mb-30">
 	            <!-- Product -->
 	            <figure class="g-pos-rel g-mb-20">
-	              <a href="${pageContext.request.contextPath}/front?key=item&methodName=selectDetail&itemNo=${itemDto.itemNo}"><img class="img-fluid" src="${pageContext.request.contextPath}/html/namdo-market/assets/img-temp/480x700/main_480_700.png" alt="Image Description"></a>
+	              <img class="img-fluid" src="${pageContext.request.contextPath}/html/namdo-market/assets/img-temp/480x700/main_480_700.png" alt="Image Description">
 	              <span class="u-ribbon-v1 g-width-40 g-height-40 g-color-white g-bg-primary g-font-size-13 text-center text-uppercase g-rounded-50x g-top-20 g-right-minus-10 g-px-2 g-py-10">New</span>
 	
 	            </figure>
@@ -355,19 +352,6 @@
         $.HSCore.components.HSSlider.init('#rangeSlider1');
       });
     </script>
-    
-    <script type="text/javascript">
-      function catCheck(n){
-    	if(n==1){
-    		  location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByCategoryNo&categoryNo=2";
-      	}else if(n==2){
-    		location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=멸치";
-    	}else if(n==3){
-    		location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByInputItemName&input=황태채";
-    	}
 
-      }
-      
-    </script>
   </body>
 </html>

@@ -106,21 +106,21 @@
             <div>
               
               <label class="form-check-inline u-check u-link-v5 g-color-gray-dark-v4 g-color-primary--hover g-pl-25 mb-0 mr-2">
-                <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="radio" name="fish-check" onclick="fishCheck(1)">
+                <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="radio" name="cat-check" onclick="catCheck(1)">
                 <span class="d-block u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
                   <i class="fa" data-check-icon="&#xf00c"></i>
                 </span>
                 전체
               </label>
               <label class="form-check-inline u-check u-link-v5 g-color-gray-dark-v4 g-color-primary--hover g-pl-25 mb-0 mx-2">
-                <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="radio" name="fish-check" onclick="fishCheck(2)">
+                <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="radio" name="cat-check" onclick="catCheck(2)">
                 <span class="d-block u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
                   <i class="fa" data-check-icon="&#xf00c"></i>
                 </span>
                 김
               </label>
               <label class="form-check-inline u-check u-link-v5 g-color-gray-dark-v4 g-color-primary--hover g-pl-25 mb-0 mx-2">
-                <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="radio" name="fish-check" onclick="fishCheck(3)" checked>
+                <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="radio" name="cat-check" onclick="catCheck(3)" checked>
                 <span class="d-block u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
                   <i class="fa" data-check-icon="&#xf00c"></i>
                 </span>
@@ -361,7 +361,7 @@
     </script>
     
     <script type="text/javascript">
-    function fishCheck(n){
+    function catCheck(n){
     	if(n==1){
     		  location.href = "${pageContext.request.contextPath}/front?key=item&methodName=selectByCategoryNo&categoryNo=3";
       	}else if(n==2){
