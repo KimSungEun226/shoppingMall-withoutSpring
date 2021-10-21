@@ -121,7 +121,7 @@
                               <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">광양시</a></li>
                               <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">구례군</a></li>
                               <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">나주시</a></li>
-                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByRegionNo&regionNo=15">담양군</a></li>
+                              <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">담양군</a></li>
                               <li><a class="d-block g-color-text g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByRegionNo&regionNo=2">목포시</a></li>
                               
                               
@@ -289,7 +289,7 @@
 							</span>
 
                             <ul class="list-unstyled mb-0">
-                              <li><a class="d-block g-color-text g-font-size-14 g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByCategoryOfRegion&regionNo=14&input=새우">강진군</a></li>
+                              <li><a class="d-block g-color-text g-font-size-14 g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">강진군</a></li>
                               <li><a class="d-block g-color-text g-font-size-14 g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByRegionNo&regionNo=14">고흥군</a></li>
                               <li><a class="d-block g-color-text g-font-size-14 g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">곡성군</a></li>
                               <li><a class="d-block g-color-text g-font-size-14 g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">광양시</a></li>
@@ -323,7 +323,7 @@
 							</span>
 
                             <ul class="list-unstyled mb-0">
-                              <li><a class="d-block g-color-text g-font-size-14 g-color-primary--hover g-text-underline--none--hover g-py-5" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByRegionNo&regionNo=15">담양군</a></li>
+                              <li><a class="d-block g-color-text g-font-size-14 g-color-primary--hover g-text-underline--none--hover g-py-5" href="#">담양군</a></li>
                              
                             </ul>
                           </div>
@@ -378,7 +378,7 @@
                         </div>
 
                         <div class="col-sm-6 col-md-2 g-mb-30 g-mb-0--sm">
-                          <!-- ㅇ Links -->
+                          <!--  Links -->
                           <div class="mb-2">
                             <span class="d-block g-font-weight-500 text-uppercase mb-2">
 							  <a class="text-uppercase g-font-size-14 g-px-0 g-py-0"><b>ㅇ</b></a>
