@@ -194,9 +194,9 @@
 	            <!-- Product -->
 	            <figure class="g-pos-rel g-mb-20">
 	              <a href="${pageContext.request.contextPath}/front?key=item&methodName=selectDetail&itemNo=${itemDto.itemNo}">
-	              <img class="img-fluid g-width-250 g-height-300" src="${pageContext.request.contextPath}/save/${itemDto.mainImg}" alt="Image Description"></a>
-	              
-	
+
+	              	<img class="img-fluid  g-width-250 g-height-300" src="${pageContext.request.contextPath}/save/${itemDto.mainImg}" alt="Image Description">
+	              </a>
 	            </figure>
 	
 	            <div class="media">
@@ -239,22 +239,11 @@
 	          </div>
                
 			</c:forEach>
-			
-		
-	
-	            </figure>
 
 			</c:otherwise>
 			</c:choose>
-					</div>
-			
-		
-        <hr class="g-mb-60">
-
-        <!-- Pagination -->
-
-        <!-- End Pagination -->
-      
+			</div>
+	
 
       <!-- Footer -->
       
