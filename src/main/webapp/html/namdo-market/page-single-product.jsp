@@ -665,6 +665,7 @@
           <!-- End Tab panes -->
         </div>
       </div>
+      </div>
       <!-- End Description & Review -->
 
       <!-- Products -->
