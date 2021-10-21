@@ -183,12 +183,12 @@
 		                      <div class="col-4 col-sm-3 g-mb-30">
 		                        <img class="img-fluid" src="${pageContext.request.contextPath}/save/${itemDto.mainImg}" alt="Image Description">
 		                      </div>
-		
+		                      
 		                      <div class="col-8 col-sm-9 g-mb-30">
 		                        <h4 class="h6 g-font-weight-400"><a href="${pageContext.request.contextPath}/front?key=item&methodName=selectDetail&itemNo=${itemDto.itemNo}">${itemDto.itemName}</a></h4>
 		                        <!-- <span class="d-block g-color-gray-dark-v4 g-font-size-13 mb-2">판매자 정보: ${itemDTO.sellerNo}</span>  -->
-		                        <span class="d-block g-color-lightred mb-2">
-		                        <fmt:formatNumber value="${itemDto.itemPrice}"/>원
+		                        <!-- <span class="d-block g-color-lightred mb-2">
+		                        <fmt:formatNumber value="${itemDto.itemPrice}"/>원 -->
 		                        
 		                        </span>
 		                        <a class="btn g-brd-around g-brd-gray-light-v3 g-color-gray-dark-v3 g-bg-gray-light-v5 g-bg-gray-light-v4--hover g-font-size-12 rounded g-px-18 g-py-7" href="${pageContext.request.contextPath}/front?key=order&methodName=selectOrderDetailByItemNo&itemNo=${itemDto.itemNo}">판매 내역 보기</a>
