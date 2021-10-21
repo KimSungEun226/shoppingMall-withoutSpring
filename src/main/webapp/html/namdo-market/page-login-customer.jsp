@@ -29,7 +29,7 @@
 
     	    
     	    $.ajax({
-                url: "../../customerLoginServlet",         //서버요청주소
+                url: "${pageContext.request.contextPath}/customerLoginServlet",         //서버요청주소
                 type: "post",                        //method방식(get,post,put,delete)
                 dataType: "text",                    //서버가 응답해주는 데이터의 type(text, html, xml, json)
                 data:{customerId:$("[name=customerId]").val(), customerPwd:$("[name=customerPwd]").val()} ,   //서버에게 보낼 parameter정보
@@ -38,7 +38,7 @@
                 success: function(result){    //개수|단어,단어,단어,단어...
                     if(result == "null" || result=="") alert("정보를 확인해주세요.");
                     else {
-                    	location.href = result;
+                    	location.href = "${pageContext.request.contextPath}/html/namdo-market/"+result;
                     }
                 },      
               //실패했을때 함수

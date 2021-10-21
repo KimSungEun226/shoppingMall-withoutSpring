@@ -14,6 +14,8 @@ public interface CustomerDAO {
 	 * */
 	CustomerDTO loginCheck(CustomerDTO customerDTO) throws SQLException;
 	
+	CustomerDTO loginCheck(String customerID) throws SQLException;
+	
 	/**
 	 * 회원가입 기능
 	 * @return: 회원가입성공 - 1, 회원가입실패 - 0
@@ -54,6 +56,11 @@ public interface CustomerDAO {
 
 	int checkPwd(String id, String pwd) throws SQLException;
 	
+	
+	/**
+	 * 회원번호 입력하면 customerDTO리턴
+	 * */
+	CustomerDTO selectByCustomerNo(int customerNo) throws SQLException;
 	
 	/**
 	 * 회원번호에 해당하는 주문목록 리턴

@@ -12,13 +12,19 @@ import exception.AuthenticationException;
 public class CustomerServiceImpl implements CustomerService{
 
 	@Override
-	public CustomerDTO loginCheck(CustomerDTO customerDTO) throws SQLException, AuthenticationException {
+	public CustomerDTO loginCheck(CustomerDTO customerDTO) throws SQLException {
 		CustomerDAO dao = new CustomerDAOImpl();
-		CustomerDTO dto = dao.loginCheck(customerDTO);
-		
+		CustomerDTO dto = dao.loginCheck(customerDTO);	
     	return dto;
 	}
 
+	@Override
+	public CustomerDTO loginCheck(String customerID) throws SQLException {
+		CustomerDAO dao = new CustomerDAOImpl();
+		CustomerDTO dto = dao.loginCheck(customerID);	
+    	return dto;
+	}	
+	
 	@Override
 	public int signUpCustomer(CustomerDTO customerDTO) throws SQLException {
 		CustomerDAO dao = new CustomerDAOImpl();
@@ -85,4 +91,13 @@ public class CustomerServiceImpl implements CustomerService{
 		
 		return list;
 	}
+
+	@Override
+	public CustomerDTO selectByCustomerNo(int customerNo) throws SQLException {
+        CustomerDAO dao = new CustomerDAOImpl();
+		CustomerDTO dto = dao.selectByCustomerNo(customerNo);
+		return dto;
+	}
+
+
 }

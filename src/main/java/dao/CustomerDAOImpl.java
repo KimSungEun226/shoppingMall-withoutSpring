@@ -52,23 +52,45 @@ public class CustomerDAOImpl implements CustomerDAO {
 		return dbDTO;
 	}
 
+	//네이버로 로그인할때
+	@Override
+	public CustomerDTO loginCheck(String customerID) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		String sql = proFile.getProperty("customer.naverlogincheck");
+		CustomerDTO dbDTO = null;
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setString(1, customerID);
+			rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				dbDTO = new CustomerDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6),
+						rs.getString(7), rs.getString(8), rs.getString(9));
+			}			
+		}finally {
+			DbUtil.dbClose(rs, ps,con);
+		}
+		
+		return dbDTO;
+	}	
+	
 	@Override
 	public int signUpCustomer(CustomerDTO customerDTO) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
 		int result = 0;
-		String sql = proFile.getProperty("customer.signup");
+		String sql = proFile.getProperty("customer.naversignup");
 		
 		try {
 			con = DbUtil.getConnection();
 			ps = con.prepareStatement(sql);
 			ps.setString(1, customerDTO.getCustomerId());
-			ps.setString(2, customerDTO.getCustomerPwd());
-			ps.setString(3, customerDTO.getCustomerName());
-			ps.setString(4, customerDTO.getCustomerBirth());
-			ps.setString(5, customerDTO.getCustomerEmail());
-			ps.setString(6, customerDTO.getCustomerAddr());
-			ps.setString(7, customerDTO.getCustomerContact());
+			ps.setString(2, customerDTO.getCustomerName());
+			ps.setString(3, customerDTO.getCustomerId());;
+			ps.setString(4, customerDTO.getCustomerId());
 			result = ps.executeUpdate();		
 		}finally {
 			DbUtil.dbClose(ps,con);
@@ -269,6 +291,32 @@ public class CustomerDAOImpl implements CustomerDAO {
 		   DbUtil.dbClose(rs, ps, con);
 		  }
 		  return result;
+	}
+
+	@Override
+	public CustomerDTO selectByCustomerNo(int customerNo) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		CustomerDTO result = null;
+		String sql = proFile.getProperty("custoemr.selectbyno");
+		
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, customerNo);
+			rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				result = new CustomerDTO(rs.getString(4), rs.getString(8), rs.getString(6));
+			}
+			
+			
+		}finally {
+			DbUtil.dbClose(ps,con);
+		}
+		
+		return result;
 	}
 	
 	

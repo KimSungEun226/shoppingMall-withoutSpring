@@ -8,8 +8,9 @@
 <style>
 </style>
 <script type="text/javascript">
-alert("로그인성공")
-location.href="${pageContext.request.contextPath}/html/namdo-market/home-page.jsp";</script>
+alert("로그인실패")
+
+history.back();
 </head>
 <body>
  

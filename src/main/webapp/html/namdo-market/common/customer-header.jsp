@@ -37,7 +37,7 @@
               
               <!-- Account -->
                   <li class="list-inline-item">
-                    <a id="account-dropdown-invoker-2" class="g-color-white-opacity-0_6 g-color-primary--hover g-font-weight-400 g-text-underline--none--hover" href="page-login-security-customer.jsp"
+                    <a id="account-dropdown-invoker-2" class="g-color-white-opacity-0_6 g-color-primary--hover g-font-weight-400 g-text-underline--none--hover" href="${pageContext.request.contextPath}/html/namdo-market/page-login-security-customer.jsp"
                        aria-controls="account-dropdown-2"
                        aria-haspopup="true"
                        aria-expanded="false"

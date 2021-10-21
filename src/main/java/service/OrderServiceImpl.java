@@ -11,6 +11,7 @@ import dto.CartDTO;
 import dto.ItemDTO;
 import dto.OrderDTO;
 import dto.OrderDetailDTO;
+import dto.OrderDetailView;
 
 public class OrderServiceImpl implements OrderService {
 	private OrderDAO orderDao = new OrderDAOImpl();
@@ -30,18 +31,13 @@ public class OrderServiceImpl implements OrderService {
 
 	
 	@Override
-	public List<OrderDetailDTO> selectOrderDetailByItemNo(int itemNo) throws SQLException {
-		List<OrderDetailDTO> orderDetailList = orderDao.selectOrderDetailByItemNo(itemNo);
+	public List<OrderDetailView> selectOrderDetailByItemNo(int itemNo) throws SQLException {
+		List<OrderDetailView> orderDetailList = orderDao.selectOrderDetailByItemNo(itemNo);
 		System.out.println("service 출력. 갯수: " + orderDetailList.size());
 		if(orderDetailList==null) throw new SQLException(itemNo+"번 상품의 주문 내역이 없습니다. ");
 		return orderDetailList;
 	}
 
-	@Override
-	public List<OrderDTO> selectOrderByItemNo(int itemNo) throws SQLException {
-		List<OrderDTO> orderList = orderDao.selectOrderByItemNo(itemNo);
-		if(orderList==null) throw new SQLException(itemNo+"번 상품의 주문 내역이 없습니다. ");
-		return orderList;
-	}
+
 
 }

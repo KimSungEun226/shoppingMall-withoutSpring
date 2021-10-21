@@ -1,21 +1,17 @@
 package ajax;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLEncoder;
+import java.io.PrintWriter;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import org.apache.tomcat.util.json.JSONParser;
-
-import net.sf.json.JSONObject;
+import dto.CustomerDTO;
 import service.CustomerService;
 import service.CustomerServiceImpl;
 
@@ -28,41 +24,52 @@ public class CustomerNaverLoginServlet extends HttpServlet {
 	private CustomerService customerService = new CustomerServiceImpl();
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String name = request.getParameter("name");
+		String naverId = request.getParameter("naverId");
+		String naverEmail = " ";
+		String birthyear = request.getParameter("birthyear");
+		String birthday = request.getParameter("birthday");
+		String contact = " ";
+		
+		if("undefined".equals(name)) name=" ";
+		if("undefined".equals(naverEmail)) naverEmail=" ";
+		if("undefined".equals(birthyear)) birthyear=" ";
+		if("undefined".equals(birthday)) birthday=" ";
+		if("undefined".equals(contact)) contact=" ";
+		//System.out.println(name + " " + naverId + " "+ naverEmail + " "+birthyear + " " +birthday + " " + contact );
+		String url="";
+
+		HttpSession session = request.getSession();
+		
+		//우선 해당하는 id가 테이블에 존재하는지. 
 		
 		
-//		String customerId = request.getParameter("customerId");
-//		String pwd = request.getParameter("customerPwd");
-//		String url="";
-//		HttpSession session = request.getSession();
-//		
-//		if("admin".equals(customerId) && "rhksflwk".equals(pwd)) {
-//			session.setAttribute("adminDTO", "adminDTO");
-//			url = "home-page.jsp";
-//			PrintWriter out = response.getWriter();
-//	        out.print(url);
-//	        return;
-//		}
-//		
-//		try {
-//			
-//			System.out.println(pwd);
-//			CustomerDTO customerDTO = customerService.loginCheck(new CustomerDTO(customerId, pwd));
-//			//여기까지 왔다는 이야기는 예외없이 정상이므로 session에 정보를 저장한다.
-//			
-//			
-//			if(customerDTO!=null) {
-//				System.out.println("userID : " + customerDTO.getCustomerId());
-//				session.setAttribute("customerDTO", customerDTO);
-//				url = "home-page.jsp";
-//				//url = "login/loginOk.jsp";
-//			}
-//			PrintWriter out = response.getWriter();
-//	        out.print(url);
-//		} catch (Exception e) {
-//			System.out.println();
-//			PrintWriter out = response.getWriter();
-//	        out.print(url);
-//		}
+		try {
+			CustomerDTO customerDTO = customerService.loginCheck(naverId);
+			
+			if(customerDTO!=null) {
+				//System.out.println(customerDTO);
+				session.setAttribute("customerDTO", customerDTO);
+			}else { //네이버 아이디로 회원가입이 안되어있는경우
+				
+				CustomerDTO newCustomerDTO = new CustomerDTO(naverId, " ",name, " ", naverId, " ", naverId);
+				System.out.println(newCustomerDTO);
+				int result = customerService.signUpCustomer(newCustomerDTO);
+				
+				System.out.println(result);
+				if (result>0) {
+					newCustomerDTO = customerService.loginCheck(naverId);
+					session.setAttribute("customerDTO", newCustomerDTO);
+
+				}
+				
+			}
+			request.getRequestDispatcher("html/namdo-market/login/loginOk.jsp").forward(request, response);
+		} catch (SQLException e) {
+			System.out.println("예외발생");
+			
+			request.getRequestDispatcher("html/namdo-market/login/loginFail.jsp").forward(request, response);
+		}
 	}
 
 }
