@@ -427,8 +427,28 @@ public class ItemDAOImpl implements ItemDAO {
 		return itemNoList;
 	}
 
-	
-
-
+	@Override
+	public List<ItemDTO> selectBySellerNo(int sellerNo) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps =null;
+		ResultSet rs= null;
+		List<ItemDTO> itemList = new ArrayList<ItemDTO>();
+		String sql = "select * from item where seller_no = ?";
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, sellerNo);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				ItemDTO itemDTO = new ItemDTO(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5),
+ 						rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getString(9), rs.getFloat(10), rs.getString(11), rs.getString(12), rs.getString(13));
+				//System.out.println(itemDTO);
+				itemList.add(itemDTO);
+			}
+		}finally {
+			DbUtil.dbClose(rs, ps,con);
+		}
+		return itemList;
+	}
 
 }

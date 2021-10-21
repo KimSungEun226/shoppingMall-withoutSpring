@@ -95,7 +95,12 @@ public class ItemServiceImpl implements ItemService {
 		return null;
 	}
 
-	
+	@Override
+	public List<ItemDTO> selectBySellerNo(int sellerNo) throws SQLException {
+		List<ItemDTO> itemList = itemDao.selectBySellerNo(sellerNo);
+		if(itemList==null) throw new SQLException(sellerNo+"님의 판매 정보가 없습니다. ");
+		return itemList;
+	}
 
 	
 
