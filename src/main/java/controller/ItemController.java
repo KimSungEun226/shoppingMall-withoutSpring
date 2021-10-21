@@ -15,6 +15,7 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import dto.ItemDTO;
+import dto.ReviewDTO;
 import dto.SellerDTO;
 import service.ItemService;
 import service.ItemServiceImpl;
@@ -208,12 +209,15 @@ public class ItemController implements Controller{
 		int itemNo =  Integer.parseInt(request.getParameter("itemNo"));
 		ItemDTO itemDTO = itemService.selectByNo(itemNo);
 		
+		List<ReviewDTO> reviewList = itemService.selectReviewByItemNo(itemNo);
+		
 		if (itemDTO ==null) {
 			request.setAttribute("errmsg", "등록된 제품이 존재하지 않습니다.");
 			return new ModelAndView("html/namdo-market/error/error.jsp");
 		}
 		
 		request.setAttribute("item", itemDTO);
+		request.setAttribute("review", reviewList);
 		
 		return new ModelAndView("html/namdo-market/page-single-product.jsp");
 	}
@@ -309,6 +313,14 @@ public class ItemController implements Controller{
     	return new ModelAndView("html/namdo-market/page-sold-item-list.jsp");
     }
 	
-	
+	public ModelAndView selectReviewByItemNo(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		int itemNo =  Integer.parseInt(request.getParameter("itemNo"));
+		
+		List<ReviewDTO> reviewList = itemService.selectReviewByItemNo(itemNo);
+		System.out.println(reviewList);
+		System.out.println(reviewList.size());
+		request.setAttribute("review", reviewList);
+		return new ModelAndView("html/namdo-market/page-review.jsp");
+	}
 	
 }

@@ -62,7 +62,7 @@ public interface ItemService {
 	  /**
 	   * ItemDAOImpl에서 상품정보에 해당하는 리뷰 정보 메소드 호출
 	   * */
-	  List<ReviewDTO> selectReviewByItemNum(String ItemNum) throws SQLException;
+	  List<ReviewDTO> selectReviewByItemNo(int itemNo) throws SQLException;
 
 	  
 	  List<ItemDTO> selectBySellerNo(int sellerNo) throws SQLException;

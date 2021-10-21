@@ -9,6 +9,7 @@ import dao.ItemDAOImpl;
 import dto.ItemDTO;
 import dto.ReviewDTO;
 
+
 public class ItemServiceImpl implements ItemService {
 	private ItemDAO itemDao = new ItemDAOImpl();
 	
@@ -90,9 +91,10 @@ public class ItemServiceImpl implements ItemService {
 	}
 
 	@Override
-	public List<ReviewDTO> selectReviewByItemNum(String ItemNum) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+	public List<ReviewDTO> selectReviewByItemNo(int itemNo) throws SQLException {
+		List<ReviewDTO> reviewList = itemDao.selectReviewByItemNo(itemNo);
+		
+		return reviewList;
 	}
 
 	@Override

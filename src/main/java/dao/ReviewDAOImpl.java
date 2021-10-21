@@ -14,8 +14,6 @@ import util.DbUtil;
 public class ReviewDAOImpl implements ReviewDAO {
 	Properties proFile = new Properties();
 	
-
-
 	public ReviewDAOImpl() {
 		try {
 			proFile.load(getClass().getClassLoader().getResourceAsStream("cartReviewQuery.properties"));
@@ -24,6 +22,27 @@ public class ReviewDAOImpl implements ReviewDAO {
 		}
 	}
 	
+	@Override
+	public List<ReviewDTO> reviewSelectByItemNo(int itemNo) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps =null;
+		ResultSet rs= null;
+		List<ReviewDTO> reivewList = new ArrayList<ReviewDTO>();
+		String sql = proFile.getProperty("review.selectByItemNo"); 
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, itemNo);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				ReviewDTO reviewDto = new ReviewDTO(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5));
+				reivewList.add(reviewDto);
+			}
+		} finally {
+			DbUtil.dbClose(rs, ps,con);
+		}
+		return reivewList;
+	}
 	
 	@Override
 	public int createReview(ReviewDTO review) throws SQLException {
@@ -38,7 +57,7 @@ public class ReviewDAOImpl implements ReviewDAO {
 			//ITEM_NO
 			ps.setInt(1, review.getItemNo());
 			//CUSTOMER_NO
-			ps.setInt(2, review.getCustomerNo());
+			ps.setString(2, review.getCustomerName());
 			//REVIEW_GRADE
 			ps.setInt(3, review.getReviewGrade());
 			//REVIEW_CONTENT
@@ -104,7 +123,7 @@ public class ReviewDAOImpl implements ReviewDAO {
 			ps.setInt(1, customerNo);
 			rs = ps.executeQuery();
 			while(rs.next()) {
-				ReviewDTO reviewDto = new ReviewDTO(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5), rs.getString(6));
+				ReviewDTO reviewDto = new ReviewDTO(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getString(6));
 				reivewList.add(reviewDto);
 			}
 		} finally {
@@ -113,26 +132,6 @@ public class ReviewDAOImpl implements ReviewDAO {
 		return reivewList;
 	}
 
-	@Override
-	public List<ReviewDTO> reviewSelectByItemNo(int itemNo) throws SQLException {
-		Connection con = null;
-		PreparedStatement ps =null;
-		ResultSet rs= null;
-		List<ReviewDTO> reivewList = new ArrayList<ReviewDTO>();
-		String sql = proFile.getProperty("review.selectByItemNo"); 
-		try {
-			con = DbUtil.getConnection();
-			ps = con.prepareStatement(sql);
-			ps.setInt(1, itemNo);
-			rs = ps.executeQuery();
-			while(rs.next()) {
-				ReviewDTO reviewDto = new ReviewDTO(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5));
-				reivewList.add(reviewDto);
-			}
-		} finally {
-			DbUtil.dbClose(rs, ps,con);
-		}
-		return reivewList;
-	}
+	
 
 }

@@ -29,7 +29,7 @@
 
     	    
     	    $.ajax({
-                url: "../../customerLoginServlet",         //서버요청주소
+                url: "${pageContext.request.contextPath}/customerLoginServlet",         //서버요청주소
                 type: "post",                        //method방식(get,post,put,delete)
                 dataType: "text",                    //서버가 응답해주는 데이터의 type(text, html, xml, json)
                 data:{customerId:$("[name=customerId]").val(), customerPwd:$("[name=customerPwd]").val()} ,   //서버에게 보낼 parameter정보
@@ -107,6 +107,7 @@
         <jsp:include page="common/seller-header.jsp"/>
       </c:if>
 
+	  
       <!-- Breadcrumbs -->
       <section class="g-brd-bottom g-brd-gray-light-v4 g-py-30">
         <div class="container">

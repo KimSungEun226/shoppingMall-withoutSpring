@@ -403,28 +403,28 @@ public class ItemDAOImpl implements ItemDAO {
 	   * */
 	
 	@Override
-	public List<ReviewDTO> selectReviewByItemNo(String ItemNo) throws SQLException {
+	public List<ReviewDTO> selectReviewByItemNo(int ItemNo) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		List<ReviewDTO> itemNoList= new ArrayList<ReviewDTO>();
-		String sql = proFile.getProperty("selectReviewByItemNo");
+		List<ReviewDTO> reviewList = new ArrayList<ReviewDTO>();
+		String sql = "select * from review where item_no = ?";
 		
 		try {
 			con = DbUtil.getConnection();
 			ps = con.prepareStatement(sql);
-			ps.setString(1, ItemNo);
+			ps.setInt(1, ItemNo);
 			rs = ps.executeQuery();
 			while(rs.next()) {
-				ReviewDTO reviewDto= new ReviewDTO(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5),
+				ReviewDTO reviewDto= new ReviewDTO(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5),
 						rs.getString(6));
-			itemNoList.add(reviewDto);
+				reviewList.add(reviewDto);
 				}
 			}finally {
 				DbUtil.dbClose(rs,ps,con);
 			}
 		
-		return itemNoList;
+		return reviewList;
 	}
 
 	@Override

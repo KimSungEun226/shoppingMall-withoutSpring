@@ -56,7 +56,7 @@
     	    };
     	    
     	    $.ajax({
-                url: "../../sellerLoginServlet",         //서버요청주소
+                url: "${pageContext.request.contextPath}/sellerLoginServlet",         //서버요청주소
                 type: "post",                        //method방식(get,post,put,delete)
                 dataType: "text",                    //서버가 응답해주는 데이터의 type(text, html, xml, json)
                 data:{sellerId:$("[name=sellerId]").val(), sellerPwd:$("[name=sellerPwd]").val()} ,   //서버에게 보낼 parameter정보

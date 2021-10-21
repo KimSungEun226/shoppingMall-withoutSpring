@@ -1,10 +1,18 @@
 package service;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import dto.ReviewDTO;
 
 public interface ReviewService {
+	
+	/**
+	 * ReviewDAOImpl에서 리뷰를 검색하는 메소드 호출
+	 */
+	List<ReviewDTO> reviewSelectByItemNo(int itemNo) throws SQLException;
+	
+	
 	/**
 	 * ReviewDAOImpl에서 리뷰를 생성하는 메소드를 호출
 	 * */

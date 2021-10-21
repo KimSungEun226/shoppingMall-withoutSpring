@@ -4,27 +4,27 @@ public class ReviewDTO {
     
 	private int reviewNo;           //리뷰 번호
 	private int itemNo;             //상품 번호
-	private int customerNo;         //구매자 번호
+	private String customerName;         //구매자 이름
 	private int reviewGrade;        //리뷰 평점
 	private String reviewContent;   //리뷰 내용
 	private String reviewDate;      //리뷰 작성일자
 	
 	public ReviewDTO() {}
 
-	public ReviewDTO(int reviewNo, int itemNo, int customerNo, int reviewGrade, String reviewContent) {
+	public ReviewDTO(int reviewNo, int itemNo, String customerName, int reviewGrade, String reviewContent) {
 		super();
 		this.reviewNo = reviewNo;
 		this.itemNo = itemNo;
-		this.customerNo = customerNo;
+		this.customerName = customerName;
 		this.reviewGrade = reviewGrade;
 		this.reviewContent = reviewContent;
 	}
 	
-	public ReviewDTO(int reviewNo, int itemNo, int customerNo, int reviewGrade, String reviewContent, String reviewDate) {
+	public ReviewDTO(int reviewNo, int itemNo, String customerName, int reviewGrade, String reviewContent, String reviewDate) {
 		super();
 		this.reviewNo = reviewNo;
 		this.itemNo = itemNo;
-		this.customerNo = customerNo;
+		this.customerName = customerName;
 		this.reviewGrade = reviewGrade;
 		this.reviewContent = reviewContent;
 		this.reviewDate = reviewDate;
@@ -46,12 +46,12 @@ public class ReviewDTO {
 		this.itemNo = itemNo;
 	}
 
-	public int getCustomerNo() {
-		return customerNo;
+	public String getCustomerName() {
+		return customerName;
 	}
 
-	public void setCustomerNo(int customerNo) {
-		this.customerNo = customerNo;
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
 	}
 
 	public int getReviewGrade() {

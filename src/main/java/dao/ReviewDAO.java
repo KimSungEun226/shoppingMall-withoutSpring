@@ -7,6 +7,13 @@ import dto.ReviewDTO;
 
 
 public interface ReviewDAO {
+	
+	/**
+	 * 상품별 리뷰 조회
+	 * 상품 상세 페이지에서 리뷰 조회 
+	 * */
+	List<ReviewDTO> reviewSelectByItemNo(int itemNo) throws SQLException;
+	
 	/**
 	 * 리뷰를 생성하는 기능
 	 * @retrun: 0 - 등록실패 , 1 - 등록성공 
@@ -30,10 +37,6 @@ public interface ReviewDAO {
 	 * */
 	List<ReviewDTO> reviewSelectByCustomerNo(int customerNo) throws SQLException;
 	
-	/**
-	 * 상품별 리뷰 조회
-	 * 상품 상세 페이지에서 리뷰 조회 
-	 * */
-	List<ReviewDTO> reviewSelectByItemNo(int itemNo) throws SQLException;
+	
 
 }
