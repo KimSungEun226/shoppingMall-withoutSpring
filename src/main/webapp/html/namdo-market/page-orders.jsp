@@ -105,13 +105,13 @@
                   </a>
                 </li>
                 <li class="g-py-3">
-                  <a class="d-block align-middle active u-link-v5 g-color-text g-color-primary--hover g-bg-gray-light-v5--hover g-color-primary--parent-active g-bg-gray-light-v5--active rounded g-pa-3" href="${pageContext.request.contextPath}/front?key=cart&methodName=select"">
+                  <a class="d-block align-middle u-link-v5 g-color-text g-color-primary--hover g-bg-gray-light-v5--hover rounded g-pa-3" href="${pageContext.request.contextPath}/front?key=cart&methodName=select">
                     <span class="u-icon-v1 g-color-gray-dark-v5 mr-2"><i class="icon-finance-114 u-line-icon-pro"></i></span>
                     장바구니
                   </a>
                 </li>
                 <li class="g-py-3">
-                  <a class="d-block align-middle u-link-v5 g-color-text g-color-primary--hover g-bg-gray-light-v5--hover rounded g-pa-3" href="#">
+                  <a class="d-block align-middle active u-link-v5 g-color-text g-color-primary--hover g-bg-gray-light-v5--hover g-color-primary--parent-active g-bg-gray-light-v5--active rounded g-pa-3" href="#">
                     <span class="u-icon-v1 g-color-gray-dark-v5 mr-2"><i class="icon-finance-115 u-line-icon-pro"></i></span>
                     주문내역
                   </a>
@@ -216,49 +216,7 @@
         </div>
       </div>
 
-      <!-- Call to Action -->
-      <div class="g-bg-primary">
-        <div class="container g-py-20">
-          <div class="row justify-content-center">
-            <div class="col-md-4 mx-auto g-py-20">
-              <!-- Media -->
-              <div class="media g-px-50--lg">
-                <i class="d-flex g-color-white g-font-size-40 g-pos-rel g-top-3 mr-4 icon-real-estate-048 u-line-icon-pro"></i>
-                <div class="media-body">
-                  <span class="d-block g-color-white g-font-weight-500 g-font-size-17 text-uppercase">무료 배송</span>
-                  <span class="d-block g-color-white-opacity-0_8">2-3일 이내</span>
-                </div>
-              </div>
-              <!-- End Media -->
-            </div>
 
-            <div class="col-md-4 mx-auto g-brd-x--md g-brd-white-opacity-0_3 g-py-20">
-              <!-- Media -->
-              <div class="media g-px-50--lg">
-                <i class="d-flex g-color-white g-font-size-40 g-pos-rel g-top-3 mr-4 icon-real-estate-040 u-line-icon-pro"></i>
-                <div class="media-body">
-                  <span class="d-block g-color-white g-font-weight-500 g-font-size-17 text-uppercase">반품 및 환불</span>
-                  <span class="d-block g-color-white-opacity-0_8">수령 후 7일 이내</span>
-                </div>
-              </div>
-              <!-- End Media -->
-            </div>
-
-            <div class="col-md-4 mx-auto g-py-20">
-              <!-- Media -->
-              <div class="media g-px-50--lg">
-                <i class="d-flex g-color-white g-font-size-40 g-pos-rel g-top-3 mr-4 icon-hotel-restaurant-062 u-line-icon-pro"></i>
-                <div class="media-body text-left">
-                  <span class="d-block g-color-white g-font-weight-500 g-font-size-17 text-uppercase">24시 접수</span>
-                  <span class="d-block g-color-white-opacity-0_8">상시 주문 접수 대기</span>
-                </div>
-              </div>
-              <!-- End Media -->
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- End Call to Action -->
 
       <!-- Footer -->
       <jsp:include page="common/footer.jsp"/>
