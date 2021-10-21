@@ -85,7 +85,7 @@
       	  };
       	  
       	  
-    	  alert("유효성검사완료");
+    	
 
     	  //입력 값 전송
     	  document.check_form.submit(); //유효성 검사의 포인트 
@@ -157,26 +157,74 @@
       <!-- Breadcrumbs -->
       <section class="g-brd-bottom g-brd-gray-light-v4 g-py-30">
         <div class="container">
-          <ul class="u-list-inline">
-            <li class="list-inline-item g-mr-5">
-              <a class="u-link-v5 g-color-text" href="home-page.jsp">요거 묵어봤는감?</a>
-              <i class="g-color-gray-light-v2 g-ml-5 fa fa-angle-right"></i>
-            </li>
-            <li class="list-inline-item g-color-primary">
-              <span>장바구니</span>
-            </li>
-          </ul>
+          <div class="d-sm-flex text-center">
+            <div class="align-self-center">
+              <h1 class="h3 mb-0"><b>장바구니</b></h1>
+            </div>
+
+            <div class="align-self-center ml-auto">
+              <ul class="u-list-inline">
+                <li class="list-inline-item g-mr-5">
+                  <a class="u-link-v5 g-color-text" href="${pageContext.request.contextPath}/html/namdo-market/home-page.jsp">요거 묵어봤는감?</a>
+                  <i class="g-color-gray-light-v2 g-ml-5 fa fa-angle-right"></i>
+                </li>
+                <li class="list-inline-item g-color-primary">
+                  <span>장바구니</span>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
       <!-- End Breadcrumbs -->
 
+	  <div class="container g-pt-70 g-pb-30">
+        <div class="row">
+          <!-- Profile Settings -->
+          <div class="col-lg-3 g-mb-50">
+            <aside class="g-brd-around g-brd-gray-light-v4 rounded g-px-20 g-py-30">
+              <!-- Profile Picture -->
+              <div class="text-center g-pos-rel g-mb-30">
+
+                <span id="name" class="d-block g-font-weight-500"></span>
+
+              </div>
+              <!-- End Profile Picture -->
+
+              <hr class="g-brd-gray-light-v4 g-my-30">
+
+              <!-- Profile Settings List -->
+              <ul class="list-unstyled mb-0">
+                <li class="g-pb-3">
+                  <a class="d-block align-middle u-link-v5 g-color-text g-color-primary--hover g-bg-gray-light-v5--hover rounded g-pa-3" href="${pageContext.request.contextPath}/html/namdo-market/page-login-security-customer.jsp">
+                    <span class="u-icon-v1 g-color-gray-dark-v5 mr-2"><i class="icon-finance-059 u-line-icon-pro"></i></span>
+                    내정보
+                  </a>
+                </li>
+                <li class="g-py-3">
+                  <a class="d-block align-middle active u-link-v5 g-color-text g-color-primary--hover g-bg-gray-light-v5--hover g-color-primary--parent-active g-bg-gray-light-v5--active rounded g-pa-3" href="#">
+                    <span class="u-icon-v1 g-color-gray-dark-v5 mr-2"><i class="icon-finance-114 u-line-icon-pro"></i></span>
+                    장바구니
+                  </a>
+                </li>
+                <li class="g-py-3">
+                  <a class="d-block align-middle u-link-v5 g-color-text g-color-primary--hover g-bg-gray-light-v5--hover rounded g-pa-3" href="${pageContext.request.contextPath}/front?key=customer&methodName=selectOrderDetail">
+                    <span class="u-icon-v1 g-color-gray-dark-v5 mr-2"><i class="icon-finance-115 u-line-icon-pro"></i></span>
+                    주문내역
+                  </a>
+                </li>
+              </ul>
+              <!-- End Profile Settings List -->
+            </aside>
+          </div>
+          <!-- End Profile Settings -->
       <!-- Checkout Form -->
-      <div class="container g-pt-100 g-pb-70">
+      <div class="col-lg-9 g-mb-50">
         <form name="check_form" class="js-validate js-step-form" data-progress-id="#stepFormProgress" data-steps-id="#stepFormSteps" action="${pageContext.request.contextPath}/front">
 			      <input type="hidden" name="key" value = "order" /> <!-- Controller를 찾는 정보 -->
 			      <input type="hidden" name="methodName" value = "addOrder" />  <!-- 메소드이름 -->
                   
-                  
+          
           <div class="g-mb-100">
             <!-- Step Titles -->
             <ul id="stepFormProgress" class="js-step-progress row justify-content-center list-inline text-center g-font-size-17 mb-0">
@@ -672,7 +720,8 @@
         </form>
       </div>
       <!-- End Checkout Form -->
-
+</div>
+</div>
       <!-- Footer -->
       <jsp:include page="common/footer.jsp"/>
 
@@ -797,5 +846,8 @@
 	  }
     </script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script type="text/javascript">
+        document.getElementById("name").innerHTML = "<b>${sessionScope.customerDTO.customerName} 님</b>"
+    </script>
   </body>
 </html>

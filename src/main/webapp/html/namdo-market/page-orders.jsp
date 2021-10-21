@@ -68,7 +68,7 @@
             <div class="align-self-center ml-auto">
               <ul class="u-list-inline">
                 <li class="list-inline-item g-mr-5">
-                  <a class="u-link-v5 g-color-text" href="#">요거 묵어봤는감?</a>
+                  <a class="u-link-v5 g-color-text" href="${pageContext.request.contextPath}/html/namdo-market/home-page.jsp">요거 묵어봤는감?</a>
                   <i class="g-color-gray-light-v2 g-ml-5 fa fa-angle-right"></i>
                 </li>
                 <li class="list-inline-item g-color-primary">
@@ -121,15 +121,11 @@
             </aside>
           </div>
           <!-- End Profile Settings -->
-          
-          
-          <%-- <c:if test="${list==null}">
-          </c:if> --%>
+ 
           <!-- Orders -->
           <div class="col-lg-9 g-mb-50">
             
-            
-            
+
             <!-- Links -->
             <ul class="list-inline g-brd-bottom--sm g-brd-gray-light-v3 mb-5">
               <li class="list-inline-item g-pb-10 g-pr-10 g-mb-20 g-mb-0--sm">

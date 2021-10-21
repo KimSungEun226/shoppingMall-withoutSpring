@@ -71,17 +71,13 @@
         <div class="container">
           <div class="d-sm-flex text-center">
             <div class="align-self-center">
-              <h1 class="h3 mb-0">내 정보</h1>
+              <h1 class="h3 mb-0"><b>내 정보</b></h1>
             </div>
 
             <div class="align-self-center ml-auto">
               <ul class="u-list-inline">
                 <li class="list-inline-item g-mr-5">
-                  <a class="u-link-v5 g-color-text" href="#">Home</a>
-                  <i class="g-color-gray-light-v2 g-ml-5 fa fa-angle-right"></i>
-                </li>
-                <li class="list-inline-item g-mr-5">
-                  <a class="u-link-v5 g-color-text" href="#">Pages</a>
+                  <a class="u-link-v5 g-color-text" href="${pageContext.request.contextPath}/html/namdo-market/home-page.jsp">요거 묵어봤는감?</a>
                   <i class="g-color-gray-light-v2 g-ml-5 fa fa-angle-right"></i>
                 </li>
                 <li class="list-inline-item g-color-primary">

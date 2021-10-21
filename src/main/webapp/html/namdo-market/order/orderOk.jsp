@@ -8,7 +8,7 @@
 <style>
 </style>
 <script type="text/javascript">
-  alert("주문완료!!")
+  alert("주문완료")
   location.href="${pageContext.request.contextPath}/html/namdo-market/home-page.jsp";
 </script>
 </head>

@@ -8,7 +8,7 @@
 <style>
 </style>
 <script type="text/javascript">
-  alert("장바구니 추가 완료!!")
+  alert("장바구니 추가 완료");
   history.back();
 </script>
 </head>

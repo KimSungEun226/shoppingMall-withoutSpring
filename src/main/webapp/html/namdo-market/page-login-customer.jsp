@@ -113,12 +113,12 @@
         <div class="container">
           <ul class="u-list-inline">
             <li class="list-inline-item g-mr-5">
-              <a class="u-link-v5 g-color-text" href="#">Home</a>
+              <a class="u-link-v5 g-color-text" href="${pageContext.request.contextPath}/html/namdo-market/home-page.jsp">요거 묵어봤는감?</a>
               <i class="g-color-gray-light-v2 g-ml-5 fa fa-angle-right"></i>
             </li>
             
             <li class="list-inline-item g-color-primary">
-              <span>Login</span>
+              <span>로그인</span>
             </li>
           </ul>
         </div>

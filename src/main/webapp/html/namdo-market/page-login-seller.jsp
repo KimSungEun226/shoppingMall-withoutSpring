@@ -100,6 +100,22 @@
 
 
       <!-- Breadcrumbs -->
+      <section class="g-brd-bottom g-brd-gray-light-v4 g-py-30">
+        <div class="container">
+          <ul class="u-list-inline">
+            <li class="list-inline-item g-mr-5">
+              <a class="u-link-v5 g-color-text" href="${pageContext.request.contextPath}/html/namdo-market/home-page.jsp">요거 묵어봤는감?</a>
+              <i class="g-color-gray-light-v2 g-ml-5 fa fa-angle-right"></i>
+            </li>
+            
+            <li class="list-inline-item g-color-primary">
+              <span>판매자 로그인</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <!-- End Breadcrumbs -->
+      
       <section class="container g-pt-100 g-pb-20">
           <div class="col-md-6 col-lg-5 order-lg-2 g-mb-80" style="float: none; margin:0 auto;">
             <div class="g-brd-around g-brd-gray-light-v3 g-bg-white rounded g-px-30 g-py-50 mb-4">
