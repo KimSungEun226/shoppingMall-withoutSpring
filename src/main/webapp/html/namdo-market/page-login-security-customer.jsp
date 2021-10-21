@@ -97,7 +97,42 @@
       <div class="container g-pt-70 g-pb-30">
         <div class="row justify-content-center">
           <!-- Profile Settings -->
-          
+          <div class="col-lg-3 g-mb-50">
+            <aside class="g-brd-around g-brd-gray-light-v4 rounded g-px-20 g-py-30">
+              <!-- Profile Picture -->
+              <div class="text-center g-pos-rel g-mb-30">
+
+                <span id="name" class="d-block g-font-weight-500"></span>
+
+              </div>
+              <!-- End Profile Picture -->
+
+              <hr class="g-brd-gray-light-v4 g-my-30">
+
+              <!-- Profile Settings List -->
+              <ul class="list-unstyled mb-0">
+                <li class="g-pb-3">
+                  <a class="d-block align-middle active u-link-v5 g-color-text g-color-primary--hover g-bg-gray-light-v5--hover g-color-primary--parent-active g-bg-gray-light-v5--active rounded g-pa-3" href="${pageContext.request.contextPath}/html/namdo-market/page-login-security-customer.jsp">
+                    <span class="u-icon-v1 g-color-gray-dark-v5 mr-2"><i class="icon-finance-059 u-line-icon-pro"></i></span>
+                    내정보
+                  </a>
+                </li>
+                <li class="g-py-3">
+                  <a class="d-block align-middle u-link-v5 g-color-text g-color-primary--hover g-bg-gray-light-v5--hover rounded g-pa-3" href="${pageContext.request.contextPath}/front?key=cart&methodName=select">
+                    <span class="u-icon-v1 g-color-gray-dark-v5 mr-2"><i class="icon-finance-114 u-line-icon-pro"></i></span>
+                    장바구니
+                  </a>
+                </li>
+                <li class="g-py-3">
+                  <a class="d-block align-middle u-link-v5 g-color-text g-color-primary--hover g-bg-gray-light-v5--hover rounded g-pa-3" href="${pageContext.request.contextPath}/front?key=customer&methodName=selectOrderDetail">
+                    <span class="u-icon-v1 g-color-gray-dark-v5 mr-2"><i class="icon-finance-115 u-line-icon-pro"></i></span>
+                    주문내역
+                  </a>
+                </li>
+              </ul>
+              <!-- End Profile Settings List -->
+            </aside>
+          </div>
           <!-- End Profile Settings -->
 
           <!-- Login & Security -->
@@ -258,6 +293,9 @@
         // initialization of go to
         $.HSCore.components.HSGoTo.init('.js-go-to');
       });
+    </script>
+    <script type="text/javascript">
+        document.getElementById("name").innerHTML = "<b>${sessionScope.customerDTO.customerName} 님</b>"
     </script>
   </body>
 </html>

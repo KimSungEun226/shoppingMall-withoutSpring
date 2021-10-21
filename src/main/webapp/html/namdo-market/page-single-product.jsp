@@ -492,8 +492,7 @@
           </div>
           <!-- End Tab panes -->
         </div>
-      
-      
+
       <!-- End Description & Review -->
 	
       <!-- Products -->

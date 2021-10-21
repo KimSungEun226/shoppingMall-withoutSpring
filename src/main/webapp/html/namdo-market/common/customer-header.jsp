@@ -17,7 +17,7 @@
 
               <div class="col-sm-auto g-hidden-sm-down g-color-white-opacity-0_6 g-font-weight-400 g-pl-15 g-pl-0--sm g-py-14">
                 <i class="icon-communication-163 u-line-icon-pro g-font-size-18 g-valign-middle g-color-white-opacity-0_8 g-mr-10 g-mt-minus-2"></i>
-                010-1234-4321
+                02-1234-4321
               </div>
 
               <div class="col-sm-auto g-pos-rel g-py-14">

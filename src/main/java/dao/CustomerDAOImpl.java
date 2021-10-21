@@ -82,15 +82,18 @@ public class CustomerDAOImpl implements CustomerDAO {
 		Connection con = null;
 		PreparedStatement ps = null;
 		int result = 0;
-		String sql = proFile.getProperty("customer.naversignup");
+		String sql = proFile.getProperty("customer.signup");
 		
 		try {
 			con = DbUtil.getConnection();
 			ps = con.prepareStatement(sql);
 			ps.setString(1, customerDTO.getCustomerId());
-			ps.setString(2, customerDTO.getCustomerName());
-			ps.setString(3, customerDTO.getCustomerId());;
-			ps.setString(4, customerDTO.getCustomerId());
+			ps.setString(2, customerDTO.getCustomerPwd());
+			ps.setString(3, customerDTO.getCustomerName());
+			ps.setString(4, customerDTO.getCustomerBirth());
+			ps.setString(5, customerDTO.getCustomerEmail());
+			ps.setString(6, customerDTO.getCustomerAddr());
+			ps.setString(7, customerDTO.getCustomerContact());
 			result = ps.executeUpdate();		
 		}finally {
 			DbUtil.dbClose(ps,con);
@@ -299,7 +302,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		CustomerDTO result = null;
-		String sql = proFile.getProperty("custoemr.selectbyno");
+		String sql = proFile.getProperty("customer.selectbyno");
 		
 		try {
 			con = DbUtil.getConnection();
