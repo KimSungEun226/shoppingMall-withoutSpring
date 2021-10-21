@@ -26,18 +26,19 @@ public class CustomerNaverLoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String name = request.getParameter("name");
 		String naverId = request.getParameter("naverId");
-		String naverEmail = " ";
+		String naverEmail = request.getParameter("naverEmail");
 		String birthyear = request.getParameter("birthyear");
 		String birthday = request.getParameter("birthday");
-		String contact = " ";
-		
+		String contact = request.getParameter("mobile");
+		String birth = "";
 		if("undefined".equals(name)) name=" ";
 		if("undefined".equals(naverEmail)) naverEmail=" ";
 		if("undefined".equals(birthyear)) birthyear=" ";
 		if("undefined".equals(birthday)) birthday=" ";
+		if(!"undefined".equals(birthyear) && !"undefined".equals(birthday) ) birth = birthyear + "-" +birthday;
+		else {birth=" ";}
 		if("undefined".equals(contact)) contact=" ";
 		//System.out.println(name + " " + naverId + " "+ naverEmail + " "+birthyear + " " +birthday + " " + contact );
-		String url="";
 
 		HttpSession session = request.getSession();
 		
@@ -52,7 +53,7 @@ public class CustomerNaverLoginServlet extends HttpServlet {
 				session.setAttribute("customerDTO", customerDTO);
 			}else { //네이버 아이디로 회원가입이 안되어있는경우
 				
-				CustomerDTO newCustomerDTO = new CustomerDTO(naverId, " ",name, " ", naverId, " ", naverId);
+				CustomerDTO newCustomerDTO = new CustomerDTO(naverId, " ",name, birth , naverEmail, " ", contact);
 				System.out.println(newCustomerDTO);
 				int result = customerService.signUpCustomer(newCustomerDTO);
 				
@@ -60,12 +61,11 @@ public class CustomerNaverLoginServlet extends HttpServlet {
 				if (result>0) {
 					newCustomerDTO = customerService.loginCheck(naverId);
 					session.setAttribute("customerDTO", newCustomerDTO);
-
 				}
 				
 			}
 			request.getRequestDispatcher("html/namdo-market/login/loginOk.jsp").forward(request, response);
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			System.out.println("예외발생");
 			
 			request.getRequestDispatcher("html/namdo-market/login/loginFail.jsp").forward(request, response);
