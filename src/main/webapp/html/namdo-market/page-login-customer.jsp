@@ -38,7 +38,7 @@
                 success: function(result){    //개수|단어,단어,단어,단어...
                     if(result == "null" || result=="") alert("정보를 확인해주세요.");
                     else {
-                    	location.href = result;
+                    	location.href = "${pageContext.request.contextPath}/html/namdo-market/"+result;
                     }
                 },      
               //실패했을때 함수
@@ -182,21 +182,26 @@
                 </div>
 
                 <div class="row no-gutters justify-content-center mb-2">
-                  
-                    <div id="naver_id_login" ></div>
+                
+                <div>
 					  <!-- //네이버아이디로로그인 버튼 노출 영역 -->
-					  <script type="text/javascript">
-					  	var naver_id_login = new naver_id_login("YOUR_CLIENT_ID", "YOUR_CALLBACK_URL");
-					  	var state = naver_id_login.getUniqState();
-					  	naver_id_login.setButton("green", 3,50);
-					  	naver_id_login.setDomain("YOUR_SERVICE_URL");
-					  	naver_id_login.setState(state);
-					  	naver_id_login.setPopup();
-					  	naver_id_login.init_naver_id_login();
-					  </script>   
-                  
-                  
-              </div>
+				  <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+				  <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+				</head>
+				<body>
+				  <!-- 네이버아이디로로그인 버튼 노출 영역 -->
+				  <div id="naver_id_login"></div>
+				  <!-- //네이버아이디로로그인 버튼 노출 영역 -->
+				  <script type="text/javascript">
+				  	var naver_id_login = new naver_id_login("vYLffYO2LmDOeGspAqNa", "http://localhost:8000/team3_2nd_project/html/namdo-market/naverLoginCallback.jsp");
+				  	var state = naver_id_login.getUniqState();
+				  	naver_id_login.setButton("green", 3,50);
+				  	naver_id_login.setDomain("YOUR_SERVICE_URL");
+				  	naver_id_login.setState(state);
+				  	naver_id_login.setPopup();
+				  	naver_id_login.init_naver_id_login();
+				  </script>
+                </div>  
                 
                 <div class="row no-gutters justify-content-center mb-2">
                   <a href="javascript:kakaoLogin();"><img src="https://www.gb.go.kr/Main/Images/ko/member/certi_kakao_login.png" style="height:50px; width:auto;"/></a>

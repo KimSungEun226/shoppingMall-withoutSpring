@@ -1,22 +1,30 @@
 package service;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import dao.CustomerDAO;
 import dao.CustomerDAOImpl;
 import dto.CustomerDTO;
+import dto.OrderDetailDTO;
 import exception.AuthenticationException;
 
 public class CustomerServiceImpl implements CustomerService{
 
 	@Override
-	public CustomerDTO loginCheck(CustomerDTO customerDTO) throws SQLException, AuthenticationException {
+	public CustomerDTO loginCheck(CustomerDTO customerDTO) throws SQLException {
 		CustomerDAO dao = new CustomerDAOImpl();
-		CustomerDTO dto = dao.loginCheck(customerDTO);
-		
+		CustomerDTO dto = dao.loginCheck(customerDTO);	
     	return dto;
 	}
 
+	@Override
+	public CustomerDTO loginCheck(String customerID) throws SQLException {
+		CustomerDAO dao = new CustomerDAOImpl();
+		CustomerDTO dto = dao.loginCheck(customerID);	
+    	return dto;
+	}	
+	
 	@Override
 	public int signUpCustomer(CustomerDTO customerDTO) throws SQLException {
 		CustomerDAO dao = new CustomerDAOImpl();
@@ -75,4 +83,21 @@ public class CustomerServiceImpl implements CustomerService{
 		int result = dao.checkPwd(id, pwd);
 		return result;
 	}
+
+	@Override
+	public List<OrderDetailDTO> selectOrderDetailByCustomerNo(int customerNo) throws SQLException {
+		CustomerDAO dao = new CustomerDAOImpl();
+		List<OrderDetailDTO> list = dao.selectOrderDetailByCustomerNo(customerNo);
+		
+		return list;
+	}
+
+	@Override
+	public CustomerDTO selectByCustomerNo(int customerNo) throws SQLException {
+        CustomerDAO dao = new CustomerDAOImpl();
+		CustomerDTO dto = dao.selectByCustomerNo(customerNo);
+		return dto;
+	}
+
+
 }

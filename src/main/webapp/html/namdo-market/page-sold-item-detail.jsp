@@ -139,10 +139,10 @@
 				<c:otherwise>
 				
 				<div class="mb-5">
-              		<h3 class="h6 d-inline-block">판매된 건수 :  개</h3>
+              		<h3 class="h6 d-inline-block">판매된 건수 : ${sellingList.size()} 개</h3>
             	</div>
             	
-				<c:forEach items="${requestScope.sellingList}" var="orderDto">
+				<c:forEach items="${requestScope.sellingList}" var="orderDTO">
 			
             	
             	<!-- Product Block -->
@@ -151,18 +151,37 @@
                 		<div class="row">
                   		<div class="col-sm-3 col-md-2 g-mb-20 g-mb-0--sm">
                     		<h4 class="g-color-gray-dark-v4 g-font-weight-400 g-font-size-12 text-uppercase g-mb-2">상품 구매 일자</h4>
-                    		<span class="g-color-black g-font-weight-300 g-font-size-13">   $  </span>
+                    		<span class="g-color-black g-font-weight-300 g-font-size-13"> ${orderDTO.orderDate} </span>
                   		</div>
 
-						<!-- 
                   		<div class="col-sm-3 col-md-2 g-mb-20 g-mb-0--sm">
-                    		<h4 class="g-color-gray-dark-v4 g-font-weight-400 g-font-size-12 text-uppercase g-mb-2">판매 가격</h4>
-                    		<span class="g-color-black g-font-weight-300 g-font-size-13">$ </span>
+                    		<h4 class="g-color-gray-dark-v4 g-font-weight-400 g-font-size-12 text-uppercase g-mb-2">이름</h4>
+                    		<span class="g-color-black g-font-weight-300 g-font-size-13">${orderDTO.customerName} </span>
                   		</div>
-						-->
+
+                  		<div class="col-sm-3 col-md-2 g-mb-20 g-mb-0--sm">
+                    		<h4 class="g-color-gray-dark-v4 g-font-weight-400 g-font-size-12 text-uppercase g-mb-2">배송지</h4>
+                    		<span class="g-color-black g-font-weight-300 g-font-size-13">${orderDTO.addr} </span>
+                  		</div>
+                  		
+                  		<div class="col-sm-3 col-md-2 g-mb-20 g-mb-0--sm">
+                    		<h4 class="g-color-gray-dark-v4 g-font-weight-400 g-font-size-12 text-uppercase g-mb-2">개수</h4>
+                    		<span class="g-color-black g-font-weight-300 g-font-size-13">${orderDTO.count} </span>
+                  		</div>
 						
+                  		<div class="col-sm-3 col-md-2 g-mb-20 g-mb-0--sm">
+                    		<h4 class="g-color-gray-dark-v4 g-font-weight-400 g-font-size-12 text-uppercase g-mb-2">주문상태</h4>
+                    		<span class="g-color-black g-font-weight-300 g-font-size-13">${orderDTO.orderStatus} </span>
+                  		</div>						
+						
+                  		<div class="col-sm-3 col-md-2 g-mb-20 g-mb-0--sm">
+                    		<h4 class="g-color-gray-dark-v4 g-font-weight-400 g-font-size-12 text-uppercase g-mb-2">연락처</h4>
+                    		<span class="g-color-black g-font-weight-300 g-font-size-13">${orderDTO.customerContact} </span>
+                  		</div>						
+						
+                  							
                   		<div class="col-sm-3 col-md-4 ml-auto text-sm-right">
-                    		<h4 class="g-color-gray-dark-v4 g-font-weight-400 g-font-size-12 text-uppercase g-mb-2">주문번호 #  </h4>
+                    		<h4 class="g-color-gray-dark-v4 g-font-weight-400 g-font-size-12 text-uppercase g-mb-2">주문번호 ${orderDTO.orderNo}  </h4>
                   		</div>
                 		</div>
               		</header>

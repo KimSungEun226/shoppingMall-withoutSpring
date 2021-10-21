@@ -1,15 +1,23 @@
 package service;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import dto.CustomerDTO;
+import dto.OrderDetailDTO;
 import exception.AuthenticationException;
 
 public interface CustomerService {
 	/**
 	 * CustomerDAOImpl에서 로그인시켜주는 메소드 호출
 	 * */
-	CustomerDTO loginCheck(CustomerDTO customerDTO) throws SQLException, AuthenticationException;
+	CustomerDTO loginCheck(CustomerDTO customerDTO) throws SQLException;
+
+	
+	/**
+	 * CustomerDAOImpl에서 네이버 아이디로 로그인 시켜주는 메소드 호출
+	 * */
+	CustomerDTO loginCheck(String customerID) throws SQLException;	
 	
 	/**
 	 * CustomerDAOImpl에서 회원가입시켜주는 메소드 호출
@@ -46,5 +54,11 @@ public interface CustomerService {
 	 * */
 	boolean contactCheck(String customerContact) throws SQLException;
 
-	int checkPwd(String id, String pwd) throws SQLException;	
+	int checkPwd(String id, String pwd) throws SQLException;
+	
+	List<OrderDetailDTO> selectOrderDetailByCustomerNo(int customerNo) throws SQLException;
+	
+	
+	CustomerDTO selectByCustomerNo(int customerNo) throws SQLException;
+	
 }

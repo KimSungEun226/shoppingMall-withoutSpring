@@ -193,7 +193,7 @@
 			  <div class="col-6 col-lg-3 g-mb-30">
 	            <!-- Product -->
 	            <figure class="g-pos-rel g-mb-20">
-	              <a href="${pageContext.request.contextPath}/front?key=item&methodName=selectDetail&itemNo=${itemDto.itemNo}"><img class="img-fluid" src="${pageContext.request.contextPath}/html/namdo-market/assets/img-temp/480x700/main_480_700.png" alt="Image Description"></a>
+	              <a href="${pageContext.request.contextPath}/front?key=item&methodName=selectDetail&itemNo=${itemDto.itemNo}"><img class="img-fluid" src="${pageContext.request.contextPath}/save/${itemDto.mainImg}" alt="Image Description"></a>
 	              
 	
 	            </figure>

@@ -14,8 +14,11 @@ import dto.CustomerDTO;
 import dto.ItemDTO;
 import dto.OrderDTO;
 import dto.OrderDetailDTO;
+import dto.OrderDetailView;
 import service.CartService;
 import service.CartServiceImpl;
+import service.CustomerService;
+import service.CustomerServiceImpl;
 import service.OrderService;
 import service.OrderServiceImpl;
 
@@ -47,7 +50,7 @@ public class OrderController implements Controller {
 		
 		
 		//1이면 주문성공, 0이면 실패
-		int result = orderService.orderItems(new OrderDTO(customerNo, addr, "배송중", total), cartList);
+		int result = orderService.orderItems(new OrderDTO(customerNo, addr, total), cartList);
 		
 		if(result ==0) {
 			request.setAttribute("errmsg", "주문실패!!!");
@@ -63,7 +66,15 @@ public class OrderController implements Controller {
 	 * */
 	public ModelAndView selectOrderDetailByItemNo(HttpServletRequest request, HttpServletResponse response) throws Exception {
     	int itemNo =  Integer.parseInt(request.getParameter("itemNo"));
-    	List<OrderDetailDTO> orderList = orderService.selectOrderDetailByItemNo(itemNo);
+    	List<OrderDetailView> orderList = orderService.selectOrderDetailByItemNo(itemNo);
+    	CustomerService customerService = new CustomerServiceImpl();
+    	for(OrderDetailView view: orderList) {
+    		CustomerDTO customer = customerService.selectByCustomerNo(view.getCustomerNo());
+    		view.setCustomerName(customer.getCustomerName());
+    		view.setCustomerContact(customer.getCustomerContact());
+    		view.setCustomerEamil(customer.getCustomerEmail());
+    	}
+    	
     	System.out.println("아이템 개수: " + orderList.size());
     	request.setAttribute("sellingList", orderList);
     	return new ModelAndView("html/namdo-market/page-sold-item-detail.jsp");
@@ -73,10 +84,10 @@ public class OrderController implements Controller {
 	/**
 	 * 상품을 구매한 주문 정보 
 	 * */
-	public ModelAndView selectOrderByItemNo(HttpServletRequest request, HttpServletResponse response) throws Exception {
-    	int itemNo =  Integer.parseInt(request.getParameter("itemNo"));
-    	List<OrderDTO> orderList = orderService.selectOrderByItemNo(itemNo);
-    	request.setAttribute("sellingList", orderList);
-    	return new ModelAndView("html/namdo-market/page-sold-item-detail.jsp");
-    }
+//	public ModelAndView selectOrderByItemNo(HttpServletRequest request, HttpServletResponse response) throws Exception {
+//    	int itemNo =  Integer.parseInt(request.getParameter("itemNo"));
+//    	List<OrderDTO> orderList = orderService.selectOrderByItemNo(itemNo);
+//    	request.setAttribute("sellingList", orderList);
+//    	return new ModelAndView("html/namdo-market/page-sold-item-detail.jsp");
+//    }
 }

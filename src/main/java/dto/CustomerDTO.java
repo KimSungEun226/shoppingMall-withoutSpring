@@ -16,6 +16,15 @@ public class CustomerDTO {
     
     
     
+	public CustomerDTO(String customerName, String customerContact, String customerEmail) {
+		super();
+		this.customerName = customerName;
+		this.customerContact = customerContact;
+		this.customerEmail = customerEmail;
+	}
+
+
+
 	public CustomerDTO(String customerId, String customerPwd) {
 		super();
 		this.customerId = customerId;
@@ -140,5 +149,18 @@ public class CustomerDTO {
 	public void setCustomerRegDate(String customerRegDate) {
 		this.customerRegDate = customerRegDate;
 	}
+
+
+
+	@Override
+	public String toString() {
+		return "CustomerDTO [customerNo=" + customerNo + ", customerId=" + customerId + ", customerPwd=" + customerPwd
+				+ ", customerName=" + customerName + ", customerBirth=" + customerBirth + ", customerEmail="
+				+ customerEmail + ", customerAddr=" + customerAddr + ", customerContact=" + customerContact
+				+ ", customerRegDate=" + customerRegDate + "]";
+	}
+	
+	
+	
     
 }

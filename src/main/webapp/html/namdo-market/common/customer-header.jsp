@@ -37,7 +37,7 @@
               
               <!-- Account -->
                   <li class="list-inline-item">
-                    <a id="account-dropdown-invoker-2" class="g-color-white-opacity-0_6 g-color-primary--hover g-font-weight-400 g-text-underline--none--hover" href="page-login-security-customer.jsp"
+                    <a id="account-dropdown-invoker-2" class="g-color-white-opacity-0_6 g-color-primary--hover g-font-weight-400 g-text-underline--none--hover" href="${pageContext.request.contextPath}/html/namdo-market/page-login-security-customer.jsp"
                        aria-controls="account-dropdown-2"
                        aria-haspopup="true"
                        aria-expanded="false"
@@ -53,7 +53,7 @@
                     <ul id="account-dropdown-2" class="list-unstyled u-shadow-v29 g-pos-abs g-bg-white g-width-160 g-pb-5 g-mt-19 g-z-index-2"
                         aria-labelledby="account-dropdown-invoker-2">
                       <li>
-                        <a class="d-block g-color-black g-color-primary--hover g-text-underline--none--hover g-font-weight-400 g-py-5 g-px-20" href="page-login-security-customer.jsp">
+                        <a class="d-block g-color-black g-color-primary--hover g-text-underline--none--hover g-font-weight-400 g-py-5 g-px-20" href="${pageContext.request.contextPath}/html/namdo-market/page-login-security-customer.jsp">
                           내정보
                         </a>
                       </li>
@@ -63,7 +63,7 @@
                         </a>
                       </li>
                       <li>
-                        <a class="d-block g-color-black g-color-primary--hover g-text-underline--none--hover g-font-weight-400 g-py-5 g-px-20" href="page-orders.jsp">
+                        <a class="d-block g-color-black g-color-primary--hover g-text-underline--none--hover g-font-weight-400 g-py-5 g-px-20" href="${pageContext.request.contextPath}/front?key=customer&methodName=selectOrderDetail">
                           주문내역
                         </a>
                       </li>

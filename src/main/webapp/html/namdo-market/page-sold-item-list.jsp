@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -89,7 +91,9 @@
               <!-- Profile Picture -->
               <div class="text-center g-pos-rel g-mb-30">
 
-                <span id="name" class="d-block g-font-weight-500"></span>
+                <span id="name" class="d-block g-font-weight-500">
+                  <b>${sellerDTO.sellerName}님</b>
+                </span>
 
               </div>
               <!-- End Profile Picture -->
@@ -139,14 +143,15 @@
 				<c:otherwise>
 				
 				<div class="mb-5">
-              		<h3 class="h6 d-inline-block">판매 중인 상품 : $  개</h3>
+              		<h3 class="h6 d-inline-block">판매 중인 상품 : ${sellerItemList.size()} 개</h3>
             	</div>
             	
-				<c:forEach items="${requestScope.sellerItemList}" var="itemDto">
 			
             	
             	<!-- Product Block -->
             	<div class="g-brd-around g-brd-gray-light-v4 rounded g-mb-30">
+            	 <c:forEach items="${requestScope.sellerItemList}" var="itemDto">
+            	
               		<header class="g-bg-gray-light-v5 g-pa-20">
                 		<div class="row">
                   		<div class="col-sm-3 col-md-2 g-mb-20 g-mb-0--sm">
@@ -156,7 +161,10 @@
 
                   		<div class="col-sm-3 col-md-2 g-mb-20 g-mb-0--sm">
                     		<h4 class="g-color-gray-dark-v4 g-font-weight-400 g-font-size-12 text-uppercase g-mb-2">판매 가격</h4>
-                    		<span class="g-color-black g-font-weight-300 g-font-size-13">${itemDto.itemPrice}  </span>
+                    		<span class="g-color-black g-font-weight-300 g-font-size-13">
+                          <fmt:formatNumber value="${itemDto.itemPrice}"/>원
+                    		
+                    		</span>
                   		</div>
 
                   		<div class="col-sm-3 col-md-4 ml-auto text-sm-right">
@@ -173,13 +181,16 @@
 	
 		                    <div class="row">
 		                      <div class="col-4 col-sm-3 g-mb-30">
-		                        <img class="img-fluid" src="${pageContext.request.contextPath}/html/namdo-market/assets/img-temp/480x700/${itemDto.mainImg}" alt="Image Description">
+		                        <img class="img-fluid" src="${pageContext.request.contextPath}/save/${itemDto.mainImg}" alt="Image Description">
 		                      </div>
 		
 		                      <div class="col-8 col-sm-9 g-mb-30">
 		                        <h4 class="h6 g-font-weight-400"><a href="${pageContext.request.contextPath}/front?key=item&methodName=selectDetail&itemNo=${itemDto.itemNo}">${itemDto.itemName}</a></h4>
 		                        <!-- <span class="d-block g-color-gray-dark-v4 g-font-size-13 mb-2">판매자 정보: ${itemDTO.sellerNo}</span>  -->
-		                        <span class="d-block g-color-lightred mb-2">${itemDto.itemPrice}</span>
+		                        <span class="d-block g-color-lightred mb-2">
+		                        <fmt:formatNumber value="${itemDto.itemPrice}"/>원
+		                        
+		                        </span>
 		                        <a class="btn g-brd-around g-brd-gray-light-v3 g-color-gray-dark-v3 g-bg-gray-light-v5 g-bg-gray-light-v4--hover g-font-size-12 rounded g-px-18 g-py-7" href="${pageContext.request.contextPath}/front?key=order&methodName=selectOrderDetailByItemNo&itemNo=${itemDto.itemNo}">판매 내역 보기</a>
 		                      </div>
 		                    </div>
@@ -302,8 +313,6 @@
         $.HSCore.components.HSGoTo.init('.js-go-to');
       });
     </script>
-    <script type="text/javascript">
-        document.getElementById("name").innerHTML = "<b>${sessionScope.sellerDTO.sellerName} 님</b>"
-    </script>
+   
   </body>
 </html>

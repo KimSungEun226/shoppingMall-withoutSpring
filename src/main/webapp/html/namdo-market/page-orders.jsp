@@ -13,29 +13,29 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/html/favicon.ico">
 
     <!-- Google Fonts -->
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,900">
 
     <!-- CSS Global Compulsory -->
-    <link rel="stylesheet" href="../assets/vendor/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="../assets/vendor/icon-line/css/simple-line-icons.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/icon-line/css/simple-line-icons.css">
 
     <!-- CSS Implementing Plugins -->
-    <link rel="stylesheet" href="../assets/vendor/icon-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../assets/vendor/icon-line-pro/style.css">
-    <link rel="stylesheet" href="../assets/vendor/icon-hs/style.css">
-    <link rel="stylesheet" href="../assets/vendor/animate.css">
-    <link rel="stylesheet" href="../assets/vendor/hamburgers/hamburgers.min.css">
-    <link rel="stylesheet" href="../assets/vendor/hs-megamenu/src/hs.megamenu.css">
-    <link rel="stylesheet" href="../assets/vendor/malihu-scrollbar/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/icon-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/icon-line-pro/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/icon-hs/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/animate.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/hamburgers/hamburgers.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/hs-megamenu/src/hs.megamenu.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/malihu-scrollbar/jquery.mCustomScrollbar.min.css">
 
     <!-- CSS Unify Theme -->
-    <link rel="stylesheet" href="assets/css/styles.e-commerce.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/namdo-market/assets/css/styles.e-commerce.css">
 
     <!-- CSS Customization -->
-    <link rel="stylesheet" href="../assets/css/custom.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/css/custom.css">
   </head>
 
   <body>
@@ -99,19 +99,19 @@
               <!-- Profile Settings List -->
               <ul class="list-unstyled mb-0">
                 <li class="g-pb-3">
-                  <a class="d-block align-middle u-link-v5 g-color-text g-color-primary--hover g-bg-gray-light-v5--hover rounded g-pa-3" href="page-wallet-1.html">
+                  <a class="d-block align-middle u-link-v5 g-color-text g-color-primary--hover g-bg-gray-light-v5--hover rounded g-pa-3" href="${pageContext.request.contextPath}/html/namdo-market/page-login-security-customer.jsp">
                     <span class="u-icon-v1 g-color-gray-dark-v5 mr-2"><i class="icon-finance-059 u-line-icon-pro"></i></span>
                     내정보
                   </a>
                 </li>
                 <li class="g-py-3">
-                  <a class="d-block align-middle active u-link-v5 g-color-text g-color-primary--hover g-bg-gray-light-v5--hover g-color-primary--parent-active g-bg-gray-light-v5--active rounded g-pa-3" href="page-orders-1.html">
+                  <a class="d-block align-middle active u-link-v5 g-color-text g-color-primary--hover g-bg-gray-light-v5--hover g-color-primary--parent-active g-bg-gray-light-v5--active rounded g-pa-3" href="${pageContext.request.contextPath}/front?key=cart&methodName=select"">
                     <span class="u-icon-v1 g-color-gray-dark-v5 mr-2"><i class="icon-finance-114 u-line-icon-pro"></i></span>
                     장바구니
                   </a>
                 </li>
                 <li class="g-py-3">
-                  <a class="d-block align-middle u-link-v5 g-color-text g-color-primary--hover g-bg-gray-light-v5--hover rounded g-pa-3" href="page-open-orders-1.html">
+                  <a class="d-block align-middle u-link-v5 g-color-text g-color-primary--hover g-bg-gray-light-v5--hover rounded g-pa-3" href="#">
                     <span class="u-icon-v1 g-color-gray-dark-v5 mr-2"><i class="icon-finance-115 u-line-icon-pro"></i></span>
                     주문내역
                   </a>
@@ -121,10 +121,15 @@
             </aside>
           </div>
           <!-- End Profile Settings -->
-
+          
+          
+          <%-- <c:if test="${list==null}">
+          </c:if> --%>
           <!-- Orders -->
           <div class="col-lg-9 g-mb-50">
-
+            
+            
+            
             <!-- Links -->
             <ul class="list-inline g-brd-bottom--sm g-brd-gray-light-v3 mb-5">
               <li class="list-inline-item g-pb-10 g-pr-10 g-mb-20 g-mb-0--sm">
@@ -133,126 +138,54 @@
             </ul>
             <!-- End Links -->
 
-            <div class="mb-5">
+            <!-- <div class="mb-5">
               <h3 class="h6 d-inline-block">주문 중인 상품 : 2 개</h3>
-            </div>
+            </div> -->
 
             <!-- Order Block -->
+            
             <div class="g-brd-around g-brd-gray-light-v4 rounded g-mb-30">
-              <header class="g-bg-gray-light-v5 g-pa-20">
-                <div class="row">
-                  <div class="col-sm-3 col-md-2 g-mb-20 g-mb-0--sm">
-                    <h4 class="g-color-gray-dark-v4 g-font-weight-400 g-font-size-12 text-uppercase g-mb-2">주문 일자</h4>
-                    <span class="g-color-black g-font-weight-300 g-font-size-13">July 31, 2017</span>
-                  </div>
-
-                  <div class="col-sm-3 col-md-2 g-mb-20 g-mb-0--sm">
-                    <h4 class="g-color-gray-dark-v4 g-font-weight-400 g-font-size-12 text-uppercase g-mb-2">합계</h4>
-                    <span class="g-color-black g-font-weight-300 g-font-size-13">$379.00</span>
-                  </div>
-
-                  <div class="col-sm-3 col-md-2 g-mb-20 g-mb-0--sm">
-                    <h4 class="g-color-gray-dark-v4 g-font-weight-400 g-font-size-12 text-uppercase g-mb-2">구매자 이름</h4>
-                    <span class="g-color-black g-font-weight-300 g-font-size-13">James Collins</span>
-                  </div>
-
-                  <div class="col-sm-3 col-md-4 ml-auto text-sm-right">
-                    <h4 class="g-color-gray-dark-v4 g-font-weight-400 g-font-size-12 text-uppercase g-mb-2">Order # 278-841024961890</h4>
-                  </div>
-                </div>
-              </header>
-
+            
+              <c:forEach items="${requestScope.list}" var="itemDTO">
+             
+              
+              
+              
               <!-- Order Content -->
               <div class="g-pa-20">
                 <div class="row">
                   <div class="col-md-8">
                     <div class="mb-4">
-                      <h3 class="h5 mb-1">2021 / 10 / 19</h3>
+                      <h3 class="h5 mb-1">주문시각 : ${itemDTO.orderDate}</h3>
                     </div>
 
                     <div class="row">
                       <div class="col-4 col-sm-3 g-mb-30">
-                        <img class="img-fluid" src="assets/img-temp/150x150/img9.jpg" alt="Image Description">
+                        <img class="img-fluid g-width-120 g-height-120"  src="${pageContext.request.contextPath}/save/${itemDTO.mainImg}" alt="Image Description">
                       </div>
 
                       <div class="col-8 col-sm-9 g-mb-30">
-                        <h4 class="h6 g-font-weight-400"><a href="page-single-product.jsp">제품 이름</a></h4>
-                        <span class="d-block g-color-gray-dark-v4 g-font-size-13 mb-2">판매자 정보: 신용권</span>
-                        <span class="d-block g-color-lightred mb-2">21,000원</span>
-                        <a class="btn g-brd-around g-brd-gray-light-v3 g-color-gray-dark-v3 g-bg-gray-light-v5 g-bg-gray-light-v4--hover g-font-size-12 rounded g-px-18 g-py-7" href="page-single-product.jsp">상품 보기</a>
+                        <h4 class="h6 g-font-weight-400"><a href="page-single-product.jsp">${itemDTO.itemName}</a></h4>
+                        <span class="d-block mb-2">가격 : ${itemDTO.itemPrice}</span>
+                        <span class="d-block mb-2">수량 : ${itemDTO.itemCount}</span>
+                        <a class="btn g-brd-around g-brd-gray-light-v3 g-color-gray-dark-v3 g-bg-gray-light-v5 g-bg-gray-light-v4--hover g-font-size-12 rounded g-px-18 g-py-7" href="${pageContext.request.contextPath}/front?key=item&methodName=selectDetail&itemNo=${itemDTO.itemNo}">상품 보기</a>
                       </div>
                     </div>
                   </div>
 
                   <div class="col-md-4">
-                    <a class="btn btn-block g-brd-around g-brd-gray-light-v3 g-color-gray-dark-v3 g-bg-gray-light-v5 g-bg-gray-light-v4--hover g-font-size-12 text-uppercase g-py-12 g-px-25" href="#">환불하기</a>
+                    <a class="btn btn-block g-brd-around g-brd-gray-light-v3 g-color-gray-dark-v3 g-bg-gray-light-v5 g-bg-gray-light-v4--hover g-font-size-12 text-uppercase g-py-12 g-px-25" href="#">${itemDTO.orderState}</a>
                   </div>
                 </div>
               </div>
+              
+              </c:forEach>
               <!-- End Order Content -->
             </div>
             <!-- End Order Block -->
 
             <!-- Order Block -->
-            <div class="g-brd-around g-brd-gray-light-v4 rounded">
-              <header class="g-bg-gray-light-v5 g-pa-20">
-                <div class="row">
-                  <div class="col-sm-3 col-md-2 g-mb-20 g-mb-0--sm">
-                    <h4 class="g-color-gray-dark-v4 g-font-weight-400 g-font-size-12 text-uppercase g-mb-2">Order Placed</h4>
-                    <span class="g-color-black g-font-weight-300 g-font-size-13">May 29, 2017</span>
-                  </div>
-
-                  <div class="col-sm-3 col-md-2 g-mb-20 g-mb-0--sm">
-                    <h4 class="g-color-gray-dark-v4 g-font-weight-400 g-font-size-12 text-uppercase g-mb-2">Total</h4>
-                    <span class="g-color-black g-font-weight-300 g-font-size-13">$132.00</span>
-                  </div>
-
-                  <div class="col-sm-3 col-md-2 g-mb-20 g-mb-0--sm">
-                    <h4 class="g-color-gray-dark-v4 g-font-weight-400 g-font-size-12 text-uppercase g-mb-2">Ship to</h4>
-                    <span class="g-color-black g-font-weight-300 g-font-size-13">James Collins</span>
-                  </div>
-
-                  <div class="col-sm-3 col-md-4 ml-auto text-sm-right">
-                    <h4 class="g-color-gray-dark-v4 g-font-weight-400 g-font-size-12 text-uppercase g-mb-2">Order # 541-296184168196</h4>
-                    <a class="g-font-weight-300 g-font-size-13" href="#">Invoice</a>
-                  </div>
-                </div>
-              </header>
-
-              <!-- Order Content -->
-              <div class="g-pa-20">
-                <div class="row">
-                  <div class="col-md-8">
-                    <div class="mb-4">
-                      <h3 class="h5 mb-1">Delivered May 29, 2017</h3>
-                      <p class="g-color-gray-dark-v4 g-font-size-13">Your package was delivered per the instructions.</p>
-                    </div>
-
-                    <div class="row">
-                      <div class="col-4 col-sm-3 g-mb-30">
-                        <img class="img-fluid" src="assets/img-temp/150x150/img3.jpg" alt="Image Description">
-                      </div>
-
-                      <div class="col-8 col-sm-9 g-mb-30">
-                        <h4 class="h6 g-font-weight-400"><a href="#">To Boot New York Men's Dodd Oxford, Parmadoc Tan, 7 M US</a></h4>
-                        <span class="d-block g-color-gray-dark-v4 g-font-size-13 mb-2">Sold by: Unify.com LLC</span>
-                        <span class="d-block g-color-lightred mb-2">$125.00</span>
-                        <a class="btn g-brd-around g-brd-gray-light-v3 g-color-gray-dark-v3 g-bg-gray-light-v5 g-bg-gray-light-v4--hover g-font-size-13 rounded g-px-18 g-py-7" href="#">Buy it Again</a>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-md-4">
-                    <a class="btn btn-block u-btn-primary g-font-size-12 text-uppercase g-py-12 g-px-25 mb-4" href="#">Track Package</a>
-                    <a class="btn btn-block g-brd-around g-brd-gray-light-v3 g-color-gray-dark-v3 g-bg-gray-light-v5 g-bg-gray-light-v4--hover g-font-size-12 text-uppercase g-py-12 g-px-25" href="#">Return Item</a>
-                    <a class="btn btn-block g-brd-around g-brd-gray-light-v3 g-color-gray-dark-v3 g-bg-gray-light-v5 g-bg-gray-light-v4--hover g-font-size-12 text-uppercase g-py-12 g-px-25" href="#">Leave Package Feedback</a>
-                    <a class="btn btn-block g-brd-around g-brd-gray-light-v3 g-color-gray-dark-v3 g-bg-gray-light-v5 g-bg-gray-light-v4--hover g-font-size-12 text-uppercase g-py-12 g-px-25" href="#">Write a Product Review</a>
-                    <a class="btn btn-block g-brd-around g-brd-gray-light-v3 g-color-gray-dark-v3 g-bg-gray-light-v5 g-bg-gray-light-v4--hover g-font-size-12 text-uppercase g-py-12 g-px-25" href="#">Archive Order</a>
-                  </div>
-                </div>
-              </div>
-              <!-- End Order Content -->
-            </div>
+         
             <!-- End Order Block -->
 
             <!-- Pagination -->
@@ -346,25 +279,25 @@
     <div class="u-outer-spaces-helper"></div>
 
     <!-- JS Global Compulsory -->
-    <script src="../assets/vendor/jquery/jquery.min.js"></script>
-    <script src="../assets/vendor/jquery-migrate/jquery-migrate.min.js"></script>
-    <script src="../assets/vendor/popper.js/popper.min.js"></script>
-    <script src="../assets/vendor/bootstrap/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/jquery-migrate/jquery-migrate.min.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/popper.js/popper.min.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/bootstrap/bootstrap.min.js"></script>
 
     <!-- JS Implementing Plugins -->
-    <script src="../assets/vendor/hs-megamenu/src/hs.megamenu.js"></script>
-    <script src="../assets/vendor/malihu-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/hs-megamenu/src/hs.megamenu.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/malihu-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
 
     <!-- JS Unify -->
-    <script src="../assets/js/hs.core.js"></script>
-    <script src="../assets/js/components/hs.header.js"></script>
-    <script src="../assets/js/helpers/hs.hamburgers.js"></script>
-    <script src="../assets/js/components/hs.dropdown.js"></script>
-    <script src="../assets/js/components/hs.scrollbar.js"></script>
-    <script src="../assets/js/components/hs.go-to.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/hs.core.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/components/hs.header.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/helpers/hs.hamburgers.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/components/hs.dropdown.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/components/hs.scrollbar.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/components/hs.go-to.js"></script>
 
     <!-- JS Customization -->
-    <script src="../assets/js/custom.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/custom.js"></script>
 
     <!-- JS Plugins Init. -->
     <script>

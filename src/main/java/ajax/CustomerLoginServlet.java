@@ -47,7 +47,6 @@ public class CustomerLoginServlet extends HttpServlet {
 			CustomerDTO customerDTO = customerService.loginCheck(new CustomerDTO(customerId, pwd));
 			//여기까지 왔다는 이야기는 예외없이 정상이므로 session에 정보를 저장한다.
 			
-			
 			if(customerDTO!=null) {
 				System.out.println("userID : " + customerDTO.getCustomerId());
 				session.setAttribute("customerDTO", customerDTO);

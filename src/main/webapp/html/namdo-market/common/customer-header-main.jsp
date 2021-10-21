@@ -59,7 +59,7 @@
                 <!-- Basket -->
                 <li class="list-inline-item">
                   <i class="text-right u-icon-v1 g-color-text g-color-black--hover g-color-black--focus g-font-size-15 g-text-underline--none--hover icon-finance-067 u-line-icon-pro"></i>
-                    <a id="account-dropdown-invoker-2" class="g-color-black-opacity-0_6 g-color-primary--hover g-font-size-15 g-font-weight-400 g-text-underline--none--hover" href="page-login-security-customer.jsp"
+                    <a id="account-dropdown-invoker-2" class="g-color-black-opacity-0_6 g-color-primary--hover g-font-size-15 g-font-weight-400 g-text-underline--none--hover" href="${pageContext.request.contextPath}/html/namdo-market/page-login-security-customer.jsp"
                        aria-controls="account-dropdown-2"
                        aria-haspopup="true"
                        aria-expanded="false"
@@ -84,7 +84,7 @@
                         </a>
                       </li>
                       <li>
-                        <a class="d-block g-color-black g-color-primary--hover g-text-underline--none--hover g-font-weight-400 g-py-5 g-px-20" href="page-orders.jsp">
+                        <a class="d-block g-color-black g-color-primary--hover g-text-underline--none--hover g-font-weight-400 g-py-5 g-px-20" href="${pageContext.request.contextPath}/front?key=customer&methodName=selectOrderDetail">
                           주문내역
                         </a>
                       </li>
