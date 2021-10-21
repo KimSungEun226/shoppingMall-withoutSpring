@@ -21,15 +21,14 @@ public class OrderDAOImpl implements OrderDAO {
 		int delResult = 0;
 		int lastResult = 0;
 		OrderDTO dbDTO=null;
-		String sql = "insert into order_item values(ORDER_NO_SEQ.nextval,?,sysdate, ?, ?, ?)";
+		String sql = "insert into order_item values(ORDER_NO_SEQ.nextval, ?, ?, ?)";
 		try {
 			con = DbUtil.getConnection();
 			con.setAutoCommit(false); // 자동커밋해지
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, order.getCustomerNo());
 			ps.setString(2, order.getOrderAddr());
-			ps.setString(3, order.getOrderStatus());
-			ps.setInt(4, order.getOrderTotalPrice());
+			ps.setInt(3, order.getOrderTotalPrice());
 			result = ps.executeUpdate();
 						
 			if (result > 0) {
@@ -48,7 +47,7 @@ public class OrderDAOImpl implements OrderDAO {
 					throw new SQLException("주문이 실패했습니다.,,,,");
 				}
 				
-				//이제 cartDetail들을 테이블에 넣어주자.
+				//이제 orderDetail들을 테이블에 넣어주자.
 				for (CartDTO cart: cartList) {
 					int temp_result = 0;
 					OrderDetailDTO orderDetail = new OrderDetailDTO(cart.getItemNo(), dbDTO.getOrderNo(), cart.getCartItemCount());
@@ -94,7 +93,7 @@ public class OrderDAOImpl implements OrderDAO {
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
 			if(rs.next()) {
-				result = new OrderDTO(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6));
+				result = new OrderDTO(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4));
 			}
 			
 		}finally {
@@ -117,7 +116,7 @@ public class OrderDAOImpl implements OrderDAO {
 	public int addOrderDetail(OrderDetailDTO orderDetail, Connection con) throws SQLException {
 		PreparedStatement ps = null;
 		int result = 0;
-		String sql = "insert into order_detail values(ORDER_DETAIL_NO_SEQ.nextval, ?, ?, ?)";
+		String sql = "insert into order_detail values(ORDER_DETAIL_NO_SEQ.nextval, ?, ?, ?, sysdate, '배송중')";
 		
 		try {
 			ps = con.prepareStatement(sql);

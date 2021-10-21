@@ -281,6 +281,8 @@ public class ItemController implements Controller{
 		}
 		
 		//수정이 성공했다면 기존에 있던 이미지 삭제!
+		System.out.println(prevItem.getMainImg());
+		
 		if(prevItem.getMainImg() != null) {
 			//폴더에서 삭제
 			new File(saveDir+"/"+prevmainImg).delete();

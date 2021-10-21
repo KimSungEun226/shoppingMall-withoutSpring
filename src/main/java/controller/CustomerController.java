@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -8,8 +10,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dto.CustomerDTO;
+import dto.ItemDTO;
+import dto.OrderDetailDTO;
+import dto.OrderViewDTO;
 import service.CustomerService;
 import service.CustomerServiceImpl;
+import service.ItemService;
+import service.ItemServiceImpl;
 
 
 public class CustomerController implements Controller{
@@ -55,7 +62,6 @@ public class CustomerController implements Controller{
 	
 	
 	public ModelAndView signUp(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		CustomerService customerService = new CustomerServiceImpl();
 		String customerId = request.getParameter("customerId");
 		String customerPwd = request.getParameter("customerPwd");
 		String customerName = request.getParameter("customerName");
@@ -78,7 +84,6 @@ public class CustomerController implements Controller{
 	}
 	
 	public ModelAndView searchIdCustomer(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		CustomerService customerService = new CustomerServiceImpl();
 		String name = request.getParameter("customerName");
 		String email = request.getParameter("customerEmail");
 		String result = customerService.searchIdCustomer(name, email);
@@ -95,7 +100,6 @@ public class CustomerController implements Controller{
 	}	
 	
 	public ModelAndView checkIdAndEmail(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		CustomerService customerService = new CustomerServiceImpl();
 		String id = request.getParameter("customerId");
 		String email = request.getParameter("customerEmail");
 		int result = customerService.checkIdAndEmail(id, email);
@@ -110,7 +114,6 @@ public class CustomerController implements Controller{
 	}	
 	
 	public ModelAndView checkPwd(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		CustomerService customerService = new CustomerServiceImpl();
 		String id = request.getParameter("id");
 		String pwd = request.getParameter("pwd");
 		System.out.println(id + " " + pwd);
@@ -125,8 +128,8 @@ public class CustomerController implements Controller{
 		return new ModelAndView("html/namdo-market/page-set-new-password(login).jsp");
 	}
 	
+	
 	public ModelAndView setPwd(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		CustomerService customerService = new CustomerServiceImpl();
 		String id = request.getParameter("id");
 		String pwd = request.getParameter("Pwd");
 		System.out.println(id + " " + pwd);
@@ -141,6 +144,32 @@ public class CustomerController implements Controller{
 //		if(pwdInfo.equals("seller"))
 		request.setAttribute("pwdInfo", "customer");
 		return new ModelAndView("html/namdo-market/searchId/pwdChangeOk.jsp");
+	}	
+	
+	
+	
+	public ModelAndView selectOrderDetail(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		HttpSession session = request.getSession();
+		
+		CustomerDTO customerDTO = (CustomerDTO)session.getAttribute("customerDTO");
+		int customerNo = customerDTO.getCustomerNo();
+		
+        List<OrderDetailDTO> result = customerService.selectOrderDetailByCustomerNo(customerNo);
+        ItemService itemService = new ItemServiceImpl();
+        
+        List<OrderViewDTO> list = new ArrayList<OrderViewDTO>();
+        
+        for(OrderDetailDTO dto : result) {
+        	ItemDTO item = itemService.selectByNo(dto.getItemNo());
+        	OrderViewDTO orderViewDTO = new OrderViewDTO(item.getItemNo(),item.getItemName(), item.getItemPrice(), dto.getOrderItemCount(), dto.getOrderDate() ,dto.getOrderStatus(), item.getMainImg());
+        	list.add(orderViewDTO);
+        }
+		
+        if(list.size()==0) list =null;
+        request.setAttribute("list", list);
+        
+        
+		return new ModelAndView("html/namdo-market/page-orders.jsp");
 	}	
 	
 }

@@ -46,7 +46,7 @@ public class OrderController implements Controller {
 		
 		
 		//1이면 주문성공, 0이면 실패
-		int result = orderService.orderItems(new OrderDTO(customerNo, addr, "배송중", total), cartList);
+		int result = orderService.orderItems(new OrderDTO(customerNo, addr, total), cartList);
 		
 		if(result ==0) {
 			request.setAttribute("errmsg", "주문실패!!!");

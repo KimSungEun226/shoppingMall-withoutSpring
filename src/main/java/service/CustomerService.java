@@ -1,8 +1,10 @@
 package service;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import dto.CustomerDTO;
+import dto.OrderDetailDTO;
 import exception.AuthenticationException;
 
 public interface CustomerService {
@@ -46,5 +48,8 @@ public interface CustomerService {
 	 * */
 	boolean contactCheck(String customerContact) throws SQLException;
 
-	int checkPwd(String id, String pwd) throws SQLException;	
+	int checkPwd(String id, String pwd) throws SQLException;
+	
+	List<OrderDetailDTO> selectOrderDetailByCustomerNo(int customerNo) throws SQLException;
+	
 }

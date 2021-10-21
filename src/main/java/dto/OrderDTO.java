@@ -5,31 +5,25 @@ import java.util.List;
 public class OrderDTO {
     private int orderNo;         //주문번호
     private int customerNo;      //구매자번호
-    private String orderDate;    //주문일자
     private String orderAddr;    //배송지
-    private String orderStatus;  //주문상태
     private int orderTotalPrice; //총금액
     
     private List<OrderDetailDTO> orderDetailList;
     
     public OrderDTO() {}
     
-    public OrderDTO(int customerNo, String orderAddr, String orderStatus, int orderTotalPrice) {
+    public OrderDTO(int customerNo, String orderAddr, int orderTotalPrice) {
 		super();
 		this.customerNo = customerNo;
 		this.orderAddr = orderAddr;
-		this.orderStatus = orderStatus;
 		this.orderTotalPrice = orderTotalPrice;
 	}
     
-	public OrderDTO(int orderNo, int customerNo, String orderDate, String orderAddr, String orderStatus,
-			int orderTotalPrice) {
+	public OrderDTO(int orderNo, int customerNo, String orderAddr, int orderTotalPrice) {
 		super();
 		this.orderNo = orderNo;
 		this.customerNo = customerNo;
-		this.orderDate = orderDate;
 		this.orderAddr = orderAddr;
-		this.orderStatus = orderStatus;
 		this.orderTotalPrice = orderTotalPrice;
 	}
 
@@ -49,13 +43,6 @@ public class OrderDTO {
 		this.customerNo = customerNo;
 	}
 
-	public String getOrderDate() {
-		return orderDate;
-	}
-
-	public void setOrderDate(String orderDate) {
-		this.orderDate = orderDate;
-	}
 
 	public String getOrderAddr() {
 		return orderAddr;
@@ -65,13 +52,6 @@ public class OrderDTO {
 		this.orderAddr = orderAddr;
 	}
 
-	public String getOrderStatus() {
-		return orderStatus;
-	}
-
-	public void setOrderStatus(String orderStatus) {
-		this.orderStatus = orderStatus;
-	}
 
 	public int getOrderTotalPrice() {
 		return orderTotalPrice;
@@ -88,14 +68,5 @@ public class OrderDTO {
 	public void setOrderDetailList(List<OrderDetailDTO> orderDetailList) {
 		this.orderDetailList = orderDetailList;
 	}
-
-	@Override
-	public String toString() {
-		return "OrderDTO [orderNo=" + orderNo + ", customerNo=" + customerNo + ", orderDate=" + orderDate
-				+ ", orderAddr=" + orderAddr + ", orderStatus=" + orderStatus + ", orderTotalPrice=" + orderTotalPrice
-				+ ", orderDetailList=" + orderDetailList + "]";
-	}
-    
-	
     
 }

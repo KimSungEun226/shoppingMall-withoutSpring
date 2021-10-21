@@ -1,8 +1,10 @@
 package dao;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import dto.CustomerDTO;
+import dto.OrderDetailDTO;
 
 public interface CustomerDAO {
     
@@ -38,17 +40,23 @@ public interface CustomerDAO {
 	/**
 	 * 아이디 중복체크
 	 * */
-	boolean idCheck(String id);
+	boolean idCheck(String id) throws SQLException;
 	
 	/**
 	 * 이메일 중복체크
 	 * */
-	boolean emailCheck(String id);
+	boolean emailCheck(String id) throws SQLException;
 	
 	/**
 	 * 연락처 중복체크
 	 * */
-	boolean contactCheck(String id);
+	boolean contactCheck(String id) throws SQLException;
 
-	int checkPwd(String id, String pwd);
+	int checkPwd(String id, String pwd) throws SQLException;
+	
+	
+	/**
+	 * 회원번호에 해당하는 주문목록 리턴
+	 * */
+	List<OrderDetailDTO> selectOrderDetailByCustomerNo(int customerNo) throws SQLException;
 }

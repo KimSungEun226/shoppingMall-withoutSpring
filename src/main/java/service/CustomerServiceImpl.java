@@ -1,10 +1,12 @@
 package service;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import dao.CustomerDAO;
 import dao.CustomerDAOImpl;
 import dto.CustomerDTO;
+import dto.OrderDetailDTO;
 import exception.AuthenticationException;
 
 public class CustomerServiceImpl implements CustomerService{
@@ -74,5 +76,13 @@ public class CustomerServiceImpl implements CustomerService{
 		CustomerDAO dao = new CustomerDAOImpl();
 		int result = dao.checkPwd(id, pwd);
 		return result;
+	}
+
+	@Override
+	public List<OrderDetailDTO> selectOrderDetailByCustomerNo(int customerNo) throws SQLException {
+		CustomerDAO dao = new CustomerDAOImpl();
+		List<OrderDetailDTO> list = dao.selectOrderDetailByCustomerNo(customerNo);
+		
+		return list;
 	}
 }

@@ -218,6 +218,8 @@
                       <thead class="h6 g-brd-bottom g-brd-gray-light-v3 g-color-black text-uppercase">
                         <tr>
                           <th class="g-font-weight-400 text-left g-pb-20"><b>상품목록</b></th>
+                          <th class="g-font-weight-400 text-center g-pb-20"><b>상품 이름</b></th>
+
                           <th class="g-font-weight-400 g-width-130 g-pb-20"><b>가격</b></th>
                           <th class="g-font-weight-400 g-width-50 g-pb-20"><b>수량</b></th>
                           <th class="g-font-weight-400 g-width-130 g-pb-20"><b>합계</b></th>
@@ -235,12 +237,18 @@
                         <!-- Item-->
                         <tr class="g-brd-bottom g-brd-gray-light-v3">
                           <td class="text-left g-py-25">
-                            <img class="d-inline-block g-width-100 mr-4" src="${pageContext.request.contextPath}/save/${itemDto.mainImg}" alt="Image Description">
-                            <div class="d-inline-block align-middle">
+                            <img class="d-inline-block g-width-100 " src="${pageContext.request.contextPath}/save/${itemDto.mainImg}" alt="Image Description">
+                            
+                          </td>
+                          
+                          <td class="text-left g-py-25">
+                          
+                            <div class="d-inline-block col">
                               <h4 class="h6 g-color-black">${itemDto.itemName}</h4>
                               
                             </div>
                           </td>
+                          
                           <td class="g-color-gray-dark-v2 g-font-size-13">
                                  <fmt:formatNumber value="${itemDto.itemPrice}"/>원
                           </td>

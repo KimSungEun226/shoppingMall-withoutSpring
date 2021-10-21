@@ -4,9 +4,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 import dto.CustomerDTO;
+import dto.OrderDetailDTO;
 import util.DbUtil;
 
 public class CustomerDAOImpl implements CustomerDAO {
@@ -147,7 +150,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 	}
     
 	@Override
-	public boolean idCheck(String id) {
+	public boolean idCheck(String id) throws SQLException{
 		  PreparedStatement ps = null;
 		  ResultSet rs = null;
 		  Connection con = null;
@@ -171,7 +174,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 	}
 	
 	@Override
-	public boolean emailCheck(String email) {
+	public boolean emailCheck(String email) throws SQLException{
 		  PreparedStatement ps = null;
 		  ResultSet rs = null;
 		  Connection con = null;
@@ -195,7 +198,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 	}
 
 	@Override
-	public boolean contactCheck(String contact) {
+	public boolean contactCheck(String contact) throws SQLException{
 		  PreparedStatement ps = null;
 		  ResultSet rs = null;
 		  Connection con = null;
@@ -219,7 +222,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 	}
 
 	@Override
-	public int checkPwd(String id, String pwd) {
+	public int checkPwd(String id, String pwd) throws SQLException{
 		  PreparedStatement ps = null;
 		  ResultSet rs = null;
 		  Connection con = null;
@@ -235,6 +238,31 @@ public class CustomerDAOImpl implements CustomerDAO {
 		   if(rs.next()){
 		    result=1;
 		   }
+		  } catch (SQLException e) {
+		   e.printStackTrace();
+		  }finally {
+		   DbUtil.dbClose(rs, ps, con);
+		  }
+		  return result;
+	}
+
+	@Override
+	public List<OrderDetailDTO> selectOrderDetailByCustomerNo(int customerNo) throws SQLException {
+		  PreparedStatement ps = null;
+		  ResultSet rs = null;
+		  Connection con = null;
+		  List<OrderDetailDTO> result = new ArrayList<OrderDetailDTO>();
+		  String sql = proFile.getProperty("customer.selectorderdetail");
+
+		  try {
+			   con=DbUtil.getConnection();
+			   ps = con.prepareStatement(sql);
+			   ps.setInt(1, customerNo);
+			   rs = ps.executeQuery();
+			   while(rs.next()){
+			       OrderDetailDTO detailDTO = new OrderDetailDTO(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5), rs.getString(6));
+			       result.add(detailDTO);
+			   }
 		  } catch (SQLException e) {
 		   e.printStackTrace();
 		  }finally {
