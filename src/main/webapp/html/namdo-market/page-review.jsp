@@ -110,28 +110,25 @@
                   <form>
                     <div class="row">
                       <div class="col-md-6 form-group g-mb-30">
-                        <input class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-brd-primary--focus rounded-3 g-py-13 g-px-15" type="text" placeholder="First name">
+                        <input class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-brd-primary--focus rounded-3 g-py-13 g-px-15" type="text" placeholder="이름">
                       </div>
 
-                      <div class="col-md-6 form-group g-mb-30">
-                        <input class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-brd-primary--focus rounded-3 g-py-13 g-px-15" type="email" placeholder="Email">
-                      </div>
                     </div>
                   </form>
                   <!-- End Comment Form -->
 
                   <div class="g-mb-30">
-                    <textarea class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-brd-primary--focus g-resize-none rounded-3 g-py-13 g-px-15" rows="12" placeholder="Your message"></textarea>
+                    <textarea class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-brd-primary--focus g-resize-none rounded-3 g-py-13 g-px-15" rows="12" placeholder="내용 입력"></textarea>
                   </div>
 
                   <div class="row align-items-center">
                     <div class="col-5 col-sm-4 col-md-3">
-                      <button class="btn u-btn-primary g-font-size-12 text-uppercase g-py-15 g-px-25" type="submit" role="button">Add Comment</button>
+                      <button class="btn u-btn-primary g-font-size-12 text-uppercase g-py-15 g-px-25" type="submit" role="button">등록하기</button>
                     </div>
 
                     <!-- Rating -->
                     <div class="col-5 col-sm-4 col-md-3">
-                      <h3 class="h6 mb-1">Rate:</h3>
+                      <h3 class="h6 mb-1">별점</h3>
 
                       <ul class="js-rating u-rating-v1 g-font-size-20 g-color-gray-light-v3 mb-0" data-hover-classes="g-color-primary">
                         <li class="g-color-primary g-line-height-1_4 click">
