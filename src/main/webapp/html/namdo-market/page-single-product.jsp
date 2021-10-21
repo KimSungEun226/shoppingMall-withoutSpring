@@ -481,14 +481,11 @@
            
               <div class="row justify-content-center">
                 <div class="col-lg-9">
+				  <!-- Review -->
+	              <div id="reviewDisplay" class="g-brd-bottom g-brd-gray-light-v4 g-pb-30 g-mb-50">
+	              </div>
+	              <!-- End Review -->
 
-					<!-- Review -->
-		              <div id="reviewDisplay" class="g-brd-bottom g-brd-gray-light-v4 g-pb-30 g-mb-50">
-
-		              </div>
-		              <!-- End Review -->
-
-                  
                 </div>
               </div>
             </div>

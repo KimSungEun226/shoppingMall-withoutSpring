@@ -209,15 +209,12 @@ public class ItemController implements Controller{
 		int itemNo =  Integer.parseInt(request.getParameter("itemNo"));
 		ItemDTO itemDTO = itemService.selectByNo(itemNo);
 		
-		List<ReviewDTO> reviewList = itemService.selectReviewByItemNo(itemNo);
-		
 		if (itemDTO ==null) {
 			request.setAttribute("errmsg", "등록된 제품이 존재하지 않습니다.");
 			return new ModelAndView("html/namdo-market/error/error.jsp");
 		}
 		
 		request.setAttribute("item", itemDTO);
-		request.setAttribute("review", reviewList);
 		
 		return new ModelAndView("html/namdo-market/page-single-product.jsp");
 	}
@@ -321,7 +318,7 @@ public class ItemController implements Controller{
 		List<ReviewDTO> reviewList = itemService.selectReviewByItemNo(itemNo);
 		System.out.println(reviewList);
 		System.out.println(reviewList.size());
-		request.setAttribute("review", reviewList);
+		request.setAttribute("reviewList", reviewList);
 		return new ModelAndView("html/namdo-market/page-review.jsp");
 	}
 	

@@ -44,7 +44,7 @@
 <body>
 
 <c:choose>
-	<c:when test="${empty requestScope.review}">
+	<c:when test="${empty requestScope.reviewList}">
 	  <div id="accordion-12-1" class="u-accordion u-accordion-color-primary" role="tablist" aria-multiselectable="true">
                  <!-- Card -->
                  <div class="card g-brd-none g-brd-bottom g-brd-gray-light-v3 rounded-0 g-pb-30 g-mb-30">
@@ -56,7 +56,7 @@
                </div>
 	</c:when>
 	<c:otherwise>
-	<c:forEach items="${requestScope.review}" var="reviewDto">
+	<c:forEach items="${requestScope.reviewList}" var="reviewDto">
 	<!-- Media -->
                  <div class="media g-mb-30">
                  <img class="d-flex g-width-60 g-height-60 rounded-circle g-mt-3 g-mr-20" src="${pageContext.request.contextPath}/html/namdo-market/assets/img-temp/480x700/main_480_700.png" alt="Image Description">
@@ -85,29 +85,26 @@
                          </ul>
                          <!-- End Rating -->
 
-                         <span class="d-block g-color-gray-dark-v5 g-font-size-11">June 7, 2017</span>
+                         <span class="d-block g-color-gray-dark-v5 g-font-size-11">${reviewDto.reviewDate}</span>
                        </div>
                        <div class="ml-auto">
-                         <a class="u-link-v5 g-color-black g-color-primary--hover g-font-size-12 text-uppercase" href="#">Reply</a>
+                         <a class="u-link-v5 g-color-black g-color-primary--hover g-font-size-12 text-uppercase" href="#">답변하기</a>
                        </div>
                      </div>
 
-                     <p>The time has come to bring those ideas and plans to life. This is where we really begin to visualize your napkin sketches and make them into beautiful pixels. Whether through commerce or just an experience to tell your brand's story, the time has come to start using development languages that fit your projects needs.</p>
+                     <p>${reviewDto.reviewContent}</p>
 
                      <ul class="list-inline my-0">
-                       <li class="list-inline-item g-mr-20">
-                         <a class="g-color-gray-dark-v5 g-text-underline--none--hover" href="#">
-                           <i class="g-pos-rel g-top-1 g-mr-3 icon-medical-022 u-line-icon-pro"></i> 5
-                         </a>
-                       </li>
                        <li class="list-inline-item g-mr-20">
                          <a class="g-color-gray-dark-v5 g-text-underline--none--hover" href="#">
                            <i class="icon-finance-206 u-line-icon-pro g-pos-rel g-top-1 g-mr-3"></i> 1
                          </a>
                        </li>
                      </ul>
-                     
-                     <h2 class="h4 mb-5">Add Review</h2>
+                    
+				  
+                  <br><br><br><br>
+                  <h2 class="h4 mb-5">리뷰 등록하기</h2>
 
                   <!-- Comment Form -->
                   <form>
