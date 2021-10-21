@@ -113,7 +113,7 @@
 			  <div class="col-6 col-lg-3 g-mb-30">
 	            <!-- Product -->
 	            <figure class="g-pos-rel g-mb-20">
-	              <img class="img-fluid" src="'${pageContext.request.contextPath}/html/namdo-market/assets/img-temp/480x700/' + img002 (44)" alt="Image Description">
+	              <img class="img-fluid g-width-250 g-height-300" src="${pageContext.request.contextPath}/save/${itemDto.mainImg}" alt="Image Description">
 	              
 	
 	            </figure>

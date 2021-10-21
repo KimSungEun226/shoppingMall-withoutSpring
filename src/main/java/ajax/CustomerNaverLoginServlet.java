@@ -35,7 +35,7 @@ public class CustomerNaverLoginServlet extends HttpServlet {
 		if("undefined".equals(naverEmail)) naverEmail=" ";
 		if("undefined".equals(birthyear)) birthyear=" ";
 		if("undefined".equals(birthday)) birthday=" ";
-		if(!"undefined".equals(birthyear) && !"undefined".equals(birthday) ) birth = birthyear + "-" +birthday;
+		if(!("undefined".equals(birthyear)) && !("undefined".equals(birthday))) birth = birthyear + "-" +birthday;
 		else {birth=" ";}
 		if("undefined".equals(contact)) contact=" ";
 		//System.out.println(name + " " + naverId + " "+ naverEmail + " "+birthyear + " " +birthday + " " + contact );

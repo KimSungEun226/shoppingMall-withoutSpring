@@ -103,7 +103,6 @@
 		            return false;
 		        }
 		    	
-		        alert("유효성체크완료");
 		    	document.itemInsert_form.submit(); //유효성 검사의 포인트 
 
 	    }

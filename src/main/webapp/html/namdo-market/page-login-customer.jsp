@@ -190,7 +190,7 @@
 				</head>
 				<body>
 				  <!-- 네이버아이디로로그인 버튼 노출 영역 -->
-				  <div id="naver_id_login"></div>
+				  <div class="mb-1" id="naver_id_login"></div>
 				  <!-- //네이버아이디로로그인 버튼 노출 영역 -->
 				  <script type="text/javascript">
 				  	var naver_id_login = new naver_id_login("vYLffYO2LmDOeGspAqNa", "http://localhost:8000/team3_2nd_project/html/namdo-market/naverLoginCallback.jsp");
