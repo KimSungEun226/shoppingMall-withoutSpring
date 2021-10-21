@@ -143,54 +143,16 @@
                 <!-- End Links -->
               </div>
             </div>
+            <!-- Copyright block -->
+            <hr>
+            	<div class="col-md-6 g-mb-20">
+              		<p class="g-font-size-13 mb-0">2021 &copy; 요거묵어봤는감. All Rights Reserved.</p>
+            	</div>
+            <!-- Copyright block ends  -->
           </div>
         </div>
         <!-- End Content -->
 
-        <!-- Copyright -->
-        <div class="container g-pt-50 g-pb-30">
-          <div class="row justify-content-between align-items-center">
-            <div class="col-md-6 g-mb-20">
-              <p class="g-font-size-13 mb-0">2021 &copy; 요거묵어봤는감. All Rights Reserved.</p>
-            </div>
-
-            <div class="col-md-6 text-md-right g-mb-20">
-              <ul class="list-inline g-color-gray-dark-v5 g-font-size-25 mb-0">
-                <li class="list-inline-item g-cursor-pointer mr-1">
-                  <i class="fa fa-cc-visa" title="Visa"
-                     data-toggle="tooltip"
-                     data-placement="top"></i>
-                </li>
-                <li class="list-inline-item g-cursor-pointer mx-1">
-                  <i class="fa fa-cc-paypal" title="Paypal"
-                     data-toggle="tooltip"
-                     data-placement="top"></i>
-                </li>
-                <li class="list-inline-item g-cursor-pointer mx-1">
-                  <i class="fa fa-cc-mastercard" title="Master Card"
-                     data-toggle="tooltip"
-                     data-placement="top"></i>
-                </li>
-                <li class="list-inline-item g-cursor-pointer ml-1">
-                  <i class="fa fa-cc-stripe" title="Stripe"
-                     data-toggle="tooltip"
-                     data-placement="top"></i>
-                </li>
-                <li class="list-inline-item g-cursor-pointer ml-1">
-                  <i class="fa fa-cc-discover" title="Discover"
-                     data-toggle="tooltip"
-                     data-placement="top"></i>
-                </li>
-                <li class="list-inline-item g-cursor-pointer ml-1">
-                  <i class="fa fa-cc-jcb" title="JCB"
-                     data-toggle="tooltip"
-                     data-placement="top"></i>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <!-- End Copyright -->
       </footer>
       <!-- End Footer -->
 </body>
