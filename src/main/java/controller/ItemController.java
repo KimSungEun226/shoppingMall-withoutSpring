@@ -97,7 +97,6 @@ public class ItemController implements Controller{
 		
     	int regionNo =  Integer.parseInt(request.getParameter("regionNo"));
     	int categoryNo =  Integer.parseInt(request.getParameter("categoryNo"));
-    	
     	List<ItemDTO> itemList = itemService.selectByCategoryOfRegion(regionNo, categoryNo);
     	System.out.println("아이템 개수: " + itemList.size());
     	request.setAttribute("itemList", itemList);
