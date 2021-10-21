@@ -50,7 +50,7 @@ public class OrderController implements Controller {
 		
 		if(result ==0) {
 			request.setAttribute("errmsg", "주문실패!!!");
-			return new ModelAndView("html/namdo-market/error.jsp");
+			return new ModelAndView("html/namdo-market/error/error.jsp");
 		}
 		else return new ModelAndView("html/namdo-market/order/orderOk.jsp");
 

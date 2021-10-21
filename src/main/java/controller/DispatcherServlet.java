@@ -74,7 +74,7 @@ public class DispatcherServlet extends HttpServlet {
 			e.printStackTrace();
 			System.out.println("예외발생....");
 			request.setAttribute("errmsg", "예외발생");
-			request.getRequestDispatcher("html/namdo-market/error.jsp").forward(request, response);
+			request.getRequestDispatcher("html/namdo-market/error/error.jsp").forward(request, response);
 		}
 	}//service끝
 

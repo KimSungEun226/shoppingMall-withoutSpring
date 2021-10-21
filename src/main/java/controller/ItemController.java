@@ -39,7 +39,7 @@ public class ItemController implements Controller{
 
 		request.setAttribute("itemList", itemList); //뷰에서 ${requestScope.list}
 		
-		return new ModelAndView("html/namdo-market/page-category-all.jsp");
+		return new ModelAndView("html/namdo-market/category/all/all.jsp");
 	}
 	
 
@@ -53,15 +53,15 @@ public class ItemController implements Controller{
     	System.out.println("아이템 개수: " + itemList.size());
     	request.setAttribute("itemList", itemList);
     	
-    	String category = "fish.jsp";
-    	if(categoryNo == 2) category = "dried.jsp";
-    	else if(categoryNo == 3) category = "seaweed.jsp";
-    	else if(categoryNo == 4) category = "shellfish.jsp";
-    	else if(categoryNo == 5) category = "salted.jsp";
-    	else if(categoryNo == 6) category = "etc.jsp";
+    	String category = "fish/fish.jsp";
+    	if(categoryNo == 2) category = "dried-fish/dried.jsp";
+    	else if(categoryNo == 3) category = "seaweed/seaweed.jsp";
+    	else if(categoryNo == 4) category = "shellfish/shellfish.jsp";
+    	else if(categoryNo == 5) category = "salted-fish/salted.jsp";
+    	else if(categoryNo == 6) category = "etc/etc.jsp";
     	
     	
-    	return new ModelAndView("html/namdo-market/page-category-" + category);
+    	return new ModelAndView("html/namdo-market/category/" + category);
     }
 	
 	/**
@@ -74,18 +74,19 @@ public class ItemController implements Controller{
     	System.out.println("아이템 개수: " + itemList.size());
     	request.setAttribute("itemList", itemList);
     	
-    	String region = "yeonggwang.jsp";
-    	if(regionNo == 2) region = "mokpo.jsp";
-    	else if(regionNo == 3) region = "muan.jsp";
-    	else if(regionNo == 4) region = "boseong.jsp";
-    	else if(regionNo == 6) region = "sinan.jsp";
-    	else if(regionNo == 7) region = "yeosu.jsp";
-    	else if(regionNo == 8) region = "wando.jsp";
-    	else if(regionNo == 9) region = "haenam.jsp";
-    	else if(regionNo == 11) region = "jindo.jsp";
-    	else if(regionNo == 14) region = "goheung.jsp";
+    	String region = "yeonggwang";
+    	if(regionNo == 2) region = "mokpo";
+    	else if(regionNo == 3) region = "muan";
+    	else if(regionNo == 4) region = "boseong";
+    	else if(regionNo == 6) region = "sinan";
+    	else if(regionNo == 7) region = "yeosu";
+    	else if(regionNo == 8) region = "wando";
+    	else if(regionNo == 9) region = "haenam";
+    	else if(regionNo == 11) region = "jindo";
+    	else if(regionNo == 14) region = "goheung";
+    	else if(regionNo == 15) region = "damyang";
     	
-    	return new ModelAndView("html/namdo-market/page-category-region-" + region);
+    	return new ModelAndView("html/namdo-market/region/" + region + "/all.jsp");
     }
 	
 	/**
@@ -119,7 +120,7 @@ public class ItemController implements Controller{
     	else if(categoryNo == 6) category = "etc.jsp";
 		
 		
-    	return new ModelAndView("html/namdo-market/page-category-region-" + region + "-" + category);
+    	return new ModelAndView("html/namdo-market/region/" + region + "/" + category);
     }
 	
 	/**
@@ -136,21 +137,21 @@ public class ItemController implements Controller{
 		request.setAttribute("cat-check", input);
 		String fish = (String) request.getAttribute("cat-check");
 		
-		String submenu = "fish.jsp";
-		if("굴비".equals(fish)) submenu = "fish-gulbi.jsp";
-		else if("낙지".equals(fish)) submenu = "fish-octopus.jsp";
-		else if("홍어".equals(fish)) submenu = "fish-skates.jsp";
-		else if("장어".equals(fish)) submenu = "fish-eel.jsp";
-		else if("멸치".equals(fish)) submenu = "dried-anchovy.jsp";
-		else if("황태채".equals(fish)) submenu = "dried-pollack.jsp";
-		else if("김".equals(fish)) submenu = "seaweed-gim.jsp";
-		else if("미역".equals(fish)) submenu = "seaweed-miyeok.jsp";
-		else if("전복".equals(fish)) submenu = "shellfish-abalone.jsp";
-		else if("바지락".equals(fish)) submenu = "shellfish-clam.jsp";
-		else if("꼬막".equals(fish)) submenu = "shellfish-cockle.jsp";
-		else if("새우".equals(fish)) submenu = "shellfish-shrimp.jsp";
+		String submenu = "";
+		if("굴비".equals(fish)) submenu = "fish/gulbi.jsp";
+		else if("낙지".equals(fish)) submenu = "fish/octopus.jsp";
+		else if("홍어".equals(fish)) submenu = "fish/skates.jsp";
+		else if("장어".equals(fish)) submenu = "fish/eel.jsp";
+		else if("멸치".equals(fish)) submenu = "dried-fish/anchovy.jsp";
+		else if("황태채".equals(fish)) submenu = "dried-fish/pollack.jsp";
+		else if("김".equals(fish)) submenu = "seaweed/gim.jsp";
+		else if("미역".equals(fish)) submenu = "seaweed/miyeok.jsp";
+		else if("전복".equals(fish)) submenu = "shellfish/abalone.jsp";
+		else if("바지락".equals(fish)) submenu = "shellfish/clam.jsp";
+		else if("꼬막".equals(fish)) submenu = "shellfish/cockle.jsp";
+		else if("새우".equals(fish)) submenu = "shellfish/shrimp.jsp";
 		
-		return new ModelAndView("html/namdo-market/page-category-" + submenu);
+		return new ModelAndView("html/namdo-market/category/" + submenu);
 		
 		
 	}
@@ -193,7 +194,7 @@ public class ItemController implements Controller{
 
 		if (result == 0) {
 			request.setAttribute("errmsg", "등록실패");
-			return new ModelAndView("html/namdo-market/error.jsp");
+			return new ModelAndView("html/namdo-market/error/error.jsp");
 		}
 		
         return new ModelAndView("html/namdo-market/item/insertOk.jsp");
@@ -209,7 +210,7 @@ public class ItemController implements Controller{
 		
 		if (itemDTO ==null) {
 			request.setAttribute("errmsg", "등록된 제품이 존재하지 않습니다.");
-			return new ModelAndView("html/namdo-market/error.jsp");
+			return new ModelAndView("html/namdo-market/error/error.jsp");
 		}
 		
 		request.setAttribute("item", itemDTO);
@@ -281,7 +282,7 @@ public class ItemController implements Controller{
 
 		if (result == 0) {
 			request.setAttribute("errmsg", "수정실패");
-			return new ModelAndView("html/namdo-market/error.jsp");
+			return new ModelAndView("html/namdo-market/error/error.jsp");
 		}
 		
 		//수정이 성공했다면 기존에 있던 이미지 삭제!

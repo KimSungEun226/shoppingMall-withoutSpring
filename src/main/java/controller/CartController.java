@@ -72,7 +72,7 @@ public class CartController implements Controller {
 		
 		if (result==0) {
 			request.setAttribute("errmsg", "삭제실패");
-			return new ModelAndView("html/namdo-market/error.jsp");
+			return new ModelAndView("html/namdo-market/error/error.jsp");
 		}
 		
         return new ModelAndView("html/namdo-market/cart/addOk.jsp");
@@ -87,7 +87,7 @@ public class CartController implements Controller {
 		
 		if (result==0) {
 			request.setAttribute("errmsg", "삭제실패");
-			return new ModelAndView("html/namdo-market/error.jsp");
+			return new ModelAndView("html/namdo-market/error/error.jsp");
 		}
 		
         return new ModelAndView("front?key=cart&methodName=select", true);
