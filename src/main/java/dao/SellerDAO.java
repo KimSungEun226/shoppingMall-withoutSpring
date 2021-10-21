@@ -1,7 +1,9 @@
 package dao;
 
 import java.sql.SQLException;
+import java.util.List;
 
+import dto.ItemDTO;
 import dto.SellerDTO;
 
 public interface SellerDAO {
@@ -55,4 +57,5 @@ public interface SellerDAO {
 	boolean businessNoCheck(int businessNo);
 
 	int checkPwd(String id, String pwd);	
+	
 }

@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 import dto.CartDTO;
 import dto.OrderDTO;
@@ -13,6 +15,7 @@ import util.DbUtil;
 
 public class OrderDAOImpl implements OrderDAO {
     
+	
 	@Override
 	public int orderItem(OrderDTO order, List<CartDTO> cartList) throws SQLException {
 		Connection con = null;
@@ -131,5 +134,54 @@ public class OrderDAOImpl implements OrderDAO {
 		return result;
 	}
 
+	
+	@Override
+	public List<OrderDetailDTO> selectOrderDetailByItemNo(int itemNo) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps =null;
+		ResultSet rs= null;
+		List<OrderDetailDTO> orderDetailList = new ArrayList<OrderDetailDTO>();
+		String sql = "select * from order_detail where item_no = ?";
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, itemNo);
+			rs = ps.executeQuery();
+			//int orderDetailNo, int itemNo, int orderNo, int orderItemCount
+			while(rs.next()) {
+				OrderDetailDTO orderDetailDTO = new OrderDetailDTO(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4));
+				System.out.println(orderDetailDTO);
+				orderDetailList.add(orderDetailDTO);
+			}
+		}finally {
+			DbUtil.dbClose(rs, ps,con);
+		}
+		return orderDetailList;
+	}
 
+	@Override
+	public List<OrderDTO> selectOrderByItemNo(int itemNo) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps =null;
+		ResultSet rs= null;
+		List<OrderDTO> orderList = new ArrayList<OrderDTO>();
+		String sql = "select * from order_item where order_no = (select order_no from order_detail where item_no = ?);";
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, itemNo);
+			rs = ps.executeQuery();
+			//OrderDTO(int orderNo, int customerNo, String orderDate, String orderAddr, String orderStatus, int orderTotalPrice)
+			while(rs.next()) {
+				OrderDTO orderDTO = new OrderDTO(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6));
+				//System.out.println(itemDTO);
+				orderList.add(orderDTO);
+			}
+		}finally {
+			DbUtil.dbClose(rs, ps,con);
+		}
+		return orderList;
+	}
+	
+	
 }

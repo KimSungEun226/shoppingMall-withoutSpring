@@ -1,0 +1,288 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Title -->
+    <title>E-commerce Category No Sidebar Page 4 | Unify - Responsive Website Template</title>
+
+    <!-- Required Meta Tags Always Come First -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/html/favicon.ico">
+
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,900">
+
+    <!-- CSS Global Compulsory -->
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/icon-line/css/simple-line-icons.css">
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/icon-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/icon-line-pro/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/icon-hs/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/dzsparallaxer/dzsparallaxer.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/dzsparallaxer/dzsscroller/scroller.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/dzsparallaxer/advancedscroller/plugin.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/animate.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/hamburgers/hamburgers.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/hs-megamenu/src/hs.megamenu.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/vendor/malihu-scrollbar/jquery.mCustomScrollbar.min.css">
+
+    <!-- CSS Unify Theme -->
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/namdo-market/assets/css/styles.e-commerce.css">
+
+    <!-- CSS Customization -->
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/html/assets/css/custom.css">
+    
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/namdo-market.js"></script>
+    
+  </head>
+
+  <body>
+    <main>
+      <!-- Header -->
+      <c:if test="${sessionScope.customerDTO==null && sessionScope.sellerDTO==null && sessionScope.adminDTO==null}">
+        <jsp:include page="../../common/header-main.jsp"/>
+      </c:if>
+
+      <c:if test="${sessionScope.customerDTO!=null}">
+        <jsp:include page="../../common/customer-header-main.jsp"/>
+      </c:if>
+
+      <c:if test="${sessionScope.sellerDTO!=null}">
+        <jsp:include page="../../common/seller-header-main.jsp"/>
+      </c:if>
+      
+      <c:if test="${sessionScope.adminDTO!=null}">
+        <jsp:include page="../../common/admin-header-main.jsp"/>
+      </c:if>
+
+      <!-- Breadcrumbs -->
+      <section class="g-brd-bottom g-brd-gray-light-v4 g-py-30">
+        <div class="container">
+          <ul class="u-list-inline">
+            <li class="list-inline-item g-mr-5">
+              <a class="u-link-v5 g-color-text" href="${pageContext.request.contextPath}/html/namdo-market/home-page.jsp">요거 묵어봤는감?</a>
+              <i class="g-color-gray-light-v2 g-ml-5 fa fa-angle-right"></i>
+            </li>
+            <li class="list-inline-item g-color-primary">
+              <span>젓갈</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <!-- End Breadcrumbs -->
+
+      <!-- Products -->
+      <div class="container">
+        <!-- Banner -->
+        <div class="g-bg-size-cover g-bg-pos-center g-py-40 g-mt-50" style="background-image: url(${pageContext.request.contextPath}/html/namdo-market/assets/img-temp/900x450/sub1_900_450.png);">
+          <div class="g-pos-rel g-z-index-1 g-pa-50">
+            <span class="d-block g-color-primary g-font-weight-700 g-font-size-40 mb-0">-40%</span>
+            <h2 class="g-color-white g-font-size-50 mb-3">가을 수산물 대축제</h2>
+            <a class="btn u-btn-white g-brd-primary--hover g-color-primary g-color-white--hover g-bg-primary--hover g-font-size-12 text-uppercase g-py-12 g-px-25" href="home-page.jsp">Shop Now</a>
+          </div>
+        </div>
+        <!-- End Banner -->
+		<!-- Products -->
+        <div class="row g-pt-30 g-mb-50">
+		<c:choose>
+			<c:when test="${empty requestScope.itemList}">
+			  <div id="accordion-12-1" class="u-accordion u-accordion-color-primary" role="tablist" aria-multiselectable="true">
+                   <!-- Card -->
+                   <div class="card g-brd-none g-brd-bottom g-brd-gray-light-v3 rounded-0 g-pb-30 g-mb-30">
+                     <div id="accordion-12-1-heading-01" class="u-accordion__header g-color-gray-dark-v4 g-font-weight-500 g-font-size-16 g-pa-0" role="tab">
+                         등록된 상품이 없습니다.
+                     </div>
+                   </div>
+                   <!-- End Card -->
+                 </div>
+			</c:when>
+			
+			<c:otherwise>
+			<c:forEach items="${requestScope.itemList}" var="itemDto">
+			  <div class="col-6 col-lg-3 g-mb-30">
+	            <!-- Product -->
+	            <figure class="g-pos-rel g-mb-20">
+	              <img class="img-fluid" src="${pageContext.request.contextPath}/html/namdo-market/assets/img-temp/480x700/main_480_700.png" alt="Image Description">
+	              
+	
+	            </figure>
+	
+	            <div class="media">
+	              <!-- Product Info -->
+	              <div class="d-flex flex-column">
+	                <h4 class="h6 g-color-black mb-1">
+	                  <a class="u-link-v5 g-color-black g-color-primary--hover" href="#">
+	                    <b>${itemDto.itemName}</b>
+	                  </a>
+	                </h4>
+	                <a id="${itemDto.categoryNo}" class="d-inline-block g-color-gray-dark-v5 g-font-size-13" href="${pageContext.request.contextPath}/front?key=item&methodName=selectByCategoryNo&categoryNo=${itemDto.categoryNo}">${itemDto.categoryNo}</a>
+	                <span class="d-block g-color-black g-font-size-17">
+	                <fmt:formatNumber value="${itemDto.itemPrice}"/>원
+	                </span>
+	              </div>
+	              <!-- End Product Info -->
+	
+	              <!-- Products Icons -->
+	              <ul class="list-inline media-body text-right">
+	                <li class="list-inline-item align-middle mx-0">
+	                  <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-color-primary--hover g-font-size-15 rounded-circle" href="#"
+	                     data-toggle="tooltip"
+	                     data-placement="top"
+	                     title="Add to Cart">
+	                    <i class="icon-finance-100 u-line-icon-pro"></i>
+	                  </a>
+	                </li>
+	                <li class="list-inline-item align-middle mx-0">
+	                  <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-color-primary--hover g-font-size-15 rounded-circle" href="#"
+	                     data-toggle="tooltip"
+	                     data-placement="top"
+	                     title="Add to Wishlist">
+	                    <i class="icon-medical-022 u-line-icon-pro"></i>
+	                  </a>
+	                </li>
+	              </ul>
+	              <!-- End Products Icons -->
+	            </div>
+	            <!-- End Product -->
+	          </div>
+               
+			</c:forEach>
+
+			</c:otherwise>
+			</c:choose>
+			
+			</div>
+		
+        <hr class="g-mb-60">
+
+        <!-- Pagination -->
+        <nav class="g-mb-100" aria-label="Page Navigation">
+          <ul class="list-inline mb-0">
+            <li class="list-inline-item hidden-down">
+              <a class="active u-pagination-v1__item g-width-30 g-height-30 g-brd-gray-light-v3 g-brd-primary--active g-color-white g-bg-primary--active g-font-size-12 rounded-circle g-pa-5" href="#">1</a>
+            </li>
+            <li class="list-inline-item hidden-down">
+              <a class="u-pagination-v1__item g-width-30 g-height-30 g-color-gray-dark-v5 g-color-primary--hover g-font-size-12 rounded-circle g-pa-5" href="#">2</a>
+            </li>
+            <li class="list-inline-item g-hidden-xs-down">
+              <a class="u-pagination-v1__item g-width-30 g-height-30 g-color-gray-dark-v5 g-color-primary--hover g-font-size-12 rounded-circle g-pa-5" href="#">3</a>
+            </li>
+            <li class="list-inline-item hidden-down">
+              <span class="g-width-30 g-height-30 g-color-gray-dark-v5 g-font-size-12 rounded-circle g-pa-5">...</span>
+            </li>
+            <li class="list-inline-item g-hidden-xs-down">
+              <a class="u-pagination-v1__item g-width-30 g-height-30 g-color-gray-dark-v5 g-color-primary--hover g-font-size-12 rounded-circle g-pa-5" href="#">15</a>
+            </li>
+            <li class="list-inline-item">
+              <a class="u-pagination-v1__item g-width-30 g-height-30 g-brd-gray-light-v3 g-brd-primary--hover g-color-gray-dark-v5 g-color-primary--hover g-font-size-12 rounded-circle g-pa-5 g-ml-15" href="#" aria-label="Next">
+                <span aria-hidden="true">
+                  <i class="fa fa-angle-right"></i>
+                </span>
+                <span class="sr-only">Next</span>
+              </a>
+            </li>
+            <li class="list-inline-item float-right">
+              <span class="u-pagination-v1__item-info g-color-gray-dark-v4 g-font-size-12 g-pa-5">Page 1 of 15</span>
+            </li>
+          </ul>
+        </nav>
+        <!-- End Pagination -->
+      
+
+		</div>
+      <!-- Footer -->
+      <jsp:include page="../../common/footer.jsp"/>
+      
+      <a class="js-go-to u-go-to-v2" href="#"
+         data-type="fixed"
+         data-position='{
+           "bottom": 15,
+           "right": 15
+         }'
+         data-offset-top="400"
+         data-compensation="#js-header"
+         data-show-effect="zoomIn">
+        <i class="hs-icon hs-icon-arrow-top"></i>
+      </a>
+    </main>
+
+    <div class="u-outer-spaces-helper"></div>
+
+    <!-- JS Global Compulsory -->
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/jquery-migrate/jquery-migrate.min.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/popper.js/popper.min.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/bootstrap/bootstrap.min.js"></script>
+
+    <!-- JS Implementing Plugins -->
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/jquery-ui/ui/widget.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/jquery-ui/ui/widgets/menu.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/jquery-ui/ui/widgets/mouse.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/jquery-ui/ui/widgets/slider.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/dzsparallaxer/dzsparallaxer.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/dzsparallaxer/dzsscroller/scroller.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/dzsparallaxer/advancedscroller/plugin.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/hs-megamenu/src/hs.megamenu.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/vendor/malihu-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <!-- JS Unify -->
+    <script src="${pageContext.request.contextPath}/html/assets/js/hs.core.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/components/hs.header.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/helpers/hs.hamburgers.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/components/hs.dropdown.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/components/hs.scrollbar.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/helpers/hs.rating.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/components/hs.slider.js"></script>
+    <script src="${pageContext.request.contextPath}/html/assets/js/components/hs.go-to.js"></script>
+
+    <!-- JS Customization -->
+    <script src="${pageContext.request.contextPath}/html/assets/js/custom.js"></script>
+
+    <!-- JS Plugins Init. -->
+    <script>
+      $(document).on('ready', function () {
+        // initialization of header
+        $.HSCore.components.HSHeader.init($('#js-header'));
+        $.HSCore.helpers.HSHamburgers.init('.hamburger');
+
+        // initialization of HSMegaMenu component
+        $('.js-mega-menu').HSMegaMenu({
+          event: 'hover',
+          pageContainer: $('.container'),
+          breakpoint: 991
+        });
+
+        // initialization of HSDropdown component
+        $.HSCore.components.HSDropdown.init($('[data-dropdown-target]'), {
+          afterOpen: function () {
+            $(this).find('input[type="search"]').focus();
+          }
+        });
+
+        // initialization of HSScrollBar component
+        $.HSCore.components.HSScrollBar.init($('.js-scrollbar'));
+
+        // initialization of go to
+        $.HSCore.components.HSGoTo.init('.js-go-to');
+
+        // initialization of rating
+        $.HSCore.helpers.HSRating.init();
+
+        // initialization of range slider
+        $.HSCore.components.HSSlider.init('#rangeSlider1');
+      });
+    </script>
+    
+  </body>
+</html>

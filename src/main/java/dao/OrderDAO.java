@@ -22,6 +22,15 @@ public interface OrderDAO {
 	 * */
 	int deleteOrder(int orderNo) throws SQLException;
 	
-
 	
+	/**
+	 * 아이템 번호에 해당하는 주문 상세 리스트를 가져오는 메소드 (판매자 전용) 
+	 * */
+	List<OrderDetailDTO> selectOrderDetailByItemNo(int itemNo) throws SQLException;
+	
+	
+	/**
+	 * 아이템 번호에 해당하는 주문 리스트를 가져오는 메소드 (판매자 전용) 
+	 * */
+	List<OrderDTO> selectOrderByItemNo(int itemNo) throws SQLException;
 }

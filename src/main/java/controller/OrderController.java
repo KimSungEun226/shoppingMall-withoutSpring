@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import dto.CartDTO;
 import dto.CustomerDTO;
+import dto.ItemDTO;
 import dto.OrderDTO;
 import dto.OrderDetailDTO;
 import service.CartService;
@@ -50,10 +51,32 @@ public class OrderController implements Controller {
 		
 		if(result ==0) {
 			request.setAttribute("errmsg", "주문실패!!!");
-			return new ModelAndView("html/namdo-market/error.jsp");
+			return new ModelAndView("html/namdo-market/error/error.jsp");
 		}
 		else return new ModelAndView("html/namdo-market/order/orderOk.jsp");
 
 	}
 
+	
+	/**
+	 * 상품을 구매한 주문 상세 정보 
+	 * */
+	public ModelAndView selectOrderDetailByItemNo(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    	int itemNo =  Integer.parseInt(request.getParameter("itemNo"));
+    	List<OrderDetailDTO> orderList = orderService.selectOrderDetailByItemNo(itemNo);
+    	System.out.println("아이템 개수: " + orderList.size());
+    	request.setAttribute("sellingList", orderList);
+    	return new ModelAndView("html/namdo-market/page-sold-item-detail.jsp");
+    }
+	
+	
+	/**
+	 * 상품을 구매한 주문 정보 
+	 * */
+	public ModelAndView selectOrderByItemNo(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    	int itemNo =  Integer.parseInt(request.getParameter("itemNo"));
+    	List<OrderDTO> orderList = orderService.selectOrderByItemNo(itemNo);
+    	request.setAttribute("sellingList", orderList);
+    	return new ModelAndView("html/namdo-market/page-sold-item-detail.jsp");
+    }
 }

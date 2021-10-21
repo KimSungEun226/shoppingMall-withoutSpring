@@ -78,7 +78,7 @@ public class CustomerController implements Controller{
 		
 		if(result ==0) {
 			request.setAttribute("errmsg", "등록실패입니다만");
-			return new ModelAndView("html/namdo-market/error.jsp");
+			return new ModelAndView("html/namdo-market/error/error.jsp");
 			}
 		return new ModelAndView("html/namdo-market/signUp/signUpOk.jsp", true);
 	}
@@ -90,7 +90,7 @@ public class CustomerController implements Controller{
 		
 		if(result==null) {
 			request.setAttribute("errmsg", "일치하는 정보의 ID가 존재하지 않습니다.");
-			return new ModelAndView("html/namdo-market/error.jsp");
+			return new ModelAndView("html/namdo-market/error/error.jsp");
 		}
 		
 		
@@ -105,7 +105,7 @@ public class CustomerController implements Controller{
 		int result = customerService.checkIdAndEmail(id, email);
 		if(result==0) {
 			request.setAttribute("errmsg", "정보가 일치하지 않습니다.");
-			return new ModelAndView("html/namdo-market/error.jsp");
+			return new ModelAndView("html/namdo-market/error/error.jsp");
 		}
 		
 		request.setAttribute("pwdInfo", "customer");
@@ -120,7 +120,7 @@ public class CustomerController implements Controller{
 		int result = customerService.checkPwd(id, pwd);
 		if(result==0) {
 			request.setAttribute("errmsg", "정보가 일치하지 않습니다.");
-			return new ModelAndView("html/namdo-market/error.jsp");
+			return new ModelAndView("html/namdo-market/error/error.jsp");
 		}
 		
 		request.setAttribute("pwdInfo", "customer");
@@ -137,7 +137,7 @@ public class CustomerController implements Controller{
 		int result = customerService.setPwd(id, pwd);
 		if(result==0) {
 			request.setAttribute("errmsg", "비밀번호 변경 실패");
-			return new ModelAndView("html/namdo-market/error.jsp");
+			return new ModelAndView("html/namdo-market/error/error.jsp");
 		}
 		
 //		String pwdInfo = request.getParameter("pwdInfo");
