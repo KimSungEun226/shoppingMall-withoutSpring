@@ -372,7 +372,7 @@
                 </div>
                 
                <div class="row">
-                  <div class="col-sm-9 col-md-10 col-lg-9 g-mb-20">
+                  <div class="col-sm-8 col-md-8 col-lg-8 g-mb-20">
                     <input input id="sellerBusinessNo" name="sellerBusinessNo" class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 rounded g-py-15 g-px-15" type="text" placeholder="사업자등록번호(숫자10자리)">
                   </div>
                   

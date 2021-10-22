@@ -16,7 +16,9 @@ import javax.servlet.http.HttpSession;
  */
 @WebFilter(value= {"/html/namdo-market/page-cart.jsp","/html/namdo-market/page-cart-empty.jsp",
 		"/html/namdo-market/page-login-security-customer.jsp","/html/namdo-market/page-login-security-seller.jsp"
-		,"/html/namdo-market/page-set-new-password(login).jsp"})
+		,"/html/namdo-market/page-set-new-password(login).jsp","/html/namdo-market/page-sold-item-list.jsp"
+		,"/html/namdo-market/page-sold-item-detail.jsp","/html/namdo-market/page-orders.jsp"
+        , "/html/namdo-market/page-item-insert.jsp", "/html/namdo-market/page-item-update.jsp"})
 public class SessionUnLoginCheckFilter implements Filter {
 
 

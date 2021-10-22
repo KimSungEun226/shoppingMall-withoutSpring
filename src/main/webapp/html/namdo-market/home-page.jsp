@@ -7,7 +7,6 @@
 <head>
   <!-- Title -->
   <title>Namdo Market Home Page | Unify - Responsive Website Template</title>
-
   <!-- Required Meta Tags Always Come First -->
   <meta charset="utf-8">
   
