@@ -38,7 +38,7 @@ public class ItemController implements Controller{
 
 		//List<ItemDTO> itemList = itemService.selectAll();
 
-		//request.setAttribute("itemList", itemList); //ºä¿¡¼­ ${requestScope.list}
+		// request.setAttribute("itemList", itemList); //ºä¿¡¼­ ${requestScope.list}
 		
 		return new ModelAndView("html/namdo-market/category/all/all.jsp");
 	}
